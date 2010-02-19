@@ -1,0 +1,2487 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<devices>
+
+<!-- DRIVE -->
+
+<device id="1" name="Drive">
+	<deviceitem id="1" name="RPM">
+		<unit>RPM (100)</unit>
+		<minvalue>-32768</minvalue>
+		<maxvalue>32767</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65536</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="2" name="SupplyV">
+		<unit>V (101)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>2000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="SupplyI">
+		<unit>A (102)</unit>
+		<minvalue>-300</minvalue>
+		<maxvalue>300</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>6000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="4" name="BasePlateT">
+		<unit>oC (103)</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="5" name="AmbientT">
+		<unit>oC (104)</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="6" name="MotorT">
+		<unit>oC (105)</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="7" name="SOC">
+		<unit>% (106)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>256</maxvalue>
+		<resolution>2.56</resolution>
+		<factor>0.390625</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="ThrPos">
+		<unit>% (107)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>256</maxvalue>
+		<resolution>2.56</resolution>
+		<factor>0.390625</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="RgnPos">
+		<unit>% (108)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>256</maxvalue>
+		<resolution>2.56</resolution>
+		<factor>0.390625</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="Status">
+		<unit>bin (10c)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(BIT_initialized) Initialization in progress, reported analog values may be inaccurate.</definition> 
+			<!-- 13 --> <definition>(BIT_charging) Not charging.</definition>
+			<!-- 12 --> <definition>(BIT_motornotready) A motor sense cable is detected and the motor settings have been read.</definition>
+			<!-- 11 --> <definition>(BIT_interlock) Normal operation.</definition> 
+			<!-- 10 --> <definition>(BIT_enabled) The phase current outputs are disabled.</definition>
+			<!-- 9 --> <definition>(BIT_active) The phase outputs are zero or disabled.</definition>
+			<!-- 8 --> <definition>(BIT_standby) The ignition input is asserted.</definition>
+			<!-- 7 --> <definition>(BIT_transition) Normal operation.</definition>
+			<!-- 6 --> <definition>(Reserved) always 0</definition>
+			<!-- 5 --> <definition>(Reserved) always 0</definition>
+			<!-- 4 --> <definition>(Reserved) always 0</definition>
+			<!-- 3 --> <definition>(BIT_INdisable) No disable inputs are asserted. </definition>
+			<!-- 2 --> <definition>(BIT_limiting) Normal operation.</definition>
+			<!-- 1 --> <definition>(BIT_spdctrl) The controller is operating in torque control.</definition>
+			<!-- 0 --> <definition>(BIT_reverse) The controller is operating in forward.</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(BIT_initialized) Initialization complete.</definition> 
+			<!-- 13 --> <definition>(BIT_charging) Charging.</definition>
+			<!-- 12 --> <definition>(BIT_motornotready) The motor settings have not been read.</definition>
+			<!-- 11 --> <definition>(BIT_interlock) Interlock state. All faults must be cleared and the controller must be disabled to leave this state.</definition> 
+			<!-- 10 --> <definition>(BIT_enabled) The phase current outputs are enabled.</definition>
+			<!-- 9 --> <definition>(BIT_active) The phase outputs are nonzero.</definition>
+			<!-- 8 --> <definition>(BIT_standby) The ignition input is off. The controller is in a power saving mode with many internal circuits powered down.</definition>
+			<!-- 7 --> <definition>(BIT_transition) Transition in progress.</definition>
+			<!-- 6 --> <definition>(Reserved) always 0</definition>
+			<!-- 5 --> <definition>(Reserved) always 0</definition>
+			<!-- 4 --> <definition>(Reserved) always 0</definition>
+			<!-- 3 --> <definition>(BIT_INdisable) At least one disable input is asserted.</definition>
+			<!-- 2 --> <definition>(BIT_limiting) The output phase current is being limited by the phase-current limiting module.</definition>
+			<!-- 1 --> <definition>(BIT_spdctrl) The controller is operating in speed control.</definition>
+			<!-- 0 --> <definition>(BIT_reverse) The controller is operating in reverse.</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="11" name="Fault1latch">
+		<unit>bin (10d)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(Reserved) always 0</definition>
+			<!-- 12 --> <definition>(Reserved) always 0</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(FA1_stuckthr) No fault.</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(FA1_PDPINT) No fault.</definition>
+			<!-- 5 --> <definition>(FA1_lostcomm) No fault.</definition>
+			<!-- 4 --> <definition>(FA1_SCItimeoutzero) No fault.</definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(Reserved) always 0</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(Reserved) always 0</definition>
+			<!-- 12 --> <definition>(Reserved) always 0</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(FA1_stuckthr) The throttle input was non-zero when the controller was first enabled.</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(FA1_PDPINT) An internal over-voltage or over-current fault has occurred.</definition>
+			<!-- 5 --> <definition>(FA1_lostcomm) Too much time has elapsed since the last message was received from the serial port, and the serial timeout function is enabled.</definition>
+			<!-- 4 --> <definition>(FA1_SCItimeoutzero) The discrete throttle input is disabled and the serial timeout duration is zero.</definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(Reserved) always 0</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="12" name="Fault1">
+		<unit>bin (10e)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(Reserved) always 0</definition>
+			<!-- 12 --> <definition>(Reserved) always 0</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(FA1_stuckthr) No fault.</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(FA1_PDPINT) No fault.</definition>
+			<!-- 5 --> <definition>(FA1_lostcomm) No fault.</definition>
+			<!-- 4 --> <definition>(FA1_SCItimeoutzero) No fault.</definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(Reserved) always 0</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(Reserved) always 0</definition>
+			<!-- 12 --> <definition>(Reserved) always 0</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(FA1_stuckthr) The throttle input was non-zero when the controller was first enabled.</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(FA1_PDPINT) An internal over-voltage or over-current fault has occurred.</definition>
+			<!-- 5 --> <definition>(FA1_lostcomm) Too much time has elapsed since the last message was received from the serial port, and the serial timeout function is enabled.</definition>
+			<!-- 4 --> <definition>(FA1_SCItimeoutzero) The discrete throttle input is disabled and the serial timeout duration is zero.</definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(Reserved) always 0</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="13" name="Fault2">
+		<unit>bin (10f)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 15 --> <definition>(Reserved) always 0.</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(FA2_rgnexcite) No fault.</definition>
+			<!-- 12 --> <definition>(FA2_threxcite) No fault.</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(Reserved) always 0</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(Reserved) always 0</definition>
+			<!-- 5 --> <definition>(FA2_SOClost) No fault.</definition>
+			<!-- 4 --> <definition>(FA2_SCInoise) No fault.</definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(FA2_supplyI) No fault.</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 15 --> <definition>(Reserved) always 0.</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(FA2_rgnexcite) The rgn+ signal is less than 3.9V, greater than 4.7V, or less than rgn.</definition>
+			<!-- 12 --> <definition>(FA2_threxcite) The thr+ signal is less than 3.9V, greater than 4.7V, or less than thr.</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(Reserved) always 0</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(Reserved) always 0</definition>
+			<!-- 5 --> <definition>(FA2_SOClost) The state-of-charge was lost due to corruption of the nonvolatile memory.</definition>
+			<!-- 4 --> <definition>(FA2_SCInoise) Parity or framing error in serial communication. </definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(FA2_supplyI) The voltage on current sense signal shunt+ is greater than 120mV. This is most likely due to an open-circuit on shunt+ or shunt-.</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="14" name="Fault3">
+		<unit>bin (110)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(Reserved) always 0</definition>
+			<!-- 12 --> <definition>(Reserved) always 0</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(Reserved) always 0</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(FA3_limphome) Normal operation</definition>
+			<!-- 5 --> <definition>(FA3_dirlatcherror) Normal operation</definition>
+			<!-- 4 --> <definition>(FA3_softstart) Normal operation</definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(Reserved) always 0</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 15 --> <definition>(Reserved) always 0</definition> 
+			<!-- 14 --> <definition>(Reserved) always 0</definition> 
+			<!-- 13 --> <definition>(Reserved) always 0</definition>
+			<!-- 12 --> <definition>(Reserved) always 0</definition>
+			<!-- 11 --> <definition>(Reserved) always 0</definition> 
+			<!-- 10 --> <definition>(Reserved) always 0</definition>
+			<!-- 9 --> <definition>(Reserved) always 0</definition>
+			<!-- 8 --> <definition>(Reserved) always 0</definition>
+			<!-- 7 --> <definition>(Reserved) always 0</definition>
+			<!-- 6 --> <definition>(FA3_limphome) The controller is in limp-home mode, and the limp-home mode phase and battery discharge currents are being applied.</definition>
+			<!-- 5 --> <definition>(FA3_dirlatcherror) The input direction has been changed while the vehicle speed is greater than VC_spdthreshold. Accelerating torque is disabled.</definition>
+			<!-- 4 --> <definition>(FA3_softstart) The controller is soft-starting after being enabled with a non-zero input torque. </definition>
+			<!-- 3 --> <definition>(Reserved) always 0</definition>
+			<!-- 2 --> <definition>(Reserved) always 0</definition>
+			<!-- 1 --> <definition>(Reserved) always 0</definition>
+			<!-- 0 --> <definition>(Reserved) always 0</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="15" name="thrlimit">
+		<unit>bin (111)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="16" name="rgnlimit">
+		<unit>bin (112)</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>65535</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>65535</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+</device>
+
+<!-- BAT -->
+
+<device id="2" name="Bat">
+	<deviceitem id="1" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="2" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="4" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="11" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="12" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="13" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="14" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="15" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="16" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="17" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="18" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="19" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="20" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="21" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="22" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="23" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="24" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="25" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="26" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="27" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="28" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="29" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="30" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="31" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="32" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="33" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="34" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="35" name="VoltageInd">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.002</resolution>
+		<factor>500</factor>
+		<offset>0</offset>
+		<range>2500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="36" name="Voltage">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>150</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>1500</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="37" name="Courant">
+		<unit>A</unit>
+		<minvalue>-100</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>0.2</resolution>
+		<factor>5</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="38" name="Temp1">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="39" name="Temp2">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="40" name="Temp3">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="41" name="Temp4">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+		<deviceitem id="42" name="Temp5">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+		<deviceitem id="43" name="Temp6">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="44" name="Energie">
+		<unit>Wh</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5000</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>5000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="45" name="Status">  <!-- BAT STATUS id 45-55: 11 ALARMS -->
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 1) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 1) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 2) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 2) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 3) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 3) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 4) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 4) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 1) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 1) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 2) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 2) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 3) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 3) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 4) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 4) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="46" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 5) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 5) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 6) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 6) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 7) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 7) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 8) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 8) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 5) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 5) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 6) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 6) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 7) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 7) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 8) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 8) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="47" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 9) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 9) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 10) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 10) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 11) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 11) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 12) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 12) No alarm (undervoltage)</definition>		
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 9) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 9) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 10) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 10) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 11) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 11) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 12) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 12) Critical undervoltage</definition>		
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="48" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 13) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 13) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 14) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 14) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 15) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 15) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 16) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 16) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>	
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 13) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 13) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 14) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 14) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 15) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 15) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 16) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 16) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="49" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 17) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 17) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 18) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 18) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 19) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 19) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 20) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 20) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 17) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 17) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 18) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 18) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 19) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 19) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 20) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 20) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="50" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 21) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 21) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 22) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 22) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 23) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 23) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 24) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 24) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 21) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 21) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 22) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 22) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 23) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 23) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 24) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 24) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="51" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 25) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 25) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 26) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 26) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 27) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 27) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 28) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 28) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 25) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 25) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 26) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 26) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 27) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 27) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 28) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 28) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="52" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 29) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 29) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 30) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 30) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 31) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 31) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 32) No alarm (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 32) No alarm (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 29) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 29) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 30) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 30) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 31) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 31) Critical undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 32) Critical overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 32) Critical undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="53" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 33) No alarm (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 33) No alarm (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 34) No alarm (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 34) No alarm (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 35) No alarm (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 35) No alarm (undervoltage)</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 33) Critical overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 33) Critical undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 34) Critical overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 34) Critical undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 35) Critical overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 35) Critical undervoltage</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="54" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>Temperature #1 No alarm</definition>
+			<!-- 1 --> <definition>Temperature #2 No alarm</definition>
+			<!-- 2 --> <definition>Temperature #3 No alarm</definition>
+			<!-- 3 --> <definition>Temperature #4 No alarm</definition>
+			<!-- 4 --> <definition>Temperature #5 No alarm</definition>
+			<!-- 5 --> <definition>Temperature #6 No alarm</definition>
+			<!-- 6 --> <definition>No alarm (pack overcurrent)</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>Temperature #1 too high</definition>
+			<!-- 1 --> <definition>Temperature #2 too high</definition>
+			<!-- 2 --> <definition>Temperature #3 too high</definition>
+			<!-- 3 --> <definition>Temperature #4 too high</definition>
+			<!-- 4 --> <definition>Temperature #5 too high</definition>
+			<!-- 5 --> <definition>Temperature #6 too high</definition>
+			<!-- 6 --> <definition>Critical pack overcurrent</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="55" name="Status">   
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>No alarm (pack overvoltage)</definition>
+			<!-- 1 --> <definition>No alarm (pack undervoltage)Not used</definition>
+			<!-- 2 --> <definition>Not used</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>Critical pack overvoltage</definition>
+			<!-- 1 --> <definition>Critical pack undervoltage</definition>
+			<!-- 2 --> <definition>Not used</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="56" name="Status"> <!-- BAT STATUS id 56-66: 11 WARNINGS -->
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 1) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 1) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 2) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 2) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 3) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 3) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 4) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 4) No warning (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 1) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 1) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 2) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 2) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 3) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 3) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 4) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 4) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="57" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 5) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 5) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 6) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 6) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 7) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 7) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 8) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 8) No warning (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 5) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 5) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 6) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 6) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 7) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 7) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 8) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 8) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="58" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 9) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 9) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 10) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 10) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 11) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 11) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 12) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 12) No warning (undervoltage)</definition>
+		</definitionsBitsOff>	
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 9) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 9) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 10) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 10) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 11) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 11) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 12) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 12) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="59" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 13) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 13) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 14) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 14) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 15) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 15) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 16) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 16) No warning (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 13) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 13) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 14) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 14) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 15) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 15) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 16) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 16) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="60" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 17) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 17) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 18) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 18) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 19) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 19) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 20) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 20) No warning (undervoltage)</definition>
+		</definitionsBitsOff>	
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 17) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 17) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 18) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 18) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 19) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 19) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 20) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 20) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="61" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 21) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 21) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 22) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 22) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 23) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 23) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 24) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 24) No warning (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 21) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 21) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 22) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 22) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 23) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 23) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 24) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 24) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="62" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 25) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 25) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 26) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 26) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 27) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 27) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 28) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 28) No warning (undervoltage)</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 25) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 25) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 26) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 26) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 27) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 27) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 28) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 28) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="63" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 29) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 29) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 30) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 30) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 31) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 31) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>(Cell 32) No warning (overvoltage)</definition>
+			<!-- 7 --> <definition>(Cell 32) No warning (undervoltage)</definition>
+		</definitionsBitsOff>	
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 29) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 29) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 30) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 30) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 31) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 31) Undervoltage</definition>
+			<!-- 6 --> <definition>(Cell 32) Overvoltage</definition>
+			<!-- 7 --> <definition>(Cell 32) Undervoltage</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="64" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>(Cell 33) No warning (overvoltage)</definition>
+			<!-- 1 --> <definition>(Cell 33) No warning (undervoltage)</definition>
+			<!-- 2 --> <definition>(Cell 34) No warning (overvoltage)</definition>
+			<!-- 3 --> <definition>(Cell 34) No warning (undervoltage)</definition>
+			<!-- 4 --> <definition>(Cell 35) No warning (overvoltage)</definition>
+			<!-- 5 --> <definition>(Cell 35) No warning (undervoltage)</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>(Cell 33) Overvoltage</definition>
+			<!-- 1 --> <definition>(Cell 33) Undervoltage</definition>
+			<!-- 2 --> <definition>(Cell 34) Overvoltage</definition>
+			<!-- 3 --> <definition>(Cell 34) Undervoltage</definition>
+			<!-- 4 --> <definition>(Cell 35) Overvoltage</definition>
+			<!-- 5 --> <definition>(Cell 35) Undervoltage</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="65" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>Temperature #1 No warning</definition>
+			<!-- 1 --> <definition>Temperature #2 No warning</definition>
+			<!-- 2 --> <definition>Temperature #3 No warning</definition>
+			<!-- 3 --> <definition>Temperature #4 No warning</definition>
+			<!-- 4 --> <definition>Temperature #5 No warning</definition>
+			<!-- 5 --> <definition>Temperature #6 No warning</definition>
+			<!-- 6 --> <definition>No warning (pack overcurrent)</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>Temperature #1 high</definition>
+			<!-- 1 --> <definition>Temperature #2 high</definition>
+			<!-- 2 --> <definition>Temperature #3 high</definition>
+			<!-- 3 --> <definition>Temperature #4 high</definition>
+			<!-- 4 --> <definition>Temperature #5 high</definition>
+			<!-- 5 --> <definition>Temperature #6 high</definition>
+			<!-- 6 --> <definition>Pack overcurrent</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="66" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>No warning (pack overvoltage)</definition>
+			<!-- 1 --> <definition>No warning (pack undervoltage)</definition>
+			<!-- 2 --> <definition>Not used</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>Pack overvoltage</definition>
+			<!-- 1 --> <definition>Pack undervoltage</definition>
+			<!-- 2 --> <definition>Not used</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+</device>
+
+<!-- MPPT1 -->
+
+<device id="3" name="mppt1">
+	<deviceitem id="1" name="Vin1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="2" name="Vout1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="Iin1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="4" name="Iout1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="Vin2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="Vout2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="Iin2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="Iout2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="TempCh1">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="11" name="TempCh2">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="12" name="TempAmbiant">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+</device>
+
+<!-- MPPT2 -->
+
+<device id="4" name="mppt2">
+	<deviceitem id="1" name="Vin1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="2" name="Vout1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="Iin1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="4" name="Iout1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="Vin2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="Vout2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="Iin2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="Iout2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="TempCh1">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="11" name="TempCh2">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="12" name="TempAmbiant">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+</device>
+
+<!-- MPPT3 -->
+
+<device id="5" name="mppt3">
+	<deviceitem id="1" name="Vin1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="2" name="Vout1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="Iin1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="4" name="Iout1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="Vin2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="Vout2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="Iin2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="Iout2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="TempCh1">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="11" name="TempCh2">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="12" name="TempAmbiant">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+</device>
+
+<!-- MPPT4 -->
+
+<device id="6" name="mppt4">
+	<deviceitem id="1" name="Vin1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="2" name="Vout1">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="Iin1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="4" name="Iout1">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="Vin2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="Vout2">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>200</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="Iin2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="Iout2">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>50</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="Status">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="TempCh1">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="11" name="TempCh2">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="12" name="TempAmbiant">
+		<unit>oC</unit>
+		<minvalue>-25</minvalue>
+		<maxvalue>200</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>4000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+</device>
+
+<!-- MB -->
+
+<device id="7" name="mb">
+	<deviceitem id="1" name="Clignotant">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>Left flasher off</definition>
+			<!-- 1 --> <definition>Right flasher off</definition>
+			<!-- 2 --> <definition>Not used</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>Left flasher on</definition>
+			<!-- 1 --> <definition>Right flasher on</definition>
+			<!-- 2 --> <definition>Not used</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="2" name="DriveI">
+		<unit>A</unit>
+		<minvalue>-300</minvalue>
+		<maxvalue>300</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>6000</range>
+		<numbits>16</numbits>
+		<signed>true</signed>
+	</deviceitem>
+	<deviceitem id="3" name="BootState">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+		<definitionsBitsOff>
+			<!-- 0 --> <definition>MPPT precharge</definition>
+			<!-- 1 --> <definition>MPPT relays</definition>
+			<!-- 2 --> <definition>Drive precharge</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOff>
+		<definitionsBitsOn>
+			<!-- 0 --> <definition>MPPT precharge</definition>
+			<!-- 1 --> <definition>MPPT relays</definition>
+			<!-- 2 --> <definition>Drive precharge</definition>
+			<!-- 3 --> <definition>Not used</definition>
+			<!-- 4 --> <definition>Not used</definition>
+			<!-- 5 --> <definition>Not used</definition>
+			<!-- 6 --> <definition>Not used</definition>
+			<!-- 7 --> <definition>Not used</definition>
+		</definitionsBitsOn>
+	</deviceitem>
+	<deviceitem id="4" name="LcdPageOverride">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="Heure"> <!-- Check ca -->
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="Bouton0_7">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="AdcIn0_7">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="AdcIn8_15">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>255</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>255</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="11" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="12" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="13" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="14" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="15" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="16" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="17" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="18" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="19" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="20" name="AdcOut">
+		<unit>bin</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>1024</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>1024</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+</device>
+
+<!-- BATTAUX -->
+
+<device id="8" name="battaux">
+	<deviceitem id="1" name="TensionCell ">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.005</resolution>
+		<factor>200</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="2" name="TensionCell ">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.005</resolution>
+		<factor>200</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="3" name="TensionCell ">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.005</resolution>
+		<factor>200</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="4" name="TensionCell ">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.005</resolution>
+		<factor>200</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="5" name="TensionCell ">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.005</resolution>
+		<factor>200</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="6" name="TensionCell ">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.005</resolution>
+		<factor>200</factor>
+		<offset>0</offset>
+		<range>1000</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="7" name="CourantTot">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>15</maxvalue>
+		<resolution>0.2</resolution>
+		<factor>5</factor>
+		<offset>0</offset>
+		<range>75</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="8" name="TempBoite">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="9" name="TempPCB">
+		<unit>oC</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>100</maxvalue>
+		<resolution>1</resolution>
+		<factor>1</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="10" name="CourantMB">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.05</resolution>
+		<factor>20</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="11" name="CourantPAM">
+		<unit>A</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>5</maxvalue>
+		<resolution>0.05</resolution>
+		<factor>20</factor>
+		<offset>0</offset>
+		<range>100</range>
+		<numbits>08</numbits>
+		<signed>false</signed>
+	</deviceitem>
+	<deviceitem id="12" name="TensionTot">
+		<unit>V</unit>
+		<minvalue>0</minvalue>
+		<maxvalue>30</maxvalue>
+		<resolution>0.1</resolution>
+		<factor>10</factor>
+		<offset>0</offset>
+		<range>300</range>
+		<numbits>16</numbits>
+		<signed>false</signed>
+	</deviceitem>
+</device>
+
+</devices>
