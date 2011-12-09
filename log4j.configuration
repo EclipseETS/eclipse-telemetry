@@ -1,0 +1,33 @@
+# Set loggers
+
+# main
+log4j.logger.main=INFO, console
+# xml
+log4j.logger.xml=INFO, console
+# comm
+log4j.logger.comm=INFO, file
+# simulator
+log4j.logger.simulator=INFO, console
+# telemetry
+log4j.logger.telemetry=INFO, file
+
+# Appender A1 (default log4j)
+#log4j.appender.A1=org.apache.log4j.ConsoleAppender
+#log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+#log4j.appender.A1.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n
+
+# Appender console
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%d{HH:mm:ss.SSS} [%5p] %m (%c:%C)%n
+#log4j.appender.console.layout.ConversionPattern=%d{HH:mm:ss.SSS} [%-5p] %m (%c, %C)%n
+#log4j.appender.console.layout.ConversionPattern=%d{HH:mm:ss.SSS} [%-5p] %m (%c)%n
+
+# Appender file
+log4j.appender.file=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.file.Threshold=trace
+log4j.appender.file.File=log/Telemetry
+log4j.appender.file.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.file.Append=true
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{ISO8601} [%5p] %m%n
