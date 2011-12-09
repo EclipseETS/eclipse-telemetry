@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.5.906 (http://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://eclipse.etsmtl.ca" xmlns="http://eclipse.etsmtl.ca"
+	elementFormDefault="qualified">
+	<xs:complexType name="definitionsBitsOff">
+		<xs:sequence>
+			<xs:element name="definition" type="xs:string" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="definitionsBitsOn">
+		<xs:sequence>
+			<xs:element name="definition" type="xs:string" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceitem">
+		<xs:sequence>
+			<xs:element name="unit" type="xs:string" />
+			<xs:element name="minvalue" type="xs:integer" />
+			<xs:element name="maxvalue" type="xs:integer" />
+			<xs:element name="status" type="xs:integer" />
+			<xs:element name="resolution" type="xs:double" />
+			<xs:element name="factor" type="xs:double" />
+			<xs:element name="offset" type="xs:integer" />
+			<xs:element name="range" type="xs:integer" />
+			<xs:element name="numbits" type="xs:integer" />
+			<xs:element name="signed" type="xs:boolean" />
+			<xs:element name="isFloat" type="xs:boolean" />
+			<xs:element minOccurs="0" name="definitionsBitsOff" type="definitionsBitsOn" />
+			<xs:element minOccurs="0" name="definitionsBitsOn" type="definitionsBitsOff" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" />
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="device">
+		<xs:sequence>
+			<xs:element name="deviceitem" type="deviceitem" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" />
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	<xs:element name="devices">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="device" type="device" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
