@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+
+import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
 
@@ -57,7 +62,7 @@ static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER
 
 	public void start(){
 		try {
-	    	portId = CommPortIdentifier.getPortIdentifier(defaultPort);
+	    	portId = CommPortIdentifier.getPortIdentifier(selectSerialPort());
 	    	
 	    } 
 	    catch (NoSuchPortException e) {
@@ -157,5 +162,54 @@ static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER
 	public String getName() {
 		return NAME;
 	}
+	
+	public String selectSerialPort() {
+		
+		if(!defaultPort.contains("XXX"))
+			return defaultPort;
+
+        ArrayList<String> possibilities = new ArrayList<String>();
+        possibilities.add("Emulator");
+        for (CommPortIdentifier commportidentifier : getAvailableSerialPorts()) {
+            possibilities.add(commportidentifier.getName());
+        }
+
+        int startPosition = 0;
+        if (possibilities.size() > 1) {
+            startPosition = 1;
+        }
+        
+       return (String) JOptionPane.showInputDialog(
+               null,
+               "Télémetrie",
+               "Select serial port",
+               JOptionPane.PLAIN_MESSAGE,
+               null,
+               possibilities.toArray(),
+               possibilities.toArray()[startPosition]);
+        
+    }
+	
+	public HashSet<CommPortIdentifier> getAvailableSerialPorts() {
+        HashSet<CommPortIdentifier> h = new HashSet<CommPortIdentifier>();
+        Enumeration thePorts = CommPortIdentifier.getPortIdentifiers();
+        while (thePorts.hasMoreElements()) {
+            CommPortIdentifier com = (CommPortIdentifier) thePorts.nextElement();
+            switch (com.getPortType()) {
+                case CommPortIdentifier.PORT_SERIAL:
+                    try {
+                        CommPort thePort = com.open("CommUtil", 50);
+                        thePort.close();
+                        h.add(com);
+                    } catch (PortInUseException e) {
+                        System.out.println("Port, " + com.getName() + ", is in use.");
+                    } catch (Exception e) {
+                        System.err.println("Failed to open port " + com.getName());
+                        e.printStackTrace();
+                    }
+            }
+        }
+        return h;
+    }
 
 }
