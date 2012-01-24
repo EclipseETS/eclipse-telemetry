@@ -318,7 +318,7 @@ class DeviceTableModel extends AbstractTableModel implements Observer {
 		return 0;
 	}
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	public Class getColumnClass(int c) {
         return getValueAt(0, c).getClass();
     }

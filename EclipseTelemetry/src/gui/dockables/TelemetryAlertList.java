@@ -29,7 +29,7 @@ public class TelemetryAlertList extends JPanel implements Dockable, Observer{
 	DockKey key = new DockKey("alert_view");
 	private JTable table;
 	private DefaultTableModel model = new DefaultTableModel(){
-		@SuppressWarnings("unchecked")
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		public Class getColumnClass(int column){
 			try {
 				return getValueAt(0, column).getClass();

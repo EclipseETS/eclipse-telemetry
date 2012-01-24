@@ -12,7 +12,7 @@ import eclipseV7.data.DeviceItem;
 
 public class DeviceItemConverter implements Converter {
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	@Override
     public boolean canConvert(Class type) {
         return type.equals(DeviceItem.class);

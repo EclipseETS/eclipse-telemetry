@@ -20,7 +20,7 @@ public class DeviceConverter implements Converter {
 
 	static Logger logger = Logger.getLogger("xml");
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean canConvert(Class type) {
 		return type.equals(Device.class);
