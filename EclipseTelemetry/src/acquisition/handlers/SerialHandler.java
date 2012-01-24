@@ -192,7 +192,8 @@ static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER
 	
 	public HashSet<CommPortIdentifier> getAvailableSerialPorts() {
         HashSet<CommPortIdentifier> h = new HashSet<CommPortIdentifier>();
-        Enumeration thePorts = CommPortIdentifier.getPortIdentifiers();
+        @SuppressWarnings("rawtypes")
+		Enumeration thePorts = CommPortIdentifier.getPortIdentifiers();
         while (thePorts.hasMoreElements()) {
             CommPortIdentifier com = (CommPortIdentifier) thePorts.nextElement();
             switch (com.getPortType()) {
