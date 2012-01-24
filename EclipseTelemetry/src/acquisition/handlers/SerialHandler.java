@@ -34,7 +34,6 @@ static boolean	      outputBufferEmptyFlag = false;
 static Logger logger = Logger.getLogger("telemetry");
 
 boolean processusOuvert=true;
-static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER_SERIAL_PORT");
 
 	// Important flags used for exeption management
 	private boolean connected = false;
@@ -68,6 +67,7 @@ static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER
 	    catch (NoSuchPortException e) {
 	    		System.out.println("No port found try in one sec.");	
 	    		logger.info("No port found try in one sec.");
+	    		TelemetrySettings.getInstance().setSetting("HANDLER_SERIAL_PORT", "XXX");
 	    		try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e1) {
@@ -165,8 +165,8 @@ static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER
 	
 	public String selectSerialPort() {
 		
-		if(!defaultPort.contains("XXX"))
-			return defaultPort;
+		if(!TelemetrySettings.getInstance().getSetting("HANDLER_SERIAL_PORT").contains("XXX"))
+			return TelemetrySettings.getInstance().getSetting("HANDLER_SERIAL_PORT");
 
         ArrayList<String> possibilities = new ArrayList<String>();
         possibilities.add("Emulator");
@@ -179,14 +179,18 @@ static String  defaultPort = TelemetrySettings.getInstance().getSetting("HANDLER
             startPosition = 1;
         }
         
-       return (String) JOptionPane.showInputDialog(
-               null,
-               "Télémetrie",
-               "Select serial port",
-               JOptionPane.PLAIN_MESSAGE,
-               null,
-               possibilities.toArray(),
-               possibilities.toArray()[startPosition]);
+        String retour = (String) JOptionPane.showInputDialog(
+                null,
+                "Télémetrie",
+                "Select serial port",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                possibilities.toArray(),
+                possibilities.toArray()[startPosition]);
+        
+        TelemetrySettings.getInstance().setSetting("HANDLER_SERIAL_PORT", retour);
+        
+       return retour;
         
     }
 	
