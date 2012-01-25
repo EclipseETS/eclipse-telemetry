@@ -44,7 +44,8 @@ public class TelemetrySettings {
 	public void setSetting(String propertyName,String value) {			
 		if (settings.getProperty(propertyName) == null)
 			logger.warn("Setting property '" + propertyName + "' is null. Unexpected behavior probable.");
-		settings.setProperty(propertyName, value);
+		if(propertyName!=null&&value!=null)
+			settings.setProperty(propertyName, value);
 		try {
 			settings.store(new FileOutputStream(path), null);
 		} catch (FileNotFoundException e) {
