@@ -40,6 +40,7 @@ public class EclipseTelemetry2011App {
 	private final static int SIMULATOR = 1;
 	private final static int TELEMETRY = 2;
 	private final static int CANUSB = 3;
+	private final static int OFFLINE = 4;
 	
 	// DataAcquisitionManager
 	
@@ -50,6 +51,7 @@ public class EclipseTelemetry2011App {
 		int mode = 0;
 		if (ap.hasOption("sim") || ap.hasOption("simulator")) mode = SIMULATOR;
 		else if (ap.hasOption("USBCAN")) mode = CANUSB;
+		else if (ap.hasOption("OFFLINE")) mode = OFFLINE;
 		else mode = TELEMETRY;
 		// Workaround to call non-static doInit() for clarity.
 		EclipseTelemetry2011App app = new EclipseTelemetry2011App();
@@ -61,6 +63,7 @@ public class EclipseTelemetry2011App {
 		switch (mode) {
 			case SIMULATOR: Application.launch(SimulatorView.class, args); break;
 			case TELEMETRY: Application.launch(TelemetryView.class, args); break;
+			case OFFLINE: Application.launch(TelemetryView.class, args); break;
 			case CANUSB: Application.launch(TelemetryView.class, args); break;
 			//case TELEMETRY: Application.launch(TelemetryViewFast.class, args); break;
 			default: logger.error("Bad mode select"); app.abort();
@@ -127,6 +130,10 @@ public class EclipseTelemetry2011App {
 		case TELEMETRY: 		
 			fd.setFrameModel(new FrameModelV7());
 			DataAcquisitionController.getInstance().setAcquisitionHandler(new SerialHandler()); 
+			break;
+		case OFFLINE: 		
+			fd.setFrameModel(new FrameModelV7());
+			DataAcquisitionController.getInstance().setAcquisitionHandler(new NullObject()); 
 			break;
 		case CANUSB: 		
 			fd.setFrameModel(new FrameModelCANUSB());
