@@ -354,6 +354,14 @@ public class DeviceItem extends Observable {
 		
 	}
 	
+	
+	//TODO: Code le 30 sec de moyenne
+	public double getMoyenne30(){
+		return this.getIntValue();
+		
+	}
+	
+	
 	public String[] serialize(){
 		String[] out = new String[rawValue.size()];
 		int i=0;

@@ -23,7 +23,7 @@ public class SimulatorTCP extends Thread {
 	
 	public void send(String frame) {
 		pstream.println(frame);
-		logger.info("Sending " + frame);
+		logger.trace("Sending " + frame);
 	}
 	
 	public void run() {

@@ -1,6 +1,7 @@
 package core;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -12,6 +13,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 import util.HexString;
+import util.TelemetrySettings;
 
 import eclipseV7.data.Device;
 import eclipseV7.data.DeviceItem;
@@ -147,6 +149,79 @@ public class DataManager {
 	
 	public void setParentDeviceIDs() {
 		storage.setParentDeviceIDs();
+	}
+	
+	public void matLabExport() throws IOException, DeviceNotFoundException, DeviceItemNotFoundException{
+		
+		 // Create file 
+		  FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE"),true);
+		  BufferedWriter out = new BufferedWriter(fstream);
+		  String niceStringSuperDupper= "";
+		  
+		  
+		//Heure
+		  niceStringSuperDupper+=getDoubleData(13, 10);
+		  niceStringSuperDupper+=",";
+		  
+		//Lon
+		  niceStringSuperDupper+=getDoubleData(13, 6);
+		  niceStringSuperDupper+=",";
+		  
+		//Lat
+		  niceStringSuperDupper+=getDoubleData(13, 5);
+		  niceStringSuperDupper+=",";
+		  
+		//RPM
+		  niceStringSuperDupper+=getDoubleData(4, 8);
+		  niceStringSuperDupper+=",";
+		  
+		//DriveA
+		  niceStringSuperDupper+=getDoubleData(4, 5);
+		  niceStringSuperDupper+=",";
+		  
+		//DriveV
+		  niceStringSuperDupper+=getDoubleData(4, 6);
+		  niceStringSuperDupper+=",";
+		  
+		//MPPT1V
+		  niceStringSuperDupper+=getDoubleData(10, 3);
+		  niceStringSuperDupper+=",";
+		  
+		//MPPT1A
+		  niceStringSuperDupper+=getDoubleData(10, 4);
+		  niceStringSuperDupper+=",";
+		  
+		//MPPT2V
+		  niceStringSuperDupper+=getDoubleData(11, 3);
+		  niceStringSuperDupper+=",";
+		  
+		//MPPT2A
+		  niceStringSuperDupper+=getDoubleData(11, 4);
+		  niceStringSuperDupper+=",";
+		  
+		//MPPT3V
+		  niceStringSuperDupper+=getDoubleData(12, 3);
+		  niceStringSuperDupper+=",";
+		  
+		//MPPT3A
+		  niceStringSuperDupper+=getDoubleData(12, 4);
+		  niceStringSuperDupper+=",";
+		  
+		//inclinaison
+		  niceStringSuperDupper+=getDoubleData(13, 8);
+		  niceStringSuperDupper+=",";
+		  
+		//accel
+		  niceStringSuperDupper+=getDoubleData(13, 9);
+		  
+		  
+		  
+		  //System.out.println(niceStringSuperDupper);
+		  out.write(niceStringSuperDupper+ "\n");
+		  //Close the output stream
+		  out.close();
+		
+		
 	}
 	
 	public void serialize(String path){

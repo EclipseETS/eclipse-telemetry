@@ -1,6 +1,10 @@
 package app;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -147,7 +151,21 @@ public class EclipseTelemetry2011App {
 		DataAcquisitionController.getInstance().start();
 		
 		//DataManager.getInstance().printDeviceTree();
-
+		if(mode!=SIMULATOR){
+			String delais =(TelemetrySettings.getInstance().getSetting("MATLABTIME"));
+			ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+			exec.scheduleAtFixedRate(new Runnable() {
+			  @Override
+			  public void run() {
+				  try {
+					DataManager.getInstance().matLabExport();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			  }
+			}, 0, Integer.parseInt(delais), TimeUnit.SECONDS);
+		}
 	}
 	
 	protected void abort() {

@@ -84,7 +84,7 @@ public class SimulatorSerial extends Thread{
 			out.write(frame.getBytes("ASCII"));
 			out.write(13);	                                
 		} catch (final IOException e) {}
-		logger.info("Sending " + frame);
+		logger.trace("Sending " + frame);
 	}
 
 	
