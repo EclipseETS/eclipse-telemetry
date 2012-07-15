@@ -9,7 +9,7 @@ log4j.logger.comm=INFO, file
 # simulator
 log4j.logger.simulator=INFO, console
 # telemetry
-log4j.logger.telemetry=INFO, file
+log4j.logger.telemetry=TRACE, file
 
 # Appender A1 (default log4j)
 #log4j.appender.A1=org.apache.log4j.ConsoleAppender

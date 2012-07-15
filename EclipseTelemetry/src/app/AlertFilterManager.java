@@ -49,6 +49,7 @@ public class AlertFilterManager extends JDialog{
 	private String PriorityFilterValue = "Unfiltered";
 	
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public AlertFilterManager() {
 		setModal(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
