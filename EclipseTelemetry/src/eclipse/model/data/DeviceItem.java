@@ -3,9 +3,12 @@ package eclipse.model.data;
 import java.util.ArrayList;
 
 
+/**
+ * Class that represent a physical Item and offer current and past value.
+ * @author Marco
+ *
+ */
 public class DeviceItem {
-
-
 	
 	//Data them self
 	protected ArrayList<Data> values;
@@ -13,6 +16,7 @@ public class DeviceItem {
 	//Human Info
 	protected Integer itemId;
 	protected String name;
+	protected boolean status;
 	
 	//Data Properties
 	protected String unit;
@@ -24,82 +28,67 @@ public class DeviceItem {
 	protected int range;
 	protected int numBits;
 	protected boolean signed;
-	protected boolean status;
-	protected int critic;
+	protected int critic; // Represent item critical value... Led status not important.. motor temp high importance...
 	protected boolean isFloat;
 	
+	//Complete constructor
+	public DeviceItem(Integer itemId, String name,
+			String unit, int minValue, int maxValue, double resolution,
+			double factor, int offset, int range, int numBits, boolean signed,
+			boolean status, int critic, boolean isFloat) {
+		super();
+		this.itemId = itemId;
+		this.name = name;
+		this.unit = unit;
+		this.minValue = minValue;
+		this.maxValue = maxValue;
+		this.resolution = resolution;
+		this.factor = factor;
+		this.offset = offset;
+		this.range = range;
+		this.numBits = numBits;
+		this.signed = signed;
+		this.status = status;
+		this.critic = critic;
+		this.isFloat = isFloat;
+		
+		values = new ArrayList<Data>();
+	}
 	
-	public ArrayList<Data> getValues() {
-		return values;
-	}
-	public void setValues(ArrayList<Data> values) {
-		this.values = values;
-	}
+	
+	//Setter and getter
 	public Integer getItemId() {
 		return itemId;
-	}
-	public void setItemId(Integer itemId) {
-		this.itemId = itemId;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getUnit() {
 		return unit;
-	}
-	public void setUnit(String unit) {
-		this.unit = unit;
 	}
 	public int getMinValue() {
 		return minValue;
 	}
-	public void setMinValue(int minValue) {
-		this.minValue = minValue;
-	}
 	public int getMaxValue() {
 		return maxValue;
-	}
-	public void setMaxValue(int maxValue) {
-		this.maxValue = maxValue;
 	}
 	public double getResolution() {
 		return resolution;
 	}
-	public void setResolution(double resolution) {
-		this.resolution = resolution;
-	}
 	public double getFactor() {
 		return factor;
-	}
-	public void setFactor(double factor) {
-		this.factor = factor;
 	}
 	public int getOffset() {
 		return offset;
 	}
-	public void setOffset(int offset) {
-		this.offset = offset;
-	}
 	public int getRange() {
 		return range;
-	}
-	public void setRange(int range) {
-		this.range = range;
 	}
 	public int getNumBits() {
 		return numBits;
 	}
-	public void setNumBits(int numBits) {
-		this.numBits = numBits;
-	}
 	public boolean isSigned() {
 		return signed;
-	}
-	public void setSigned(boolean signed) {
-		this.signed = signed;
 	}
 	public boolean isStatus() {
 		return status;
@@ -110,17 +99,57 @@ public class DeviceItem {
 	public int getCritic() {
 		return critic;
 	}
-	public void setCritic(int critic) {
-		this.critic = critic;
-	}
 	public boolean isFloat() {
 		return isFloat;
 	}
-	public void setFloat(boolean isFloat) {
-		this.isFloat = isFloat;
+	
+	//TODO: For the 2 other cat. be sure to verify for Null option
+	/**
+	 * Return all data from application startup
+	 * @return table of data [long timestamp, Double value]
+	 */
+	public ArrayList<Data> getAllData() {
+		return values;
 	}
-
 	
+	/**
+	 * Return the last value 
+	 * @return Last value in double.
+	 */
+	public double getLastData(){
+		return values.get(values.size()).getData();		
+	}
 	
+	/**
+	 * Return Last Seen value. in other words last update date... 
+	 * @return Long: Timestamp
+	 */
+	public long getLastSeen(){
+		return values.get(values.size()).getDate();		
+	}
+	
+	/**
+	 * Load value from old files 
+	 * TODO: determined input output
+	 */
+	public void load(){
+		
+	}
+	
+	/**
+	 * Save curent value to XYZ format
+	 * TODO: determined input output
+	 */
+	public void save(){
+		
+	}
+	
+	/**
+	 * Add new value to the system  whit curent timestamp
+	 * @param value value as double to be added to the table
+	 */
+	public void setValue(Double value){
+		values.add(new Data(value));
+	}
 	
 }

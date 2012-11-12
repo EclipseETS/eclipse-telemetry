@@ -1,7 +1,6 @@
 package eclipse.model.data;
 
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.ArrayList;
 
 
 /**
@@ -16,56 +15,78 @@ public class Device {
 	private String deviceName;
 	
 	//List of all Item incide this Device
-	private Map<Integer, DeviceItem> items;
+	private ArrayList<DeviceItem> items;
 	
+	/**
+	 * Create device 
+	 * @param deviceId id name
+	 * @param deviceName device name
+	 */
 	public Device(Integer deviceId, String deviceName) {
 		this.deviceId = deviceId;
 		this.deviceName = deviceName;
 		
-		// Create the device's DeviceItem map
-		items = new Hashtable<Integer, DeviceItem>();
+		// Create the device's DeviceItem arraylist
+		items = new ArrayList<DeviceItem>();
 	}
 	
+	/**
+	 * Add item in the device
+	 * @param item item to be added
+	 */
 	public void addItem(DeviceItem item) {
-		//System.out.println("Attempting to put: " + item.getItemId() + " " + item.getName());
-		items.put(item.getItemId(), item);
+		items.add(item);
 	}
 	
-	// Returns 1st with that name
+	/**
+	 * Return first Item with name
+	 * @param itemName name that we search
+	 * @return
+	 */
 	public DeviceItem getItemByName(String itemName) {
-		for (Integer key:items.keySet()) {
-			if (items.get(key).getName().equals(itemName))
-				return items.get(key);
-		}
+		//TODO code ca criss
 		return null;
 	}
 	
+	/**
+	 * Return item by ID
+	 * @param itemId
+	 * @return
+	 */
 	public DeviceItem getItemByID (Integer itemId) {
 		return items.get(itemId);
 	}
-	
-	public Integer getDeviceId() {
-		return deviceId;
-	}
 
-	public void setDeviceId(Integer deviceId) {
-		this.deviceId = deviceId;
-	}
-
-	public String getDeviceName() {
-		return deviceName;
-	}
-
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-	}
-
-	public Map<Integer, DeviceItem> getItems() {
+	/**
+	 * Return all items
+	 * @return
+	 */
+	public ArrayList<DeviceItem> getItems() {
 		return items;
 	}
 
-	public void setItems(Map<Integer, DeviceItem> items) {
-		this.items = items;
+	/**
+	 * Load value from old files 
+	 * TODO: determined input output
+	 */
+	public void load(){
+		
 	}
-
+	
+	/**
+	 * Save curent value to XYZ format
+	 * TODO: determined input output
+	 */
+	public void save(){
+		
+	}
+	
+	//Getter and Setter
+	public Integer getDeviceId() {
+		return deviceId;
+	}
+	public String getDeviceName() {
+		return deviceName;
+	}
+	
 }
