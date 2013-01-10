@@ -33,7 +33,9 @@ public class DataManager {
 	 * @return
 	 */
 	public Device getDeviceByName(String deviceName) {
-		//TODO code ca criss
+		for (Device iDev : devices)
+			if (iDev.getDeviceName().toUpperCase().compareTo(deviceName.toUpperCase())==0)
+				return iDev;
 		return null;
 	}
 	
@@ -48,7 +50,7 @@ public class DataManager {
 
 	/**
 	 * Load value from old files 
-	 * TODO: determined input output
+	 * TODO: CODER LE LOAD
 	 */
 	public void load(){
 		
@@ -56,7 +58,7 @@ public class DataManager {
 	
 	/**
 	 * Save curent value to XYZ format
-	 * TODO: determined input output
+	 * TODO: CODER LE SAVE
 	 */
 	public void save(){
 		

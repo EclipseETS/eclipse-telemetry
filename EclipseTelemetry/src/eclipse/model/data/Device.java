@@ -44,7 +44,9 @@ public class Device {
 	 * @return
 	 */
 	public DeviceItem getItemByName(String itemName) {
-		//TODO code ca criss
+		for (DeviceItem iDev : items)
+			if (iDev.getName().toUpperCase().compareTo(itemName.toUpperCase())==0)
+				return iDev;
 		return null;
 	}
 	
@@ -67,7 +69,6 @@ public class Device {
 
 	/**
 	 * Load value from old files 
-	 * TODO: determined input output
 	 */
 	public void load(){
 		
@@ -75,7 +76,6 @@ public class Device {
 	
 	/**
 	 * Save curent value to XYZ format
-	 * TODO: determined input output
 	 */
 	public void save(){
 		

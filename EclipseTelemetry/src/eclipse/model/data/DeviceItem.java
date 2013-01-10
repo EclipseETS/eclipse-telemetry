@@ -130,7 +130,6 @@ public class DeviceItem {
 	
 	/**
 	 * Load value from old files 
-	 * TODO: determined input output
 	 */
 	public void load(){
 		
@@ -138,7 +137,6 @@ public class DeviceItem {
 	
 	/**
 	 * Save curent value to XYZ format
-	 * TODO: determined input output
 	 */
 	public void save(){
 		
