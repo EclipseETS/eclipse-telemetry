@@ -34,7 +34,7 @@ public class ThreadGen {
 	 * @param currentThread
 	 */
 	public void addThread(Runnable currentThread){
-		
+		threadList.add(currentThread);
 	}
 	
 	
@@ -44,6 +44,17 @@ public class ThreadGen {
 	 * ====BEFORE RUNNING THIS, BE SURE TO ADDTHREAD=======
 	 */
 	public void startThread(){
+		for(Runnable current : threadList){
+			current.run();
+		}
+	}
+	
+	
+	/**
+	 * If thread Gen already started and you want to add a new thread
+	 * @param threadToAdd
+	 */
+	public void addRunningThread(Runnable threadToAdd){
 		
 	}
 	
