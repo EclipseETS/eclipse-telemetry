@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 /**
- * Class that represent a physical Item and offer current and past value.
+ * Class that represent a physical Item and offer current and past values.
  * @author Marco
  *
  */
