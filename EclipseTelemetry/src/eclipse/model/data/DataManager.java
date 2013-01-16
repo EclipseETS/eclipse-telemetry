@@ -16,7 +16,7 @@ public class DataManager {
 	 * Singleton that provide datamrg for the hole application
 	 * @return the only and single instance of the DataMgr
 	 */
-	public DataManager getInstance(){
+	public static DataManager getInstance(){
 		return dataMgr;
 	}
 
