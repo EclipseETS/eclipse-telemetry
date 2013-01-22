@@ -14,9 +14,10 @@ public class TESTER implements Runnable {
 	
 	private DataManager data = DataManager.getInstance();
 
-	@Override
+
 	public void run() {
 		initData();
+		double i =0;
 		
 		while(true){
 				try {
@@ -24,7 +25,11 @@ public class TESTER implements Runnable {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println("ÉRIC C UNE MARDE");
+
+				for(Device dev : data.getDevices())
+					for(DeviceItem ite : dev.getItems())
+						ite.setValue(i);
+				i++;
 			
 		}
 

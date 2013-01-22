@@ -30,6 +30,8 @@ public class EclipseTelemetry {
 	private static void initApp(){
 		
 		threadGenInstance.addThread(new TESTER());
+		
+		
 		//Start the ThreadGenerator
 		threadGenInstance.startThread();
 	}
