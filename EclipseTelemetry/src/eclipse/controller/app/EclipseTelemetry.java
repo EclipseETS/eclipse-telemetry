@@ -1,5 +1,7 @@
 package eclipse.controller.app;
 
+import eclipse.view.gui.DesktopManager;
+
 /**
  * Eclipse Telemetry, Start Point, Where you can find the main of this application. This application, 
  * receive data from solar car and show them in different windows.
@@ -28,9 +30,12 @@ public class EclipseTelemetry {
 	}
 	
 	private static void initApp(){
-		
+
 		threadGenInstance.addThread(new TESTER());
 		
+		
+		//Start Gui
+		threadGenInstance.addThread(new DesktopManager());
 		
 		//Start the ThreadGenerator
 		threadGenInstance.startThread();

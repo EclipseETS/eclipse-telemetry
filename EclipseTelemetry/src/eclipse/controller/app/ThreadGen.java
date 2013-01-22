@@ -45,6 +45,7 @@ public class ThreadGen {
 	 */
 	public void startThread(){
 		for(Runnable current : threadList){
+			//TODO je reste pogné dans le fucking thread
 			current.run();
 		}
 	}

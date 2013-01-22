@@ -1,15 +1,12 @@
 package eclipse.view.gui;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JTable;
-import java.awt.BorderLayout;
 
-public class DesktopManager {
+public class DesktopManager implements Runnable {
 
 	private JFrame frmclipseViii;
 
@@ -33,7 +30,6 @@ public class DesktopManager {
 	 * Create the application.
 	 */
 	public DesktopManager() {
-		initialize();
 	}
 
 	/**
@@ -65,6 +61,21 @@ public class DesktopManager {
 		
 		JMenu mnAbout = new JMenu("About");
 		mnHelp.add(mnAbout);
+	}
+
+
+	/**
+	 * Use the Gui as a Thread
+	 */
+	public void run() {
+		
+		//Init all panel, menu and used stuff
+		initialize();
+		
+		
+		//Show frame -- Replace frame.show()
+		frmclipseViii.setVisible(true);
+		
 	}
 
 }
