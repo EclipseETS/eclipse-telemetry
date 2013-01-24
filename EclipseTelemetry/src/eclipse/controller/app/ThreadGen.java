@@ -16,7 +16,7 @@ public class ThreadGen {
 	
 	
 	//List of thread to be run
-	private ArrayList<Runnable> threadList = new ArrayList<Runnable>();
+	private ArrayList<Thread> threadList = new ArrayList<Thread>();
 	
 	/**
 	 * Singleton
@@ -34,7 +34,7 @@ public class ThreadGen {
 	 * @param currentThread
 	 */
 	public void addThread(Runnable currentThread){
-		threadList.add(currentThread);
+		threadList.add(new Thread(currentThread));
 	}
 	
 	
@@ -44,9 +44,9 @@ public class ThreadGen {
 	 * ====BEFORE RUNNING THIS, BE SURE TO ADDTHREAD=======
 	 */
 	public void startThread(){
-		for(Runnable current : threadList){
+		for(Thread current : threadList){
 			//TODO je reste pogné dans le fucking thread
-			current.run();
+			current.start();
 		}
 	}
 	
