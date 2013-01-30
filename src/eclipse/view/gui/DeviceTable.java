@@ -5,6 +5,10 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
 public class DeviceTable extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2652127495341433024L;
 	private JTable table;
 
 	/**
