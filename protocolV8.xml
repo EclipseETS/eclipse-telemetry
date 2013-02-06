@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<char xmlns="http://eclipse.etsmtl.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://eclipse.etsmtl.ca protocolV7Schema.xsd">
+
+<!-- DRIVE -->
+
+<device id="4" name="Drive">
+    <trame id="0">
+		<deviceitem id="0" name="CMD_Current">
+			<unit>%</unit>
+			<minvalue>0</minvalue>
+			<maxvalue>65532</maxvalue>
+			<status>1</status>
+			<resolution>1</resolution>
+			<factor>1</factor>
+			<offset>0</offset>
+			<range>0</range>
+			<numbits>32</numbits>
+			<signed>true</signed>
+			<isFloat>true</isFloat>
+		</deviceitem>
+		<deviceitem id="5" name="BusCurrent">
+			<unit>A</unit>
+			<minvalue>-120</minvalue>
+			<maxvalue>120</maxvalue>
+			<status>1</status>
+			<resolution>1</resolution>
+			<factor>1</factor>
+			<offset>0</offset>
+			<range>0</range>
+			<numbits>32</numbits>
+			<signed>true</signed>
+			<isFloat>true</isFloat>
+		</deviceitem>
+	</trame>
+</device>
+
+<!-- VOLANT -->
+
+<device id="6" name="Volant">
+    <trame id="0">
+		<deviceitem id="1" name="Status">
+			<unit>Bin</unit>
+			<minvalue>0</minvalue>
+			<maxvalue>65535</maxvalue>
+			<status>1</status>
+			<resolution>1</resolution>
+			<factor>1</factor>
+			<offset>0</offset>
+			<range>0</range>
+			<numbits>8</numbits>
+			<signed>false</signed>
+			<isFloat>false</isFloat>
+		</deviceitem>
+		<deviceitem id="2" name="Bouton">
+			<unit>Bin</unit>
+			<minvalue>0</minvalue>
+			<maxvalue>256</maxvalue>
+			<status>1</status>
+			<resolution>1</resolution>
+			<factor>1</factor>
+			<offset>0</offset>
+			<range>0</range>
+			<numbits>8</numbits>
+			<signed>false</signed>
+			<isFloat>false</isFloat>
+		</deviceitem>
+		<deviceitem id="4" name="Pot">
+			<unit>Bin</unit>
+			<minvalue>-128</minvalue>
+			<maxvalue>127</maxvalue>
+			<status>1</status>
+			<resolution>1</resolution>
+			<factor>1</factor>
+			<offset>0</offset>
+			<range>0</range>
+			<numbits>8</numbits>
+			<signed>true</signed>
+			<isFloat>false</isFloat>
+		</deviceitem>
+	</trame>
+    <trame id="1">
+		<deviceitem id="5" name="Velocity">
+			<unit>m/s</unit>
+			<minvalue>0</minvalue>
+			<maxvalue>30</maxvalue>
+			<status>1</status>
+			<resolution>1</resolution>
+			<factor>1</factor>
+			<offset>0</offset>
+			<range>0</range>
+			<numbits>32</numbits>
+			<signed>true</signed>
+			<isFloat>false</isFloat>
+		</deviceitem>
+	</trame>
+</device>
+
+
+</char>

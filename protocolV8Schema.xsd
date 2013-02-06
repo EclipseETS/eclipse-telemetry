@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://eclipse.etsmtl.ca" xmlns="http://eclipse.etsmtl.ca"
+	elementFormDefault="qualified">
+	<xs:complexType name="deviceitem">
+		<xs:sequence>
+			<xs:element name="unit" type="xs:string" />
+			<xs:element name="minvalue" type="xs:integer" />
+			<xs:element name="maxvalue" type="xs:integer" />
+			<xs:element name="status" type="xs:integer" />
+			<xs:element name="resolution" type="xs:double" />
+			<xs:element name="factor" type="xs:double" />
+			<xs:element name="offset" type="xs:integer" />
+			<xs:element name="range" type="xs:integer" />
+			<xs:element name="numbits" type="xs:integer" />
+			<xs:element name="signed" type="xs:boolean" />
+			<xs:element name="isFloat" type="xs:boolean" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" />
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="device">
+		<xs:sequence>
+			<xs:element name="trame" type="trame" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" />
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="trame">
+		<xs:sequence>
+			<xs:element name="deviceitem" type="deviceitem" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" />
+	</xs:complexType>
+	<xs:element name="char">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="device" type="device" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
