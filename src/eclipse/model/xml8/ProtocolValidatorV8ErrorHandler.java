@@ -5,6 +5,13 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+/**
+ * Error manager
+ * 
+ * Basicaly to transfer error from Xstream to log4j
+ * @author Marco
+ *
+ */
 public class ProtocolValidatorV8ErrorHandler implements ErrorHandler {
 	
 	static Logger logger = Logger.getLogger("main");

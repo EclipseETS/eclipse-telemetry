@@ -8,13 +8,15 @@ import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
-import eclipse.model.data.DataManager;
-import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
 import eclipse.model.data.Trame;
 
 
-
+/**
+ * Converter standard for Tram
+ * @author Marco
+ *
+ */
 public class TramConverter implements Converter {
 
 	static Logger logger = Logger.getLogger("main");
@@ -43,9 +45,9 @@ public class TramConverter implements Converter {
 
 				// Process the <deviceItem>
 				DeviceItem di = (DeviceItem) context.convertAnother(new Object(), DeviceItem.class);
-				tram.addItem(di);
+				tram.addItem(di);//add deviceItem to the tram
 				logger.debug("DeviceItem :"+di.getItemId()+":"+di.getName()+" added.");
-				reader.moveUp(); // Get back up to the <device>
+				reader.moveUp(); // Get back up to the <trame>
 			}
 			
 

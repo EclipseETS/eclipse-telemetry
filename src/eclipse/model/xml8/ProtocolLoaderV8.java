@@ -13,7 +13,11 @@ import eclipse.model.data.DeviceItem;
 import eclipse.model.data.Trame;
 import eclipse.model.xml.ProtocolLoader;
 
-
+/**
+ * Load the XML DATA in the DataManager
+ * @author Marco
+ *
+ */
 public class ProtocolLoaderV8 implements ProtocolLoader {
 
 	static Logger logger = Logger.getLogger("main");

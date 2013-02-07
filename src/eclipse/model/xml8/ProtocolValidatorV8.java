@@ -14,7 +14,13 @@ import org.xml.sax.SAXException;
 
 import eclipse.model.xml.ProtocolValidator;
 
-
+/**
+ * Validator to ensure the xml file follow the XSD rules and is standard for this application
+ * 
+ * Make sure all variables are there.
+ * @author Marco
+ *
+ */
 public class ProtocolValidatorV8 implements ProtocolValidator {
 
 	File xmlFile = null;

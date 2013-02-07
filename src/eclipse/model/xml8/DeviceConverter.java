@@ -46,7 +46,7 @@ public class DeviceConverter implements Converter {
 			
 			// Process the <device>
 			Device dev = new Device(deviceId, deviceName);
-			DataManager.getInstance().addDevice(dev);
+			DataManager.getInstance().addDevice(dev);//Add the device
 			
 			logger.debug("Device :"+deviceId+":"+deviceName+" added.");
 			
@@ -61,13 +61,24 @@ public class DeviceConverter implements Converter {
 				
 				//To set item in this device
 				for(DeviceItem item : t.getItems())
-					dev.addItem(item);
+					dev.addItem(item); // copy items from tram to Device				
+				/**
+				 *  	/\
+				 *  	|
+				 *  	|
+				 * Important to understand why we are copying items
+				 * 
+				 * We do NOT want to double DeviceItem so we add them in the tram first then when we come back here we copy the 
+				 * reference from tram to the device
+				 * 
+				 * For the futur we can add data by using the Tram and read the data by using the Device
+				 */
 
 				reader.moveUp(); // Get back up to the <device>
 			}
 			reader.moveUp(); // Get back up to <char>
 		}
-		// </devices>
+		// </char>
 
 
 		return null;
