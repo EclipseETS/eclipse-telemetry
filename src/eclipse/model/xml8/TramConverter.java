@@ -11,69 +11,45 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.model.data.Trame;
 
 
 
 public class TramConverter implements Converter {
 
-	static Logger logger = Logger.getLogger("xml");
+	static Logger logger = Logger.getLogger("main");
 	
 	@SuppressWarnings("rawtypes")
-	@Override
 	public boolean canConvert(Class type) {
-		return type.equals(Device.class);
+		return type.equals(Trame.class);
 	}
 
-	@Override
 	public void marshal(Object value, HierarchicalStreamWriter writer,
 			MarshallingContext context) {
 		// N/A
 	}
 
-	@Override
 	public Object unmarshal(HierarchicalStreamReader reader,
 			UnmarshallingContext context) {
 
-		try {
-			// <devices>
-			while (reader.hasMoreChildren()) { // While there are some <device>
-				reader.moveDown(); // Go down to this <device>
+			Integer identifier = new Integer(reader.getAttribute("identifier"));
+			Integer type = new Integer(reader.getAttribute("type"));
 
-				// System.out.println("Processing "
-				// + reader.getNodeName()
-				// + reader.getAttribute("id")
-				// + "-" + reader.getAttribute("name"));
+			Trame tram =new Trame(identifier, type);
+			
+			while (reader.hasMoreChildren()) { // While there are
+												// <deviceItem>
+				reader.moveDown(); // Go down to the <deviceItem>
 
-				// Set the <device> properties
-				Integer deviceId = new Integer(reader.getAttribute("id"));
-				String deviceName = reader.getAttribute("name");
+//				// Process the <deviceItem>
+//				DeviceItem di = (DeviceItem) context.convertAnother(new Object(), DeviceItem.class);
+//				tram.addItem(di);
 
-				// Process the <device>
-				DataManager.getInstance().addDevice(deviceId, deviceName);
-
-				while (reader.hasMoreChildren()) { // While there are
-													// <deviceItem>
-					reader.moveDown(); // Go down to the <deviceItem>
-
-					// Process the <deviceItem>
-					DeviceItem di = (DeviceItem) context.convertAnother(new Object(), DeviceItem.class);
-					DataManager.getInstance().addDeviceItem(deviceId, di);
-
-					reader.moveUp(); // Get back up to the <device>
-				}
-				reader.moveUp(); // Get back up to <devices>
+				reader.moveUp(); // Get back up to the <device>
 			}
-			// </devices>
+			
 
-		} catch (DeviceAlreadyExistsException e) {
-			logger.error("Device add error: " + e.getMessage() + " Ignoring.");
-		} catch (DeviceNotFoundException e) {
-			logger.error("Device add error: " + e.getMessage() + " Ignoring.");
-		} catch (DeviceItemAlreadyExistsException e) {
-			logger.error("Device item add error: " + e.getMessage() + " Ignoring.");
-		}
-
-		return null;
+		return tram;
 	}
 
 }

@@ -40,20 +40,20 @@ public class TESTER implements Runnable {
 		data.addDevice(new Device(1, "Volant"));
 		data.addDevice(new Device(2, "Batterie"));
 		
-		data.getDeviceByID(1).addItem(new DeviceItem(1, "Vitesse", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(1).addItem(new DeviceItem(2, "Tension", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(1).addItem(new DeviceItem(3, "Courant", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(1).addItem(new DeviceItem(4, "Temperature", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		
-		data.getDeviceByID(2).addItem(new DeviceItem(1, "pot", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(2).addItem(new DeviceItem(2, "boutton", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(2).addItem(new DeviceItem(3, "led", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(2).addItem(new DeviceItem(4, "paddle", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		
-		
-		data.getDeviceByID(0).addItem(new DeviceItem(1, "force", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(0).addItem(new DeviceItem(2, "tension", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
-		data.getDeviceByID(0).addItem(new DeviceItem(3, "temperature", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(1).addItem(new DeviceItem(1, "Vitesse", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(1).addItem(new DeviceItem(2, "Tension", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(1).addItem(new DeviceItem(3, "Courant", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(1).addItem(new DeviceItem(4, "Temperature", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		
+//		data.getDeviceByID(2).addItem(new DeviceItem(1, "pot", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(2).addItem(new DeviceItem(2, "boutton", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(2).addItem(new DeviceItem(3, "led", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(2).addItem(new DeviceItem(4, "paddle", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		
+//		
+//		data.getDeviceByID(0).addItem(new DeviceItem(1, "force", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(0).addItem(new DeviceItem(2, "tension", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
+//		data.getDeviceByID(0).addItem(new DeviceItem(3, "temperature", "bin", 0, 0, 1, 1, 0, 0, 0, false, false, 0, false));
 		
 	}
 

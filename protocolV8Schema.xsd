@@ -7,7 +7,6 @@
 			<xs:element name="unit" type="xs:string" />
 			<xs:element name="minvalue" type="xs:integer" />
 			<xs:element name="maxvalue" type="xs:integer" />
-			<xs:element name="status" type="xs:integer" />
 			<xs:element name="resolution" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
 			<xs:element name="factor" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
 			<xs:element name="offset" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->

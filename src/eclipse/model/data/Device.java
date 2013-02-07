@@ -32,7 +32,6 @@ public class Device {
 	}
 	
 	/**
-	 * UTILISER LE addITEM de la trame
 	 * @param item item to be added
 	 */
 	public void addItem(DeviceItem item) {

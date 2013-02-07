@@ -16,7 +16,6 @@ public class DeviceItem {
 	//Human Info
 	protected Integer itemId;
 	protected String name;
-	protected boolean status;
 	
 	//Data Properties
 	protected String unit;
@@ -25,17 +24,14 @@ public class DeviceItem {
 	protected double resolution;
 	protected double factor;
 	protected int offset;
-	protected int range;
 	protected int numBits;
 	protected boolean signed;
-	protected int critic; // Represent item critical value... Led status not important.. motor temp high importance...
 	protected boolean isFloat;
 	
 	//Complete constructor
 	public DeviceItem(Integer itemId, String name,
 			String unit, int minValue, int maxValue, double resolution,
-			double factor, int offset, int range, int numBits, boolean signed,
-			boolean status, int critic, boolean isFloat) {
+			double factor, int offset, int numBits, boolean signed, boolean isFloat) {
 		super();
 		this.itemId = itemId;
 		this.name = name;
@@ -45,11 +41,8 @@ public class DeviceItem {
 		this.resolution = resolution;
 		this.factor = factor;
 		this.offset = offset;
-		this.range = range;
 		this.numBits = numBits;
 		this.signed = signed;
-		this.status = status;
-		this.critic = critic;
 		this.isFloat = isFloat;
 		
 		values = new ArrayList<Data>();
@@ -81,23 +74,11 @@ public class DeviceItem {
 	public int getOffset() {
 		return offset;
 	}
-	public int getRange() {
-		return range;
-	}
 	public int getNumBits() {
 		return numBits;
 	}
 	public boolean isSigned() {
 		return signed;
-	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	public int getCritic() {
-		return critic;
 	}
 	public boolean isFloat() {
 		return isFloat;

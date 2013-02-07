@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
 import eclipse.model.xml.ProtocolValidator;
 
 
-public class ProtocolValidatorV7 implements ProtocolValidator {
+public class ProtocolValidatorV8 implements ProtocolValidator {
 
 	File xmlFile = null;
 	File schemaFile = null;
@@ -25,9 +25,9 @@ public class ProtocolValidatorV7 implements ProtocolValidator {
 	
 	Validator validator = null;
 	
-	static Logger logger = Logger.getLogger("xml");
+	static Logger logger = Logger.getLogger("main");
 	
-	public ProtocolValidatorV7(String XMLLocation, String schemaLocation) throws NullPointerException {		
+	public ProtocolValidatorV8(String XMLLocation, String schemaLocation) throws NullPointerException {		
 		xmlFile = new File(XMLLocation);
 		schemaFile = new File(schemaLocation);
 		
@@ -69,7 +69,7 @@ public class ProtocolValidatorV7 implements ProtocolValidator {
 		try {
 			schema = factory.newSchema(schemaFile);
 			validator = schema.newValidator();
-			validator.setErrorHandler(new ProtocolValidatorV7ErrorHandler());
+			validator.setErrorHandler(new ProtocolValidatorV8ErrorHandler());
 			logger.info("Protocol XML Schema appears to be valid.");
 			return true;
 			

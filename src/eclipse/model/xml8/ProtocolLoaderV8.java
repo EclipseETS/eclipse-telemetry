@@ -2,7 +2,6 @@ package eclipse.model.xml8;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
@@ -11,18 +10,19 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.model.data.Trame;
 import eclipse.model.xml.ProtocolLoader;
 
 
-public class ProtocolLoaderV7 implements ProtocolLoader {
+public class ProtocolLoaderV8 implements ProtocolLoader {
 
-	static Logger logger = Logger.getLogger("xml");
+	static Logger logger = Logger.getLogger("main");
 	FileInputStream fiStream;
 	
 	// XStream to load XML
 	XStream stream;
 	
-	public ProtocolLoaderV7(String xmlFile) throws FileNotFoundException {
+	public ProtocolLoaderV8(String xmlFile) throws FileNotFoundException {
 		init();
 		fiStream = new FileInputStream(xmlFile);
 	}
@@ -33,11 +33,13 @@ public class ProtocolLoaderV7 implements ProtocolLoader {
 		
 		// Register the XML Converters
 		stream.registerConverter(new DeviceConverter());
+		stream.registerConverter(new TramConverter());
 		stream.registerConverter(new DeviceItemConverter());
 		
-		// Create alias for V7 XML markup
-		stream.alias("devices", Device.class);
+		// Create alias for V8 XML markup
+		stream.alias("char", Device.class);
 		stream.alias("deviceItem", DeviceItem.class);
+		stream.alias("trame", Trame.class);
 		
 		stream.alias("unit", String.class);
 		stream.alias("minvalue", Integer.class);
@@ -45,16 +47,12 @@ public class ProtocolLoaderV7 implements ProtocolLoader {
 		stream.alias("resolution", Integer.class);
 		stream.alias("factor", Double.class);
 		stream.alias("offset", Integer.class);
-		stream.alias("range", Integer.class);
 		stream.alias("numbits", Integer.class);
 		stream.alias("signed", Boolean.class);
 		stream.alias("isFloat", Boolean.class);
 		
-		stream.alias("definitions", Vector.class);
-		stream.alias("definition", String.class);
 	}
 	
-	@Override
 	public void load() {
 		stream.fromXML(fiStream);
 		logger.info("Protocol loaded successfully.");
@@ -63,4 +61,3 @@ public class ProtocolLoaderV7 implements ProtocolLoader {
 
 }
 
-// //System.out.println(stream.toXML(DataManager.getInstance().getTelemetryStorage()));

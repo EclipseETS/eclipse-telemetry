@@ -24,8 +24,7 @@ import java.util.ArrayList;
  *
  */
 public class Trame {
-	
-	private Device parent;
+
 	private int identifier;	//Tram ID (from car)
 	private int type; // Tram type (from car)
 	private ArrayList<DeviceItem> items;
@@ -34,8 +33,7 @@ public class Trame {
 	 * Trame constructor
 	 * @param parent Device linked to parent Device (the device link to this trame)
 	 */
-	public Trame(Device parent, int identifier,int type){
-		this.parent=parent;
+	public Trame(int identifier,int type){
 		this.identifier=identifier;
 		this.type=type;
 	}
@@ -46,7 +44,6 @@ public class Trame {
 	 */
 	public void addItem(DeviceItem item) {
 		items.add(item);
-		parent.addItem(item);
 	}
 
 	/**
