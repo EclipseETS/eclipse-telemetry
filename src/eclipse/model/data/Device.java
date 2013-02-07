@@ -16,6 +16,7 @@ public class Device {
 	
 	//List of all Item incide this Device
 	private ArrayList<DeviceItem> items;
+	private ArrayList<Trame> trames;
 	
 	/**
 	 * Create device 
@@ -31,7 +32,7 @@ public class Device {
 	}
 	
 	/**
-	 * Add item in the device
+	 * UTILISER LE addITEM de la trame
 	 * @param item item to be added
 	 */
 	public void addItem(DeviceItem item) {
@@ -81,6 +82,28 @@ public class Device {
 		
 	}
 	
+	/**
+	 * Add trame to the tram list of this device
+	 * Use this tram to create Item and add data
+	 * @param trame to be add
+	 */
+	public void addTrame(Trame trame){
+		trames.add(trame);
+	}
+	
+	/**
+	 * Return a tram with a particular Identifier (tram identifier from the CAN itself)
+	 * Can return null if not exist
+	 * @param identifier
+	 * @return
+	 */
+	public Trame getTrameByidentifier(int identifier){
+		for(Trame t : trames)
+			if(t.getIdentifier()==identifier)
+				return t;
+		return null;
+	}
+	
 	//Getter and Setter
 	public Integer getDeviceId() {
 		return deviceId;
@@ -88,5 +111,5 @@ public class Device {
 	public String getDeviceName() {
 		return deviceName;
 	}
-	
+
 }
