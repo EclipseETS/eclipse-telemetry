@@ -8,10 +8,9 @@
 			<xs:element name="minvalue" type="xs:integer" />
 			<xs:element name="maxvalue" type="xs:integer" />
 			<xs:element name="status" type="xs:integer" />
-			<xs:element name="resolution" type="xs:double" />
-			<xs:element name="factor" type="xs:double" />
-			<xs:element name="offset" type="xs:integer" />
-			<xs:element name="range" type="xs:integer" />
+			<xs:element name="resolution" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
+			<xs:element name="factor" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
+			<xs:element name="offset" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
 			<xs:element name="numbits" type="xs:integer" />
 			<xs:element name="signed" type="xs:boolean" />
 			<xs:element name="isFloat" type="xs:boolean" />
@@ -30,7 +29,8 @@
 		<xs:sequence>
 			<xs:element name="deviceitem" type="deviceitem" maxOccurs="unbounded" />
 		</xs:sequence>
-		<xs:attribute name="id" type="xs:integer" />
+		<xs:attribute name="identifier" type="xs:integer" />
+		<xs:attribute name="type" type="xs:integer" />
 	</xs:complexType>
 	<xs:element name="char">
 		<xs:complexType>

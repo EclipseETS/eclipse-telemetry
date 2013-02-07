@@ -5,7 +5,7 @@
 <!-- DRIVE -->
 
 <device id="4" name="Drive">
-    <trame id="0">
+    <trame identifier="100" type="1">
 		<deviceitem id="0" name="CMD_Current">
 			<unit>%</unit>
 			<minvalue>0</minvalue>
@@ -14,7 +14,6 @@
 			<resolution>1</resolution>
 			<factor>1</factor>
 			<offset>0</offset>
-			<range>0</range>
 			<numbits>32</numbits>
 			<signed>true</signed>
 			<isFloat>true</isFloat>
@@ -27,7 +26,6 @@
 			<resolution>1</resolution>
 			<factor>1</factor>
 			<offset>0</offset>
-			<range>0</range>
 			<numbits>32</numbits>
 			<signed>true</signed>
 			<isFloat>true</isFloat>
@@ -38,7 +36,7 @@
 <!-- VOLANT -->
 
 <device id="6" name="Volant">
-    <trame id="0">
+    <trame identifier="200" type="1">
 		<deviceitem id="1" name="Status">
 			<unit>Bin</unit>
 			<minvalue>0</minvalue>
@@ -47,7 +45,6 @@
 			<resolution>1</resolution>
 			<factor>1</factor>
 			<offset>0</offset>
-			<range>0</range>
 			<numbits>8</numbits>
 			<signed>false</signed>
 			<isFloat>false</isFloat>
@@ -60,7 +57,6 @@
 			<resolution>1</resolution>
 			<factor>1</factor>
 			<offset>0</offset>
-			<range>0</range>
 			<numbits>8</numbits>
 			<signed>false</signed>
 			<isFloat>false</isFloat>
@@ -73,13 +69,12 @@
 			<resolution>1</resolution>
 			<factor>1</factor>
 			<offset>0</offset>
-			<range>0</range>
 			<numbits>8</numbits>
 			<signed>true</signed>
 			<isFloat>false</isFloat>
 		</deviceitem>
 	</trame>
-    <trame id="1">
+    <trame identifier="201" type="1">
 		<deviceitem id="5" name="Velocity">
 			<unit>m/s</unit>
 			<minvalue>0</minvalue>
@@ -88,7 +83,6 @@
 			<resolution>1</resolution>
 			<factor>1</factor>
 			<offset>0</offset>
-			<range>0</range>
 			<numbits>32</numbits>
 			<signed>true</signed>
 			<isFloat>false</isFloat>

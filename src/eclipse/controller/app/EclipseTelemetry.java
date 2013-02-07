@@ -1,5 +1,7 @@
 package eclipse.controller.app;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import eclipse.view.gui.DesktopManager;
 
 /**
@@ -16,20 +18,30 @@ import eclipse.view.gui.DesktopManager;
 public class EclipseTelemetry {
 	
 	private static ThreadGen threadGenInstance;
+	
+	
+	// Root Logger
+	static Logger logger = Logger.getLogger("main");
 
-	/**
-	 * @param args
-	 */
+
+
 	public static void main(String[] args) {
+		
 		
 		//init threadGen
 		threadGenInstance = ThreadGen.getInstance();
 		
 		
 		initApp();
+		
+		logger.debug("App started");
 	}
 	
 	private static void initApp(){
+		
+		//Logger configuration
+		PropertyConfigurator.configure("log4j.configuration");		
+		logger.info("App initializing..");
 
 		threadGenInstance.addThread(new TESTER());
 		
