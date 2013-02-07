@@ -35,30 +35,31 @@ public class EclipseTelemetry {
 		//init threadGen
 		threadGenInstance = ThreadGen.getInstance();
 		
-		
+		//Initialisation
 		initApp();
 		
 		logger.debug("App started");
 	}
 	
+	/**
+	 * Initialise all information and thread for this app
+	 * XML, Acquisition, gui, persistance, etc
+	 */
 	private static void initApp(){
 		
-		//Logger configuration
+		//==============================Logger configuration========================================
 		PropertyConfigurator.configure("log4j.configuration");		
 		logger.info("App initializing..");
 		
-		// Load global settings
+		// =============================Load global settings========================================
 		logger.info("Loading global telemetry settings..");
 		TelemetrySettings.getInstance().load(SETTINGS_FILE);
 
 		
 		
-		//==========================================================================================
-		
-		
-		
-		//Loader XML
+		//===================================Load XML===============================================
 		logger.debug("XML verification");
+		
 		// Load needed settings for init
 		String protocolSchema = TelemetrySettings.getInstance().getSetting("XML_PROTOCOL_SCHEMA");
 		String protocolXML = TelemetrySettings.getInstance().getSetting("XML_PROTOCOL_FILE");
@@ -85,28 +86,27 @@ public class EclipseTelemetry {
 			 abort();
 		} 
 		
+				
 		
 		
-		
-
-		//==========================================================================================	
-		
-		
+		//==================================STUB==================================================
+		//TODO: TO BE REMOVED
+		//threadGenInstance.addThread(new TESTER());
 		
 		
-
-		threadGenInstance.addThread(new TESTER());
-		
-		
-		//Start Gui
+		//=================================Start Gui===============================================
 		threadGenInstance.addThread(new DesktopManager());
 		
-		//Start the ThreadGenerator
+		//==========================Start the ThreadGenerator=======================================
 		threadGenInstance.startThread();
 	}
 	
+	
+	/**
+	 * Application killer, whit error log4j
+	 */
 	public static void abort() {
-		logger.fatal("App abort.");
+		logger.error("App abort.");
 		System.exit(1);
 	}
 

@@ -27,7 +27,7 @@ public class Trame {
 
 	private int identifier;	//Tram ID (from car)
 	private int type; // Tram type (from car)
-	private ArrayList<DeviceItem> items;
+	private ArrayList<DeviceItem> items = new ArrayList<DeviceItem>();
 	
 	/**
 	 * Trame constructor

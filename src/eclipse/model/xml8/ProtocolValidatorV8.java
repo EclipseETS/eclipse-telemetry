@@ -45,11 +45,11 @@ public class ProtocolValidatorV8 implements ProtocolValidator {
 				validator.validate(xml);
 				
 				} catch (IOException e) {
-					logger.fatal("Protocol XML file not found.");
+					logger.error("Protocol XML file not found.");
 					return false;
 					
 				} catch (SAXException e) {
-					logger.fatal("Protocol XML file is invalid");
+					logger.error("Protocol XML file is invalid");
 					return false;
 			}
 			logger.info("Protocol XML file appears to be valid.");
@@ -74,7 +74,7 @@ public class ProtocolValidatorV8 implements ProtocolValidator {
 			return true;
 			
 		} catch (SAXException e) {
-			logger.fatal("Schema " + schemaFile.getAbsolutePath() +" is invalid or not found.");
+			logger.error("Schema " + schemaFile.getAbsolutePath() +" is invalid or not found.");
 			return false;
 		}
 	}

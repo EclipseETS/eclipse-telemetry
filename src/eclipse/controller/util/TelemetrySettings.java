@@ -29,9 +29,9 @@ public class TelemetrySettings {
 		try {
 			settings.load(new FileReader(propertiesFile));
 		} catch (FileNotFoundException e) {
-			logger.fatal(e.getMessage());
+			logger.error(e.getMessage());
 		} catch (IOException e) {
-			logger.fatal(e.getMessage());
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -49,9 +49,9 @@ public class TelemetrySettings {
 		try {
 			settings.store(new FileOutputStream(path), null);
 		} catch (FileNotFoundException e) {
-			logger.fatal(e.getMessage());
+			logger.error(e.getMessage());
 		} catch (IOException e) {
-			logger.fatal(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		//load(path);
 	}

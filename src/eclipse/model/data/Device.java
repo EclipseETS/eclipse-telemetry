@@ -26,9 +26,11 @@ public class Device {
 	public Device(Integer deviceId, String deviceName) {
 		this.deviceId = deviceId;
 		this.deviceName = deviceName;
-		
+
 		// Create the device's DeviceItem arraylist
 		items = new ArrayList<DeviceItem>();
+		// Create the device's Trame arraylist
+		trames = new ArrayList<Trame>();
 	}
 	
 	/**
@@ -56,7 +58,10 @@ public class Device {
 	 * @return
 	 */
 	public DeviceItem getItemByID (Integer itemId) {
-		return items.get(itemId);
+		for (DeviceItem iDev : items)
+			if (iDev.getItemId()==itemId)
+				return iDev;
+		return null;
 	}
 
 	/**

@@ -41,10 +41,10 @@ public class TramConverter implements Converter {
 												// <deviceItem>
 				reader.moveDown(); // Go down to the <deviceItem>
 
-//				// Process the <deviceItem>
-//				DeviceItem di = (DeviceItem) context.convertAnother(new Object(), DeviceItem.class);
-//				tram.addItem(di);
-
+				// Process the <deviceItem>
+				DeviceItem di = (DeviceItem) context.convertAnother(new Object(), DeviceItem.class);
+				tram.addItem(di);
+				logger.debug("DeviceItem :"+di.getItemId()+":"+di.getName()+" added.");
 				reader.moveUp(); // Get back up to the <device>
 			}
 			

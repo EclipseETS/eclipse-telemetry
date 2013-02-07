@@ -57,6 +57,7 @@ public class DeviceConverter implements Converter {
 				// Process the <trame>
 				Trame t = (Trame) context.convertAnother(new Object(), Trame.class);
 				DataManager.getInstance().getDeviceByID(deviceId).addTrame(t);
+				logger.debug("Trame :"+t.getIdentifier()+" added.");
 				
 				//To set item in this device
 				for(DeviceItem item : t.getItems())

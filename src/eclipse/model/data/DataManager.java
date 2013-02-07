@@ -36,7 +36,6 @@ public class DataManager {
 		for (Device iDev : devices)
 			if (iDev.getDeviceName().toUpperCase().compareTo(deviceName.toUpperCase())==0)
 				return iDev;
-		//TODO Exeption ou null
 		return null;
 	}
 	
@@ -46,7 +45,10 @@ public class DataManager {
 	 * @return
 	 */
 	public Device getDeviceByID (Integer itemId) {
-		return devices.get(itemId);
+		for (Device iDev : devices)
+			if (iDev.getDeviceId()==itemId)
+				return iDev;
+		return null;
 	}
 
 	/**
