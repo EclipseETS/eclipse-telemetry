@@ -42,6 +42,12 @@ public class EclipseTelemetry {
 		//Logger configuration
 		PropertyConfigurator.configure("log4j.configuration");		
 		logger.info("App initializing..");
+		
+		
+		//Loader XML
+		logger.debug("XML verification");
+		
+		
 
 		threadGenInstance.addThread(new TESTER());
 		
