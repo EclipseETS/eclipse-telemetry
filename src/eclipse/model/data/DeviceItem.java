@@ -1,6 +1,7 @@
 package eclipse.model.data;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author Marco
  *
  */
-public class DeviceItem {
+public class DeviceItem extends Observable {
 	
 	//Data them self
 	protected ArrayList<Data> values;

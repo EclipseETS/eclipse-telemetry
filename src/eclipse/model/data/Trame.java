@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * 						  |
  * 						  |
  * 						 \/
- * 				     Many Trame
+ * 				     Many Trame (in the good order)
  * 						  |
  * 						  |
  * 						 \/

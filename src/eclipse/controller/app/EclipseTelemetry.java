@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import eclipse.controller.util.TelemetrySettings;
+import eclipse.model.data.DataManager;
 import eclipse.model.xml.ProtocolLoader;
 import eclipse.model.xml.ProtocolValidator;
 import eclipse.model.xml8.ProtocolLoaderV8;
@@ -91,9 +92,10 @@ public class EclipseTelemetry {
 		
 		//==================================STUB==================================================
 		//TODO: TO BE REMOVED
-		//threadGenInstance.addThread(new TESTER());
+		threadGenInstance.addThread(new TESTER());
 		
-		
+
+		DataManager data = DataManager.getInstance();
 		//=================================Start Gui===============================================
 		threadGenInstance.addThread(new DesktopManager());
 		
