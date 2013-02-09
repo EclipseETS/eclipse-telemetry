@@ -1,6 +1,8 @@
 package eclipse.model.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Observable;
 
 
@@ -12,7 +14,7 @@ import java.util.Observable;
 public class DeviceItem extends Observable {
 	
 	//Data them self
-	protected ArrayList<Data> values;
+	protected List<Data> values;
 	
 	//Human Info
 	protected Integer itemId;
@@ -46,7 +48,7 @@ public class DeviceItem extends Observable {
 		this.signed = signed;
 		this.isFloat = isFloat;
 		
-		values = new ArrayList<Data>();
+		values = Collections.synchronizedList(new ArrayList<Data>());
 	}
 	
 	
@@ -90,7 +92,7 @@ public class DeviceItem extends Observable {
 	 * Return all data from application startup
 	 * @return table of data [long timestamp, Double value]
 	 */
-	public ArrayList<Data> getAllData() {
+	public List<Data> getAllData() {
 		return values;
 	}
 	

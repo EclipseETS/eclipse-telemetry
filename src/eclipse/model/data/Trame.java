@@ -1,6 +1,8 @@
 package eclipse.model.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * This class represent a tram sent by the car. From a logical point of view
@@ -27,7 +29,7 @@ public class Trame {
 
 	private int identifier;	//Tram ID (from car)
 	private int type; // Tram type (from car)
-	private ArrayList<DeviceItem> items = new ArrayList<DeviceItem>();
+	private List<DeviceItem> items = Collections.synchronizedList(new ArrayList<DeviceItem>());
 	
 	/**
 	 * Trame constructor
@@ -50,7 +52,7 @@ public class Trame {
 	 * Return all items in this tram, used when new data arrived
 	 * @return
 	 */
-	public ArrayList<DeviceItem> getItems(){
+	public List<DeviceItem> getItems(){
 		return items;
 	}
 

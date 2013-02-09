@@ -1,6 +1,8 @@
 package eclipse.controller.app;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -16,7 +18,7 @@ public class ThreadGen {
 	
 	
 	//List of thread to be run
-	private ArrayList<Thread> threadList = new ArrayList<Thread>();
+	private List<Thread> threadList =Collections.synchronizedList(new ArrayList<Thread>());
 	
 	/**
 	 * Singleton

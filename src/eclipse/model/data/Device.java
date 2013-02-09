@@ -1,6 +1,8 @@
 package eclipse.model.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -15,8 +17,8 @@ public class Device {
 	private String deviceName;
 	
 	//List of all Item incide this Device
-	private ArrayList<DeviceItem> items;
-	private ArrayList<Trame> trames;
+	private List<DeviceItem> items;
+	private List<Trame> trames;
 	
 	/**
 	 * Create device 
@@ -28,9 +30,9 @@ public class Device {
 		this.deviceName = deviceName;
 
 		// Create the device's DeviceItem arraylist
-		items = new ArrayList<DeviceItem>();
+		items = Collections.synchronizedList(new ArrayList<DeviceItem>());
 		// Create the device's Trame arraylist
-		trames = new ArrayList<Trame>();
+		trames = Collections.synchronizedList(new ArrayList<Trame>());
 	}
 	
 	/**
@@ -68,7 +70,7 @@ public class Device {
 	 * Return all items
 	 * @return
 	 */
-	public ArrayList<DeviceItem> getItems() {
+	public List<DeviceItem> getItems() {
 		return items;
 	}
 

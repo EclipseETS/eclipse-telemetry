@@ -1,15 +1,17 @@
 package eclipse.model.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class DataManager {
 	
 	private static DataManager dataMgr = new DataManager();
-	private ArrayList<Device> devices;
+	private List<Device> devices;
 	
 	//Private instance of data manager
 	private DataManager(){
-		devices = new ArrayList<Device>();
+		devices =Collections.synchronizedList(new ArrayList<Device>());
 	}	
 	
 	/**
@@ -68,7 +70,7 @@ public class DataManager {
 	}
 		
 	//GETTER AND SETTER
-	public ArrayList<Device> getDevices() {
+	public List<Device> getDevices() {
 		return devices;
 	}
 
