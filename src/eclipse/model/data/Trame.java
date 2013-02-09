@@ -50,7 +50,7 @@ public class Trame {
 
 	/**
 	 * Return all items in this tram, used when new data arrived
-	 * @return
+	 * @return the item in the GOOD order, so has they are in the CAM BUS trame
 	 */
 	public List<DeviceItem> getItems(){
 		return items;

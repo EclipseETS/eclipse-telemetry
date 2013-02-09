@@ -15,6 +15,10 @@ import eclipse.model.data.Trame;
 
 /**
  * This class is used to create Device from the xml using stream librairie
+ * 
+ * Important to know, all data are copyed here, and double refenrence are also set here for trame and items
+ * 
+ * 
  * @author Marco
  *
  */
@@ -79,8 +83,13 @@ public class DeviceConverter implements Converter {
 			reader.moveUp(); // Get back up to <char>
 		}
 		// </char>
-
-
+		
+		
+		//Push all tram in the hashset
+		for(Device iDev : DataManager.getInstance().getDevices())
+			for(Trame iTram : iDev.getTrames())
+				DataManager.getInstance().getTrames().put(iTram.getIdentifier(), iTram);
+		
 		return null;
 	}
 

@@ -117,5 +117,8 @@ public class Device {
 	public String getDeviceName() {
 		return deviceName;
 	}
+	public List<Trame> getTrames(){
+		return trames;
+	}
 
 }

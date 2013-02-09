@@ -2,16 +2,20 @@ package eclipse.model.data;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataManager {
 	
 	private static DataManager dataMgr = new DataManager();
 	private List<Device> devices;
+	private Map<Integer, Trame> trames;
 	
 	//Private instance of data manager
 	private DataManager(){
-		devices =Collections.synchronizedList(new ArrayList<Device>());
+		devices = Collections.synchronizedList(new ArrayList<Device>());
+		trames = Collections.synchronizedMap(new HashMap<Integer, Trame>());
 	}	
 	
 	/**
@@ -52,6 +56,15 @@ public class DataManager {
 				return iDev;
 		return null;
 	}
+	
+	/**
+	 * Return the tram corresponding to this particular Identifier
+	 * @param Identifier link to the trame (from the can frame)
+	 * @return
+	 */
+	public Trame getTrame(int Identifier){
+		return trames.get(Identifier);
+	}
 
 	/**
 	 * Load value from old files 
@@ -72,6 +85,10 @@ public class DataManager {
 	//GETTER AND SETTER
 	public List<Device> getDevices() {
 		return devices;
+	}
+	
+	public Map<Integer, Trame> getTrames(){
+		return trames;
 	}
 
 }
