@@ -8,6 +8,7 @@
 	    <trame identifier="100" type="1">
 			<deviceitem id="0" name="CMD_Current">
 				<unit>%</unit>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
@@ -19,6 +20,7 @@
 			</deviceitem>
 			<deviceitem id="5" name="BusCurrent">
 				<unit>A</unit>
+				<bitsize>8</bitsize>
 				<minvalue>-120</minvalue>
 				<maxvalue>120</maxvalue>
 				<resolution>1</resolution>
@@ -37,6 +39,7 @@
 	    <trame identifier="200" type="1">
 			<deviceitem id="1" name="Status">
 				<unit>Bin</unit>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65535</maxvalue>
 				<resolution>1</resolution>
@@ -48,6 +51,7 @@
 			</deviceitem>
 			<deviceitem id="2" name="Bouton">
 				<unit>Bin</unit>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>256</maxvalue>
 				<resolution>1</resolution>
@@ -59,6 +63,7 @@
 			</deviceitem>
 			<deviceitem id="4" name="Pot">
 				<unit>Bin</unit>
+				<bitsize>8</bitsize>
 				<minvalue>-128</minvalue>
 				<maxvalue>127</maxvalue>
 				<resolution>1</resolution>
@@ -72,6 +77,7 @@
 	    <trame identifier="201" type="1">
 			<deviceitem id="5" name="Velocity">
 				<unit>m/s</unit>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>30</maxvalue>
 				<resolution>1</resolution>

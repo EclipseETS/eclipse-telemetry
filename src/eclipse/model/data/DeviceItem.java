@@ -22,6 +22,7 @@ public class DeviceItem extends Observable {
 	
 	//Data Properties
 	protected String unit;
+	protected int bitSize;
 	protected int minValue;
 	protected int maxValue;
 	protected double resolution;
@@ -33,12 +34,13 @@ public class DeviceItem extends Observable {
 	
 	//Complete constructor
 	public DeviceItem(Integer itemId, String name,
-			String unit, int minValue, int maxValue, double resolution,
+			String unit,int bitSize, int minValue, int maxValue, double resolution,
 			double factor, int offset, int numBits, boolean signed, boolean isFloat) {
 		super();
 		this.itemId = itemId;
 		this.name = name;
 		this.unit = unit;
+		this.bitSize = bitSize;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
 		this.resolution = resolution;
@@ -47,7 +49,7 @@ public class DeviceItem extends Observable {
 		this.numBits = numBits;
 		this.signed = signed;
 		this.isFloat = isFloat;
-		
+
 		values = Collections.synchronizedList(new ArrayList<Data>());
 	}
 	
@@ -61,6 +63,9 @@ public class DeviceItem extends Observable {
 	}
 	public String getUnit() {
 		return unit;
+	}
+	public int getBitSize() {
+		return bitSize;
 	}
 	public int getMinValue() {
 		return minValue;

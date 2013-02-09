@@ -32,6 +32,7 @@ public class DeviceItemConverter implements Converter {
 		Integer itemId = 0;
 		String name = null;
 		String unit = null;
+		int bitsize = 0;
 		int minValue = 0;
 		int maxValue = 0;
 		double resolution = 0;
@@ -50,6 +51,7 @@ public class DeviceItemConverter implements Converter {
 			
 			// Set the <deviceItem> properties
 			if ("unit".equals(reader.getNodeName())) unit = reader.getValue();
+			else if ("bitsize".equals(reader.getNodeName())) bitsize = Integer.parseInt(reader.getValue());
 			else if ("minvalue".equals(reader.getNodeName())) minValue = Integer.parseInt(reader.getValue());
 			else if ("maxvalue".equals(reader.getNodeName())) maxValue = Integer.parseInt(reader.getValue());
 			else if ("resolution".equals(reader.getNodeName())) resolution = Double.parseDouble(reader.getValue());
@@ -63,7 +65,7 @@ public class DeviceItemConverter implements Converter {
 		}
 		
 		// Return a new DeviceItem
-        return new DeviceItem(itemId, name, unit, minValue, maxValue,
+        return new DeviceItem(itemId, name, unit, bitsize, minValue, maxValue,
         					resolution, factor, offset, numBits,
         					signed,isFloat);
 	}

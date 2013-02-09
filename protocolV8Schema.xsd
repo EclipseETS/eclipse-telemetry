@@ -5,6 +5,7 @@
 	<xs:complexType name="deviceitem">
 		<xs:sequence>
 			<xs:element name="unit" type="xs:string" />
+			<xs:element name="bitsize" type="xs:integer" />
 			<xs:element name="minvalue" type="xs:integer" />
 			<xs:element name="maxvalue" type="xs:integer" />
 			<xs:element name="resolution" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->

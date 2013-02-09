@@ -46,6 +46,7 @@ public class ProtocolLoaderV8 implements ProtocolLoader {
 		stream.alias("trame", Trame.class);
 		
 		stream.alias("unit", String.class);
+		stream.alias("bitsize", Integer.class);
 		stream.alias("minvalue", Integer.class);
 		stream.alias("maxvalue", Integer.class);
 		stream.alias("resolution", Integer.class);
