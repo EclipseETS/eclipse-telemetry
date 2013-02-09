@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.table.AbstractTableModel;
 
 import eclipse.model.data.DataManager;
+import eclipse.model.data.Device;
 
 /**
  * This class is used to create the table that displays the car data
@@ -20,6 +21,7 @@ public class DeviceTable extends JPanel implements Observer {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = -2652127495341433024L;
 	private JTable dataTable;
 	private DataManager dataManager = DataManager.getInstance();
 
