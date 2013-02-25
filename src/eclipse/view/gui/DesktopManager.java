@@ -1,33 +1,22 @@
 package eclipse.view.gui;
 
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class DesktopManager implements Runnable {
 
 	private JFrame frmclipseViii;
-
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DesktopManager window = new DesktopManager();
-					window.frmclipseViii.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	private DeviceTable dataTable;
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public DesktopManager() {
 	}
@@ -36,6 +25,7 @@ public class DesktopManager implements Runnable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		dataTable = new DeviceTable();
 		frmclipseViii = new JFrame();
 		frmclipseViii.setTitle("\u00C9clipse VIII");
 		frmclipseViii.setBounds(100, 100, 683, 575);
@@ -61,6 +51,8 @@ public class DesktopManager implements Runnable {
 		
 		JMenu mnAbout = new JMenu("About");
 		mnHelp.add(mnAbout);
+		
+		frmclipseViii.add(dataTable, BorderLayout.EAST);
 	}
 
 

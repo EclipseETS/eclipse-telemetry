@@ -1,14 +1,17 @@
 package eclipse.view.gui;
 
+import java.awt.BorderLayout;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
-import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 import eclipse.model.data.DataManager;
-import eclipse.model.data.Device;
+import eclipse.model.data.DeviceItem;
 
 /**
  * This class is used to create the table that displays the car data
@@ -16,13 +19,14 @@ import eclipse.model.data.Device;
  *
  */
 
-public class DeviceTable extends JPanel implements Observer {
+public class DeviceTable extends JPanel {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2652127495341433024L;
+	private JScrollPane scrollPane;
 	private JTable dataTable;
+	private JButton btnError;
+	private JButton btnGraph;
+	private JButton btnIndex;
 	private DataManager dataManager = DataManager.getInstance();
 
 	/**
@@ -30,53 +34,35 @@ public class DeviceTable extends JPanel implements Observer {
 	 */
 	public DeviceTable() {
 		
-		dataTable = new JTable(new DeviceTableModel());
+		// Builds a layout without borders between elements
+		this.setLayout(new BorderLayout());		
+		DefaultTableModel model = new DefaultTableModel(30, 5);
+		dataTable = new JTable(model);
+		btnError = new JButton("Mark as error");
+		btnGraph = new JButton("Graph this data");
+		btnIndex = new JButton("Keep this value");
+		
+		// Set default width for the table columns
+		dataTable.setFillsViewportHeight(true);
+		dataTable.getColumn(0).setPreferredWidth(5);  // Device
+		dataTable.getColumn(1).setPreferredWidth(2);  // ItemId
+		dataTable.getColumn(2).setPreferredWidth(10); // Item
+		dataTable.getColumn(3).setPreferredWidth(10); // Value
+		dataTable.getColumn(5).setPreferredWidth(2); // Status
 		
 		// Creates a scroll pane as a container for the table
-		JScrollPane scrollPane = new JScrollPane(dataTable);
-		dataTable.setFillsViewportHeight(true);
-
+		scrollPane = new JScrollPane(dataTable);
+		this.add(scrollPane);
+		this.add(btnError, BorderLayout.SOUTH);
+		this.add(btnGraph, BorderLayout.NORTH);
+		this.add(btnIndex, BorderLayout.SOUTH);
 	}
-
-	/**
-	 * This method is called whenever an object is changed
-	 */
-	public void update(Observable o, Object arg) {
-		
-		
-	}
-
-	/**
-	 * Class for creating a new table model
-	 * @author fabricehoule
-	 *
-	 */
-	class DeviceTableModel extends AbstractTableModel {
 	
-		private String[] columnNames = {"Device", "ID", "Item", "Value", "Last seen"};
-
-		public int getRowCount() {
-			//TODO Methods for the table model
-			
-			int numberOfItems = 0;
-			//for (dataManager.getDevices(){
-			//	numberOfItems += dataManager.getDevices().size();
-			//}
-				
-			return 0;
-		}
-
-		@Override
-		public int getColumnCount() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-		@Override
-		public Object getValueAt(int rowIndex, int columnIndex) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	/**
+	 * This method is called every second by the DesktopManager to add one line to the table
+	 */
+	public void updateTable() {
+		
 		
 	}
 	
