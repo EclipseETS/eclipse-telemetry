@@ -3,6 +3,11 @@ package eclipse.controller.acqui;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Provide full desencapsulation, by receiving byte from acquisition
+ * @author Marco
+ *
+ */
 public class DesencapsulatorE8Serial implements Desencapsulator {
 	
 	private Byte[] byteArray = new Byte[15]; //15 is the max a communication will be
