@@ -3,6 +3,9 @@ package eclipse.controller.app;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import eclipse.controller.acqui.DataAcquisition;
+import eclipse.controller.acqui.DesencapsulatorE8Serial;
+import eclipse.controller.acqui.handlers.SerialHandler;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.xml.ProtocolLoader;
 import eclipse.model.xml.ProtocolValidator;
@@ -25,6 +28,7 @@ public class EclipseTelemetry {
 	
 	private static ThreadGen threadGenInstance;
 	private static final String SETTINGS_FILE = "telemetrySettings.properties";
+	private static DataAcquisition dataAcqui;
 	static Logger logger = Logger.getLogger("main");
 
 
@@ -87,7 +91,9 @@ public class EclipseTelemetry {
 		} 
 		
 				
-		
+		//=================================Acquisition============================================
+		dataAcqui = new DataAcquisition(new SerialHandler(),new DesencapsulatorE8Serial());
+		threadGenInstance.addThread(dataAcqui);
 		
 		//==================================STUB==================================================
 		//TODO: TO BE REMOVED
