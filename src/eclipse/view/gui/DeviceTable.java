@@ -1,8 +1,6 @@
 package eclipse.view.gui;
 
 import java.awt.BorderLayout;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -11,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 import eclipse.model.data.DataManager;
+import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
 
 /**
@@ -19,7 +18,7 @@ import eclipse.model.data.DeviceItem;
  *
  */
 
-public class DeviceTable extends JPanel {
+public class DeviceTable extends JPanel  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
 	private JScrollPane scrollPane;
@@ -34,9 +33,11 @@ public class DeviceTable extends JPanel {
 	 */
 	public DeviceTable() {
 		
+		int nmItem = dataManager.getCpt();
+		
 		// Builds a layout without borders between elements
 		this.setLayout(new BorderLayout());		
-		DefaultTableModel model = new DefaultTableModel(30, 5);
+		DefaultTableModel model = new DefaultTableModel(nmItem, 5);
 		dataTable = new JTable(model);
 		btnError = new JButton("Mark as error");
 		btnGraph = new JButton("Graph this data");
@@ -44,11 +45,17 @@ public class DeviceTable extends JPanel {
 		
 		// Set default width for the table columns
 		dataTable.setFillsViewportHeight(true);
-		dataTable.getColumn(0).setPreferredWidth(5);  // Device
-		dataTable.getColumn(1).setPreferredWidth(2);  // ItemId
-		dataTable.getColumn(2).setPreferredWidth(10); // Item
-		dataTable.getColumn(3).setPreferredWidth(10); // Value
-		dataTable.getColumn(5).setPreferredWidth(2); // Status
+		dataTable.getColumnModel().getColumn(0).setPreferredWidth(5);  // Device
+		dataTable.getColumnModel().getColumn(1).setPreferredWidth(2);  // ItemId
+		dataTable.getColumnModel().getColumn(2).setPreferredWidth(10); // Item
+		dataTable.getColumnModel().getColumn(3).setPreferredWidth(10); // Value
+		dataTable.getColumnModel().getColumn(4).setPreferredWidth(2); // Status
+
+		dataTable.getColumnModel().getColumn(0).setHeaderValue("TABARNAK");
+		dataTable.getColumnModel().getColumn(1).setHeaderValue("TABARNAK");
+		dataTable.getColumnModel().getColumn(2).setHeaderValue("TABARNAK");
+		dataTable.getColumnModel().getColumn(3).setHeaderValue("TABARNAK");
+		dataTable.getColumnModel().getColumn(4).setHeaderValue("TABARNAK");
 		
 		// Creates a scroll pane as a container for the table
 		scrollPane = new JScrollPane(dataTable);
@@ -62,7 +69,16 @@ public class DeviceTable extends JPanel {
 	 * This method is called every second by the DesktopManager to add one line to the table
 	 */
 	public void updateTable() {
-		
+		String tageule ="GUAY";
+		int i=0;
+		for(Device dev : DataManager.getInstance().getDevices())
+			for(DeviceItem item : dev.getItems()){
+				dataTable.getModel().setValueAt(5, 0, i);
+				dataTable.getModel().setValueAt(tageule, 1, i);
+				dataTable.getModel().setValueAt(new java.util.Date().getTime(), 0, i);
+				i++;
+				item.getFactor();
+			}
 		
 	}
 	

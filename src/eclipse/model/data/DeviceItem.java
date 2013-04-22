@@ -51,6 +51,7 @@ public class DeviceItem extends Observable {
 		this.isFloat = isFloat;
 
 		values = Collections.synchronizedList(new ArrayList<Data>());
+		DataManager.getInstance().addCpt();
 	}
 	
 	

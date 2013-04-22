@@ -1,14 +1,23 @@
 package eclipse.view.gui;
 
 
+import java.awt.Color;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 import eclipse.controller.util.TelemetrySettings;
 
 public class DesktopManager implements Runnable {
 
 	private JFrame frmclipseViii;
+	private JSplitPane leftPart;
+	private JSplitPane all;
+	private DeviceTable panTable = new DeviceTable();
 
 	/**
 	 * Create the application.
@@ -29,11 +38,42 @@ public class DesktopManager implements Runnable {
 		
 		defineMenus();
 		
-		frmclipseViii.add(new MigFrame());
+		defineLayout();
+		
+		//Used to automatically resize the windows
+		frmclipseViii.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                resizedMe();
+            }
+		});
 
 		
 	}
 
+	private void resizedMe() {
+		leftPart.setDividerLocation(0.75);
+		all.setDividerLocation(0.75);
+		
+	}
+    
+
+
+	private void defineLayout() {
+
+		JPanel panMain = new JPanel();
+		JPanel panConsole = new JPanel();
+		
+		panMain.setBackground(Color.black);
+		panConsole.setBackground(Color.blue);
+		
+		
+		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panMain, panConsole);
+		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, panTable);
+				
+		frmclipseViii.add(all);
+		
+		
+	}
 
 	/**
 	 * Use the Gui as a Thread
@@ -46,6 +86,16 @@ public class DesktopManager implements Runnable {
 		
 		//Show frame -- Replace frame.show()
 		frmclipseViii.setVisible(true);
+		
+		while(true){
+			//refresh value every X second
+			panTable.updateTable();
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 	

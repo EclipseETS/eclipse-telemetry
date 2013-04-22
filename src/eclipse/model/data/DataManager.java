@@ -11,6 +11,7 @@ public class DataManager {
 	private static DataManager dataMgr = new DataManager();
 	private List<Device> devices;
 	private Map<Integer, Trame> trames;
+	private int cpt=0;
 	
 	//Private instance of data manager
 	private DataManager(){
@@ -90,5 +91,20 @@ public class DataManager {
 	public Map<Integer, Trame> getTrames(){
 		return trames;
 	}
+
+	//cpt is used to know how many item there is
+	public int getCpt() {
+		return cpt;
+	}
+
+	public void setCpt(int cpt) {
+		this.cpt = cpt;
+	}
+	
+	public void addCpt(){
+		cpt++;
+	}
+
+	
 
 }
