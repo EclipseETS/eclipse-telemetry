@@ -1,18 +1,14 @@
 package eclipse.view.gui;
 
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
+
+import eclipse.controller.util.TelemetrySettings;
 
 public class DesktopManager implements Runnable {
 
 	private JFrame frmclipseViii;
-	private DeviceTable dataTable;
 
 	/**
 	 * Create the application.
@@ -25,34 +21,17 @@ public class DesktopManager implements Runnable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		dataTable = new DeviceTable();
 		frmclipseViii = new JFrame();
-		frmclipseViii.setTitle("\u00C9clipse VIII");
+		frmclipseViii.setTitle(TelemetrySettings.getInstance().getSetting("GUI_MENU_TITLE"));
 		frmclipseViii.setBounds(100, 100, 683, 575);
 		frmclipseViii.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JMenuBar menuBar = new JMenuBar();
-		frmclipseViii.setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("File");
-		menuBar.add(mnFile);
+		defineMenus();
 		
-		JMenuItem mntmQuit = new JMenuItem("Quit");
-		mnFile.add(mntmQuit);
+		frmclipseViii.add(new MigFrame());
+
 		
-		JMenu mnView = new JMenu("View");
-		menuBar.add(mnView);
-		
-		JMenu mnGraph = new JMenu("Graph");
-		menuBar.add(mnGraph);
-		
-		JMenu mnHelp = new JMenu("Help");
-		menuBar.add(mnHelp);
-		
-		JMenu mnAbout = new JMenu("About");
-		mnHelp.add(mnAbout);
-		
-		frmclipseViii.add(dataTable, BorderLayout.EAST);
 	}
 
 
@@ -68,6 +47,33 @@ public class DesktopManager implements Runnable {
 		//Show frame -- Replace frame.show()
 		frmclipseViii.setVisible(true);
 		
+	}
+	
+	/**
+	 * All Menu definition, Information and text should be here in property
+	 */
+	private void defineMenus(){
+
+		JMenuBar menuBar = new JMenuBar();
+		frmclipseViii.setJMenuBar(menuBar);
+//		
+//		JMenu mnFile = new JMenu("File");
+//		menuBar.add(mnFile);
+//		
+//		JMenuItem mntmQuit = new JMenuItem("Quit");
+//		mnFile.add(mntmQuit);
+//		
+//		JMenu mnView = new JMenu("View");
+//		menuBar.add(mnView);
+//		
+//		JMenu mnGraph = new JMenu("Graph");
+//		menuBar.add(mnGraph);
+//		
+//		JMenu mnHelp = new JMenu("Help");
+//		menuBar.add(mnHelp);
+//		
+//		JMenu mnAbout = new JMenu("About");
+//		mnHelp.add(mnAbout);
 	}
 
 }
