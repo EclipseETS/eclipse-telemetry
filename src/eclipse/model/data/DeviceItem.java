@@ -52,6 +52,7 @@ public class DeviceItem extends Observable {
 
 		values = Collections.synchronizedList(new ArrayList<Data>());
 		DataManager.getInstance().addCpt();
+		setValue(0.0);
 	}
 	
 	
@@ -107,7 +108,7 @@ public class DeviceItem extends Observable {
 	 * @return Last value in double.
 	 */
 	public double getLastData(){
-		return values.get(values.size()).getData();		
+		return values.get(values.size()-1).getData();		
 	}
 	
 	/**
@@ -115,7 +116,7 @@ public class DeviceItem extends Observable {
 	 * @return Long: Timestamp
 	 */
 	public long getLastSeen(){
-		return values.get(values.size()).getDate();		
+		return values.get(values.size()-1).getDate();		
 	}
 	
 	/**

@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.UIManager;
+
+import org.apache.log4j.Logger;
 
 import eclipse.controller.util.TelemetrySettings;
 
@@ -18,6 +21,9 @@ public class DesktopManager implements Runnable {
 	private JSplitPane leftPart;
 	private JSplitPane all;
 	private DeviceTable panTable = new DeviceTable();
+	private Console con = new Console();
+
+	static Logger logger = Logger.getLogger("telemetry");
 
 	/**
 	 * Create the application.
@@ -30,10 +36,20 @@ public class DesktopManager implements Runnable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		//Change application Look n Feel
+		try {
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
+		//Frame Creation
 		frmclipseViii = new JFrame();
 		frmclipseViii.setTitle(TelemetrySettings.getInstance().getSetting("GUI_MENU_TITLE"));
 		frmclipseViii.setBounds(100, 100, 683, 575);
 		frmclipseViii.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmclipseViii.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
 		
 		defineMenus();
@@ -61,13 +77,11 @@ public class DesktopManager implements Runnable {
 	private void defineLayout() {
 
 		JPanel panMain = new JPanel();
-		JPanel panConsole = new JPanel();
 		
 		panMain.setBackground(Color.black);
-		panConsole.setBackground(Color.blue);
 		
 		
-		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panMain, panConsole);
+		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panMain, con);
 		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, panTable);
 				
 		frmclipseViii.add(all);
