@@ -9,7 +9,6 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-import org.apache.log4j.Logger;
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
@@ -23,7 +22,6 @@ import eclipse.model.data.DeviceItem;
  */
 
 public class DeviceTable extends JPanel  {
-	static Logger logger = Logger.getLogger("telemetry");
 	
 	private static final long serialVersionUID = -2652127495341433024L;
 	private JScrollPane scrollPane;

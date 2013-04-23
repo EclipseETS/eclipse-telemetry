@@ -1,18 +1,41 @@
-2013-02-25 14:47:30,873 [ INFO] Connected to SERIAL successfully.
-2013-02-25 14:48:28,772 [ INFO] Connected to SERIAL successfully.
-2013-02-25 14:51:56,737 [ INFO] Connected to SERIAL successfully.
-2013-02-25 14:53:38,878 [ INFO] Connected to SERIAL successfully.
-2013-02-25 14:55:40,846 [ INFO] Connected to SERIAL successfully.
-2013-02-25 14:59:32,471 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:01:02,736 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:02:11,371 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:08:04,796 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:10:52,994 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:11:35,791 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:12:34,357 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:30:53,299 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:30:53,300 [ INFO] Handler Ready
-2013-02-25 15:31:38,133 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:31:38,134 [ INFO] Handler Ready
-2013-02-25 15:33:56,105 [ INFO] Connected to SERIAL successfully.
-2013-02-25 15:34:40,952 [ INFO] Handler Ready
+2013-04-22 20:40:21,684 [ERROR] TEST
+2013-04-22 20:52:05,477 [ INFO] App initializing..
+2013-04-22 20:52:05,477 [ INFO] Loading global telemetry settings..
+2013-04-22 20:52:05,479 [DEBUG] XML verification
+2013-04-22 20:52:05,533 [ INFO] Protocol XML Schema appears to be valid.
+2013-04-22 20:52:05,542 [ INFO] Protocol XML file appears to be valid.
+2013-04-22 20:52:05,675 [DEBUG] Device :4:Drive added.
+2013-04-22 20:52:05,676 [DEBUG] DeviceItem :0:CMD_Current added.
+2013-04-22 20:52:05,677 [DEBUG] DeviceItem :5:BusCurrent added.
+2013-04-22 20:52:05,677 [DEBUG] Trame :100 added.
+2013-04-22 20:52:05,677 [DEBUG] Device :6:Volant added.
+2013-04-22 20:52:05,678 [DEBUG] DeviceItem :1:Status added.
+2013-04-22 20:52:05,679 [DEBUG] DeviceItem :2:Bouton added.
+2013-04-22 20:52:05,679 [DEBUG] DeviceItem :4:Pot added.
+2013-04-22 20:52:05,679 [DEBUG] Trame :200 added.
+2013-04-22 20:52:05,680 [DEBUG] DeviceItem :5:Velocity added.
+2013-04-22 20:52:05,680 [DEBUG] Trame :201 added.
+2013-04-22 20:52:05,680 [ INFO] Protocol loaded successfully.
+2013-04-22 20:52:05,795 [ERROR] TEST
+2013-04-22 20:52:05,801 [DEBUG] App started
+2013-04-22 20:53:05,593 [ INFO] App initializing..
+2013-04-22 20:53:05,594 [ INFO] Loading global telemetry settings..
+2013-04-22 20:53:05,595 [DEBUG] XML verification
+2013-04-22 20:53:05,645 [ INFO] Protocol XML Schema appears to be valid.
+2013-04-22 20:53:05,654 [ INFO] Protocol XML file appears to be valid.
+2013-04-22 20:53:05,780 [DEBUG] Device :4:Drive added.
+2013-04-22 20:53:05,781 [DEBUG] DeviceItem :0:CMD_Current added.
+2013-04-22 20:53:05,782 [DEBUG] DeviceItem :5:BusCurrent added.
+2013-04-22 20:53:05,782 [DEBUG] Trame :100 added.
+2013-04-22 20:53:05,782 [DEBUG] Device :6:Volant added.
+2013-04-22 20:53:05,783 [DEBUG] DeviceItem :1:Status added.
+2013-04-22 20:53:05,784 [DEBUG] DeviceItem :2:Bouton added.
+2013-04-22 20:53:05,784 [DEBUG] DeviceItem :4:Pot added.
+2013-04-22 20:53:05,784 [DEBUG] Trame :200 added.
+2013-04-22 20:53:05,785 [DEBUG] DeviceItem :5:Velocity added.
+2013-04-22 20:53:05,785 [DEBUG] Trame :201 added.
+2013-04-22 20:53:05,785 [ INFO] Protocol loaded successfully.
+2013-04-22 20:53:05,891 [ERROR] TEST
+2013-04-22 20:53:05,896 [DEBUG] App started
+2013-04-22 20:53:18,596 [ INFO] No port found try in one sec.
+2013-04-22 20:58:22,168 [ERROR] TEST

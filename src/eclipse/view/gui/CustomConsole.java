@@ -14,7 +14,7 @@ import org.apache.log4j.PatternLayout;
 import eclipse.controller.util.JTextPaneAppender;
 
 
-public class Console extends JPanel {
+public class CustomConsole extends JPanel {
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class Console extends JPanel {
 	// Root Logger
 	static Logger logger = Logger.getLogger("telemetry");
 	
-	public Console () {
+	public CustomConsole() {
 		statusConsole = new JTextPane();
 		consoleScrollPane = new JScrollPane(statusConsole);
 
@@ -42,6 +42,8 @@ public class Console extends JPanel {
 		this.add(consoleScrollPane);
 		
 		logger.addAppender(tpa);
+		Logger.getLogger("main").addAppender(tpa);
+		logger.error("TEST");
 	}
 	
 	public void clear() {

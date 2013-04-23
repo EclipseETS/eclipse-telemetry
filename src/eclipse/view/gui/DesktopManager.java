@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 
-import org.apache.log4j.Logger;
 
 import eclipse.controller.util.TelemetrySettings;
 
@@ -21,9 +20,9 @@ public class DesktopManager implements Runnable {
 	private JSplitPane leftPart;
 	private JSplitPane all;
 	private DeviceTable panTable = new DeviceTable();
-	private Console con = new Console();
+	private CustomConsole con = new CustomConsole();
 
-	static Logger logger = Logger.getLogger("telemetry");
+	
 
 	/**
 	 * Create the application.
