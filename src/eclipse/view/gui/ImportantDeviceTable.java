@@ -144,6 +144,7 @@ public class ImportantDeviceTable extends JPanel  {
 		DesktopManager.getIstance().resizedMe();
 		updateTable();
 		
+		//TODO: Only for test to be remove
 		DesktopManager.getIstance().getTabbedPannel().addTab(new JTable(), "test");
 					
 		
