@@ -1,6 +1,8 @@
 package eclipse.view.gui;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
@@ -17,7 +19,7 @@ import eclipse.model.data.DeviceItem;
 
 /**
  * This class is used to create the table that displays the car data
- * @author fabricehoule
+ * @author MArco
  *
  */
 
@@ -26,7 +28,6 @@ public class DeviceTable extends JPanel  {
 	private static final long serialVersionUID = -2652127495341433024L;
 	private JScrollPane scrollPane;
 	private JTable dataTable;
-	private JButton btnError;
 	private JButton btnGraph;
 	private JButton btnIndex;
 	private DataManager dataManager = DataManager.getInstance();
@@ -41,11 +42,37 @@ public class DeviceTable extends JPanel  {
 		
 		// Builds a layout without borders between elements
 		this.setLayout(new BorderLayout());		
-		DefaultTableModel model = new DefaultTableModel(nmItem, 5);
+		DefaultTableModel model = new DefaultTableModel(nmItem, 5)
+		  {
+			private static final long serialVersionUID = 5555926687022393905L;
+			public boolean isCellEditable(int row, int column)
+		    {
+		      return false;//This causes all cells to be not editable
+		    }
+		  };
 		dataTable = new JTable(model);
-		btnError = new JButton("Mark as error");
 		btnGraph = new JButton("Graph this data");
 		btnIndex = new JButton("Keep this value");
+		
+		btnIndex.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
+				deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+				
+				
+				String deviceItemId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 1);
+				deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
+				
+				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
+				DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+				
+				DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
+				
+			}
+
+			});
 		
 		// Set default width for the table columns
 		dataTable.setFillsViewportHeight(true);
@@ -64,8 +91,7 @@ public class DeviceTable extends JPanel  {
 		// Creates a scroll pane as a container for the table
 		scrollPane = new JScrollPane(dataTable);
 		this.add(scrollPane);
-		this.add(btnError, BorderLayout.SOUTH);
-		this.add(btnGraph, BorderLayout.NORTH);
+	//	this.add(btnGraph, BorderLayout.NORTH);
 		this.add(btnIndex, BorderLayout.SOUTH);
 		
 		//Fill table

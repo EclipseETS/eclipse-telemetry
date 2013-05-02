@@ -53,7 +53,7 @@ public class DataManager {
 	 */
 	public Device getDeviceByID (Integer itemId) {
 		for (Device iDev : devices)
-			if (iDev.getDeviceId()==itemId)
+			if (iDev.getDeviceId().equals(itemId))
 				return iDev;
 		return null;
 	}

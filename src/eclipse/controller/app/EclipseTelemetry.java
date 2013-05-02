@@ -93,7 +93,7 @@ public class EclipseTelemetry {
 				
 		//=================================Acquisition============================================
 		dataAcqui = new DataAcquisition(new SerialHandler(),new DesencapsulatorE8Serial());
-		threadGenInstance.addThread(dataAcqui);
+		//threadGenInstance.addThread(dataAcqui);
 		
 		//==================================STUB==================================================
 		//TODO: TO BE REMOVED
@@ -101,7 +101,7 @@ public class EclipseTelemetry {
 		
 
 		//=================================Start Gui===============================================
-		threadGenInstance.addThread(new DesktopManager());
+		threadGenInstance.addThread(DesktopManager.getIstance());
 		
 		//==========================Start the ThreadGenerator=======================================
 		threadGenInstance.startThread();

@@ -61,7 +61,7 @@ public class Device {
 	 */
 	public DeviceItem getItemByID (Integer itemId) {
 		for (DeviceItem iDev : items)
-			if (iDev.getItemId()==itemId)
+			if (iDev.getItemId().equals(itemId))
 				return iDev;
 		return null;
 	}

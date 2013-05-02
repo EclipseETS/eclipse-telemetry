@@ -18,17 +18,23 @@ public class DesktopManager implements Runnable {
 
 	private JFrame frmclipseViii;
 	private JSplitPane leftPart;
+	private JSplitPane rightPart;
 	private JSplitPane all;
 	private DeviceTable panTable = new DeviceTable();
+	private ImportantDeviceTable panTable2 = new ImportantDeviceTable();
 	private CustomConsole con = new CustomConsole();
+	static private DesktopManager desinstance = new DesktopManager();
 
+	static public DesktopManager getIstance(){
+		return desinstance;
+	}
 	
 
 	/**
 	 * Create the application.
-	 * @wbp.parser.entryPoint
+	 * 
 	 */
-	public DesktopManager() {
+	private DesktopManager() {
 	}
 
 	/**
@@ -65,8 +71,9 @@ public class DesktopManager implements Runnable {
 		
 	}
 
-	private void resizedMe() {
+	public void resizedMe() {
 		leftPart.setDividerLocation(0.75);
+		rightPart.setDividerLocation(panTable2.getHeightCustom());
 		all.setDividerLocation(0.75);
 		
 	}
@@ -81,7 +88,8 @@ public class DesktopManager implements Runnable {
 		
 		
 		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panMain, con);
-		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, panTable);
+		rightPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panTable2, panTable);
+		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, rightPart);
 				
 		frmclipseViii.add(all);
 		
@@ -103,6 +111,7 @@ public class DesktopManager implements Runnable {
 		while(true){
 			//refresh value every X second
 			panTable.updateTable();
+			panTable2.updateTable();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -110,6 +119,10 @@ public class DesktopManager implements Runnable {
 			}
 		}
 		
+	}
+	
+	public ImportantDeviceTable getImportantPanel(){
+		return panTable2;
 	}
 	
 	/**
