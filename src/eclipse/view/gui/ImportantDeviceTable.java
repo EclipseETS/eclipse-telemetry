@@ -19,11 +19,16 @@ import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
 
 /**
- * This class is used to create the table that displays the car data
+ * This class is used to create the table that displays the car data The important section.
+ * The main Idea of this Class is to have user specific Item to look at easilly
+ * 
+ * We call it important because we just want to use it at all time.
+ * 
+ * ***To remove something from that list, double click on it
+ * 
  * @author Marco
  *
  */
-
 public class ImportantDeviceTable extends JPanel  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
@@ -37,11 +42,13 @@ public class ImportantDeviceTable extends JPanel  {
 	public ImportantDeviceTable() {
 		
 		
-	
+		//List of all Item in that lis
 		items = Collections.synchronizedList(new ArrayList<DeviceItem>());
 		
 		// Builds a layout without borders between elements
-		this.setLayout(new BorderLayout());		
+		this.setLayout(new BorderLayout());
+		
+		//The model for the table Without editing option
 		model = new DefaultTableModel(0, 5)
 		  {
 			private static final long serialVersionUID = -8430358070918350866L;
@@ -52,13 +59,14 @@ public class ImportantDeviceTable extends JPanel  {
 		  };
 		dataTable = new JTable(model);
 		
+		//This is the mouse listner on double click Item get erased
 		dataTable.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent e) {
 			      if (e.getClickCount() == 2) {
 			         JTable target = (JTable)e.getSource();
 			         int row = target.getSelectedRow();
 			         String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
-					deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+			         deviceId=deviceId.substring(0,deviceId.indexOf("-"));
 						
 						
 						String deviceItemId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 1);
@@ -67,9 +75,11 @@ public class ImportantDeviceTable extends JPanel  {
 						Device dev = DataManager.getInstance().getDeviceByID(Integer.valueOf(deviceId));
 						DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
 						
-						
+						//Remove information on that list
 						items.remove(item);
 						model.removeRow(row);
+						
+						//REsize important table
 						DesktopManager.getIstance().resizedMe();
 			         }
 			   }
@@ -109,6 +119,13 @@ public class ImportantDeviceTable extends JPanel  {
 		
 	}
 	
+	/**
+	 * This method is used to add an Item to the important table
+	 * 
+	 * 
+	 * @param itemCurrent
+	 * @param deviceCurrent
+	 */
 	public void addItem(DeviceItem itemCurrent, Device deviceCurrent){
 		
 		String lbl1;
@@ -126,6 +143,8 @@ public class ImportantDeviceTable extends JPanel  {
 		
 		DesktopManager.getIstance().resizedMe();
 		updateTable();
+		
+		DesktopManager.getIstance().getTabbedPannel().addTab(new JTable(), "test");
 					
 		
 	}

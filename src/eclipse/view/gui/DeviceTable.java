@@ -19,10 +19,12 @@ import eclipse.model.data.DeviceItem;
 
 /**
  * This class is used to create the table that displays the car data
+ * 
+ *Similar to Important table
+ * 
  * @author MArco
  *
  */
-
 public class DeviceTable extends JPanel  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
@@ -54,6 +56,8 @@ public class DeviceTable extends JPanel  {
 		btnGraph = new JButton("Graph this data");
 		btnIndex = new JButton("Keep this value");
 		
+		
+		//Action Listner on the button, to use in case we want to add items to important list 
 		btnIndex.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -91,7 +95,7 @@ public class DeviceTable extends JPanel  {
 		// Creates a scroll pane as a container for the table
 		scrollPane = new JScrollPane(dataTable);
 		this.add(scrollPane);
-	//	this.add(btnGraph, BorderLayout.NORTH);
+		this.add(btnGraph, BorderLayout.NORTH);
 		this.add(btnIndex, BorderLayout.SOUTH);
 		
 		//Fill table
@@ -99,6 +103,8 @@ public class DeviceTable extends JPanel  {
 		String lbl1;
 		String lbl2;
 		
+		
+		//Create static information (name, unit, etc)s
 		for(Device dev : DataManager.getInstance().getDevices()){
 			lbl1=dev.getDeviceId()+"-"+dev.getDeviceName();
 			for(DeviceItem item : dev.getItems()){

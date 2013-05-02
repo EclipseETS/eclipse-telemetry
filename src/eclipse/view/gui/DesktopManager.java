@@ -13,7 +13,14 @@ import javax.swing.UIManager;
 
 
 import eclipse.controller.util.TelemetrySettings;
-
+/**
+ * This Desktop Manager is the Main Gui point of entry for this application
+ * The manager will open any frame, console, or whatever you see
+ * 
+ * 
+ * @author Marco
+ *
+ */
 public class DesktopManager implements Runnable {
 
 	private JFrame frmclipseViii;
@@ -23,6 +30,7 @@ public class DesktopManager implements Runnable {
 	private DeviceTable panTable = new DeviceTable();
 	private ImportantDeviceTable panTable2 = new ImportantDeviceTable();
 	private CustomConsole con = new CustomConsole();
+	private TabbedPannel tab = new TabbedPannel();
 	static private DesktopManager desinstance = new DesktopManager();
 
 	static public DesktopManager getIstance(){
@@ -71,6 +79,9 @@ public class DesktopManager implements Runnable {
 		
 	}
 
+	/**
+	 * Used to resized the content,all windows and size the important table
+	 */
 	public void resizedMe() {
 		leftPart.setDividerLocation(0.75);
 		rightPart.setDividerLocation(panTable2.getHeightCustom());
@@ -82,12 +93,8 @@ public class DesktopManager implements Runnable {
 
 	private void defineLayout() {
 
-		JPanel panMain = new JPanel();
-		
-		panMain.setBackground(Color.black);
-		
-		
-		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panMain, con);
+		//Set the resizeable panel (set size)
+		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, tab, con);
 		rightPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panTable2, panTable);
 		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, rightPart);
 				
@@ -97,7 +104,7 @@ public class DesktopManager implements Runnable {
 	}
 
 	/**
-	 * Use the Gui as a Thread
+	 * Set the Gui as a Thread
 	 */
 	public void run() {
 		
@@ -108,8 +115,9 @@ public class DesktopManager implements Runnable {
 		//Show frame -- Replace frame.show()
 		frmclipseViii.setVisible(true);
 		
+		//This is the timer for the gui part of the application
 		while(true){
-			//refresh value every X second
+			//refresh value every second
 			panTable.updateTable();
 			panTable2.updateTable();
 			try {
@@ -150,6 +158,11 @@ public class DesktopManager implements Runnable {
 //		
 //		JMenu mnAbout = new JMenu("About");
 //		mnHelp.add(mnAbout);
+		//TODO: Add shortcut menu (to give command to the people
+	}
+	
+	public TabbedPannel getTabbedPannel(){
+		return tab;
 	}
 
 }
