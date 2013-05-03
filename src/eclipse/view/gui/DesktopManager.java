@@ -1,9 +1,13 @@
 package eclipse.view.gui;
 
 
+import java.awt.Image;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JSplitPane;
@@ -62,7 +66,14 @@ public class DesktopManager implements Runnable {
 		frmclipseViii.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmclipseViii.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
-		
+		Image im = null;
+		try {
+			im = ImageIO.read(new File("eclipse.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		frmclipseViii.setIconImage(im);
+	  
 		defineMenus();
 		
 		defineLayout();
