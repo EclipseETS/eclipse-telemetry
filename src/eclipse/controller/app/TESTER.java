@@ -1,5 +1,8 @@
 package eclipse.controller.app;
 
+import javax.swing.JFrame;
+import javax.swing.JSlider;
+
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
@@ -16,8 +19,13 @@ public class TESTER implements Runnable {
 
 
 	public void run() {
-		initData();
-		double i =0;
+		
+		JFrame frame = new JFrame();
+		JSlider slider = new JSlider();
+		frame.setTitle("Fake Values");
+		frame.setBounds(100, 100, 300, 100);
+		frame.add(slider);
+		frame.setVisible(true);
 		
 		while(true){
 				try {
@@ -28,15 +36,12 @@ public class TESTER implements Runnable {
 
 				for(Device dev : data.getDevices())
 					for(DeviceItem ite : dev.getItems())
-						ite.setValue(i);
-				i++;
+						ite.setValue((double) slider.getValue());
+				
 			
 		}
 
 	}
 	
-	private void initData(){
-		
-	}
 
 }
