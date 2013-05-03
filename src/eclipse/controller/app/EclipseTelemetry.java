@@ -96,7 +96,6 @@ public class EclipseTelemetry {
 		//threadGenInstance.addThread(dataAcqui);
 		
 		//==================================STUB==================================================
-		//TODO: TO BE REMOVED
 		threadGenInstance.addThread(new TESTER());
 		
 

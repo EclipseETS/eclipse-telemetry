@@ -118,6 +118,7 @@ public class DesktopManager implements Runnable {
 			//refresh value every second
 			panTable.updateTable();
 			panTable2.updateTable();
+			tab.update();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

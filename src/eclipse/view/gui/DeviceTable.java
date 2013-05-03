@@ -78,6 +78,28 @@ public class DeviceTable extends JPanel  {
 
 			});
 		
+		
+		btnGraph.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
+				deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+				
+				
+				String deviceItemId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 1);
+				deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
+				
+				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
+				DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+				
+				DesktopManager.getIstance().getTabbedPannel().addTab(
+						new TelemetryGraph(Integer.valueOf(deviceId), Integer.valueOf(deviceItemId)),dev.getDeviceName()+"-"+item.getName());
+				
+			}
+
+			});
+		
 		// Set default width for the table columns
 		dataTable.setFillsViewportHeight(true);
 		dataTable.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);

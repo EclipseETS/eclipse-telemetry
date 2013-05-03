@@ -34,7 +34,8 @@ public class TabbedPannel extends JPanel {
 	 * @param name
 	 */
 	public void addTab(Component comp, String name){
-		tabPanel.add(name,comp);
+		if(comp instanceof TabPane)
+			tabPanel.add(name,comp);
 	}
 
 	/**
@@ -48,6 +49,12 @@ public class TabbedPannel extends JPanel {
 	        	tabPanel.remove(tabPanel.indexAtLocation(e.getX(), e.getY()));
 	        }
 	    }
+	}
+	
+	public void update(){
+		for (Component com : tabPanel.getComponents())
+			if(com instanceof TabPane)
+				((TabPane)com).updateValues();
 	}
   
 }
