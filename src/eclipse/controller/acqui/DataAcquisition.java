@@ -5,6 +5,14 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Acquisition thread, this is the most important thread,
+ * 
+ * It is responsable to get data from the OS socket
+ * 
+ * @author Eclipse
+ *
+ */
 public class DataAcquisition implements Runnable {
 
 	private AcquisitionHandler handler = null;
