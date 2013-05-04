@@ -94,7 +94,6 @@ public class DeviceItem extends Observable {
 		return isFloat;
 	}
 	
-	//TODO: For the 2 other cat. be sure to verify for Null option
 	/**
 	 * Return all data from application startup
 	 * @return table of data [long timestamp, Double value]
@@ -139,6 +138,8 @@ public class DeviceItem extends Observable {
 	 */
 	public void setValue(Double value){
 		values.add(new Data(value));
+		setChanged();
+		notifyObservers();
 	}
 	
 }

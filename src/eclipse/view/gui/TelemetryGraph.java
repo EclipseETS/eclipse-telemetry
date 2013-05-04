@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.Date;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -33,7 +35,16 @@ import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
 
-public class TelemetryGraph extends JPanel implements TabPane {
+/**
+ * DEfault Graphic interface for GRAPH data.
+ * Technically this class can graph any DeviceItem
+ * 
+ * This is also an observer on DeviceItem
+ *  
+ * @author Eclipse
+ *
+ */
+public class TelemetryGraph extends JPanel implements TabPane, Observer {
 
 	private static final long serialVersionUID = 7068305431504601524L;
 	TimeSeries graphedValues;
@@ -58,6 +69,7 @@ public class TelemetryGraph extends JPanel implements TabPane {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
+		item.addObserver(this);
 		
 		addHistory();
 		createGraph();
@@ -68,6 +80,9 @@ public class TelemetryGraph extends JPanel implements TabPane {
 	
 
 
+	/**
+	 * Ugly code creating the graph, layer and all that stuff
+	 */
 	private void createGraph() {
 		//graphedValues = new TimeSeries(item.getUnit());
 		//graphedValues = new TimeSeries(item.getUnit(), Second.class);
@@ -142,10 +157,17 @@ public class TelemetryGraph extends JPanel implements TabPane {
 		
 	}
 
+	/**
+	 * Add new value to the graph (every second in the best condition
+	 * @param value
+	 */
 	private void addValuetoGraph(double value) {
 		graphedValues.addOrUpdate(new Second(), value);
 	}
 	
+	/**
+	 * Add all data before we create the graph. If we open the graph after 10 min we are going to have 10 min of data graphed
+	 */
 	private void addHistory() {
 		List<Data> tmp = item.getAllData();
 		graphedValues = new TimeSeries("value");
@@ -154,10 +176,26 @@ public class TelemetryGraph extends JPanel implements TabPane {
 		
 	}
 
+	/**
+	 * Update Every Second. In our case not usefull because maybe data is not new every second 
+	 */
 	public void updateValues() {
-		double value = item.getLastData();
+//		double value = item.getLastData();
+//		addValuetoGraph(value);
+//		graphedValues.fireSeriesChanged();
+	}
+
+
+
+	/**
+	 * This updater is observer on data themself, everytime there is a new data graph get updated
+	 */
+	public void update(Observable o, Object arg) {
+		double value = ((DeviceItem) o).getLastData();
 		addValuetoGraph(value);
 		graphedValues.fireSeriesChanged();
+		
+		
 	}
 
 

@@ -1,5 +1,8 @@
 package eclipse.controller.app;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JSlider;
 
@@ -16,7 +19,8 @@ import eclipse.model.data.DeviceItem;
 public class TESTER implements Runnable {
 	
 	private DataManager data = DataManager.getInstance();
-
+	boolean ok=true;
+	
 
 	public void run() {
 		
@@ -27,7 +31,15 @@ public class TESTER implements Runnable {
 		frame.add(slider);
 		frame.setVisible(true);
 		
-		while(true){
+		frame.addWindowListener( 
+			    new WindowAdapter() { 
+			        public void windowClosing(WindowEvent e) { 
+			        	ok=false;
+			        } 
+			    } 
+			);
+		
+		while(ok){
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
