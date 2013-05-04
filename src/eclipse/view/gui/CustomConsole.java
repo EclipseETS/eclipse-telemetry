@@ -13,7 +13,11 @@ import org.apache.log4j.PatternLayout;
 
 import eclipse.controller.util.JTextPaneAppender;
 
-
+/**
+ * This console is the bottom left console of this application, it binds on log4j
+ * @author Eclipse
+ *
+ */
 public class CustomConsole extends JPanel {
 
 	/**
