@@ -8,6 +8,11 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+/**
+ * This file is used to read config file and push info to other class
+ * @author Eclipse
+ *
+ */
 public class TelemetrySettings {
 
 	static Logger logger = Logger.getLogger("main");

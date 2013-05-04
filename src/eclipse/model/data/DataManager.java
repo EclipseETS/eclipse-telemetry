@@ -6,6 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Main point of entry for all the model of the application
+ * 
+ * This class is a singleton 
+ * 
+ * Give access to DEvice and Item, Save, Load etc
+ * 
+ * @author Eclipse
+ *
+ */
 public class DataManager {
 	
 	private static DataManager dataMgr = new DataManager();
