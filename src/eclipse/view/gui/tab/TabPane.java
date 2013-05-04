@@ -1,4 +1,4 @@
-package eclipse.view.gui;
+package eclipse.view.gui.tab;
 
 /**
  * Default interface for all tabbedpannel, usefull for a one point of update opnly

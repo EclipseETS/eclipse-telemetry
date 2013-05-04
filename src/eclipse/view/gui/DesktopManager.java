@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
+import eclipse.view.gui.tab.TabbedPannel;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
  * The manager will open any frame, console, or whatever you see

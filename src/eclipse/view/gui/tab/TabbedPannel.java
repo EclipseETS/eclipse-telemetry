@@ -1,4 +1,4 @@
-package eclipse.view.gui;
+package eclipse.view.gui.tab;
 
 import java.awt.Component;
 import java.awt.GridLayout;

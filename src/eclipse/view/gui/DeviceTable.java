@@ -16,6 +16,7 @@ import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.view.gui.tab.TelemetryGraph;
 
 /**
  * This class is used to create the table that displays the car data
