@@ -2,6 +2,8 @@ package eclipse.view.gui;
 
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.File;
@@ -9,12 +11,18 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 
+import org.apache.log4j.Logger;
+
 
 import eclipse.controller.util.TelemetrySettings;
+import eclipse.model.data.DataManager;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
  * The manager will open any frame, console, or whatever you see
@@ -34,6 +42,7 @@ public class DesktopManager implements Runnable {
 	private CustomConsole con = new CustomConsole();
 	private TabbedPannel tab = new TabbedPannel();
 	static private DesktopManager desinstance = new DesktopManager();
+	static Logger logger = Logger.getLogger("main");
 
 	static public DesktopManager getIstance(){
 		return desinstance;
@@ -150,25 +159,90 @@ public class DesktopManager implements Runnable {
 
 		JMenuBar menuBar = new JMenuBar();
 		frmclipseViii.setJMenuBar(menuBar);
-//		
-//		JMenu mnFile = new JMenu("File");
-//		menuBar.add(mnFile);
-//		
-//		JMenuItem mntmQuit = new JMenuItem("Quit");
-//		mnFile.add(mntmQuit);
-//		
-//		JMenu mnView = new JMenu("View");
-//		menuBar.add(mnView);
-//		
-//		JMenu mnGraph = new JMenu("Graph");
-//		menuBar.add(mnGraph);
-//		
-//		JMenu mnHelp = new JMenu("Help");
-//		menuBar.add(mnHelp);
-//		
-//		JMenu mnAbout = new JMenu("About");
-//		mnHelp.add(mnAbout);
-		//TODO: Add shortcut menu (to give command to the people
+		
+		//FILE MENU 
+		JMenu mnFile = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_FILE"));
+		menuBar.add(mnFile);
+		
+		JMenuItem mntmSAve = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_FILE_SAVE"));
+		mnFile.add(mntmSAve);
+		mntmSAve.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	       			logger.debug("File->Saved Pressed");
+	       			DataManager.getInstance().save();
+					
+				}
+
+	        });
+		
+		JMenuItem mntmLoad = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_FILE_LOAD"));
+		mnFile.add(mntmLoad);
+		mntmLoad.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	       			logger.debug("File->Load pressed");
+	       			DataManager.getInstance().load();
+					
+				}
+
+	        });
+		
+		JMenuItem mntmQuit = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_FILE_EXIT"));
+		mnFile.add(mntmQuit);
+		mntmQuit.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+       			logger.debug("File->Exit, Quitind apps");
+				System.exit(0);
+				
+			}
+
+        });
+		
+		
+		
+		//PANEL
+		JMenu mnView = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL"));
+		menuBar.add(mnView);
+		
+		
+		//GRAPH
+		JMenu mnGraph = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_GRAPH"));
+		menuBar.add(mnGraph);
+		
+		
+		//HELP
+		JMenu mnHelp = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP"));
+		menuBar.add(mnHelp);
+		
+		JMenuItem mnCommand = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_COMMAND"));
+		mnHelp.add(mnCommand);
+		mnCommand.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	        	   JOptionPane.showMessageDialog(new JFrame(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_COMMAND")), 
+	        			   "Indicatif rapide des commandes: \n \n " +
+	    	        			   "TABLEAU DE DONNÉE \n \n " +
+	    	        			   "Pour ajouter un graphique, Choisir Item et clicker Graph \n " +
+	    	        			   "Pour ajouter un item dans la liste rapide, Choisir Item et clicker keep this value  \n " +
+	    	        			   "Pour retirer une valeur de la liste rapide, double clique dessu \n \n \n " +
+	    	        			   "PANNEAU PRINCIPAL \n \n " +
+	    	        			   "Click droit sur un onglet pour faire disparaitre l'onglet \n " +
+	        			   "");
+					
+				}
+
+	        });
+		
+		
+		JMenuItem mnAbout = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_ABOUT"));
+		mnHelp.add(mnAbout);
+		mnAbout.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	        	   JOptionPane.showMessageDialog(new JFrame(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_ABOUT")), 
+	        			   "Eclipse Solar Car Telemetry software. All right reserved. \n" +
+	        			   "Surtout ne touchez pas à Denise, C'est un bien public. Elle devrais dailleur être nationalisée!");
+					
+				}
+
+	        });
 	}
 	
 	public TabbedPannel getTabbedPannel(){

@@ -11,7 +11,7 @@ public class DataAcquisition implements Runnable {
 	private Desencapsulator de = null;
 	private Byte currentByte = null;
 	DataInputStream input = null;
-	static Logger logger = Logger.getLogger("telemetry");
+	static Logger logger = Logger.getLogger("main");
 	
 	public DataAcquisition(AcquisitionHandler ah, Desencapsulator de) {
 		this.handler = ah;

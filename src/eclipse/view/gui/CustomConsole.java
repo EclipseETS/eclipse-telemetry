@@ -27,7 +27,7 @@ public class CustomConsole extends JPanel {
 	
 	
 	// Root Logger
-	static Logger logger = Logger.getLogger("telemetry");
+	static Logger logger = Logger.getLogger("main");
 	
 	public CustomConsole() {
 		statusConsole = new JTextPane();

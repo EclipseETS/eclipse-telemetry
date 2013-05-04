@@ -12,7 +12,7 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 	
 	private Byte[] byteArray = new Byte[15]; //15 is the max a communication will be
 	private int cpt=0;
-	static Logger logger = Logger.getLogger("telemetry");
+	static Logger logger = Logger.getLogger("main");
 	private int value = 0x30;
 	
 	

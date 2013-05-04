@@ -111,7 +111,7 @@ public class EclipseTelemetry {
 	 * Application killer, whit error log4j
 	 */
 	public static void abort() {
-		logger.error("App abort.");
+		logger.debug("App abort. X button pressed!!!");
 		System.exit(1);
 	}
 
