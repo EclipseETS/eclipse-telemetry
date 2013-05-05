@@ -11,7 +11,7 @@ import java.util.Observable;
 public abstract class AcquisitionHandler extends Observable {
 	
 	// Start/stop the handler
-	public abstract void start();
+	public abstract Boolean start();
 	public abstract void stop();
 	
 	// Basic I/O. Must return Reader (FileReader, InputStreamReader..)

@@ -69,28 +69,24 @@ boolean processusOuvert=true;
 	 * choose selected port
 	 * Handle errors
 	 */
-	public void start(){
+	public Boolean start(){
 		try {
 	    	portId = CommPortIdentifier.getPortIdentifier(selectSerialPort());
 	    	
 	    } 
 	    catch (NoSuchPortException e) {
 	    		System.out.println("No port found try in one sec.");	
-	    		logger.info("No port found try in one sec.");
+	    		logger.error("No port found try in one sec.");
 	    		TelemetrySettings.getInstance().setSetting("HANDLER_SERIAL_PORT", "XXX");
-	    		try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e1) {
-					// 
-					e1.printStackTrace();
-				}
-				start();
+	    		return false;
 	    }
 	    try{
 	    	serialPort = (SerialPort) portId.open("Drive", 2000);
 	    }
 	    catch(PortInUseException e){
-	    	System.out.println("Port in use.");			    	
+	    	System.out.println("Port in use.");	
+    		logger.error("Port in use.");
+	    	return false;
 	    }
 	    try {
 	    	out = serialPort.getOutputStream();
@@ -143,6 +139,8 @@ boolean processusOuvert=true;
 	    
     	connected=true;
     	logger.info("Handler Ready");
+    	
+    	return true;
 	    
 	}
 
@@ -150,6 +148,14 @@ boolean processusOuvert=true;
 	 * stop communication
 	 */
 	public void stop() {
+		try {
+			out.close();
+			in.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		serialPort.removeEventListener();
 		serialPort.close();
     	connected=false;
 
@@ -206,7 +212,7 @@ boolean processusOuvert=true;
         
        return retour;
         
-    }
+	}
 	
 	/**
 	 * List available port

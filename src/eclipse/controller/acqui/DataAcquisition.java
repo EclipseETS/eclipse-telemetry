@@ -48,7 +48,7 @@ public class DataAcquisition implements Runnable {
 		acquisition=false;
 		handler.stop();
 		de.clearData();
-		DesktopManager.getIstance().menuStop();
+		DesktopManager.getIstance().menuStart();
 	}
 
 	/**
@@ -56,10 +56,11 @@ public class DataAcquisition implements Runnable {
 	 */
 	public void startAcquiring() {
 		logger.debug("Acquisition start");
-		handler.start();
-		input=new DataInputStream(this.handler.getReader());
-		DesktopManager.getIstance().menuStart();
-		acquisition=true;
+		if(handler.start()){
+			input=new DataInputStream(this.handler.getReader());
+			DesktopManager.getIstance().menuStop();
+			acquisition=true;
+		}
 	}
 	
 	/**
