@@ -21,6 +21,7 @@ import javax.swing.JSplitPane;
 import org.apache.log4j.Logger;
 
 
+import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.view.gui.tab.TabbedPannel;
@@ -222,7 +223,7 @@ public class DesktopManager implements Runnable {
 		mnAcqui.add(mnStart);
 		mnStart.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {
-				
+				DataAcquisition.getInstance().startAcquiring();
 			}
 
         });
@@ -231,6 +232,7 @@ public class DesktopManager implements Runnable {
 		mnAcqui.add(mnStop);
 		mnStop.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {
+				DataAcquisition.getInstance().stopAcquiring();
 				
 			}
 
