@@ -30,6 +30,7 @@ public class DataAcquisition implements Runnable {
 	 * Start the thread
 	 */
 	public void run() {
+		logger.debug("Acquisition start");
 		startAcquiring();
 	}
 	
@@ -37,6 +38,7 @@ public class DataAcquisition implements Runnable {
 	 * Stop acquisition and reset curent array
 	 */
 	public void stopAcquiring(){
+		logger.debug("Acquisition stop");
 		handler.stop();
 		de.clearData();		
 	}
