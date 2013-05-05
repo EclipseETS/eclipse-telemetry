@@ -3,9 +3,11 @@ package eclipse.controller.acqui;
 import java.io.DataInputStream;
 import java.io.IOException;
 
+
 import org.apache.log4j.Logger;
 
-import eclipse.model.data.Data;
+import eclipse.view.gui.DesktopManager;
+
 
 /**
  * Acquisition thread, this is the most important thread,
@@ -15,7 +17,7 @@ import eclipse.model.data.Data;
  * @author Eclipse
  *
  */
-public class DataAcquisition implements Runnable {
+public class DataAcquisition {
 
 	private AcquisitionHandler handler = null;
 	private Desencapsulator de = null;
@@ -38,29 +40,24 @@ public class DataAcquisition implements Runnable {
 	}
 	
 	/**
-	 * Start the thread
-	 */
-	public void run() {
-		logger.debug("Acquisition start");
-		startAcquiring();
-	}
-	
-	/**
 	 * Stop acquisition and reset curent array
 	 */
 	public void stopAcquiring(){
 		logger.debug("Acquisition stop");
 		handler.stop();
-		de.clearData();		
+		de.clearData();
+		DesktopManager.getIstance().menuStop();
 	}
 
 	/**
 	 * Start acquisition
 	 */
 	public void startAcquiring() {
+		logger.debug("Acquisition start");
 		handler.start();
 		input=new DataInputStream(this.handler.getReader());
 		listen();
+		DesktopManager.getIstance().menuStart();
 	}
 	
 	

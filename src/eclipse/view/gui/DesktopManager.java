@@ -44,6 +44,8 @@ public class DesktopManager implements Runnable {
 	private TabbedPannel tab = new TabbedPannel();
 	static private DesktopManager desinstance = new DesktopManager();
 	static Logger logger = Logger.getLogger("main");
+	JMenuItem mnStart;
+	JMenuItem mnStop;
 
 	static public DesktopManager getIstance(){
 		return desinstance;
@@ -198,7 +200,30 @@ public class DesktopManager implements Runnable {
 
         });
 		
+
 		
+		//ACQUISITION
+		JMenu mnAcqui = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_ACQUISITION"));
+		menuBar.add(mnAcqui);
+		
+		mnStart= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_ACQUISITION_START"));
+		mnAcqui.add(mnStart);
+		mnStart.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+				
+			}
+
+        });
+		
+		mnStop= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_ACQUISITION_STOP"));
+		mnAcqui.add(mnStop);
+		mnStop.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+				
+			}
+
+        });
+		mnStop.setEnabled(false);
 		
 		//PANEL
 		JMenu mnView = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL"));
@@ -248,6 +273,16 @@ public class DesktopManager implements Runnable {
 	
 	public TabbedPannel getTabbedPannel(){
 		return tab;
+	}
+	
+	public void menuStop(){
+		mnStart.setEnabled(false);
+		mnStop.setEnabled(true);
+	}
+	
+	public void menuStart(){
+		mnStart.setEnabled(true);
+		mnStop.setEnabled(false);
 	}
 
 }

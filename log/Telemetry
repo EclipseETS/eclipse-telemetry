@@ -808,3 +808,42 @@
 2013-05-04 21:12:56,460 [DEBUG] App started
 2013-05-04 21:13:04,300 [DEBUG] File->Load pressed
 2013-05-04 21:13:57,323 [DEBUG] File->Saved Pressed
+2013-05-04 21:30:42,968 [ INFO] App initializing..
+2013-05-04 21:30:42,969 [ INFO] Loading global telemetry settings..
+2013-05-04 21:30:42,970 [DEBUG] XML verification
+2013-05-04 21:30:43,022 [ INFO] Protocol XML Schema appears to be valid.
+2013-05-04 21:30:43,032 [ INFO] Protocol XML file appears to be valid.
+2013-05-04 21:30:43,184 [DEBUG] Device :4:Drive added.
+2013-05-04 21:30:43,186 [DEBUG] DeviceItem :0:CMD_Current added.
+2013-05-04 21:30:43,187 [DEBUG] DeviceItem :5:BusCurrent added.
+2013-05-04 21:30:43,187 [DEBUG] Trame :100 added.
+2013-05-04 21:30:43,187 [DEBUG] Device :6:Volant added.
+2013-05-04 21:30:43,188 [DEBUG] DeviceItem :1:Status added.
+2013-05-04 21:30:43,189 [DEBUG] DeviceItem :2:Bouton added.
+2013-05-04 21:30:43,190 [DEBUG] DeviceItem :4:Pot added.
+2013-05-04 21:30:43,190 [DEBUG] Trame :200 added.
+2013-05-04 21:30:43,191 [DEBUG] DeviceItem :5:Velocity added.
+2013-05-04 21:30:43,191 [DEBUG] Trame :201 added.
+2013-05-04 21:30:43,191 [ INFO] Protocol loaded successfully.
+2013-05-04 21:30:43,264 [ERROR] TEST
+2013-05-04 21:30:43,271 [DEBUG] App started
+2013-05-04 21:30:43,478 [ WARN] Setting property 'GUI_MENU_ACQUISITION_STOP' is null. Unexpected behavior probable.
+2013-05-04 21:31:04,816 [ INFO] App initializing..
+2013-05-04 21:31:04,817 [ INFO] Loading global telemetry settings..
+2013-05-04 21:31:04,818 [DEBUG] XML verification
+2013-05-04 21:31:04,870 [ INFO] Protocol XML Schema appears to be valid.
+2013-05-04 21:31:04,880 [ INFO] Protocol XML file appears to be valid.
+2013-05-04 21:31:05,032 [DEBUG] Device :4:Drive added.
+2013-05-04 21:31:05,034 [DEBUG] DeviceItem :0:CMD_Current added.
+2013-05-04 21:31:05,035 [DEBUG] DeviceItem :5:BusCurrent added.
+2013-05-04 21:31:05,035 [DEBUG] Trame :100 added.
+2013-05-04 21:31:05,035 [DEBUG] Device :6:Volant added.
+2013-05-04 21:31:05,036 [DEBUG] DeviceItem :1:Status added.
+2013-05-04 21:31:05,036 [DEBUG] DeviceItem :2:Bouton added.
+2013-05-04 21:31:05,037 [DEBUG] DeviceItem :4:Pot added.
+2013-05-04 21:31:05,037 [DEBUG] Trame :200 added.
+2013-05-04 21:31:05,038 [DEBUG] DeviceItem :5:Velocity added.
+2013-05-04 21:31:05,038 [DEBUG] Trame :201 added.
+2013-05-04 21:31:05,038 [ INFO] Protocol loaded successfully.
+2013-05-04 21:31:05,110 [ERROR] TEST
+2013-05-04 21:31:05,117 [DEBUG] App started
