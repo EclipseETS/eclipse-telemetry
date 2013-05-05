@@ -24,6 +24,9 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 		}
 		byteArray[cpt]=bt;
 		cpt++;
+		if(cpt==14){
+			cpt=0;
+		}
 	}
 
 	
