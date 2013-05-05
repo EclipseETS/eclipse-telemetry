@@ -1,9 +1,5 @@
 package eclipse.controller.acqui;
 
-import java.io.DataInputStream;
-import java.io.IOException;
-
-
 import org.apache.log4j.Logger;
 
 import eclipse.view.gui.DesktopManager;
@@ -22,7 +18,6 @@ public class DataAcquisition implements Runnable {
 	private AcquisitionHandler handler = null;
 	private Desencapsulator de = null;
 	private Byte currentByte = null;
-	DataInputStream input = null;
 	static Logger logger = Logger.getLogger("main");
 	static private DataAcquisition acqui = new DataAcquisition();
 	private boolean acquisition = false;
@@ -55,12 +50,13 @@ public class DataAcquisition implements Runnable {
 	 * Start acquisition
 	 */
 	public void startAcquiring() {
-		logger.debug("Acquisition start");
 		if(handler.start()){
-			input=new DataInputStream(this.handler.getReader());
+			logger.debug("Acquisition start");
 			DesktopManager.getIstance().menuStop();
 			acquisition=true;
 		}
+		else
+			logger.error("Error with interface");
 	}
 	
 	/**
@@ -69,11 +65,8 @@ public class DataAcquisition implements Runnable {
 	public void listen(){
 		while(true){
 			while(acquisition){
-				try {
-					currentByte=input.readByte();
-					de.receiveChar(currentByte);
-				} catch (IOException e) {
-				}
+				currentByte=handler.readByte();
+				de.receiveChar(currentByte);
 			}
 		}
 		
