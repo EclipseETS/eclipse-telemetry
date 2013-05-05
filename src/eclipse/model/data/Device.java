@@ -73,20 +73,6 @@ public class Device {
 	public List<DeviceItem> getItems() {
 		return items;
 	}
-
-	/**
-	 * Load value from old files 
-	 */
-	public void load(){
-		
-	}
-	
-	/**
-	 * Save curent value to XYZ format
-	 */
-	public void save(){
-		
-	}
 	
 	/**
 	 * Add trame to the tram list of this device

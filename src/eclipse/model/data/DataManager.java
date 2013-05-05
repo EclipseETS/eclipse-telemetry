@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -89,14 +91,14 @@ public class DataManager {
 	 * Copy all information, device, item and merge data
 	 * 
 	 */
-	public void load(){
+	public void load(String location){
 		
 		//Load temporary Datamanager
 		DataManager datatmp = new DataManager();
 		XStream xs = new XStream(new DomDriver());
 
         try {
-            FileInputStream fis = new FileInputStream("test.xml");
+            FileInputStream fis = new FileInputStream(location);
             xs.fromXML(fis, datatmp);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -125,12 +127,13 @@ public class DataManager {
 	/**
 	 * Save curent value to XML format
 	 */
-	public void save(){
+	public void save(String location){
 
 		XStream xs = new XStream(new DomDriver());
 
 	        try {
-	            FileOutputStream fs = new FileOutputStream("test.xml");
+	            FileOutputStream fs = new FileOutputStream(location);
+	            xs.omitField(Observable.class, "obs"); 
 	            xs.toXML(dataMgr,fs);
 	        } catch (FileNotFoundException e1) {
 	            e1.printStackTrace();

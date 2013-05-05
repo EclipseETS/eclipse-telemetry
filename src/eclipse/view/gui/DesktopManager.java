@@ -10,13 +10,13 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
-import javax.swing.UIManager;
 
 import org.apache.log4j.Logger;
 
@@ -64,12 +64,12 @@ public class DesktopManager implements Runnable {
 	 */
 	private void initialize() {
 		
-		//Change application Look n Feel
-		try {
-			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+//		//Change application Look n Feel
+//		try {
+//			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+//		} catch (Exception e1) {
+//			e1.printStackTrace();
+//		}
 		
 		//Frame Creation
 		frmclipseViii = new JFrame();
@@ -172,7 +172,13 @@ public class DesktopManager implements Runnable {
 		mntmSAve.addActionListener(new ActionListener() {
 	           public void actionPerformed(ActionEvent arg0) {
 	       			logger.debug("File->Saved Pressed");
-	       			DataManager.getInstance().save();
+	       			JFileChooser Save = new JFileChooser();
+	       			Save.setDialogTitle("Save");
+	       		    int returnVal = Save.showSaveDialog(new JFrame());
+	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	       		    	DataManager.getInstance().save(Save.getSelectedFile().getAbsolutePath());
+	       		    	JOptionPane.showMessageDialog(new JFrame(),"Save Finish!");
+	       		    }
 					
 				}
 
@@ -183,7 +189,13 @@ public class DesktopManager implements Runnable {
 		mntmLoad.addActionListener(new ActionListener() {
 	           public void actionPerformed(ActionEvent arg0) {
 	       			logger.debug("File->Load pressed");
-	       			DataManager.getInstance().load();
+	       			
+	       			JFileChooser load = new JFileChooser();
+	       		    int returnVal = load.showOpenDialog(new JFrame());
+	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	       		    	DataManager.getInstance().load(load.getSelectedFile().getAbsolutePath());
+	       		    	JOptionPane.showMessageDialog(new JFrame(),"Load Finish!");
+	       		    }
 					
 				}
 

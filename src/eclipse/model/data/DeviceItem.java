@@ -119,20 +119,6 @@ public class DeviceItem extends Observable {
 	}
 	
 	/**
-	 * Load value from old files 
-	 */
-	public void load(){
-		
-	}
-	
-	/**
-	 * Save curent value to XYZ format
-	 */
-	public void save(){
-		
-	}
-	
-	/**
 	 * Add new value to the system  whit curent timestamp
 	 * @param value value as double to be added to the table
 	 */
