@@ -1,10 +1,16 @@
 package eclipse.model.data;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
  * Main point of entry for all the model of the application
@@ -79,19 +85,58 @@ public class DataManager {
 
 	/**
 	 * Load value from old files 
-	 * TODO: CODER LE LOAD
+	 * 
+	 * Copy all information, device, item and merge data
+	 * 
 	 */
 	public void load(){
+		
+		//Load temporary Datamanager
+		DataManager datatmp = new DataManager();
+		XStream xs = new XStream(new DomDriver());
+
+        try {
+            FileInputStream fis = new FileInputStream("test.xml");
+            xs.fromXML(fis, datatmp);
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        
+        for(Device devNouveau : datatmp.getDevices()){
+        	Device devOriginal = dataMgr.getDeviceByID(devNouveau.getDeviceId());
+        	if(devOriginal==null)
+        		dataMgr.addDevice(devNouveau);
+        	else
+	        	for (DeviceItem itemNouveau : devNouveau.getItems()){
+	        		DeviceItem itemOriginal = devOriginal.getItemByID(itemNouveau.getItemId());
+	        		if(itemOriginal==null)
+	        			devOriginal.addItem(itemNouveau);
+	        		else
+	        			itemOriginal.getAllData().addAll(itemNouveau.getAllData());     		
+	        			
+	        	}
+        }
+			
+         	
+        
 		
 	}
 	
 	/**
-	 * Save curent value to XYZ format
-	 * TODO: CODER LE SAVE
+	 * Save curent value to XML format
 	 */
 	public void save(){
-		
-	}
+
+		XStream xs = new XStream(new DomDriver());
+
+	        try {
+	            FileOutputStream fs = new FileOutputStream("test.xml");
+	            xs.toXML(dataMgr,fs);
+	        } catch (FileNotFoundException e1) {
+	            e1.printStackTrace();
+	        }
+	 }
+	
 		
 	//GETTER AND SETTER
 	public List<Device> getDevices() {

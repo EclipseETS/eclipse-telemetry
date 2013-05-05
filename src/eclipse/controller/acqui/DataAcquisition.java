@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
+import eclipse.model.data.Data;
+
 /**
  * Acquisition thread, this is the most important thread,
  * 
@@ -20,10 +22,19 @@ public class DataAcquisition implements Runnable {
 	private Byte currentByte = null;
 	DataInputStream input = null;
 	static Logger logger = Logger.getLogger("main");
+	static private DataAcquisition acqui = new DataAcquisition();
 	
-	public DataAcquisition(AcquisitionHandler ah, Desencapsulator de) {
+	public void Ititalize(AcquisitionHandler ah, Desencapsulator de) {
 		this.handler = ah;
 		this.de=de;
+	}
+	
+	private DataAcquisition(){
+		
+	}
+	
+	public static DataAcquisition getInstance(){
+		return acqui;
 	}
 	
 	/**
