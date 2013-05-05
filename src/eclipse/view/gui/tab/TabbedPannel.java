@@ -34,8 +34,10 @@ public class TabbedPannel extends JPanel {
 	 * @param name
 	 */
 	public void addTab(Component comp, String name){
-		if(comp instanceof TabPane)
+		if(comp instanceof TabPane){
 			tabPanel.add(name,comp);
+			tabPanel.setSelectedIndex(tabPanel.getTabCount()-1);
+		}
 	}
 
 	/**

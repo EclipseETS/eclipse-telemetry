@@ -1382,3 +1382,23 @@
 2013-05-04 22:30:02,822 [DEBUG] App started
 2013-05-04 22:30:05,826 [DEBUG] File->Saved Pressed
 2013-05-04 22:30:23,457 [DEBUG] File->Saved Pressed
+2013-05-04 22:34:35,429 [ INFO] App initializing..
+2013-05-04 22:34:35,429 [ INFO] Loading global telemetry settings..
+2013-05-04 22:34:35,431 [DEBUG] XML verification
+2013-05-04 22:34:35,482 [ INFO] Protocol XML Schema appears to be valid.
+2013-05-04 22:34:35,492 [ INFO] Protocol XML file appears to be valid.
+2013-05-04 22:34:35,643 [DEBUG] Device :4:Drive added.
+2013-05-04 22:34:35,645 [DEBUG] DeviceItem :0:CMD_Current added.
+2013-05-04 22:34:35,646 [DEBUG] DeviceItem :5:BusCurrent added.
+2013-05-04 22:34:35,646 [DEBUG] Trame :100 added.
+2013-05-04 22:34:35,646 [DEBUG] Device :6:Volant added.
+2013-05-04 22:34:35,647 [DEBUG] DeviceItem :1:Status added.
+2013-05-04 22:34:35,648 [DEBUG] DeviceItem :2:Bouton added.
+2013-05-04 22:34:35,649 [DEBUG] DeviceItem :4:Pot added.
+2013-05-04 22:34:35,649 [DEBUG] Trame :200 added.
+2013-05-04 22:34:35,649 [DEBUG] DeviceItem :5:Velocity added.
+2013-05-04 22:34:35,650 [DEBUG] Trame :201 added.
+2013-05-04 22:34:35,650 [ INFO] Protocol loaded successfully.
+2013-05-04 22:34:35,722 [ERROR] TEST
+2013-05-04 22:34:35,728 [DEBUG] App started
+2013-05-04 22:34:51,138 [DEBUG] File->Load pressed
