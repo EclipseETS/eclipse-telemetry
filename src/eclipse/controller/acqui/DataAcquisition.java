@@ -39,7 +39,7 @@ public class DataAcquisition implements Runnable {
 	 * Stop acquisition and reset curent array
 	 */
 	public void stopAcquiring(){
-		logger.debug("Acquisition stop");
+		logger.info("Acquisition stop");
 		acquisition=false;
 		handler.stop();
 		de.clearData();
@@ -51,7 +51,7 @@ public class DataAcquisition implements Runnable {
 	 */
 	public void startAcquiring() {
 		if(handler.start()){
-			logger.debug("Acquisition start");
+			logger.info("Acquisition start");
 			DesktopManager.getIstance().menuStop();
 			acquisition=true;
 		}

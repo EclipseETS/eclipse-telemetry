@@ -47,7 +47,6 @@ public class CustomConsole extends JPanel {
 		
 		logger.addAppender(tpa);
 		Logger.getLogger("main").addAppender(tpa);
-		logger.error("TEST");
 	}
 	
 	public void clear() {
