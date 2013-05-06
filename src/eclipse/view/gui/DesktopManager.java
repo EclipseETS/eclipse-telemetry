@@ -38,9 +38,11 @@ public class DesktopManager implements Runnable {
 	private JFrame frmclipseViii;
 	private JSplitPane leftPart;
 	private JSplitPane rightPart;
+	private JSplitPane rightFullPart;
 	private JSplitPane all;
 	private DeviceTable panTable = new DeviceTable();
 	private ImportantDeviceTable panTable2 = new ImportantDeviceTable();
+	private ErrorTable errTable = new ErrorTable();
 	private CustomConsole con = new CustomConsole();
 	private TabbedPannel tab = new TabbedPannel();
 	static private DesktopManager desinstance = new DesktopManager();
@@ -107,6 +109,7 @@ public class DesktopManager implements Runnable {
 	public void resizedMe() {
 		leftPart.setDividerLocation(0.75);
 		rightPart.setDividerLocation(panTable2.getHeightCustom());
+		rightFullPart.setDividerLocation(all.getHeight()-errTable.getHeightCustom());
 		all.setDividerLocation(0.75);
 		
 	}
@@ -118,7 +121,8 @@ public class DesktopManager implements Runnable {
 		//Set the resizeable panel (set size)
 		leftPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, tab, con);
 		rightPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, panTable2, panTable);
-		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, rightPart);
+		rightFullPart = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true, rightPart, errTable);
+		all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPart, rightFullPart);
 				
 		frmclipseViii.add(all);
 		
@@ -297,6 +301,11 @@ public class DesktopManager implements Runnable {
 	public void menuStart(){
 		mnStart.setEnabled(true);
 		mnStop.setEnabled(false);
+	}
+
+
+	public ImportantDeviceTable getErrorPanel() {
+		return errTable;
 	}
 
 }

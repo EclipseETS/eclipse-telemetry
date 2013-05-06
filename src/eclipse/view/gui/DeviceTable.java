@@ -72,8 +72,9 @@ public class DeviceTable extends JPanel  {
 				
 				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
 				DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
-				
+
 				DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
+				DesktopManager.getIstance().getErrorPanel().addItem(item, dev);
 				
 			}
 

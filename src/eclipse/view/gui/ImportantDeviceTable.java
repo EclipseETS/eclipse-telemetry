@@ -32,9 +32,9 @@ import eclipse.model.data.DeviceItem;
 public class ImportantDeviceTable extends JPanel  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
-	private JTable dataTable;
-	private DefaultTableModel model;
-	private List<DeviceItem> items;
+	protected JTable dataTable;
+	protected DefaultTableModel model;
+	protected List<DeviceItem> items;
 
 	/**
 	 * Creates the panel
