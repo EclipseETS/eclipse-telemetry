@@ -100,7 +100,7 @@ public class EclipseTelemetry {
 		threadGenInstance.addThread(dataAcqui);
 		
 		//==================================STUB==================================================
-		threadGenInstance.addThread(new TESTER());
+		//threadGenInstance.addThread(new TESTER());
 		
 
 		//=================================Start Gui===============================================

@@ -11,7 +11,7 @@ public interface Desencapsulator {
 	 * Send char to the telemetry
 	 * @param bt
 	 */
-	public void receiveChar(Byte bt);
+	public void receiveChar(byte bt);
 	
 	/**
 	 * Clear received data up to now (the last incomplet frames

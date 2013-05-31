@@ -34,7 +34,7 @@ public class TramConverter implements Converter {
 	public Object unmarshal(HierarchicalStreamReader reader,
 			UnmarshallingContext context) {
 
-			Integer identifier = new Integer(reader.getAttribute("identifier"));
+			String identifier = reader.getAttribute("identifier");
 			Integer type = new Integer(reader.getAttribute("type"));
 
 			Trame tram =new Trame(identifier, type);

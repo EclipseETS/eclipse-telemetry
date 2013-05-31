@@ -68,6 +68,11 @@ public class DataAcquisition implements Runnable {
 				currentByte=handler.readByte();
 				de.receiveChar(currentByte);
 			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}

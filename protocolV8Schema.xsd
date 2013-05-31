@@ -29,7 +29,7 @@
 		<xs:sequence>
 			<xs:element name="deviceitem" type="deviceitem" maxOccurs="unbounded" />
 		</xs:sequence>
-		<xs:attribute name="identifier" type="xs:integer" />
+		<xs:attribute name="identifier" type="xs:string" />
 		<xs:attribute name="type" type="xs:integer" />
 	</xs:complexType>
 	<xs:element name="char">

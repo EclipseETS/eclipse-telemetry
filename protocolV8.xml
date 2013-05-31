@@ -5,7 +5,7 @@
 	<!-- DRIVE -->
 	
 	<device id="4" name="Drive">
-	    <trame identifier="100" type="1">
+	    <trame identifier="600" type="2">
 			<deviceitem id="0" name="CMD_Current">
 				<unit>%</unit>
 				<bitsize>8</bitsize>

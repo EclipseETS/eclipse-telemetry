@@ -1,7 +1,12 @@
 package eclipse.controller.acqui;
 
 
+import java.util.Arrays;
+
 import org.apache.log4j.Logger;
+
+import eclipse.controller.util.ByteManipulator;
+import eclipse.controller.util.CRC8;
 
 /**
  * Provide full desencapsulation, by receiving byte from acquisition
@@ -10,16 +15,16 @@ import org.apache.log4j.Logger;
  */
 public class DesencapsulatorE8Serial implements Desencapsulator {
 	
-	private Byte[] byteArray = new Byte[15]; //15 is the max a communication will be
+	private byte[] byteArray = new byte[15]; //15 is the max a communication will be
 	private int cpt=0;
 	static Logger logger = Logger.getLogger("main");
-	private int value = 0x30;
+	private byte value = (byte) 0xAA;
+	private byte value2 = 0x55;
 	
-	
-	public void receiveChar(Byte bt) {
+	public void receiveChar(byte bt) {
 		if(bt==value){
 			if(byteArray[0]==value)
-				parseData();		
+				parseData(cpt);		
 			cpt=0;
 		}
 		byteArray[cpt]=bt;
@@ -31,10 +36,28 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 
 	
 	public void clearData() {
-		byteArray = new Byte[15];
+		byteArray = new byte[15];
 	}
 	
-	private void parseData(){
+	private void parseData(int lengt){
+		if(byteArray[0]==value && byteArray[1]==value2 && lengt>2)
+		{
+			byte[] idB = Arrays.copyOfRange(byteArray,2,6);
+			int id = 0;
+			try {
+				id = (int) ByteManipulator.byteArrayToInt(idB, 0, 4, false, false);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			byte c = 0;
+			byte crcTmp = CRC8.updateBlock(byteArray, lengt-1, c);
+			if(crcTmp==byteArray[lengt-1]){
+				//FRAME VALID 
+				
+				
+				System.out.println(id);
+			}
+		}
 		
 		//TODO: Coder le desencapsulateur
 		

@@ -3,6 +3,8 @@ package eclipse.model.data;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import eclipse.controller.util.ByteManipulator;
+import eclipse.controller.util.HexString;
 
 /**
  * This class represent a tram sent by the car. From a logical point of view
@@ -35,8 +37,23 @@ public class Trame {
 	 * Trame constructor
 	 * @param parent Device linked to parent Device (the device link to this trame)
 	 */
-	public Trame(int identifier,int type){
-		this.identifier=identifier;
+	public Trame(String identifier,int type){
+		
+		String value = Integer.toString(type);
+		
+		for(int i=0;i<7-identifier.length();i++)
+			value=value+'0';
+		value=value+identifier;
+		double tmp =0;
+		
+		try {
+			tmp = ByteManipulator.byteArrayToInt(HexString.hexToBuffer(value),0,4,false,false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		this.identifier=(int) tmp;
 		this.type=type;
 	}
 	
