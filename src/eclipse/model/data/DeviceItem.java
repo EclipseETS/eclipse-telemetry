@@ -28,14 +28,13 @@ public class DeviceItem extends Observable {
 	protected double resolution;
 	protected double factor;
 	protected int offset;
-	protected int numBits;
 	protected boolean signed;
 	protected boolean isFloat;
 	
 	//Complete constructor
 	public DeviceItem(Integer itemId, String name,
 			String unit,int bitSize, int minValue, int maxValue, double resolution,
-			double factor, int offset, int numBits, boolean signed, boolean isFloat) {
+			double factor, int offset, boolean signed, boolean isFloat) {
 		super();
 		this.itemId = itemId;
 		this.name = name;
@@ -46,7 +45,6 @@ public class DeviceItem extends Observable {
 		this.resolution = resolution;
 		this.factor = factor;
 		this.offset = offset;
-		this.numBits = numBits;
 		this.signed = signed;
 		this.isFloat = isFloat;
 
@@ -83,9 +81,6 @@ public class DeviceItem extends Observable {
 	}
 	public int getOffset() {
 		return offset;
-	}
-	public int getNumBits() {
-		return numBits;
 	}
 	public boolean isSigned() {
 		return signed;

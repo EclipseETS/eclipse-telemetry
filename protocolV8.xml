@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<char xmlns="http://eclipse.etsmtl.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://eclipse.etsmtl.ca protocolV7Schema.xsd">
+<char xmlns="http://eclipse.etsmtl.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://eclipse.etsmtl.ca protocolV8Schema.xsd">
 
 	<!-- DRIVE -->
 	
-	<device id="4" name="Drive">
-	    <trame identifier="600" type="2">
+	<device id="4" name="Flasher">
+	    <trame identifier="400" type="2">
 			<deviceitem id="0" name="CMD_Current">
-				<unit>%</unit>
+				<unit>Bin</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
@@ -19,7 +19,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="5" name="BusCurrent">
-				<unit>A</unit>
+				<unit>Tick</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-120</minvalue>
 				<maxvalue>120</maxvalue>

@@ -38,7 +38,6 @@ public class DeviceItemConverter implements Converter {
 		double resolution = 0;
 		double factor = 0;
 		int offset = 0;
-		int numBits = 0;
 		boolean signed = false;
 		boolean isFloat = false;
 		
@@ -57,7 +56,6 @@ public class DeviceItemConverter implements Converter {
 			else if ("resolution".equals(reader.getNodeName())) resolution = Double.parseDouble(reader.getValue());
 			else if ("factor".equals(reader.getNodeName())) factor = Double.parseDouble(reader.getValue());
 			else if ("offset".equals(reader.getNodeName())) offset = Integer.parseInt(reader.getValue());
-			else if ("numbits".equals(reader.getNodeName())) numBits = Integer.parseInt(reader.getValue());
 			else if ("signed".equals(reader.getNodeName())) signed = Boolean.parseBoolean(reader.getValue());
 			else if ("isFloat".equals(reader.getNodeName())) isFloat = Boolean.parseBoolean(reader.getValue());
 
@@ -66,7 +64,7 @@ public class DeviceItemConverter implements Converter {
 		
 		// Return a new DeviceItem
         return new DeviceItem(itemId, name, unit, bitsize, minValue, maxValue,
-        					resolution, factor, offset, numBits,
+        					resolution, factor, offset,
         					signed,isFloat);
 	}
 
