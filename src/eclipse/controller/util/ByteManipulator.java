@@ -53,7 +53,12 @@ public class ByteManipulator {
 		if (isSigned == true) {
 			if ((b[offset] & 0x80) != 0) {
 				value -= 1;
-				value = ~value;
+				if(size==1)
+					value=-256+value;
+				else if (size ==2)
+					value=-65536+value;
+				else
+					value = ~value;
 			}
 		} else {
 			if ((b[offset] & 0x80) != 0) {

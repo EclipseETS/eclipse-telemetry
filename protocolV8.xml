@@ -2,11 +2,11 @@
 
 <char xmlns="http://eclipse.etsmtl.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://eclipse.etsmtl.ca protocolV8Schema.xsd">
 
-	<!-- DRIVE -->
+	<!-- FLASHER -->
 	
 	<device id="4" name="Flasher">
 	    <trame identifier="400" type="2">
-			<deviceitem id="0" name="CMD_Current">
+			<deviceitem id="0" name="Status">
 				<unit>Bin</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -14,19 +14,17 @@
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
-				<numbits>32</numbits>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="5" name="BusCurrent">
+			<deviceitem id="1" name="OSTime">
 				<unit>Tick</unit>
 				<bitsize>32</bitsize>
-				<minvalue>-120</minvalue>
-				<maxvalue>120</maxvalue>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
-				<numbits>32</numbits>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
@@ -34,61 +32,203 @@
 	</device>
 	
 	<!-- VOLANT -->
-	
-	<device id="6" name="Volant">
-	    <trame identifier="200" type="1">
-			<deviceitem id="1" name="Status">
+	<device id="5" name="Volant">
+	    <trame identifier="500" type="2">
+			<deviceitem id="0" name="Status">
 				<unit>Bin</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>65535</maxvalue>
+				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
-				<numbits>8</numbits>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="2" name="Bouton">
-				<unit>Bin</unit>
-				<bitsize>8</bitsize>
+			<deviceitem id="1" name="OSTime">
+				<unit>Tick</unit>
+				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
-				<numbits>8</numbits>
 				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="4" name="Pot">
-				<unit>Bin</unit>
-				<bitsize>8</bitsize>
-				<minvalue>-128</minvalue>
-				<maxvalue>127</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<numbits>8</numbits>
-				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-	    <trame identifier="201" type="1">
-			<deviceitem id="5" name="Velocity">
-				<unit>m/s</unit>
+	    <trame identifier="501" type="2">
+			<deviceitem id="2" name="OpMode">
+				<unit>Bin</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>30</maxvalue>
+				<maxvalue>255</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
-				<numbits>32</numbits>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="Button">
+				<unit>Bin</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>255</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="502" type="2">
+			<deviceitem id="4" name="TorqueCMD">
+				<unit>Bin</unit>
+				<bitsize>8</bitsize>
+				<minvalue>-64</minvalue>
+				<maxvalue>64</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="5" name="SpeedCMD">
+				<unit>Km/h</unit>
+				<bitsize>8</bitsize>
+				<minvalue>-100</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
 	</device>
 
+	<!-- INSTRU -->
+	<device id="5" name="Instru">
+	    <trame identifier="600" type="2">
+			<deviceitem id="0" name="Status">
+				<unit>Bin</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="1" name="OSTime">
+				<unit>Tick</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="601" type="2">
+			<deviceitem id="2" name="LAT">
+				<unit>degree</unit>
+				<bitsize>32</bitsize>				
+				<minvalue>-90</minvalue>
+				<maxvalue>90</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="LON">
+				<unit>degree</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-180</minvalue>
+				<maxvalue>180</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="602" type="2">
+			<deviceitem id="4" name="Time">
+				<unit>ms</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		  <trame identifier="603" type="2">
+			<deviceitem id="5" name="TEMP">
+				<unit>degree</unit>
+				<bitsize>32</bitsize>				
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="6" name="INCLINO">
+				<unit>degree</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>360</maxvalue>
+				<resolution>1</resolution>
+				<factor>40</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		  <trame identifier="605" type="2">
+			<deviceitem id="7" name="ACCX">
+				<unit>g</unit>
+				<bitsize>16</bitsize>				
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>250</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="8" name="ACCY">
+				<unit>g</unit>
+				<bitsize>16</bitsize>				
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>250</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="9" name="ACCZ">
+				<unit>g</unit>
+				<bitsize>16</bitsize>				
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>250</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
 
 </char>

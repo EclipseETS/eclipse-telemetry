@@ -118,6 +118,7 @@ public class DeviceItem extends Observable {
 	 * @param value value as double to be added to the table
 	 */
 	public void setValue(Double value){
+		value=value*resolution/factor+offset;
 		values.add(new Data(value));
 		setChanged();
 		notifyObservers();
