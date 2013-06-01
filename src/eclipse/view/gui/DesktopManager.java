@@ -236,7 +236,11 @@ public class DesktopManager implements Runnable {
 		mnAcqui.add(mnStop);
 		mnStop.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {
-				DataAcquisition.getInstance().stopAcquiring();
+        	   //TODO remetre stuff
+				//DataAcquisition.getInstance().stopAcquiring();
+        	   //for(int i=0;i<100000;i++)
+        	   
+        	   DataAcquisition.getInstance().sendByte((byte) 100);
 				
 			}
 

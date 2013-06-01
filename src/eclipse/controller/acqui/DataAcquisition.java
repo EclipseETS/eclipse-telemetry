@@ -76,6 +76,15 @@ public class DataAcquisition implements Runnable {
 		}
 		
 	}
+	
+	/**
+	 * Send byte to the telemetry
+	 * @param bt
+	 */
+	public void sendByte(byte bt){
+		if(acquisition)
+			handler.writeByte(bt);
+	}
 
 	public void run() {
 		listen();
