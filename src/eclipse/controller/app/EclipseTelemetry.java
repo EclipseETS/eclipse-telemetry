@@ -97,7 +97,6 @@ public class EclipseTelemetry {
 		dataAcqui = DataAcquisition.getInstance();
 		dataAcqui.Ititalize(new SimpleSerialHandler(),new DesencapsulatorE8Serial());
 		threadGenInstance.addThread(dataAcqui);
-		threadGenInstance.addThread(dataAcqui);
 		
 		//==================================STUB==================================================
 		//threadGenInstance.addThread(new TESTER());
