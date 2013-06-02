@@ -240,7 +240,7 @@ public class DesktopManager implements Runnable {
 				//DataAcquisition.getInstance().stopAcquiring();
         	   //for(int i=0;i<100000;i++)
         	   
-        	   DataAcquisition.getInstance().sendByte((byte) 100);
+        	   DataAcquisition.getInstance().sendByte((byte) 42);
 				
 			}
 

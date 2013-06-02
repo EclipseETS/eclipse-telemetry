@@ -194,8 +194,21 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
+		  <trame identifier="604" type="2">
+			<deviceitem id="7" name="CMD">
+				<unit>bin</unit>
+				<bitsize>8</bitsize>				
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
 		  <trame identifier="605" type="2">
-			<deviceitem id="7" name="ACCX">
+			<deviceitem id="8" name="ACCX">
 				<unit>g</unit>
 				<bitsize>16</bitsize>				
 				<minvalue>0</minvalue>
@@ -206,7 +219,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="8" name="ACCY">
+			<deviceitem id="9" name="ACCY">
 				<unit>g</unit>
 				<bitsize>16</bitsize>				
 				<minvalue>0</minvalue>
@@ -217,7 +230,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="9" name="ACCZ">
+			<deviceitem id="10" name="ACCZ">
 				<unit>g</unit>
 				<bitsize>16</bitsize>				
 				<minvalue>0</minvalue>
