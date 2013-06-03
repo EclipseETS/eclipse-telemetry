@@ -22,7 +22,7 @@
 	<property name="jar.dir"     value="${build.dir}/jar"/>
 	<property name="lib.dir"     value="lib"/>
 
-	<property name="main-class"  value="app.EclipseTelemetry2011App"/>
+	<property name="main-class"  value="eclipse.controller.app.EclipseTelemetry"/>
 
 	<tstamp>
 		<format property="TODAY" pattern="yyyy.MM.dd-HH.mm.ss" />
