@@ -108,7 +108,7 @@
 	</device>
 
 	<!-- INSTRU -->
-	<device id="5" name="Instru">
+	<device id="6" name="Instru">
 	    <trame identifier="600" type="2">
 			<deviceitem id="0" name="Status">
 				<unit>Bin</unit>
@@ -158,8 +158,8 @@
 			</deviceitem>
 		</trame>
 	    <trame identifier="602" type="2">
-			<deviceitem id="4" name="Time">
-				<unit>ms</unit>
+			<deviceitem id="4" name="TIME">
+				<unit>m</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -169,9 +169,20 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
+			<deviceitem id="5" name="DATE">
+				<unit>d</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
 		</trame>
 		  <trame identifier="603" type="2">
-			<deviceitem id="5" name="TEMP">
+			<deviceitem id="6" name="TEMP">
 				<unit>degree</unit>
 				<bitsize>32</bitsize>				
 				<minvalue>0</minvalue>
@@ -182,7 +193,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="6" name="INCLINO">
+			<deviceitem id="7" name="INCLINO">
 				<unit>degree</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -195,7 +206,7 @@
 			</deviceitem>
 		</trame>
 		  <trame identifier="604" type="2">
-			<deviceitem id="7" name="CMD">
+			<deviceitem id="8" name="CMD">
 				<unit>bin</unit>
 				<bitsize>8</bitsize>				
 				<minvalue>0</minvalue>
@@ -208,7 +219,7 @@
 			</deviceitem>
 		</trame>
 		  <trame identifier="605" type="2">
-			<deviceitem id="8" name="ACCX">
+			<deviceitem id="9" name="ACCX">
 				<unit>g</unit>
 				<bitsize>16</bitsize>				
 				<minvalue>0</minvalue>
@@ -219,7 +230,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="9" name="ACCY">
+			<deviceitem id="10" name="ACCY">
 				<unit>g</unit>
 				<bitsize>16</bitsize>				
 				<minvalue>0</minvalue>
@@ -230,7 +241,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="10" name="ACCZ">
+			<deviceitem id="11" name="ACCZ">
 				<unit>g</unit>
 				<bitsize>16</bitsize>				
 				<minvalue>0</minvalue>
