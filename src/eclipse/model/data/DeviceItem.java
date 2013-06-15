@@ -23,8 +23,8 @@ public class DeviceItem extends Observable {
 	//Data Properties
 	protected String unit;
 	protected int bitSize;
-	protected int minValue;
-	protected int maxValue;
+	protected double minValue;
+	protected double maxValue;
 	protected double resolution;
 	protected double factor;
 	protected int offset;
@@ -33,15 +33,15 @@ public class DeviceItem extends Observable {
 	
 	//Complete constructor
 	public DeviceItem(Integer itemId, String name,
-			String unit,int bitSize, int minValue, int maxValue, double resolution,
+			String unit,int bitSize, double minValue2, double maxValue2, double resolution,
 			double factor, int offset, boolean signed, boolean isFloat) {
 		super();
 		this.itemId = itemId;
 		this.name = name;
 		this.unit = unit;
 		this.bitSize = bitSize;
-		this.minValue = minValue;
-		this.maxValue = maxValue;
+		this.minValue = minValue2;
+		this.maxValue = maxValue2;
 		this.resolution = resolution;
 		this.factor = factor;
 		this.offset = offset;
@@ -67,10 +67,10 @@ public class DeviceItem extends Observable {
 	public int getBitSize() {
 		return bitSize;
 	}
-	public int getMinValue() {
+	public double getMinValue() {
 		return minValue;
 	}
-	public int getMaxValue() {
+	public double getMaxValue() {
 		return maxValue;
 	}
 	public double getResolution() {

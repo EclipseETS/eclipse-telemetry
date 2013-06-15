@@ -1,9 +1,9 @@
 # Set loggers
 
 # main
-log4j.logger.main=INFO, file
+log4j.logger.main=INFO, console
 # telemetry
-#log4j.logger.telemetry=ALL, file
+#log4j.logger.telemetry=ALL, console
 
 # Appender console
 log4j.appender.console=org.apache.log4j.ConsoleAppender
