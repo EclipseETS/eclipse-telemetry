@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
-
 import eclipse.controller.acqui.AcquisitionHandler;
 import eclipse.controller.util.TelemetrySettings;
 
@@ -95,6 +94,7 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 	/**
 	 * ReadByteFromBuffer and return it
 	 */
+	@SuppressWarnings("null")
 	public byte readByte() {
 		if(connected){
 			byte[] bt;

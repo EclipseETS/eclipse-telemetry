@@ -25,6 +25,7 @@ import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.view.gui.tab.TabbedPannel;
+import eclipse.view.gui.tab.Tabchar;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
  * The manager will open any frame, console, or whatever you see
@@ -247,6 +248,18 @@ public class DesktopManager implements Runnable {
 		JMenu mnView = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL"));
 		menuBar.add(mnView);
 		
+		JMenuItem mnGlobal= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
+		mnView.add(mnGlobal);
+		mnGlobal.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	       			logger.debug("File->Global Pressed");
+	       			
+	       			tab.add(new Tabchar());
+					
+				}
+
+	        });
+	
 		
 		//GRAPH
 		JMenu mnGraph = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_GRAPH"));
