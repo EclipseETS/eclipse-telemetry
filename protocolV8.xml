@@ -1017,7 +1017,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="710" type="2">
+		<trame identifier="70A" type="2">
 			<deviceitem id="35" name="Pile 28">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
@@ -1029,76 +1029,8 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="36" name="Pile 29">
-				<unit>V</unit>
-				<bitsize>16</bitsize>
-				<minvalue>2.8</minvalue>
-				<maxvalue>4</maxvalue>
-				<resolution>1.5</resolution>
-				<factor>1000</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="37" name="Pile 30">
-				<unit>V</unit>
-				<bitsize>16</bitsize>
-				<minvalue>2.8</minvalue>
-				<maxvalue>4</maxvalue>
-				<resolution>1.5</resolution>
-				<factor>1000</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="38" name="Pile 31">
-				<unit>V</unit>
-				<bitsize>16</bitsize>
-				<minvalue>2.8</minvalue>
-				<maxvalue>4</maxvalue>
-				<resolution>1.5</resolution>
-				<factor>1000</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
 		</trame>
-		<trame identifier="711" type="2">
-			<deviceitem id="39" name="Pile 32">
-				<unit>V</unit>
-				<bitsize>16</bitsize>
-				<minvalue>2.8</minvalue>
-				<maxvalue>4</maxvalue>
-				<resolution>1.5</resolution>
-				<factor>1000</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="40" name="Pile 33">
-				<unit>V</unit>
-				<bitsize>16</bitsize>
-				<minvalue>2.8</minvalue>
-				<maxvalue>4</maxvalue>
-				<resolution>1.5</resolution>
-				<factor>1000</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="41" name="Pile 34">
-				<unit>V</unit>
-				<bitsize>16</bitsize>
-				<minvalue>2.8</minvalue>
-				<maxvalue>4</maxvalue>
-				<resolution>1.5</resolution>
-				<factor>1000</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="712" type="2">
+		<trame identifier="70B" type="2">
 			<deviceitem id="42" name="Pile Min">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
@@ -1126,14 +1058,14 @@
 				<bitsize>16</bitsize>
 				<minvalue>80</minvalue>
 				<maxvalue>115</maxvalue>
-				<resolution>1.5</resolution>
+				<resolution>43.5</resolution>
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="713" type="2">
+		<trame identifier="70F" type="2">
 			<deviceitem id="45" name="Battery Courant">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
@@ -1145,6 +1077,8 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
+		</trame>
+		<trame identifier="710" type="2">
 			<deviceitem id="46" name="Panneaux Courant">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
