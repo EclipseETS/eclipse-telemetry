@@ -1072,7 +1072,29 @@
 				<minvalue>0</minvalue>
 				<maxvalue>65000</maxvalue>
 				<resolution>1</resolution>
-				<factor>1000</factor>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="47" name="Battery Courant 25">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65000</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="48" name="Battery Courant 100">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65000</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -1086,6 +1108,120 @@
 				<maxvalue>65000</maxvalue>
 				<resolution>1</resolution>
 				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="711" type="2">
+			<deviceitem id="49" name="Temp 1">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="50" name="Temp 2">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="51" name="Temp 3">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="52" name="Temp 4">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="53" name="Temp 5">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="54" name="Temp 6">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="55" name="Temp 7">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="56" name="Temp 8">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="712" type="2">
+			<deviceitem id="57" name="Temp 9">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="58" name="Temp max">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>

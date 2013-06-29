@@ -70,9 +70,7 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 			byte crcTmp = CRC8.updateBlock(byteArray, lengt-1, c);
 			if(crcTmp==byteArray[lengt-1]){
 				//CRC VALID 
-				if(id==536871683);{
-					int calc =809;
-				}
+
 				//Get trame
 				Trame t = DataManager.getInstance().getTrame(id);
 				
