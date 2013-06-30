@@ -1143,7 +1143,7 @@
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>80</minvalue>
-				<maxvalue>115</maxvalue>
+				<maxvalue>125</maxvalue>
 				<resolution>43.5</resolution>
 				<factor>1000</factor>
 				<offset>0</offset>

@@ -297,7 +297,7 @@ public class Tabchar extends JPanel implements TabPane {
 			}
 		else{
 			FRStatusoAnswer.setForeground(Color.red);
-			FRStatusoAnswer.setText("ERREUR");
+			FRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(6).getLastData()));
 		}
 		
 		FRDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(7).getLastData() +" "+dd.getDeviceByID(3).getItemByID(7).getUnit());	
@@ -315,7 +315,7 @@ public class Tabchar extends JPanel implements TabPane {
 			}
 		else{
 			FLStatusoAnswer.setForeground(Color.red);
-			FLStatusoAnswer.setText("ERREUR");
+			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
 		}
 		
 		FLDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(8).getLastData() +" "+dd.getDeviceByID(3).getItemByID(8).getUnit());	
@@ -336,7 +336,7 @@ public class Tabchar extends JPanel implements TabPane {
 			}
 		else{
 			RRStatusoAnswer.setForeground(Color.red);
-			RRStatusoAnswer.setText("ERREUR");
+			RRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(4).getLastData()));
 		}
 		
 		RRDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(9).getLastData() +" "+dd.getDeviceByID(3).getItemByID(9).getUnit());	
@@ -355,7 +355,7 @@ public class Tabchar extends JPanel implements TabPane {
 			}
 		else{
 			RLStatusoAnswer.setForeground(Color.red);
-			RLStatusoAnswer.setText("ERREUR");
+			RLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(5).getLastData()));
 		}
 		
 		RLDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(10).getLastData() +" "+dd.getDeviceByID(3).getItemByID(10).getUnit());	
@@ -402,4 +402,60 @@ public class Tabchar extends JPanel implements TabPane {
 		    g.fillRect(0, 0, width, height);
 		    g.drawImage(img, 180, 100, null);
 			  }
+	  
+	  public String getMessage(int i){
+		  switch (i) {
+		  
+		  case 0:			
+				return "OK";
+
+		  case 1:			
+				return "OK";
+
+		  case 2:			
+				return "OK";
+
+		  case 3:			
+				return "I2CShutOff";
+
+		  case 4:			
+				return "AntiBackwardShort";
+
+		  case 5:			
+				return "AlarmRegen";
+
+		  case 6:			
+				return "AlarmShort";
+
+		  case 7:			
+				return "OverSpeedI";
+
+		  case 8:			
+				return "OverSpeedV";
+
+		  case 9:			
+				return "V12UVP";
+
+		  case 10:			
+				return "V12OVP";
+
+		  case 11:			
+				return "VPwrUVP";
+
+		  case 12:			
+				return "VPwrOVP";
+
+		  case 13:			
+				return "OCProtect";
+
+		  case 14:			
+				return "BadStatorPN";
+
+		  case 15:			
+				return "HallError";
+
+			default:
+			return "UNKOOWN CODE";
+		}
+	  }
 }
