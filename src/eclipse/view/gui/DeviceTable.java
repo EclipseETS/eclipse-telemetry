@@ -62,12 +62,12 @@ public class DeviceTable extends JPanel  {
 		btnIndex.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
+				for (int i : dataTable.getSelectedRows()){
+				String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
 				deviceId=deviceId.substring(0,deviceId.indexOf("-"));
 				
 				
-				String deviceItemId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 1);
+				String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
 				deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
 				
 				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
@@ -75,7 +75,7 @@ public class DeviceTable extends JPanel  {
 
 				DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
 				//DesktopManager.getIstance().getErrorPanel().addItem(item, dev);
-				
+				}
 			}
 
 			});
@@ -84,12 +84,13 @@ public class DeviceTable extends JPanel  {
 		btnGraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
+				for (int i : dataTable.getSelectedRows()){
+					
+				String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
 				deviceId=deviceId.substring(0,deviceId.indexOf("-"));
 				
 				
-				String deviceItemId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 1);
+				String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
 				deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
 				
 				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
@@ -97,7 +98,7 @@ public class DeviceTable extends JPanel  {
 				
 				DesktopManager.getIstance().getTabbedPannel().addTab(
 						new TelemetryGraph(Integer.valueOf(deviceId), Integer.valueOf(deviceItemId)),dev.getDeviceName()+"-"+item.getName());
-				
+				}
 			}
 
 			});

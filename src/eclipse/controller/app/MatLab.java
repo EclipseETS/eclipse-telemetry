@@ -6,7 +6,11 @@ import java.io.IOException;
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
-
+/**
+ * This class provide specific information for matlab file, for mecanical analyses
+ * @author Marco
+ *
+ */
 public class MatLab implements Runnable{
 
 	private String sep = ",";

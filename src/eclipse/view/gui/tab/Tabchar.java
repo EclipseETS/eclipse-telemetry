@@ -10,7 +10,11 @@ import java.awt.Image;
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
-
+/**
+ * This view show all important information on 1 single view
+ * @author Marco
+ *
+ */
 public class Tabchar extends JPanel implements TabPane {
 	 private Image img;
 	 
