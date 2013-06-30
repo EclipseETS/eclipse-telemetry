@@ -1,5 +1,6 @@
 package eclipse.model.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,8 +12,10 @@ import java.util.Observable;
  * @author Marco
  *
  */
-public class DeviceItem extends Observable {
+public class DeviceItem extends Observable implements Serializable {
 	
+	private static final long serialVersionUID = 8400429229079413845L;
+
 	//Data them self
 	protected List<Data> values;
 	

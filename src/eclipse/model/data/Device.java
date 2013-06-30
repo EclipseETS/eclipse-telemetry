@@ -1,5 +1,6 @@
 package eclipse.model.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,8 +11,9 @@ import java.util.List;
  * @author Marco
  *
  */
-public class Device {
+public class Device implements Serializable{
 
+	private static final long serialVersionUID = -8127694385946744198L;
 	//Properties of the Device
 	private Integer deviceId;
 	private String deviceName;

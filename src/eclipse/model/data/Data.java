@@ -1,13 +1,16 @@
 package eclipse.model.data;
 
+import java.io.Serializable;
+
 /**
  * Where all the data is stored. 
  * This is a unit data. One per second
  * @author Marco
  *
  */
-public class Data {
+public class Data implements Serializable{
 
+	private static final long serialVersionUID = 8442914540348823614L;
 	private Long date;
 	private double data;
 	

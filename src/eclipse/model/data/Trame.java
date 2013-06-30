@@ -1,8 +1,10 @@
 package eclipse.model.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import eclipse.controller.util.ByteManipulator;
 import eclipse.controller.util.HexString;
 
@@ -27,8 +29,9 @@ import eclipse.controller.util.HexString;
  * @author Marco
  *
  */
-public class Trame {
+public class Trame implements Serializable {
 
+	private static final long serialVersionUID = -4922800160254050731L;
 	private int identifier;	//Tram ID (from car)
 	private int type; // Tram type (from car)
 	private List<DeviceItem> items = Collections.synchronizedList(new ArrayList<DeviceItem>());

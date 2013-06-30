@@ -181,7 +181,7 @@ public class DesktopManager implements Runnable {
 		mntmSAve.addActionListener(new ActionListener() {
 	           public void actionPerformed(ActionEvent arg0) {
 	       			logger.debug("File->Saved Pressed");
-	       			JFileChooser Save = new JFileChooser();
+	       			JFileChooser Save = new JFileChooser(DesktopManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 	       			Save.setDialogTitle("Save");
 	       		    int returnVal = Save.showSaveDialog(new JFrame());
 	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
@@ -201,7 +201,7 @@ public class DesktopManager implements Runnable {
 	           public void actionPerformed(ActionEvent arg0) {
 	       			logger.debug("File->Load pressed");
 	       			
-	       			JFileChooser load = new JFileChooser();
+	       			JFileChooser load = new JFileChooser(DesktopManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 	       		    int returnVal = load.showOpenDialog(new JFrame());
 	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
 	       		    	DataAcquisition.getInstance().stopAcquiring();

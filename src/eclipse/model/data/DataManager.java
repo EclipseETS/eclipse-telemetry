@@ -1,17 +1,17 @@
 package eclipse.model.data;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Observable;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import org.apache.commons.lang3.SerializationUtils;
+
 
 /**
  * Main point of entry for all the model of the application
@@ -23,8 +23,9 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  * @author Eclipse
  *
  */
-public class DataManager {
+public class DataManager implements Serializable{
 	
+	private static final long serialVersionUID = 3504102344466093796L;
 	private static DataManager dataMgr = new DataManager();
 	private List<Device> devices;
 	private Map<Integer, Trame> trames;
@@ -94,14 +95,26 @@ public class DataManager {
 		
 		//Load temporary Datamanager
 		DataManager datatmp = new DataManager();
-		XStream xs = new XStream(new DomDriver("UTF-8"));
+//		XStream xs = new XStream(new DomDriver("UTF-8"));
+//
+//        try {
+//            FileInputStream fis = new FileInputStream(location);
+//            xs.fromXML(fis, datatmp);
+//        } catch (FileNotFoundException ex) {
+//            ex.printStackTrace();
+//        }
+		
+		   try {
+				FileInputStream fis = new FileInputStream(location);
 
-        try {
-            FileInputStream fis = new FileInputStream(location);
-            xs.fromXML(fis, datatmp);
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
+	      // Deserialize and cast into String
+	      datatmp = (DataManager) SerializationUtils.deserialize(fis);
+	      //System.out.println(ser);
+	   	fis.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    
         
         for(Device devNouveau : datatmp.getDevices()){
         	Device devOriginal = dataMgr.getDeviceByID(devNouveau.getDeviceId());
@@ -128,15 +141,15 @@ public class DataManager {
 	 */
 	public void save(String location){
 
-		XStream xs = new XStream(new DomDriver("UTF-8"));
-
-	        try {
-	            FileOutputStream fs = new FileOutputStream(location);
-	            xs.omitField(Observable.class, "obs"); 
-	            xs.toXML(dataMgr,fs);
-	        } catch (FileNotFoundException e1) {
-	            e1.printStackTrace();
-	        }
+        try {
+			FileOutputStream fs = new FileOutputStream(location);
+			byte[] bck = SerializationUtils.serialize(dataMgr);
+			fs.write(bck);
+			fs.close();
+		} catch (Exception e) {
+					
+			e.printStackTrace();
+		}
 	 }
 	
 		
