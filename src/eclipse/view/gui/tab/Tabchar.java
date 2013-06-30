@@ -214,27 +214,27 @@ public class Tabchar extends JPanel implements TabPane {
 				RLRmpAnswer.setBounds(550, 80, 100, 14);
 				add(RLRmpAnswer);
 				
-				bat.setBounds(40, 0, 100, 14);
+				bat.setBounds(140, 100, 100, 14);
 				add(bat);
 				
-				pileMin.setBounds(10, 20, 100, 14);
+				pileMin.setBounds(110, 120, 100, 14);
 				add(pileMin);
-				pileMinAnwser.setBounds(80, 20, 100, 14);
+				pileMinAnwser.setBounds(180, 120, 100, 14);
 				add(pileMinAnwser);
 				
-				pileMax.setBounds(10, 40, 100, 14);
+				pileMax.setBounds(110, 140, 100, 14);
 				add(pileMax);
-				pileMaxAnwser.setBounds(80, 40, 100, 14);
+				pileMaxAnwser.setBounds(180, 140, 100, 14);
 				add(pileMaxAnwser);
 				
-				pileTotal.setBounds(10, 60, 100, 14);
+				pileTotal.setBounds(110, 160, 100, 14);
 				add(pileTotal);
-				pileTotalAnwser.setBounds(80, 60, 100, 14);
+				pileTotalAnwser.setBounds(180, 160, 100, 14);
 				add(pileTotalAnwser);
 				
-				courantOut.setBounds(10, 80, 100, 14);
+				courantOut.setBounds(110, 180, 100, 14);
 				add(courantOut);
-				courantOutAnwser.setBounds(80, 80, 100, 14);
+				courantOutAnwser.setBounds(180, 180, 100, 14);
 				add(courantOutAnwser);
 				
 				LON.setBounds(1050, 60, 100, 14);
