@@ -40,7 +40,7 @@
 			</deviceitem>
 		</trame>
 	    <trame identifier="301" type="2">
-			<deviceitem id="6" name="Moteur FR Ten">
+			<deviceitem id="6" name="Moteur FR Status">
 				<unit>V</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -51,7 +51,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="3" name="Moteur FL Ten">
+			<deviceitem id="3" name="Moteur FL Status">
 				<unit>V</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -62,7 +62,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="4" name="Moteur RR Ten">
+			<deviceitem id="4" name="Moteur RR Status">
 				<unit>V</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -73,7 +73,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="5" name="Moteur RL Ten">
+			<deviceitem id="5" name="Moteur RL Status">
 				<unit>V</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -86,7 +86,7 @@
 			</deviceitem>
 		</trame>
 	    <trame identifier="302" type="2">
-			<deviceitem id="7" name="Moteur FR Tmp">
+			<deviceitem id="7" name="Drive FR Tmp">
 				<unit>C</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -97,7 +97,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="8" name="Moteur FL Tmp">
+			<deviceitem id="8" name="Drive FL Tmp">
 				<unit>C</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -108,7 +108,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="9" name="Moteur RR Tmp">
+			<deviceitem id="9" name="Drive RR Tmp">
 				<unit>C</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -119,7 +119,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="10" name="Moteur RL Tmp">
+			<deviceitem id="10" name="Drive RL Tmp">
 				<unit>C</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -229,7 +229,7 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.6562</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
@@ -240,20 +240,18 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.6562</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-		</trame>
-	    <trame identifier="306" type="2">
 			<deviceitem id="21" name="Moteur RR HV">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.6562</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
@@ -264,20 +262,20 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.6562</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-	    <trame identifier="307" type="2">
+	    <trame identifier="306" type="2">
 			<deviceitem id="23" name="Moteur FR 12V">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.25</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
@@ -288,20 +286,18 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.25</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-		</trame>
-	    <trame identifier="308" type="2">
 			<deviceitem id="25" name="Moteur RR 12V">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.25</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
@@ -312,20 +308,20 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.25</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-	    <trame identifier="309" type="2">
+	    <trame identifier="307" type="2">
 			<deviceitem id="27" name="Moteur FR 5V">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.15</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
@@ -336,20 +332,18 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.15</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-		</trame>
-	    <trame identifier="30A" type="2">
 			<deviceitem id="29" name="Moteur RR 5V">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
+				<resolution>0.15</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
@@ -360,6 +354,98 @@
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
+				<resolution>0.15</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="308" type="2">
+			<deviceitem id="31" name="Drive FR Setpoint">
+				<unit>Unit</unit>
+				<bitsize>8</bitsize>
+				<minvalue>-128</minvalue>
+				<maxvalue>127</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="32" name="Drive FL Setpoint">
+				<unit>Unit</unit>
+				<bitsize>8</bitsize>
+				<minvalue>-128</minvalue>
+				<maxvalue>127</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="33" name="Drive RR Setpoint">
+				<unit>Unit</unit>
+				<bitsize>8</bitsize>
+				<minvalue>-128</minvalue>
+				<maxvalue>127</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="34" name="Drive RL Setpoint">
+				<unit>Unit</unit>
+				<bitsize>8</bitsize>
+				<minvalue>-128</minvalue>
+				<maxvalue>127</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="309" type="2">
+			<deviceitem id="35" name="Moteur FR TMP">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>125</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="36" name="Moteur FL TMP">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>125</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="37" name="Moteur RR TMP">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>125</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="38" name="Moteur RL TMP">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>125</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -1083,7 +1169,7 @@
 				<minvalue>0</minvalue>
 				<maxvalue>65000</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>500</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -1094,7 +1180,7 @@
 				<minvalue>0</minvalue>
 				<maxvalue>65000</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>500</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>

@@ -16,9 +16,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 import org.apache.log4j.Logger;
+
+
 
 
 import eclipse.controller.acqui.DataAcquisition;
@@ -84,7 +87,7 @@ public class DesktopManager implements Runnable {
 		
 		Image im = null;
 		try {
-			im = ImageIO.read(new File("eclipse.png"));
+			im = ImageIO.read(new File("images/eclipse.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -182,7 +185,9 @@ public class DesktopManager implements Runnable {
 	       			Save.setDialogTitle("Save");
 	       		    int returnVal = Save.showSaveDialog(new JFrame());
 	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	       		    	DataAcquisition.getInstance().stopAcquiring();
 	       		    	DataManager.getInstance().save(Save.getSelectedFile().getAbsolutePath());
+	       		    	DataAcquisition.getInstance().startAcquiring();
 	       		    	JOptionPane.showMessageDialog(new JFrame(),"Save Finish!");
 	       		    }
 					
@@ -199,7 +204,9 @@ public class DesktopManager implements Runnable {
 	       			JFileChooser load = new JFileChooser();
 	       		    int returnVal = load.showOpenDialog(new JFrame());
 	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	       		    	DataAcquisition.getInstance().stopAcquiring();
 	       		    	DataManager.getInstance().load(load.getSelectedFile().getAbsolutePath());
+	       		    	DataAcquisition.getInstance().startAcquiring();
 	       		    	JOptionPane.showMessageDialog(new JFrame(),"Load Finish!");
 	       		    }
 					
@@ -253,8 +260,8 @@ public class DesktopManager implements Runnable {
 		mnGlobal.addActionListener(new ActionListener() {
 	           public void actionPerformed(ActionEvent arg0) {
 	       			logger.debug("File->Global Pressed");
-	       			
-	       			tab.add(new Tabchar());
+	       			JPanel charSolaire = new Tabchar();
+	       			tab.addTab(charSolaire,TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
 					
 				}
 
