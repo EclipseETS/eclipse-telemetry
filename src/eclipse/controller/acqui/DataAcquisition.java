@@ -91,6 +91,9 @@ public class DataAcquisition implements Runnable {
 		
 	}
 	
+	public boolean getAcquiStatus(){
+		return acquisition;
+	}
 	
 	
 		

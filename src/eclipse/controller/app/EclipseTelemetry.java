@@ -106,6 +106,10 @@ public class EclipseTelemetry {
 		threadGenInstance.addThread(new MatLab());
 		
 		
+		//=================================ERROR===============================================
+		threadGenInstance.addThread(new ErrorFinder());
+		
+		
 		//=================================Start Gui===============================================
 		threadGenInstance.addThread(DesktopManager.getIstance());
 				

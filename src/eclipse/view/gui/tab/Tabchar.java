@@ -379,9 +379,7 @@ public class Tabchar extends JPanel implements TabPane {
 		}
 		
 		double speed = (dd.getDeviceByID(3).getItemByID(11).getLastData()+
-				dd.getDeviceByID(3).getItemByID(12).getLastData()+
-				dd.getDeviceByID(3).getItemByID(13).getLastData()+
-				dd.getDeviceByID(3).getItemByID(14).getLastData())/4*0.195*3.1459*60/1000;
+				dd.getDeviceByID(3).getItemByID(12).getLastData())/2*0.492*3.1459*60/1000;
 		VitesseAnwser.setText(speed+" Km/h");
 		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
 		

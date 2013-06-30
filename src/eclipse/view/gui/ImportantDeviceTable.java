@@ -128,23 +128,24 @@ public class ImportantDeviceTable extends JPanel  {
 	 */
 	public void addItem(DeviceItem itemCurrent, Device deviceCurrent){
 		
-		String lbl1;
-		String lbl2;
-		items.add(itemCurrent);
+		if(!items.contains(itemCurrent)){
+			String lbl1;
+			String lbl2;
+			items.add(itemCurrent);
+			
+			
+			
+			lbl1=deviceCurrent.getDeviceId()+"-"+deviceCurrent.getDeviceName();
+			lbl2=itemCurrent.getItemId()+"-"+itemCurrent.getName();	
+			model.addRow(new String[5]);
+			dataTable.getModel().setValueAt(lbl1, items.size()-1, 0);
+			dataTable.getModel().setValueAt(lbl2, items.size()-1, 1);
+			dataTable.getModel().setValueAt(itemCurrent.getUnit(), items.size()-1, 3);
+			
+			DesktopManager.getIstance().resizedMe();
+			updateTable();
 		
-		
-		
-		lbl1=deviceCurrent.getDeviceId()+"-"+deviceCurrent.getDeviceName();
-		lbl2=itemCurrent.getItemId()+"-"+itemCurrent.getName();	
-		model.addRow(new String[5]);
-		dataTable.getModel().setValueAt(lbl1, items.size()-1, 0);
-		dataTable.getModel().setValueAt(lbl2, items.size()-1, 1);
-		dataTable.getModel().setValueAt(itemCurrent.getUnit(), items.size()-1, 3);
-		
-		DesktopManager.getIstance().resizedMe();
-		updateTable();
-		
-					
+		}		
 		
 	}
 	

@@ -33,6 +33,7 @@ public class DeviceItem extends Observable implements Serializable {
 	protected int offset;
 	protected boolean signed;
 	protected boolean isFloat;
+	protected boolean erreur;
 	
 	//Complete constructor
 	public DeviceItem(Integer itemId, String name,
@@ -123,8 +124,15 @@ public class DeviceItem extends Observable implements Serializable {
 	public void setValue(Double value){
 		value=value*resolution/factor+offset;
 		values.add(new Data(value));
+		if(value<minValue||value>maxValue)
+			erreur=true;
+		else
+			erreur=false;
 		setChanged();
 		notifyObservers();
 	}
 	
+	public Boolean getError(){
+		return erreur;
+	}
 }
