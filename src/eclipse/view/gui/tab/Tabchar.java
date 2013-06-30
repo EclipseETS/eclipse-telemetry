@@ -81,6 +81,8 @@ public class Tabchar extends JPanel implements TabPane {
 		JLabel pileTotalAnwser = new JLabel("Pile Total:");
 		JLabel courantOut = new JLabel("Courant:");
 		JLabel courantOutAnwser = new JLabel("Courant:");
+		JLabel Watt = new JLabel("Puissance:");
+		JLabel wattAnwser = new JLabel("W:");
 		
 		JLabel LON = new JLabel("LON");
 		
@@ -237,6 +239,11 @@ public class Tabchar extends JPanel implements TabPane {
 				courantOutAnwser.setBounds(180, 180, 100, 14);
 				add(courantOutAnwser);
 				
+				Watt.setBounds(110, 200, 100, 14);
+				add(Watt);
+				wattAnwser.setBounds(180, 200, 100, 14);
+				add(wattAnwser);
+				
 				LON.setBounds(1050, 60, 100, 14);
 				add(LON);
 				
@@ -277,7 +284,7 @@ public class Tabchar extends JPanel implements TabPane {
 	
 			if(dd.getDeviceByID(3).getItemByID(6).getLastData()==0||dd.getDeviceByID(3).getItemByID(6).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(19).getLastData()!=0){
-				FRStatusoAnswer.setForeground(Color.BLACK);
+				FRStatusoAnswer.setForeground(Color.green);
 				FRStatusoAnswer.setText("OK");
 			}
 			else{
@@ -295,7 +302,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
-				FLStatusoAnswer.setForeground(Color.BLACK);
+				FLStatusoAnswer.setForeground(Color.green);
 				FLStatusoAnswer.setText("OK");
 			}
 			else{
@@ -316,7 +323,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		if(dd.getDeviceByID(3).getItemByID(4).getLastData()==0||dd.getDeviceByID(3).getItemByID(4).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(21).getLastData()!=0){
-				RRStatusoAnswer.setForeground(Color.BLACK);
+				RRStatusoAnswer.setForeground(Color.green);
 				RRStatusoAnswer.setText("OK");
 			}
 			else{
@@ -335,7 +342,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		if(dd.getDeviceByID(3).getItemByID(5).getLastData()==0||dd.getDeviceByID(3).getItemByID(5).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(22).getLastData()!=0){
-				RLStatusoAnswer.setForeground(Color.BLACK);
+				RLStatusoAnswer.setForeground(Color.green);
 				RLStatusoAnswer.setText("OK");
 			}
 			else{
@@ -362,7 +369,7 @@ public class Tabchar extends JPanel implements TabPane {
 		String date =Double.toString(dd.getDeviceByID(6).getItemByID(5).getLastData());
 		String heure =Double.toString(dd.getDeviceByID(6).getItemByID(4).getLastData());
 		int delay =Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
-		if(date.length()>9999){
+		if(Double.parseDouble(date)>9999){
 			DATE.setText(date.substring(0, 2)+":"+date.substring(2,4)+":"+date.substring(4,6));
 			HEURE.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
 		}
@@ -373,6 +380,14 @@ public class Tabchar extends JPanel implements TabPane {
 				dd.getDeviceByID(3).getItemByID(14).getLastData())/4*0.195*3.1459*60/1000;
 		VitesseAnwser.setText(speed+" Km/h");
 		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
+		
+		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());
+		
+		if (puiss>0)
+			wattAnwser.setForeground(Color.red);
+		else
+			wattAnwser.setForeground(Color.green);
+		wattAnwser.setText(Integer.toString(puiss)+" W");
 		
 		
 	}

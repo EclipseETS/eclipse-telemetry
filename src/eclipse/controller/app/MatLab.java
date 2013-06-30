@@ -16,7 +16,7 @@ public class MatLab implements Runnable{
 		try {
 			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE"),true);
 			BufferedWriter out = new BufferedWriter(fstream);
-			  out.write("HEURE,TENSION,COURANT,RPMFR,RPMFL,RPMRR,RPMRL,LAT,LON,X,Y,X,INCL\r\n");
+			 // out.write("HEURE,TENSION,COURANT,RPMFR,RPMFL,RPMRR,RPMRL,LAT,LON,X,Y,X,INCL\r\n");
 		    out.close();
 		    fstream.close();
 		    while(true){

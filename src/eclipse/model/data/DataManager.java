@@ -94,7 +94,7 @@ public class DataManager {
 		
 		//Load temporary Datamanager
 		DataManager datatmp = new DataManager();
-		XStream xs = new XStream(new DomDriver());
+		XStream xs = new XStream(new DomDriver("UTF-8"));
 
         try {
             FileInputStream fis = new FileInputStream(location);
@@ -128,7 +128,7 @@ public class DataManager {
 	 */
 	public void save(String location){
 
-		XStream xs = new XStream(new DomDriver());
+		XStream xs = new XStream(new DomDriver("UTF-8"));
 
 	        try {
 	            FileOutputStream fs = new FileOutputStream(location);

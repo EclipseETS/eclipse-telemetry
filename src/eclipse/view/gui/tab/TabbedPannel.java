@@ -48,7 +48,9 @@ public class TabbedPannel extends JPanel {
 	public class RightClickListener extends MouseAdapter {
 	    public void mouseClicked(MouseEvent e) {
 	        if (SwingUtilities.isRightMouseButton(e)) {
-	        	tabPanel.remove(tabPanel.indexAtLocation(e.getX(), e.getY()));
+	        	int idx =tabPanel.indexAtLocation(e.getX(), e.getY());
+	        	if(tabPanel.indexAtLocation(e.getX(), e.getY())>=0)
+	        		tabPanel.remove(idx);
 	        }
 	    }
 	}
