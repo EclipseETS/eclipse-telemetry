@@ -152,6 +152,18 @@ public class ImportantDeviceTable extends JPanel  {
 	public int getHeightCustom(){
 		return (model.getRowCount())*dataTable.getRowHeight();
 	}
+
+	public void remItem(DeviceItem itemCurrent, Device dev) {
+		if(!items.contains(itemCurrent)){
+			items.remove(itemCurrent);
+			
+				
+			DesktopManager.getIstance().resizedMe();
+			updateTable();
+		
+		}	
+		
+	}
 	
 	
 }

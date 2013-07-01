@@ -34,10 +34,14 @@ public class ErrorFinder implements Runnable{
 				DataManager dd = DataManager.getInstance();
 				
 				for(Device dev : dd.getDevices())
-					for(DeviceItem itm : dev.getItems())
+					for(DeviceItem itm : dev.getItems()){
 						if(itm.getError()){
 								DesktopManager.getIstance().getErrorPanel().addItem(itm, dev);
 						}
+						else{
+							DesktopManager.getIstance().getErrorPanel().remItem(itm, dev);
+						}
+					}
 				int cpt =0;
 				for(int[] tmp : values){
 					i=dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastData();
