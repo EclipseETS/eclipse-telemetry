@@ -12,7 +12,6 @@ import java.util.Map;
 
 import org.apache.commons.lang3.SerializationUtils;
 
-
 /**
  * Main point of entry for all the model of the application
  * 

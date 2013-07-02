@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 
-
 /**
  * Class that represent a physical Item and offer current and past values.
  * @author Marco

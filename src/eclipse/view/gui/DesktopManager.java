@@ -1,6 +1,5 @@
 package eclipse.view.gui;
 
-
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

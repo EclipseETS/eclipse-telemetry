@@ -1,5 +1,6 @@
 package eclipse.view.gui;
 
+
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

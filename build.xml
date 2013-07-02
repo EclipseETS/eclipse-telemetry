@@ -1,7 +1,6 @@
 <project name="EclipseTelemetry8" basedir="." default="main">
 	<!-- 
 		
-	
 	========================================================================
 	========================================================================
 	To build JAVA_HOME need to be set to the JDK home (Change in OS setting) 

@@ -1,5 +1,6 @@
 package eclipse.view.gui.tab;
 
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;

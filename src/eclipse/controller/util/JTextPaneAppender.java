@@ -1,5 +1,6 @@
 package eclipse.controller.util;
 
+
 import java.awt.Color;
 import java.util.Enumeration;
 import java.util.Hashtable;

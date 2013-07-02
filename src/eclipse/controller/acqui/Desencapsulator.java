@@ -1,5 +1,6 @@
 package eclipse.controller.acqui;
 
+
 /**
  * Default interface for the desencapsulator. On a futur Eclipse version simply add different Desencapsulator and app will continu to work
  * @author Eclipse

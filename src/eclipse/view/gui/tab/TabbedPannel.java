@@ -1,5 +1,6 @@
 package eclipse.view.gui.tab;
 
+
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;

@@ -1,5 +1,6 @@
 package eclipse.model.xml8;
 
+
 import org.apache.log4j.Logger;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;

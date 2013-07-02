@@ -1,6 +1,3 @@
-/**
- * 
- */
 package eclipse.controller.util;
 
 

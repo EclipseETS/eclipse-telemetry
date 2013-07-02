@@ -2,6 +2,7 @@ package eclipse.model.data;
 
 import java.io.Serializable;
 
+
 /**
  * Where all the data is stored. 
  * This is a unit data. One per second

@@ -1,5 +1,6 @@
 package eclipse.controller.util;
 
+
 public class HexString {
 	public static String stringToHex(String s) {
 		byte[] stringBytes = s.getBytes();

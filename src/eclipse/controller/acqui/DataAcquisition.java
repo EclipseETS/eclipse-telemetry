@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import eclipse.view.gui.DesktopManager;
 
 
+
 /**
  * Acquisition thread, this is the most important thread,
  * 

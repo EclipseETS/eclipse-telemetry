@@ -1,5 +1,6 @@
 package eclipse.view.gui.tab;
 
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

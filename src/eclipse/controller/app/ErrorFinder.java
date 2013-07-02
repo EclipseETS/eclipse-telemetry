@@ -1,5 +1,6 @@
 package eclipse.controller.app;
 
+
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;

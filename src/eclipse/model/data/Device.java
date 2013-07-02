@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 /**
  * A Device is a physical Item in the car such as Drive, Motor, MPPTs, etc
  * @author Marco

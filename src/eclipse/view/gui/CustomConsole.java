@@ -1,6 +1,5 @@
 package eclipse.view.gui;
 
-
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;

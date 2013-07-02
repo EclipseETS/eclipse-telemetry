@@ -2,6 +2,7 @@ package eclipse.controller.acqui;
 
 import java.util.Observable;
 
+
 /**
  * Abstract class that provide handler of different type, such as serial, tcp, canbus or whateva
  * @author Marco

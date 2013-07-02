@@ -1,5 +1,6 @@
 package eclipse.model.xml8;
 
+
 import org.apache.log4j.Logger;
 
 import com.thoughtworks.xstream.converters.Converter;

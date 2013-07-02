@@ -8,6 +8,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
 import eclipse.model.data.DeviceItem;
 
+
 /**
  * Standard Converter for the DeviceItem
  * @author Marco
