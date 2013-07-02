@@ -16,6 +16,7 @@
 	<property name="src.dir"     value="src"/>
 
 	<property name="build.dir"   value="build"/>
+	<property name="classes.dir" value="${build.dir}/classes"/>
 	<property name="images.dir" value="images"/>
 	<property name="jar.dir"     value="${build.dir}/jar"/>
 	<property name="lib.dir"     value="lib"/>
