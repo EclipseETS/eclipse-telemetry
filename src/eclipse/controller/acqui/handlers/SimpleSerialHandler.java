@@ -56,7 +56,7 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 		 String[] portNames = SerialPortList.getPortNames();
 		 String retour = (String) JOptionPane.showInputDialog(
 	                null,
-	                "Télémetrie",
+	                "TÃ©lÃ©metrie",
 	                "Select serial port",
 	                JOptionPane.PLAIN_MESSAGE,
 	                null,

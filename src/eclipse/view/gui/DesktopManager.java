@@ -283,7 +283,7 @@ public class DesktopManager implements Runnable {
 	           public void actionPerformed(ActionEvent arg0) {
 	        	   JOptionPane.showMessageDialog(new JFrame(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_COMMAND")), 
 	        			   "Indicatif rapide des commandes: \n \n " +
-	    	        			   "TABLEAU DE DONNÉE \n \n " +
+	    	        			   "TABLEAU DE DONNÃ‰E \n \n " +
 	    	        			   "Pour ajouter un graphique, Choisir Item et clicker Graph \n " +
 	    	        			   "Pour ajouter un item dans la liste rapide, Choisir Item et clicker keep this value  \n " +
 	    	        			   "Pour retirer une valeur de la liste rapide, double clique dessu \n \n \n " +
@@ -302,7 +302,7 @@ public class DesktopManager implements Runnable {
 	           public void actionPerformed(ActionEvent arg0) {
 	        	   JOptionPane.showMessageDialog(new JFrame(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_ABOUT")), 
 	        			   "Eclipse Solar Car Telemetry software. All right reserved. \n" +
-	        			   "Surtout ne touchez pas à Denise, C'est un bien public. Elle devrais dailleur être nationalisée!");
+	        			   "Surtout ne touchez pas Ã  Denise, C'est un bien public. Elle devrais dailleur Ãªtre nationalisÃ©e!");
 					
 				}
 

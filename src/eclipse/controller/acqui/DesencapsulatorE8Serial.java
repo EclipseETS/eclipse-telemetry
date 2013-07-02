@@ -111,7 +111,7 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 		
 		//TODO: Coder le desencapsulateur
 		
-//		//manipuler les données (Frame devrais etre entier)
+//		//manipuler les donnÃ©es (Frame devrais etre entier)
 //		for(int i=0;i<cpt;i++)				
 //			System.out.println(byteArray[i]);
 		
