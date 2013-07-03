@@ -134,4 +134,12 @@ public class DeviceItem extends Observable implements Serializable {
 	public Boolean getError(){
 		return erreur;
 	}
+	
+	public void addOldDATA(double value, long date){
+		value=value*resolution/factor+offset;
+		values.add(new Data(value,date));
+		setChanged();
+		notifyObservers();
+		
+	}
 }

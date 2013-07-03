@@ -172,7 +172,7 @@ public class TelemetryGraph extends JPanel implements TabPane, Observer {
 	private void addHistory() {
 		List<Data> tmp = item.getAllData();
 		graphedValues = new TimeSeries("value");
-		for (int i=0;i<tmp.size();i++)
+		for (int i=1;i<tmp.size();i++)
 			graphedValues.addOrUpdate(new Second(new Date((long) tmp.get(i).getDate())), tmp.get(i).getData());
 		
 	}

@@ -367,7 +367,7 @@ public class Tabchar extends JPanel implements TabPane {
 		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
 		pileMaxAnwser.setText(dd.getDeviceByID(7).getItemByID(43).getLastData() +" "+dd.getDeviceByID(7).getItemByID(43).getUnit());
 		pileTotalAnwser.setText(dd.getDeviceByID(7).getItemByID(44).getLastData() +" "+dd.getDeviceByID(7).getItemByID(44).getUnit());
-		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(47).getLastData() +" "+dd.getDeviceByID(7).getItemByID(47).getUnit());
+		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(48).getLastData() +" "+dd.getDeviceByID(7).getItemByID(47).getUnit());
 		
 		LAT.setText(Double.toString(dd.getDeviceByID(6).getItemByID(2).getLastData()));
 		LON.setText(Double.toString(dd.getDeviceByID(6).getItemByID(3).getLastData()));
@@ -381,7 +381,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		double speed = (dd.getDeviceByID(3).getItemByID(11).getLastData()+
 				dd.getDeviceByID(3).getItemByID(12).getLastData())/2*0.492*3.1459*60/1000;
-		VitesseAnwser.setText(speed+" Km/h");
+		VitesseAnwser.setText(String.format("%.2f", speed)+" Km/h");
 		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
 		
 		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());

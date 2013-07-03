@@ -11,13 +11,17 @@ import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+
+
 
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.view.gui.tab.TelemetryGraph;
 
 /**
  * This class is used to create the table that displays the car data The important section.
@@ -63,9 +67,10 @@ public class ImportantDeviceTable extends JPanel  {
 		//This is the mouse listner on double click Item get erased
 		dataTable.addMouseListener(new MouseAdapter() {
 			   public void mouseClicked(MouseEvent e) {
-			      if (e.getClickCount() == 2) {
+			      if (SwingUtilities.isRightMouseButton(e)) {
 			         JTable target = (JTable)e.getSource();
 			         int row = target.getSelectedRow();
+			         if(row!=-1){
 			         String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
 			         deviceId=deviceId.substring(0,deviceId.indexOf("-"));
 						
@@ -83,6 +88,23 @@ public class ImportantDeviceTable extends JPanel  {
 						//REsize important table
 						DesktopManager.getIstance().resizedMe();
 			         }
+			         }
+			      else if(e.getClickCount() == 2) {
+				         String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
+				         deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+							
+							
+							String deviceItemId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 1);
+							deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
+							
+							Device dev = DataManager.getInstance().getDeviceByID(Integer.valueOf(deviceId));
+							DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+							
+							//Remove information on that list
+							DesktopManager.getIstance().getTabbedPannel().addTab(
+									new TelemetryGraph(Integer.valueOf(deviceId), Integer.valueOf(deviceItemId)),dev.getDeviceName()+"-"+item.getName());
+							
+				         }
 			   }
 			});
 		

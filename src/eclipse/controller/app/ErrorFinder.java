@@ -46,7 +46,7 @@ public class ErrorFinder implements Runnable{
 				int cpt =0;
 				for(int[] tmp : values){
 					i=dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastData();
-					if(i<oldValues[cpt]||dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastSeen()+5000<System.currentTimeMillis())
+					if(i<oldValues[cpt]||dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastSeen()+10000<System.currentTimeMillis())
 						DesktopManager.getIstance().getErrorPanel().addItem(dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]), dd.getDeviceByID(tmp[0]));
 					oldValues[cpt]=(int) i;
 					cpt++;

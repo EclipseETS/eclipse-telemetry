@@ -179,15 +179,15 @@ public class DesktopManager implements Runnable {
 		mnFile.add(mntmSAve);
 		mntmSAve.addActionListener(new ActionListener() {
 	           public void actionPerformed(ActionEvent arg0) {
-	       			logger.debug("File->Saved Pressed");
-	       			JFileChooser Save = new JFileChooser(DesktopManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-	       			Save.setDialogTitle("Save");
-	       		    int returnVal = Save.showSaveDialog(new JFrame());
+	       			logger.debug("File->Load SD pressed");
+	       			
+	       			JFileChooser load = new JFileChooser(DesktopManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+	       		    int returnVal = load.showOpenDialog(new JFrame());
 	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
-	       		    	DataAcquisition.getInstance().stopAcquiring();
-	       		    	DataManager.getInstance().save(Save.getSelectedFile().getAbsolutePath());
-	       		    	DataAcquisition.getInstance().startAcquiring();
-	       		    	JOptionPane.showMessageDialog(new JFrame(),"Save Finish!");
+	       		    	//DataAcquisition.getInstance().stopAcquiring();
+	       		    	DataManager.getInstance().loadSD(load.getSelectedFile().getAbsolutePath());
+	       		    	//DataAcquisition.getInstance().startAcquiring();
+	       		    	JOptionPane.showMessageDialog(new JFrame(),"Load Finish!");
 	       		    }
 					
 				}
@@ -203,9 +203,9 @@ public class DesktopManager implements Runnable {
 	       			JFileChooser load = new JFileChooser(DesktopManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 	       		    int returnVal = load.showOpenDialog(new JFrame());
 	       		    if(returnVal == JFileChooser.APPROVE_OPTION) {
-	       		    	DataAcquisition.getInstance().stopAcquiring();
+	       		    	//DataAcquisition.getInstance().stopAcquiring();
 	       		    	DataManager.getInstance().load(load.getSelectedFile().getAbsolutePath());
-	       		    	DataAcquisition.getInstance().startAcquiring();
+	       		    	//DataAcquisition.getInstance().startAcquiring();
 	       		    	JOptionPane.showMessageDialog(new JFrame(),"Load Finish!");
 	       		    }
 					

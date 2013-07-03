@@ -1,6 +1,10 @@
 package eclipse.controller.acqui;
 
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -18,6 +22,11 @@ import eclipse.model.data.Trame;
  *
  */
 public class DesencapsulatorE8Serial implements Desencapsulator {
+	FileOutputStream fstream;
+	Date dNow = new Date( );
+    SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd_hh_mm_ss");
+
+	private String filename = "log/Telemetry_"+ft.format(dNow)+".e8";
 	
 	private byte[] byteArray = new byte[15]; //15 is the max a communication will be
 	private int cpt=0;
@@ -90,10 +99,28 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 							i+=itm.getBitSize()/8;
 							//Set the new value
 							itm.setValue(value);
+							
+							
+							
+							
+							// copy tram in save file
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}
+					
+					try {
+						fstream = new FileOutputStream(filename,true);
+					
+					fstream.write(ByteBuffer.allocate(8).putLong(System.currentTimeMillis()).array());
+					fstream.write(idB);
+					fstream.write(byteArray,6,8);
+					fstream.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
+					
 					
 				}
 				else{
@@ -108,11 +135,6 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 			}
 		}
 		
-		//TODO: Coder le desencapsulateur
-		
-//		//manipuler les données (Frame devrais etre entier)
-//		for(int i=0;i<cpt;i++)				
-//			System.out.println(byteArray[i]);
 		
 		
 		

@@ -1,5 +1,7 @@
 package eclipse.controller.util;
 
+import java.nio.ByteBuffer;
+
 
 /**
  * @author Frederic Nadeau
@@ -99,6 +101,13 @@ public class ByteManipulator {
 		}
 			 
 		return Float.intBitsToFloat(bits);
+	}
+	
+	public static long bytesToLong(byte[] bytes) {
+	    ByteBuffer buffer = ByteBuffer.allocate(8);
+	    buffer.put(bytes);
+	    buffer.flip();//need flip 
+	    return buffer.getLong();
 	}
 	
 }
