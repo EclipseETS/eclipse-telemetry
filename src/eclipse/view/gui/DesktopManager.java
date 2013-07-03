@@ -112,7 +112,7 @@ public class DesktopManager implements Runnable {
 	public void resizedMe() {
 		leftPart.setDividerLocation(0.75);
 		rightPart.setDividerLocation(panTable2.getHeightCustom());
-		rightFullPart.setDividerLocation(all.getHeight()-errTable.getHeightCustom());
+		rightFullPart.setDividerLocation(all.getHeight()+-errTable.getHeightCustom());
 		all.setDividerLocation(0.75);
 		
 	}
@@ -249,6 +249,17 @@ public class DesktopManager implements Runnable {
 
         });
 		mnStop.setEnabled(false);
+		
+		JMenuItem mntDeleteError = new JMenuItem("Delete Error");
+		mnAcqui.add(mntDeleteError);
+		mntDeleteError.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+       			errTable.deleteAll();
+				
+				
+			}
+
+        });
 		
 		//PANEL
 		JMenu mnView = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL"));

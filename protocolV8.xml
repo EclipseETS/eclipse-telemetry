@@ -29,7 +29,7 @@
 			<deviceitem id="2" name="OSTime">
 				<unit>Tick</unit>
 				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
+				<minvalue>20000</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>

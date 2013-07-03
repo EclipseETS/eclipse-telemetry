@@ -10,9 +10,11 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+
 
 
 
@@ -122,8 +124,8 @@ public class ImportantDeviceTable extends JPanel  {
 		dataTable.getColumnModel().getColumn(3).setHeaderValue(TelemetrySettings.getInstance().getSetting("GUI_TABLE_COLUMN_UNIT"));
 		dataTable.getColumnModel().getColumn(4).setHeaderValue(TelemetrySettings.getInstance().getSetting("GUI_TABLE_COLUMN_LAST_SEEN"));
 
-		
-		this.add(dataTable);
+		JScrollPane scrollPane = new JScrollPane(dataTable);
+		this.add(scrollPane);
 		
 	}
 	
@@ -173,7 +175,9 @@ public class ImportantDeviceTable extends JPanel  {
 	}
 	
 	public int getHeightCustom(){
-		return (model.getRowCount())*dataTable.getRowHeight();
+		if(model.getRowCount()==0)
+			return 0;
+		return (model.getRowCount())*dataTable.getRowHeight()+21;
 	}
 
 	public void remItem(DeviceItem itemCurrent, Device dev) {
@@ -187,6 +191,7 @@ public class ImportantDeviceTable extends JPanel  {
 		}	
 		
 	}
+
 	
 	
 }

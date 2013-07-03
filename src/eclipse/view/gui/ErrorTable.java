@@ -14,7 +14,21 @@ public class ErrorTable extends ImportantDeviceTable {
 	}
 	
 	public int getHeightCustom(){
-		return (model.getRowCount()+1)*dataTable.getRowHeight()-3;
+		if(model.getRowCount()==0)
+			return (model.getRowCount()+1)*dataTable.getRowHeight()-3;
+		else
+			return(model.getRowCount()+1)*dataTable.getRowHeight()-3+21;
+	}
+	
+	public void deleteAll(){
+		for(int i=0;i<items.size();i++){
+			//Remove information on that list
+			items.remove(i);
+			model.removeRow(i);
+		}
+			
+			//REsize important table
+			DesktopManager.getIstance().resizedMe();
 	}
 	
 }

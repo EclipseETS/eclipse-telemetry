@@ -39,9 +39,9 @@ public class ErrorFinder implements Runnable{
 						if(itm.getError()){
 								DesktopManager.getIstance().getErrorPanel().addItem(itm, dev);
 						}
-						else{
-							DesktopManager.getIstance().getErrorPanel().remItem(itm, dev);
-						}
+//						else{
+//							DesktopManager.getIstance().getErrorPanel().remItem(itm, dev);
+//						}
 					}
 				int cpt =0;
 				for(int[] tmp : values){
@@ -54,6 +54,12 @@ public class ErrorFinder implements Runnable{
 			
 				
 			}	
+			else
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			
 		}
 		
