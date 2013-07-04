@@ -4,6 +4,8 @@ package eclipse.controller.app;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
@@ -18,14 +20,19 @@ public class MatLab implements Runnable{
 	
 	public void run() {
 		DataManager dd = DataManager.getInstance();
+		
+		Date dNow = new Date( );
+	    SimpleDateFormat ft = new SimpleDateFormat ("_yyyy_MM_dd_hh_mm_ss");
+
+		String filename = ft.format(dNow)+".txt";
 		try {
-			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE"),true);
+			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 			BufferedWriter out = new BufferedWriter(fstream);
 			 // out.write("HEURE,TENSION,COURANT,RPMFR,RPMFL,RPMRR,RPMRL,LAT,LON,X,Y,X,INCL\r\n");
 		    out.close();
 		    fstream.close();
 		    while(true){
-		    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE"),true);
+		    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 		    	out = new BufferedWriter(fstream);
 					 out.write(
 		    			dd.getDeviceByID(6).getItemByID(4).getLastData()+sep+//HEURE
@@ -45,7 +52,7 @@ public class MatLab implements Runnable{
 					 out.close();
 					 fstream.close();
 				try {
-					Thread.sleep(5000);
+					Thread.sleep(Integer.parseInt(TelemetrySettings.getInstance().getSetting("MATLABTIMER")));
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
