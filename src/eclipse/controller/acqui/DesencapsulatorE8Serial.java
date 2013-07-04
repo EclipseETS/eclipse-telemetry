@@ -22,11 +22,17 @@ import eclipse.model.data.Trame;
  *
  */
 public class DesencapsulatorE8Serial implements Desencapsulator {
+	
+	//TODO a enelever aussi
+	//====================================
 	FileOutputStream fstream;
 	Date dNow = new Date( );
     SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd_hh_mm_ss");
 
 	private String filename = "log/Telemetry_"+ft.format(dNow)+".e8";
+	//=======================================
+	
+	
 	
 	private byte[] byteArray = new byte[15]; //15 is the max a communication will be
 	private int cpt=0;
@@ -108,10 +114,10 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 							e.printStackTrace();
 						}
 					}
-					
+					//TODO Enlever ca d'ici, ca devrais aller dans le Datamanager dans Save
+					//=======================================
 					try {
-						fstream = new FileOutputStream(filename,true);
-					
+					fstream = new FileOutputStream(filename,true);
 					fstream.write(ByteBuffer.allocate(8).putLong(System.currentTimeMillis()).array());
 					fstream.write(idB);
 					fstream.write(byteArray,6,8);
@@ -119,7 +125,7 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					
+					//=======================================
 					
 					
 				}

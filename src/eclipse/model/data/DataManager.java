@@ -211,9 +211,9 @@ public class DataManager implements Serializable{
 		}
 	}
 	
-	
+	//TODO mettre ici le code du save.. plus cohérent
 	/**
-	 * Save curent value to XML format
+	 * Save curent value a file
 	 */
 //	public void save(String location){
 
