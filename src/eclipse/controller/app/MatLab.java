@@ -28,6 +28,7 @@ public class MatLab implements Runnable{
 		try {
 			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 			BufferedWriter out = new BufferedWriter(fstream);
+			//Copy value with this format
 			 // out.write("HEURE,TENSION,COURANT,RPMFR,RPMFL,RPMRR,RPMRL,LAT,LON,X,Y,X,INCL\r\n");
 		    out.close();
 		    fstream.close();

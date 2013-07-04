@@ -3,6 +3,11 @@ package eclipse.view.gui;
 
 import java.awt.Color;
 
+/**
+ * Error table is a specilize view for all data in error, it's a normal JChart and it wee be shown under the normal chart
+ * @author Marco
+ *
+ */
 public class ErrorTable extends ImportantDeviceTable {
 
 	private static final long serialVersionUID = -6942467875864683781L;

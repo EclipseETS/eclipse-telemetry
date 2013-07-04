@@ -8,6 +8,9 @@ package eclipse.view.gui.tab;
  */
 public interface TabPane {
 	
+	/**
+	 * Update value is automaticly call every second. Use it to put your interface up-to-date
+	 */
 	void updateValues();
 
 }

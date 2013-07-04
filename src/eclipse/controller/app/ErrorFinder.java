@@ -16,6 +16,8 @@ public class ErrorFinder implements Runnable{
 	
 	public void run() {
 			double i;
+			
+			//ID off all OS tick
 		int[][] values = {
 				{	3,	2},
 				{	4,	1},
@@ -34,6 +36,8 @@ public class ErrorFinder implements Runnable{
 				}
 				DataManager dd = DataManager.getInstance();
 				
+				
+				//Verify if Item is in error, and if so add it to the error list
 				for(Device dev : dd.getDevices())
 					for(DeviceItem itm : dev.getItems()){
 						if(itm.getError()){
@@ -43,6 +47,13 @@ public class ErrorFinder implements Runnable{
 //							DesktopManager.getIstance().getErrorPanel().remItem(itm, dev);
 //						}
 					}
+				
+				/*
+				 * This part is used to verified all the boards. The OsTick is a value that sould always go up.. if it start back to 
+				 * 0 the board as probably rebooted (or run for around 64 years) so an alarm will jump, 
+				 * 
+				 * Also if there is no news for 10 sec.... board probably down
+				 */
 				int cpt =0;
 				for(int[] tmp : values){
 					i=dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastData();
