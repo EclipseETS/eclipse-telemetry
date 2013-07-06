@@ -26,7 +26,7 @@ public class ErrorTable extends ImportantDeviceTable {
 	}
 	
 	public void deleteAll(){
-		for(int i=0;i<items.size();i++){
+		for(int i=items.size()-1;i>=0;i--){
 			//Remove information on that list
 			items.remove(i);
 			model.removeRow(i);
