@@ -1,12 +1,8 @@
 package eclipse.controller.acqui;
 
-import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.ByteBuffer;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -25,17 +21,7 @@ import eclipse.model.data.Trame;
  */
 public class DesencapsulatorE8Serial implements Desencapsulator {
 	
-	//TODO a enelever aussi
-	//====================================
-	FileOutputStream fstream;
-	Date dNow = new Date( );
-    SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd_hh_mm_ss");
 
-	private String filename = "log/Telemetry_"+ft.format(dNow)+".e8";
-	//=======================================
-	
-	
-	
 	private byte[] byteArray = new byte[15]; //15 is the max a communication will be
 	private int cpt=0;
 	static Logger logger = Logger.getLogger("main");
@@ -120,20 +106,9 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 							Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 						}
 					}
-					//TODO Enlever ca d'ici, ca devrais aller dans le Datamanager dans Save
-					//=======================================
-					try {
-					fstream = new FileOutputStream(filename,true);
-					fstream.write(ByteBuffer.allocate(8).putLong(System.currentTimeMillis()).array());
-					fstream.write(idB);
-					fstream.write(byteArray,6,8);
-					fstream.close();
-					} catch (Exception e) {
-						StringWriter stack = new StringWriter();
-						e.printStackTrace(new PrintWriter(stack));
-						Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
-					}
-					//=======================================
+					
+					//SAVE to e8 file
+					DataManager.getInstance().save(idB, byteArray);
 					
 					
 				}

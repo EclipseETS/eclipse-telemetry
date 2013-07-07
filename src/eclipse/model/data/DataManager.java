@@ -1,10 +1,13 @@
 package eclipse.model.data;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,6 +15,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
 
 
 
@@ -40,6 +45,12 @@ public class DataManager implements Serializable{
 	private List<Device> devices;
 	private Map<Integer, Trame> trames;
 	private int cpt=0;
+	private FileOutputStream fstream;
+	private Date dNow = new Date( );
+	private SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd_hh_mm_ss");
+
+	private String filename = "log/Telemetry_"+ft.format(dNow)+".e8";
+	
 	
 	//Private instance of data manager
 	private DataManager(){
@@ -230,22 +241,21 @@ public class DataManager implements Serializable{
 		}
 	}
 	
-	//TODO mettre ici le code du save.. plus cohérent
-	/**
-	 * Save curent value a file
-	 */
-//	public void save(String location){
+	public void save(byte[] idB, byte[] byteArray){
 
-//        try {
-//			FileOutputStream fs = new FileOutputStream(location);
-//			byte[] bck = SerializationUtils.serialize(dataMgr);
-//			fs.write(bck);
-//			fs.close();
-//		} catch (Exception e) {
-//					
-//			
-//		}
-//	 }
+		try {
+			fstream = new FileOutputStream(filename,true);
+			fstream.write(ByteBuffer.allocate(8).putLong(System.currentTimeMillis()).array());
+			fstream.write(idB);
+			fstream.write(byteArray,6,8);
+			fstream.close();
+			} catch (Exception e) {
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
+			}
+	
+	 }
 	
 		
 	//GETTER AND SETTER
