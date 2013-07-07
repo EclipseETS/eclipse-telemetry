@@ -92,6 +92,10 @@ public class DataAcquisition implements Runnable {
 		
 	}
 	
+	/**
+	 * Return true if app is started, false if not
+	 * @return
+	 */
 	public boolean getAcquiStatus(){
 		return acquisition;
 	}
