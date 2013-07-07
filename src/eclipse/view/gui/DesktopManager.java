@@ -7,6 +7,8 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -19,6 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 import org.apache.log4j.Logger;
+
+
 
 
 
@@ -74,7 +78,7 @@ public class DesktopManager implements Runnable {
 //		try {
 //			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 //		} catch (Exception e1) {
-//			e1.printStackTrace();
+//			
 //		}
 		
 		//Frame Creation
@@ -88,7 +92,9 @@ public class DesktopManager implements Runnable {
 		try {
 			im = ImageIO.read(new File("images/eclipse.png"));
 		} catch (IOException e) {
-			e.printStackTrace();
+			StringWriter stack = new StringWriter();
+			e.printStackTrace(new PrintWriter(stack));
+			Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 		}
 		frmclipseViii.setIconImage(im);
 	  
@@ -152,8 +158,10 @@ public class DesktopManager implements Runnable {
 			tab.update();
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			} catch (Exception e) {
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 		}
 		

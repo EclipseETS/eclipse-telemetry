@@ -1,6 +1,11 @@
 package eclipse.controller.app;
 
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import org.apache.log4j.Logger;
+
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
@@ -32,7 +37,9 @@ public class ErrorFinder implements Runnable{
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					StringWriter stack = new StringWriter();
+					e.printStackTrace(new PrintWriter(stack));
+					Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 				}
 				DataManager dd = DataManager.getInstance();
 				
@@ -69,7 +76,9 @@ public class ErrorFinder implements Runnable{
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					StringWriter stack = new StringWriter();
+					e.printStackTrace(new PrintWriter(stack));
+					Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 				}
 			
 		}

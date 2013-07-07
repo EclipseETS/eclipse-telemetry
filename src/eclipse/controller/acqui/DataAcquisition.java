@@ -1,5 +1,8 @@
 package eclipse.controller.acqui;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.log4j.Logger;
 
 import eclipse.view.gui.DesktopManager;
@@ -72,7 +75,9 @@ public class DataAcquisition implements Runnable {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 		}
 		

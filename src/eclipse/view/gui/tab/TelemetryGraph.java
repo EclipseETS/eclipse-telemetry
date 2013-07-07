@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Date;
 import java.util.List;
 import java.util.Observable;
@@ -16,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.apache.log4j.Logger;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
 import org.jfree.chart.ChartPanel;
@@ -68,7 +71,9 @@ public class TelemetryGraph extends JPanel implements TabPane, Observer {
 			device = DataManager.getInstance().getDeviceByID(deviceId);
 			item = device.getItemByID(itemDeviceId);
 		} catch (Exception e) {
-			e.printStackTrace();
+			StringWriter stack = new StringWriter();
+			e.printStackTrace(new PrintWriter(stack));
+			Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 		} 
 		item.addObserver(this);
 		

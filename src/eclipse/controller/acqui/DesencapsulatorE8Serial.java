@@ -1,6 +1,8 @@
 package eclipse.controller.acqui;
 
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -77,7 +79,9 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 				//Convert ID in INT
 				id = (int) ByteManipulator.byteArrayToInt(idB, 0, 4, false, false);
 			} catch (Exception e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 			byte c = 0;
 			//Calculate CRC
@@ -111,7 +115,9 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 							
 							// copy tram in save file
 						} catch (Exception e) {
-							e.printStackTrace();
+							StringWriter stack = new StringWriter();
+							e.printStackTrace(new PrintWriter(stack));
+							Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 						}
 					}
 					//TODO Enlever ca d'ici, ca devrais aller dans le Datamanager dans Save
@@ -123,7 +129,9 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 					fstream.write(byteArray,6,8);
 					fstream.close();
 					} catch (Exception e) {
-						e.printStackTrace();
+						StringWriter stack = new StringWriter();
+						e.printStackTrace(new PrintWriter(stack));
+						Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 					}
 					//=======================================
 					

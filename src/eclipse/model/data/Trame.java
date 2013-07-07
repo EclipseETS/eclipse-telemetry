@@ -1,9 +1,14 @@
 package eclipse.model.data;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import eclipse.controller.util.ByteManipulator;
 import eclipse.controller.util.HexString;
 
@@ -51,7 +56,9 @@ public class Trame implements Serializable {
 		try {
 			tmp = ByteManipulator.byteArrayToInt(HexString.hexToBuffer(value),0,4,false,false);
 		} catch (Exception e) {
-			e.printStackTrace();
+			StringWriter stack = new StringWriter();
+			e.printStackTrace(new PrintWriter(stack));
+			Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 		}
 		
 		

@@ -20,6 +20,11 @@
  
 package eclipse.controller.util;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import org.apache.log4j.Logger;
+
 /**
  *  libFLAC - Free Lossless Audio Codec library
  * Copyright (C) 2000,2001,2002,2003  Josh Coalson
@@ -108,7 +113,9 @@ package eclipse.controller.util;
         	try {
 				tmp =(int) ByteManipulator.byteArrayToInt(bt,0,1,false,false);
 			} catch (Exception e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
             crc = CRC8_TABLE[tmp];
 		}

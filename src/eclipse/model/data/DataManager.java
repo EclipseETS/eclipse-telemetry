@@ -1,8 +1,10 @@
 package eclipse.model.data;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.io.Serializable;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,6 +15,11 @@ import java.util.Map;
 
 
 
+
+
+
+
+import org.apache.log4j.Logger;
 
 import eclipse.controller.util.ByteManipulator;
 
@@ -110,7 +117,9 @@ public class DataManager implements Serializable{
 				//Convert ID in INT
 				id = (int) ByteManipulator.byteArrayToInt(idB, 0, 4, false, false);
 			} catch (Exception e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 			
 				//Get trame
@@ -138,14 +147,18 @@ public class DataManager implements Serializable{
 							
 							// copy tram in save file
 						} catch (Exception e) {
-							e.printStackTrace();
+							StringWriter stack = new StringWriter();
+							e.printStackTrace(new PrintWriter(stack));
+							Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 						}
 					}					
 				}		
 			}
 						
 		} catch (Exception e) {
-			e.printStackTrace();
+			StringWriter stack = new StringWriter();
+			e.printStackTrace(new PrintWriter(stack));
+			Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 		}
 	}
 	
@@ -172,7 +185,9 @@ public class DataManager implements Serializable{
 				//Convert ID in INT
 				id = (int) ByteManipulator.byteArrayToInt(idB, 0, 4, false, false);
 			} catch (Exception e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 			
 				//Get trame
@@ -200,14 +215,18 @@ public class DataManager implements Serializable{
 							
 							// copy tram in save file
 						} catch (Exception e) {
-							e.printStackTrace();
+							StringWriter stack = new StringWriter();
+							e.printStackTrace(new PrintWriter(stack));
+							Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 						}
 					}					
 				}		
 			}
 						
 		} catch (Exception e) {
-			e.printStackTrace();
+			StringWriter stack = new StringWriter();
+			e.printStackTrace(new PrintWriter(stack));
+			Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 		}
 	}
 	
@@ -224,7 +243,7 @@ public class DataManager implements Serializable{
 //			fs.close();
 //		} catch (Exception e) {
 //					
-//			e.printStackTrace();
+//			
 //		}
 //	 }
 	

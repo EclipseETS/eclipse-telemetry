@@ -1,7 +1,12 @@
 package eclipse.controller.acqui.handlers;
 
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import javax.swing.JOptionPane;
+
+import org.apache.log4j.Logger;
 
 import jssc.SerialPort;
 import jssc.SerialPortException;
@@ -76,7 +81,9 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 				serialPort.closePort();
 				connected=false;
 			} catch (SerialPortException e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 		}
 	}
@@ -103,7 +110,9 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 				bt = serialPort.readBytes(1);
 				return bt[0];
 			} catch (SerialPortException e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 		}
 		return (Byte) null;
@@ -118,7 +127,9 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 			try {
 				serialPort.writeByte(bt);
 			} catch (SerialPortException e) {
-				e.printStackTrace();
+				StringWriter stack = new StringWriter();
+				e.printStackTrace(new PrintWriter(stack));
+				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 		}
 		

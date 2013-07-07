@@ -4,8 +4,12 @@ package eclipse.controller.app;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.apache.log4j.Logger;
 
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
@@ -58,7 +62,9 @@ public class MatLab implements Runnable{
 					try {
 						Thread.sleep(Integer.parseInt(TelemetrySettings.getInstance().getSetting("MATLABTIMER")));
 					} catch (InterruptedException e) {
-						e.printStackTrace();
+						StringWriter stack = new StringWriter();
+						e.printStackTrace(new PrintWriter(stack));
+						Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 					}
 		    	}
 		    	else
@@ -66,7 +72,9 @@ public class MatLab implements Runnable{
 		    		try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
-						e.printStackTrace();
+						StringWriter stack = new StringWriter();
+						e.printStackTrace(new PrintWriter(stack));
+						Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 					}
 		    	}
 			}

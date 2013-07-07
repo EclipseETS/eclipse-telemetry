@@ -3,9 +3,13 @@ package eclipse.controller.app;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import javax.swing.JFrame;
 import javax.swing.JSlider;
+
+import org.apache.log4j.Logger;
 
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
@@ -44,7 +48,9 @@ public class TESTER implements Runnable {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					StringWriter stack = new StringWriter();
+					e.printStackTrace(new PrintWriter(stack));
+					Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 				}
 
 				for(Device dev : data.getDevices())
