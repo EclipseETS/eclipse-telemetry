@@ -175,7 +175,7 @@ public class DataManager implements Serializable{
 	
 	
 	/**
-	 * Load value from old files 
+	 * Load value from old files from the SD card
 	 * 
 	 * Copy all information, device, item and merge data
 	 * 
