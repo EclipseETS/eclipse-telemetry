@@ -31,11 +31,13 @@ import org.apache.log4j.Logger;
 
 
 
+
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
+import eclipse.view.gui.tab.graph.TelemetryGraphPoint;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
  * The manager will open any frame, console, or whatever you see
@@ -308,6 +310,18 @@ public class DesktopManager implements Runnable {
 		//GRAPH
 		JMenu mnGraph = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_GRAPH"));
 		menuBar.add(mnGraph);
+		
+		JMenuItem mnGraphPoint= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_GRAPH_POINT"));
+		mnGraph.add(mnGraphPoint);
+		mnGraphPoint.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	       			//logger.debug("File->Global Pressed");
+	       			JPanel charSolaire = new TelemetryGraphPoint();
+	       			tab.addTab(charSolaire,TelemetrySettings.getInstance().getSetting("GUI_MENU_GRAPH_POINT"));
+					
+				}
+
+	        });
 		
 		
 		//HELP

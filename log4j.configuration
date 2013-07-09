@@ -1,7 +1,7 @@
 # Set loggers
 
 # main
-log4j.logger.main=INFO, file
+log4j.logger.main=ALL, file
 # telemetry
 #log4j.logger.telemetry=ALL, file
 
