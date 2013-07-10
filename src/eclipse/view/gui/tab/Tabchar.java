@@ -18,7 +18,7 @@ import eclipse.model.data.DataManager;
  */
 public class Tabchar extends JPanel implements TabPane {
 	 private Image img;
-	 
+	 //TODO ajouter temperature du char
 	 JLabel FLStatus = new JLabel("Status:");		
 		JLabel FLDrTmp = new JLabel("Drive Tmp :");
 		JLabel FLMotorTmp = new JLabel("Motor Tmp:");
