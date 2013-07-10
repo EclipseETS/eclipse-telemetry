@@ -177,7 +177,7 @@ public class ImportantDeviceTable extends JPanel  {
 	public int getHeightCustom(){
 		if(model.getRowCount()==0)
 			return 0;
-		return (model.getRowCount())*dataTable.getRowHeight()+21;
+		return (model.getRowCount()*dataTable.getRowHeight())+21;
 	}
 
 	public void remItem(DeviceItem itemCurrent, Device dev) {

@@ -32,7 +32,11 @@ import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
 import eclipse.view.gui.tab.TabPane;
 
-
+/**
+ * This graph give a view off the RPM associated to the W required to move at thi moment
+ * @author Marco
+ *
+ */
 public class TelemetryGraphPoint extends JPanel implements Observer, TabPane {
 
 	
@@ -78,7 +82,7 @@ public class TelemetryGraphPoint extends JPanel implements Observer, TabPane {
 		//dataset.addSeries(this.graphedValues);
 		dataset.addSeries(1,seriesmarco);
 		NumberAxis domain = new NumberAxis("W Dépensé");
-		NumberAxis range = new NumberAxis("km/h");
+		NumberAxis range = new NumberAxis("RPM");
 		//range.setRange(item.getMinValue(), item.getMaxValue());
 		range.setAutoRange(true);
 		domain.setAutoRange(true);
