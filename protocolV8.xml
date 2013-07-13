@@ -887,7 +887,7 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="711" type="2">
+		<trame identifier="70F" type="2">
 			<deviceitem id="49" name="Temp 1">
 				<unit>C</unit>
 				<bitsize>8</bitsize>
@@ -977,7 +977,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="712" type="2">
+		<trame identifier="710" type="2">
 			<deviceitem id="57" name="Temp 9">
 				<unit>C</unit>
 				<bitsize>8</bitsize>
@@ -1003,4 +1003,290 @@
 		</trame>
 	</device>
 	
-</char>
+	<!-- MPPT1 -->	
+	<device id="8" name="MPPT1">
+	    <trame identifier="801" type="2">
+			<deviceitem id="0" name="Status">
+				<unit>Bin</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="802" type="2">
+			<deviceitem id="1" name="V IN">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="803" type="2">
+			<deviceitem id="2" name="V OUT">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="804" type="2">
+			<deviceitem id="3" name="I OUT">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="805" type="2">
+			<deviceitem id="4" name="Temp">
+				<unit>C</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>25</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="806" type="2">
+			<deviceitem id="5" name="I OUT limit">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="807" type="2">
+			<deviceitem id="6" name="PWM">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
+	
+	
+	<!-- MPPT2 -->	
+	<device id="9" name="MPPT2">
+	    <trame identifier="901" type="2">
+			<deviceitem id="0" name="Status">
+				<unit>Bin</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="902" type="2">
+			<deviceitem id="1" name="V IN">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="903" type="2">
+			<deviceitem id="2" name="V OUT">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="904" type="2">
+			<deviceitem id="3" name="I OUT">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="905" type="2">
+			<deviceitem id="4" name="Temp">
+				<unit>C</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>25</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="906" type="2">
+			<deviceitem id="5" name="I OUT limit">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="907" type="2">
+			<deviceitem id="6" name="PWM">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
+	
+	
+	<!-- MPPT3 -->	
+	<device id="10" name="MPPT3">
+	    <trame identifier="A01" type="2">
+			<deviceitem id="0" name="Status">
+				<unit>Bin</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="A02" type="2">
+			<deviceitem id="1" name="V IN">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	    <trame identifier="A03" type="2">
+			<deviceitem id="2" name="V OUT">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="A04" type="2">
+			<deviceitem id="3" name="I OUT">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="A05" type="2">
+			<deviceitem id="4" name="Temp">
+				<unit>C</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>25</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="A06" type="2">
+			<deviceitem id="5" name="I OUT limit">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="A07" type="2">
+			<deviceitem id="6" name="PWM">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
+</char> 

@@ -114,7 +114,13 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 				}
 				else{
 					//TRAME EXISTE PAS
-					logger.error("Recu Trame "+ HexString.bufferToHex(idB) +" existe pas dans XML");
+					//TODO enelever le if quand huneault va coder comme du monde
+					if(id>=536872707&&id<=536872714){
+					}
+					else{
+						logger.error("Recu Trame "+ HexString.bufferToHex(idB) +" existe pas dans XML");
+						
+					}
 				}
 				
 				}
