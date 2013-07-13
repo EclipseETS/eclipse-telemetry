@@ -1001,6 +1001,19 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
+		<trame identifier="711" type="2">
+			<deviceitem id="61" name="State of Charge">
+				<unit>%</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
 	</device>
 	
 	<!-- MPPT1 -->	
@@ -1084,7 +1097,33 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="807" type="2">
-			<deviceitem id="6" name="PWM">
+			<deviceitem id="6" name="I OUT limit term">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="808" type="2">
+			<deviceitem id="7" name="I OUT limit can">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="809" type="2">
+			<deviceitem id="8" name="PWM">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1180,7 +1219,33 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="907" type="2">
-			<deviceitem id="6" name="PWM">
+			<deviceitem id="6" name="I OUT limit term">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="908" type="2">
+			<deviceitem id="7" name="I OUT limit can">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="909" type="2">
+			<deviceitem id="8" name="PWM">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1276,7 +1341,33 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="A07" type="2">
-			<deviceitem id="6" name="PWM">
+			<deviceitem id="6" name="I OUT limit term">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="A08" type="2">
+			<deviceitem id="7" name="I OUT limit can">
+				<unit>A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>500</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="A09" type="2">
+			<deviceitem id="8" name="PWM">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
