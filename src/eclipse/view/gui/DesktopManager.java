@@ -32,11 +32,13 @@ import org.apache.log4j.Logger;
 
 
 
+
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
+import eclipse.view.gui.tab.TelemetryStrategie;
 import eclipse.view.gui.tab.graph.TelemetryGraphPoint;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
@@ -301,6 +303,18 @@ public class DesktopManager implements Runnable {
 	       			logger.debug("File->Global Pressed");
 	       			JPanel charSolaire = new Tabchar();
 	       			tab.addTab(charSolaire,TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
+					
+				}
+
+	        });
+		
+		JMenuItem mnStart= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_STRATEGIE"));
+		mnView.add(mnStart);
+		mnStart.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	       			logger.debug("File->Start Pressed");
+	       			JPanel charSolaire = new TelemetryStrategie();
+	       			tab.addTab(charSolaire,TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_STRATEGIE"));
 					
 				}
 
