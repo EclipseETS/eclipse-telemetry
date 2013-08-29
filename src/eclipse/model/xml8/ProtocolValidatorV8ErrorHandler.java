@@ -34,14 +34,17 @@ public class ProtocolValidatorV8ErrorHandler implements ErrorHandler {
 
 	private void printErrorException(SAXParseException exception) {
 		logger.error("\t (line " + exception.getLineNumber() + " Col " + exception.getColumnNumber() + ") " + exception.getMessage());
-	}
+		System.out.println("\t (line " + exception.getLineNumber() + " Col " + exception.getColumnNumber() + ") " + exception.getMessage());
+		}
 	
 	private void printFatalErrorException(SAXParseException exception) {
 		logger.error("\t (line " + exception.getLineNumber() + " Col " + exception.getColumnNumber() + ") " + exception.getMessage());
-	}
+		System.out.println("\t (line " + exception.getLineNumber() + " Col " + exception.getColumnNumber() + ") " + exception.getMessage());
+		}
 	
 	private void printWarningException(SAXParseException exception) {
 		logger.info("\t (line " + exception.getLineNumber() + " Col " + exception.getColumnNumber() + ") " + exception.getMessage());
-	}
+		System.out.println("\t (line " + exception.getLineNumber() + " Col " + exception.getColumnNumber() + ") " + exception.getMessage());
+		}
 
 }
