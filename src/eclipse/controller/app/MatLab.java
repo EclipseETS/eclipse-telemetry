@@ -31,6 +31,7 @@ public class MatLab implements Runnable{
 	    SimpleDateFormat ft = new SimpleDateFormat ("_yyyy_MM_dd_hh_mm_ss");
 
 		String filename = ft.format(dNow)+".txt";
+		//String filename = "MATLAB.txt";
 		try {
 //			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 //			BufferedWriter out = new BufferedWriter(fstream);
