@@ -26,9 +26,9 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 	
 	private SerialPort serialPort;
 	private Boolean connected=false;
-	private String name = "XBEE";
+	private String namePrt = "HANDLER_SERIAL_PORT";
 	private int cpt=0;
-
+	
 	/**
 	 * Start the handler, search for port
 	 */
@@ -43,10 +43,10 @@ public class SimpleSerialHandler extends AcquisitionHandler {
                         SerialPort.STOPBITS_1,
                         SerialPort.PARITY_NONE);
 	            connected=true;  
-	            TelemetrySettings.getInstance().setSetting("HANDLER_SERIAL_PORT", name);
+	            TelemetrySettings.getInstance().setSetting(namePrt, name);
 	            return true;
 			} catch (SerialPortException e) {
-				TelemetrySettings.getInstance().setSetting("HANDLER_SERIAL_PORT", "XXX");
+				TelemetrySettings.getInstance().setSetting(namePrt, "XXX");
 				if(cpt==0){
 					cpt++;
 					start();
@@ -57,8 +57,8 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 	
 	
 	private String getPort(){
-		if(!TelemetrySettings.getInstance().getSetting("HANDLER_SERIAL_PORT").contains("XXX"))
-			return TelemetrySettings.getInstance().getSetting("HANDLER_SERIAL_PORT");
+		if(!TelemetrySettings.getInstance().getSetting(namePrt).contains("XXX"))
+			return TelemetrySettings.getInstance().getSetting(namePrt);
 		 String[] portNames = SerialPortList.getPortNames();
 		 String retour = (String) JOptionPane.showInputDialog(
 	                null,
@@ -95,7 +95,11 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 
 
 	public String getName() {
-		return name;
+		return namePrt;
+	}
+	
+	public void init(String id){
+		namePrt=id;
 	}
 
 

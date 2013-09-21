@@ -21,4 +21,6 @@ public abstract class AcquisitionHandler extends Observable {
 	public abstract boolean isConnected();
 	
 	public abstract String getName();
+	
+	public abstract void init(String id);
 }

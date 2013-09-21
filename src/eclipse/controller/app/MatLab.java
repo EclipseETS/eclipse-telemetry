@@ -11,7 +11,7 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import eclipse.controller.acqui.DataAcquisition;
+import eclipse.controller.acqui.AcquisitionManager;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 /**
@@ -40,7 +40,7 @@ public class MatLab implements Runnable{
 //		    out.close();
 //		    fstream.close();
 		    while(true){
-		    	if(DataAcquisition.getInstance().getAcquiStatus()){
+		    	if(AcquisitionManager.getInstance().getAcqui(0).getAcquiStatus()){
 			    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 			    	out = new BufferedWriter(fstream);
 						 out.write(

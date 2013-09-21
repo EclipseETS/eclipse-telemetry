@@ -24,16 +24,7 @@ import javax.swing.JSplitPane;
 
 import org.apache.log4j.Logger;
 
-
-
-
-
-
-
-
-
-
-import eclipse.controller.acqui.DataAcquisition;
+import eclipse.controller.acqui.AcquisitionManager;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.view.gui.tab.TabbedPannel;
@@ -64,6 +55,9 @@ public class DesktopManager implements Runnable {
 	static Logger logger = Logger.getLogger("main");
 	JMenuItem mnStart;
 	JMenuItem mnStop;
+
+	JMenuItem mnStartMeteo;
+	JMenuItem mnStopMeteo;
 
 	static public DesktopManager getIstance(){
 		return desinstance;
@@ -244,6 +238,8 @@ public class DesktopManager implements Runnable {
 
 	        });
 		
+		mnFile.addSeparator();
+		
 		JMenuItem mntmQuit = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_FILE_EXIT"));
 		mnFile.add(mntmQuit);
 		mntmQuit.addActionListener(new ActionListener() {
@@ -265,7 +261,8 @@ public class DesktopManager implements Runnable {
 		mnAcqui.add(mnStart);
 		mnStart.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {
-				DataAcquisition.getInstance().startAcquiring();
+        	   AcquisitionManager.getInstance().getAcqui(0).startAcquiring();
+        	   menuStart();
 			}
 
         });
@@ -274,12 +271,45 @@ public class DesktopManager implements Runnable {
 		mnAcqui.add(mnStop);
 		mnStop.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {
-        	   DataAcquisition.getInstance().stopAcquiring();
+        	   AcquisitionManager.getInstance().getAcqui(0).stopAcquiring();
+        	   menuStop();
         	   
     			}
 
         });
 		mnStop.setEnabled(false);
+		
+		mnAcqui.addSeparator();
+		
+		mnStartMeteo= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_ACQUISITION_START_METEO"));
+		mnAcqui.add(mnStartMeteo);
+		mnStartMeteo.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+        	   AcquisitionManager.getInstance().getAcqui(1).startAcquiring();
+        	   AcquisitionManager.getInstance().getAcqui(0).startAcquiring();
+        	   menuStartMeteo();
+			}
+
+        });
+		
+		mnStopMeteo= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_ACQUISITION_STOP_METEO"));
+		mnAcqui.add(mnStopMeteo);
+		mnStopMeteo.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+        	   AcquisitionManager.getInstance().getAcqui(1).stopAcquiring();
+        	   menuStopMeteo();
+        	   
+    			}
+
+        });
+		mnStopMeteo.setEnabled(false);
+		
+		
+		
+		
+		
+		
+		mnAcqui.addSeparator();
 		
 		JMenuItem mntDeleteError = new JMenuItem("Delete Error");
 		mnAcqui.add(mntDeleteError);
@@ -360,7 +390,7 @@ public class DesktopManager implements Runnable {
 
 	        });
 		
-		
+		mnHelp.addSeparator();
 		JMenuItem mnAbout = new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_HELP_ABOUT"));
 		mnHelp.add(mnAbout);
 		mnAbout.addActionListener(new ActionListener() {
@@ -377,15 +407,25 @@ public class DesktopManager implements Runnable {
 	public TabbedPannel getTabbedPannel(){
 		return tab;
 	}
-	
-	public void menuStop(){
+
+	private void menuStop(){
 		mnStart.setEnabled(false);
 		mnStop.setEnabled(true);
 	}
 	
-	public void menuStart(){
+	private void menuStart(){
 		mnStart.setEnabled(true);
 		mnStop.setEnabled(false);
+	}
+	
+	private void menuStopMeteo(){
+		mnStartMeteo.setEnabled(false);
+		mnStopMeteo.setEnabled(true);
+	}
+	
+	private void menuStartMeteo(){
+		mnStartMeteo.setEnabled(true);
+		mnStopMeteo.setEnabled(false);
 	}
 
 

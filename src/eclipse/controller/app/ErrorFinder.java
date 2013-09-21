@@ -6,7 +6,7 @@ import java.io.StringWriter;
 
 import org.apache.log4j.Logger;
 
-import eclipse.controller.acqui.DataAcquisition;
+import eclipse.controller.acqui.AcquisitionManager;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
@@ -33,7 +33,7 @@ public class ErrorFinder implements Runnable{
 		int[] oldValues = new int[values.length];
 		
 		while(true){
-			if(DataAcquisition.getInstance().getAcquiStatus()){
+			if(AcquisitionManager.getInstance().getAcqui(0).getAcquiStatus()){
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

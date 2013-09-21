@@ -5,7 +5,6 @@ import java.io.StringWriter;
 
 import org.apache.log4j.Logger;
 
-import eclipse.view.gui.DesktopManager;
 
 
 
@@ -23,20 +22,11 @@ public class DataAcquisition implements Runnable {
 	private Desencapsulator de = null;
 	private Byte currentByte = null;
 	static Logger logger = Logger.getLogger("main");
-	static private DataAcquisition acqui = new DataAcquisition();
 	private boolean acquisition = false;
 	
 	public void Ititalize(AcquisitionHandler ah, Desencapsulator de) {
 		this.handler = ah;
 		this.de=de;
-	}
-	
-	private DataAcquisition(){
-		
-	}
-	
-	public static DataAcquisition getInstance(){
-		return acqui;
 	}
 	
 	/**
@@ -47,7 +37,6 @@ public class DataAcquisition implements Runnable {
 		acquisition=false;
 		handler.stop();
 		de.clearData();
-		DesktopManager.getIstance().menuStart();
 	}
 
 	/**
@@ -56,7 +45,6 @@ public class DataAcquisition implements Runnable {
 	public void startAcquiring() {
 		if(handler.start()){
 			logger.info("Acquisition start");
-			DesktopManager.getIstance().menuStop();
 			acquisition=true;
 		}
 		else
