@@ -287,23 +287,24 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		DataManager dd = DataManager.getInstance();
 	
-			if(dd.getDeviceByID(3).getItemByID(6).getLastData()==0||dd.getDeviceByID(3).getItemByID(6).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(19).getLastData()!=0){
-				FRStatusoAnswer.setForeground(Color.green);
-				FRStatusoAnswer.setText("OK");
+		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
+			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
+				FLStatusoAnswer.setForeground(Color.green);
+				FLStatusoAnswer.setText("OK");
 			}
 			else{
-				FRStatusoAnswer.setForeground(Color.red);
-				FRStatusoAnswer.setText("ERREUR");
+				FLStatusoAnswer.setForeground(Color.red);
+				FLStatusoAnswer.setText("ERREUR");
 			}
 		else{
-			FRStatusoAnswer.setForeground(Color.red);
-			FRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(6).getLastData()));
+			FLStatusoAnswer.setForeground(Color.red);
+			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
 		}
 		
-		FRDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(7).getLastData() +" "+dd.getDeviceByID(3).getItemByID(7).getUnit());	
-		FRMotorTmpAnswer.setText(dd.getDeviceByID(3).getItemByID(35).getLastData() +" "+dd.getDeviceByID(3).getItemByID(5).getUnit());	
-		FRRmpAnswer.setText(dd.getDeviceByID(3).getItemByID(11).getLastData() +" "+dd.getDeviceByID(3).getItemByID(11).getUnit());
+		
+		FRDrTmpAnwser.setText(dd.getDeviceByID(12).getItemByID(18).getLastData() +" "+dd.getDeviceByID(12).getItemByID(18).getUnit());	
+		FRMotorTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(17).getLastData() +" "+dd.getDeviceByID(12).getItemByID(17).getUnit());	
+		FRRmpAnswer.setText(dd.getDeviceByID(12).getItemByID(9).getLastData() +" "+dd.getDeviceByID(12).getItemByID(9).getUnit());
 		
 		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
@@ -319,9 +320,9 @@ public class Tabchar extends JPanel implements TabPane {
 			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
 		}
 		
-		FLDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(8).getLastData() +" "+dd.getDeviceByID(3).getItemByID(8).getUnit());	
-		FLMotorTmpAnswer.setText(dd.getDeviceByID(3).getItemByID(36).getLastData() +" "+dd.getDeviceByID(3).getItemByID(36).getUnit());	
-		FLRmpAnswer.setText(dd.getDeviceByID(3).getItemByID(12).getLastData() +" "+dd.getDeviceByID(3).getItemByID(12).getUnit());
+		FLDrTmpAnwser.setText(dd.getDeviceByID(13).getItemByID(18).getLastData() +" "+dd.getDeviceByID(13).getItemByID(18).getUnit());	
+		FLMotorTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(17).getLastData() +" "+dd.getDeviceByID(13).getItemByID(17).getUnit());	
+		FLRmpAnswer.setText(dd.getDeviceByID(13).getItemByID(9).getLastData() +" "+dd.getDeviceByID(13).getItemByID(9).getUnit());
 		
 	
 		
@@ -340,9 +341,9 @@ public class Tabchar extends JPanel implements TabPane {
 			RRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(4).getLastData()));
 		}
 		
-		RRDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(9).getLastData() +" "+dd.getDeviceByID(3).getItemByID(9).getUnit());	
-		RRMotorTmpAnswer.setText(dd.getDeviceByID(3).getItemByID(37).getLastData() +" "+dd.getDeviceByID(3).getItemByID(37).getUnit());	
-		RRRmpAnswer.setText(dd.getDeviceByID(3).getItemByID(13).getLastData() +" "+dd.getDeviceByID(3).getItemByID(13).getUnit());
+		RRDrTmpAnwser.setText(dd.getDeviceByID(14).getItemByID(18).getLastData() +" "+dd.getDeviceByID(14).getItemByID(18).getUnit());	
+		RRMotorTmpAnswer.setText(dd.getDeviceByID(14).getItemByID(17).getLastData() +" "+dd.getDeviceByID(14).getItemByID(17).getUnit());	
+		RRRmpAnswer.setText(dd.getDeviceByID(14).getItemByID(9).getLastData() +" "+dd.getDeviceByID(14).getItemByID(9).getUnit());
 		
 		
 		if(dd.getDeviceByID(3).getItemByID(5).getLastData()==0||dd.getDeviceByID(3).getItemByID(5).getLastData()==1)
@@ -359,9 +360,9 @@ public class Tabchar extends JPanel implements TabPane {
 			RLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(5).getLastData()));
 		}
 		
-		RLDrTmpAnwser.setText(dd.getDeviceByID(3).getItemByID(10).getLastData() +" "+dd.getDeviceByID(3).getItemByID(10).getUnit());	
-		RLMotorTmpAnswer.setText(dd.getDeviceByID(3).getItemByID(38).getLastData() +" "+dd.getDeviceByID(3).getItemByID(38).getUnit());	
-		RLRmpAnswer.setText(dd.getDeviceByID(3).getItemByID(14).getLastData() +" "+dd.getDeviceByID(3).getItemByID(14).getUnit());
+		RLDrTmpAnwser.setText(dd.getDeviceByID(15).getItemByID(18).getLastData() +" "+dd.getDeviceByID(15).getItemByID(18).getUnit());	
+		RLMotorTmpAnswer.setText(dd.getDeviceByID(15).getItemByID(17).getLastData() +" "+dd.getDeviceByID(15).getItemByID(17).getUnit());	
+		RLRmpAnswer.setText(dd.getDeviceByID(15).getItemByID(9).getLastData() +" "+dd.getDeviceByID(15).getItemByID(9).getUnit());
 		
 		
 		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
@@ -379,9 +380,17 @@ public class Tabchar extends JPanel implements TabPane {
 			HEURE.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
 		}
 		
-		double speed = (dd.getDeviceByID(3).getItemByID(11).getLastData()+
-				dd.getDeviceByID(3).getItemByID(12).getLastData())/2*0.492*3.1459*60/1000;
-		VitesseAnwser.setText(String.format("%.2f", speed)+" Km/h");
+		double speed1 = (dd.getDeviceByID(12).getItemByID(10).getLastData())/1000*60*60;
+		
+		double speed2 = (dd.getDeviceByID(13).getItemByID(10).getLastData())/1000*60*60;
+		
+		double speed3 = (dd.getDeviceByID(14).getItemByID(10).getLastData())/1000*60*60;
+		
+		double speed4 = (dd.getDeviceByID(15).getItemByID(10).getLastData())/1000*60*60;
+		
+		double speedmoy = (speed1 + speed2 + speed3 + speed4)/4; 
+		
+		VitesseAnwser.setText(String.format("%.2f", speedmoy)+" Km/h");
 		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
 		
 		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());
@@ -390,10 +399,9 @@ public class Tabchar extends JPanel implements TabPane {
 			wattAnwser.setForeground(Color.red);
 		else
 			wattAnwser.setForeground(Color.green);
-		wattAnwser.setText(Integer.toString(puiss)+" W");
-		
-		
+		wattAnwser.setText(Integer.toString(puiss)+" W");	
 	}
+	
 	  public void paintComponent(Graphics g) {
 		    
 		    int width = getWidth();
@@ -403,6 +411,8 @@ public class Tabchar extends JPanel implements TabPane {
 		    g.fillRect(0, 0, width, height);
 		    g.drawImage(img, 180, 100, null);
 			  }
+	  
+	  
 	  
 	  public String getMessage(int i){
 		  switch (i) {
