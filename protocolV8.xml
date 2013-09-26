@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <char xmlns="http://eclipse.etsmtl.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:schemaLocation="http://eclipse.etsmtl.ca protocolV8Schema.xsd">
 
+	<!-- Driver control -->	
+	<device id="1" name="Driver Control">
+	    <trame identifier="101" type="0">
+			<deviceitem id="0" name="Velocity_setpoint">
+				<unit>RPM</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>1500</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="1" name="Current_Setpoint">
+				<unit>%</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>1</maxvalue>
+				<resolution>1</resolution>
+				<factor>100</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+ 		<trame identifier="102" type="0">
+			<deviceitem id="2" name="Reserved">
+				<unit>LUKE</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>1500</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="Bus_Current_Setpoint">
+				<unit>%</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>1</maxvalue>
+				<resolution>1</resolution>
+				<factor>100</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>		
+	</device>
+
 	<!-- PÉDALE -->	
 	<device id="3" name="Pédale">
 	    <trame identifier="300" type="2">
@@ -45,7 +97,7 @@
 				<minvalue>0</minvalue>
 				<maxvalue>100</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>100</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>true</isFloat>
@@ -607,7 +659,7 @@
 				<minvalue>0</minvalue>
 				<maxvalue>100</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>100</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -1014,7 +1066,7 @@
 	    <trame identifier="140" type="0">
 			<deviceitem id="0" name="Moteur_ID">
 				<unit>Bin</unit>
-				<bitsize>16</bitsize>
+				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
@@ -1189,6 +1241,17 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="148" type="0">
+			<deviceitem id="23" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
 			<deviceitem id="15" name="15V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
@@ -1202,7 +1265,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="149" type="0">
-			<deviceitem id="15" name="1.9V">
+			<deviceitem id="16" name="1.9V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1213,7 +1276,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="16" name="3.3V">
+			<deviceitem id="17" name="3.3V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1225,8 +1288,8 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="151" type="0">
-			<deviceitem id="17" name="Motor_Temp">
+		<trame identifier="14b" type="0">
+			<deviceitem id="18" name="Motor_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1237,20 +1300,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="18" name="Heat-sink_Temp">
-				<unit>C</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-	<trame identifier="152" type="0">
-			<deviceitem id="19" name="DSP_board_Temp">
+			<deviceitem id="19" name="Heat-sink_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1262,8 +1312,32 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="153" type="0">
-			<deviceitem id="20" name="Odometre">
+		<trame identifier="14c" type="0">
+			<deviceitem id="20" name="DSP_board_Temp">
+				<unit>C</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="24" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="14d" type="0">
+			<deviceitem id="21" name="Odometre">
 				<unit>m</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1274,7 +1348,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="21" name="DC_Bus_AmpHours">
+			<deviceitem id="22" name="DC_Bus_AmpHours">
 				<unit>Ah</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1293,7 +1367,7 @@
 	    <trame identifier="180" type="0">
 			<deviceitem id="0" name="Moteur_ID">
 				<unit>Bin</unit>
-				<bitsize>16</bitsize>
+				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
@@ -1468,6 +1542,17 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="188" type="0">
+			<deviceitem id="23" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
 			<deviceitem id="15" name="15V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
@@ -1481,7 +1566,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="189" type="0">
-			<deviceitem id="15" name="1.9V">
+			<deviceitem id="16" name="1.9V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1492,7 +1577,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="16" name="3.3V">
+			<deviceitem id="17" name="3.3V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1504,8 +1589,8 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="191" type="0">
-			<deviceitem id="17" name="Motor_Temp">
+		<trame identifier="18b" type="0">
+			<deviceitem id="18" name="Motor_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1516,20 +1601,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="18" name="Heat-sink_Temp">
-				<unit>C</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="192" type="0">
-			<deviceitem id="19" name="DSP_board_Temp">
+			<deviceitem id="19" name="Heat-sink_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1541,8 +1613,32 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="194" type="0">
-			<deviceitem id="20" name="Odometre">
+		<trame identifier="18c" type="0">
+			<deviceitem id="20" name="DSP_board_Temp">
+				<unit>C</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="24" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="18d" type="0">
+			<deviceitem id="21" name="Odometre">
 				<unit>m</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1553,7 +1649,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="21" name="DC_Bus_AmpHours">
+			<deviceitem id="22" name="DC_Bus_AmpHours">
 				<unit>Ah</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1572,7 +1668,7 @@
 	    <trame identifier="220" type="0">
 			<deviceitem id="0" name="Moteur_ID">
 				<unit>Bin</unit>
-				<bitsize>16</bitsize>
+				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
@@ -1747,6 +1843,17 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="228" type="0">
+			<deviceitem id="23" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
 			<deviceitem id="15" name="15V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
@@ -1760,7 +1867,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="229" type="0">
-			<deviceitem id="15" name="1.9V">
+			<deviceitem id="16" name="1.9V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1771,7 +1878,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="16" name="3.3V">
+			<deviceitem id="17" name="3.3V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1783,8 +1890,8 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="231" type="0">
-			<deviceitem id="17" name="Motor_Temp">
+		<trame identifier="22b" type="0">
+			<deviceitem id="18" name="Motor_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1795,20 +1902,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="18" name="Heat-sink_Temp">
-				<unit>C</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-	<trame identifier="232" type="0">
-			<deviceitem id="19" name="DSP_board_Temp">
+			<deviceitem id="19" name="Heat-sink_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1820,8 +1914,32 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="234" type="0">
-			<deviceitem id="20" name="Odometre">
+		<trame identifier="22c" type="0">
+			<deviceitem id="20" name="DSP_board_Temp">
+				<unit>C</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="24" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="22d" type="0">
+			<deviceitem id="21" name="Odometre">
 				<unit>m</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1832,7 +1950,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="21" name="DC_Bus_AmpHours">
+			<deviceitem id="22" name="DC_Bus_AmpHours">
 				<unit>Ah</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1851,7 +1969,7 @@
 	    <trame identifier="260" type="0">
 			<deviceitem id="0" name="Moteur_ID">
 				<unit>Bin</unit>
-				<bitsize>16</bitsize>
+				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
@@ -2026,6 +2144,17 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="268" type="0">
+			<deviceitem id="23" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
 			<deviceitem id="15" name="15V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
@@ -2039,7 +2168,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="269" type="0">
-			<deviceitem id="15" name="1.9V">
+			<deviceitem id="16" name="1.9V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -2050,7 +2179,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="16" name="3.3V">
+			<deviceitem id="17" name="3.3V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -2062,8 +2191,8 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="271" type="0">
-			<deviceitem id="17" name="Motor_Temp">
+		<trame identifier="26b" type="0">
+			<deviceitem id="18" name="Motor_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -2074,20 +2203,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="18" name="Heat-sink_Temp">
-				<unit>C</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="272" type="0">
-			<deviceitem id="19" name="DSP_board_Temp">
+			<deviceitem id="19" name="Heat-sink_Temp">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -2099,8 +2215,32 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="274" type="0">
-			<deviceitem id="20" name="Odometre">
+		<trame identifier="26c" type="0">
+			<deviceitem id="20" name="DSP_board_Temp">
+				<unit>C</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="24" name="Reserved">
+				<unit>Luke</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="26d" type="0">
+			<deviceitem id="21" name="Odometre">
 				<unit>m</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -2111,7 +2251,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="21" name="DC_Bus_AmpHours">
+			<deviceitem id="22" name="DC_Bus_AmpHours">
 				<unit>Ah</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
