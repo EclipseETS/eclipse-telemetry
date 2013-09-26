@@ -20,12 +20,14 @@ public class Tabchar extends JPanel implements TabPane {
 	 private Image img;
 	 //TODO ajouter temperature du char
 	 JLabel FLStatus = new JLabel("Status:");		
-		JLabel FLDrTmp = new JLabel("Drive Tmp :");
+		JLabel FLDrTmp = new JLabel("Heat Sink Tmp :");
+		JLabel FLDsptmp = new JLabel("DSP Tmp :");
 		JLabel FLMotorTmp = new JLabel("Motor Tmp:");
 		JLabel FLRmp = new JLabel("RPM:");		
-		JLabel FLStatusoAnswer = new JLabel("T");
+		JLabel FLStatusoAnswer = new JLabel("status");
 		
 		JLabel FLDrTmpAnwser = new JLabel();
+		JLabel FLDSPTmpAnswer = new JLabel("DSP Tmp");
 		
 		JLabel FLMotorTmpAnswer = new JLabel();		
 		JLabel FLRmpAnswer = new JLabel();
@@ -34,13 +36,15 @@ public class Tabchar extends JPanel implements TabPane {
 		//FR
 		
 		JLabel FRStatus = new JLabel("Status:");
+		JLabel FRDsptmp = new JLabel("DSP Tmp :");
 		
-		JLabel FRDrTmp = new JLabel("Drive Tmp :");
+		JLabel FRDrTmp = new JLabel("Heat Sink Tmp :");
 		JLabel FRMotorTmp = new JLabel("Motor Tmp:");
 		
 		JLabel FRRmp = new JLabel("RPM:");
 		JLabel FRStatusoAnswer = new JLabel("Status:");
 		JLabel FRDrTmpAnwser = new JLabel("Drive Tmp :");
+		JLabel FRDSPTmpAnswer = new JLabel("DSP Tmp");
 		
 		JLabel FRMotorTmpAnswer = new JLabel("Motor Tmp:");
 		
@@ -50,12 +54,14 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		JLabel RRStatus = new JLabel("Status:");
 		
-		JLabel RRDrTmp = new JLabel("Drive Tmp :");
+		JLabel RRDrTmp = new JLabel("Heat Sink Tmp :");
 		JLabel RRMotorTmp = new JLabel("Motor Tmp:");
+		JLabel RRDsptmp = new JLabel("DSP Tmp :");
 		
 		JLabel RRRmp = new JLabel("RPM:");
 		JLabel RRStatusoAnswer = new JLabel("Status:");
 		JLabel RRDrTmpAnwser = new JLabel("Drive Tmp :");
+		JLabel RRDsptmpAnswer = new JLabel("DSP Tmp :");
 		JLabel RRMotorTmpAnswer = new JLabel("Motor Tmp:");
 		
 		JLabel RRRmpAnswer = new JLabel("RPM:");
@@ -64,13 +70,15 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		JLabel RLStatus = new JLabel("Status:");
 		
-		JLabel RLDrTmp = new JLabel("Drive Tmp :");
+		JLabel RLDrTmp = new JLabel("Heat Sink Tmp :");
 		JLabel RLMotorTmp = new JLabel("Motor Tmp:");
+		JLabel RLDsptmp = new JLabel("DSP Tmp :");
 		
 		JLabel RLRmp = new JLabel("RPM:");
 		JLabel RLStatusoAnswer = new JLabel("Status:");
 		
 		JLabel RLDrTmpAnwser = new JLabel("Drive Tmp :");
+		JLabel RLDsptmpAnswer = new JLabel("DSP Tmp :");
 		
 		JLabel RLMotorTmpAnswer = new JLabel("Motor Tmp:");
 		
@@ -124,10 +132,13 @@ public class Tabchar extends JPanel implements TabPane {
 				FLDrTmp.setBounds(800, 80, 100, 14);
 				add(FLDrTmp);
 				
+				FLDsptmp.setBounds(800, 40, 100, 14);
+				add(FLDsptmp);
+				
 				FLMotorTmp.setBounds(800, 60, 100, 14);
 				add(FLMotorTmp);
 				
-				FLRmp.setBounds(800, 40, 46, 14);
+				FLRmp.setBounds(800, 20, 46, 14);
 				add(FLRmp);
 				
 				FLStatusoAnswer.setBounds(900, 100, 100, 14);
@@ -139,58 +150,73 @@ public class Tabchar extends JPanel implements TabPane {
 				FLMotorTmpAnswer.setBounds(900, 60, 100, 14);
 				add(FLMotorTmpAnswer);
 				
-				FLRmpAnswer.setBounds(900, 40, 46, 14);
+				FLDSPTmpAnswer.setBounds(900, 40, 100, 14);
+				add(FLDSPTmpAnswer);
+				
+				FLRmpAnswer.setBounds(900, 20, 46, 14);
 				add(FLRmpAnswer);
 				
 
 				//FR
 				
-				FRStatus.setBounds(800, 500, 100, 14);
+				FRStatus.setBounds(800, 510, 100, 14);
 				add(FRStatus);
 				
-				FRDrTmp.setBounds(800, 480, 100, 14);
+				FRDrTmp.setBounds(800, 490, 100, 14);
 				add(FRDrTmp);
 				
-				FRMotorTmp.setBounds(800, 460, 100, 14);
+				FRDsptmp.setBounds(800, 450, 100, 14);
+				add(FRDsptmp);
+				
+				FRMotorTmp.setBounds(800, 470, 100, 14);
 				add(FRMotorTmp);
 				
-				FRRmp.setBounds(800, 440, 46, 14);
+				FRRmp.setBounds(800, 430, 46, 14);
 				add(FRRmp);
 				
-				FRStatusoAnswer.setBounds(900, 500, 100, 14);
+				FRStatusoAnswer.setBounds(900, 510, 100, 14);
 				add(FRStatusoAnswer);
 				
-				FRDrTmpAnwser.setBounds(900, 480, 100, 14);
+				FRDrTmpAnwser.setBounds(900, 490, 100, 14);
 				add(FRDrTmpAnwser);
 				
-				FRMotorTmpAnswer.setBounds(900, 460, 100, 14);
+				FRMotorTmpAnswer.setBounds(900, 470, 100, 14);
 				add(FRMotorTmpAnswer);
 				
-				FRRmpAnswer.setBounds(900, 440, 46, 14);
+				FRDSPTmpAnswer.setBounds(900, 450, 100, 14);
+				add(FRDSPTmpAnswer);
+				
+				FRRmpAnswer.setBounds(900, 430, 46, 14);
 				add(FRRmpAnswer);
 				
 //RR
 				
-				RRStatus.setBounds(450, 450, 100, 14);
+				RRStatus.setBounds(450, 470, 100, 14);
 				add(RRStatus);
 				
-				RRDrTmp.setBounds(450, 430, 100, 14);
+				RRDrTmp.setBounds(450, 450, 100, 14);
 				add(RRDrTmp);
 				
-				RRMotorTmp.setBounds(450, 410, 100, 14);
+				RRMotorTmp.setBounds(450, 430, 100, 14);
 				add(RRMotorTmp);
+				
+				RRDsptmp.setBounds(450, 410, 100, 14);
+				add(RRDsptmp);
 				
 				RRRmp.setBounds(450, 390, 46, 14);
 				add(RRRmp);
 				
-				RRStatusoAnswer.setBounds(550, 450, 100, 14);
+				RRStatusoAnswer.setBounds(550, 470, 100, 14);
 				add(RRStatusoAnswer);
 				
-				RRDrTmpAnwser.setBounds(550, 430, 100, 14);
+				RRDrTmpAnwser.setBounds(550, 450, 100, 14);
 				add(RRDrTmpAnwser);
 				
-				RRMotorTmpAnswer.setBounds(550, 410, 100, 14);
+				RRMotorTmpAnswer.setBounds(550, 430, 100, 14);
 				add(RRMotorTmpAnswer);
+				
+				RRDsptmpAnswer.setBounds(550, 410, 100, 14);
+				add(RRDsptmpAnswer);
 				
 				RRRmpAnswer.setBounds(550, 390, 46, 14);
 				add(RRRmpAnswer);
@@ -206,7 +232,10 @@ public class Tabchar extends JPanel implements TabPane {
 				RLMotorTmp.setBounds(450, 100, 100, 14);
 				add(RLMotorTmp);
 				
-				RLRmp.setBounds(450, 80, 46, 14);
+				RLDsptmp.setBounds(450, 80, 100, 14);
+				add(RLDsptmp);
+				
+				RLRmp.setBounds(450, 60, 46, 14);
 				add(RLRmp);
 				
 				RLStatusoAnswer.setBounds(550, 140, 100, 14);
@@ -218,7 +247,10 @@ public class Tabchar extends JPanel implements TabPane {
 				RLMotorTmpAnswer.setBounds(550, 100, 100, 14);
 				add(RLMotorTmpAnswer);
 				
-				RLRmpAnswer.setBounds(550, 80, 100, 14);
+				RLDsptmpAnswer.setBounds(550, 80, 100, 14);
+				add(RLDsptmpAnswer);
+
+				RLRmpAnswer.setBounds(550, 60, 100, 14);
 				add(RLRmpAnswer);
 				
 				bat.setBounds(140, 100, 100, 14);
@@ -302,9 +334,10 @@ public class Tabchar extends JPanel implements TabPane {
 		}
 		*/
 		
-		FRDrTmpAnwser.setText(dd.getDeviceByID(12).getItemByID(18).getLastData() +" "+dd.getDeviceByID(12).getItemByID(18).getUnit());	
-		FRMotorTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(17).getLastData() +" "+dd.getDeviceByID(12).getItemByID(17).getUnit());	
+		FRDrTmpAnwser.setText(dd.getDeviceByID(12).getItemByID(19).getLastData() +" "+dd.getDeviceByID(12).getItemByID(19).getUnit());	
+		FRMotorTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(18).getLastData() +" "+dd.getDeviceByID(12).getItemByID(18).getUnit());	
 		FRRmpAnswer.setText(dd.getDeviceByID(12).getItemByID(9).getLastData() +" "+dd.getDeviceByID(12).getItemByID(9).getUnit());
+		FRDSPTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(20).getLastData() +" "+dd.getDeviceByID(12).getItemByID(20).getUnit());
 		/*
 		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
@@ -320,9 +353,10 @@ public class Tabchar extends JPanel implements TabPane {
 			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
 		}
 		*/
-		FLDrTmpAnwser.setText(dd.getDeviceByID(13).getItemByID(18).getLastData() +" "+dd.getDeviceByID(13).getItemByID(18).getUnit());	
-		FLMotorTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(17).getLastData() +" "+dd.getDeviceByID(13).getItemByID(17).getUnit());	
+		FLDrTmpAnwser.setText(dd.getDeviceByID(13).getItemByID(19).getLastData() +" "+dd.getDeviceByID(13).getItemByID(19).getUnit());	
+		FLMotorTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(18).getLastData() +" "+dd.getDeviceByID(13).getItemByID(18).getUnit());	
 		FLRmpAnswer.setText(dd.getDeviceByID(13).getItemByID(9).getLastData() +" "+dd.getDeviceByID(13).getItemByID(9).getUnit());
+		FLDSPTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(20).getLastData() +" "+dd.getDeviceByID(13).getItemByID(20).getUnit());
 		
 	
 		
@@ -341,9 +375,10 @@ public class Tabchar extends JPanel implements TabPane {
 			RRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(4).getLastData()));
 		}
 		*/
-		RRDrTmpAnwser.setText(dd.getDeviceByID(14).getItemByID(18).getLastData() +" "+dd.getDeviceByID(14).getItemByID(18).getUnit());	
-		RRMotorTmpAnswer.setText(dd.getDeviceByID(14).getItemByID(17).getLastData() +" "+dd.getDeviceByID(14).getItemByID(17).getUnit());	
+		RRDrTmpAnwser.setText(dd.getDeviceByID(14).getItemByID(19).getLastData() +" "+dd.getDeviceByID(14).getItemByID(19).getUnit());	
+		RRMotorTmpAnswer.setText(dd.getDeviceByID(14).getItemByID(18).getLastData() +" "+dd.getDeviceByID(14).getItemByID(18).getUnit());	
 		RRRmpAnswer.setText(dd.getDeviceByID(14).getItemByID(9).getLastData() +" "+dd.getDeviceByID(14).getItemByID(9).getUnit());
+		RRDsptmpAnswer.setText(dd.getDeviceByID(14).getItemByID(20).getLastData() +" "+dd.getDeviceByID(14).getItemByID(20).getUnit());
 		
 		/*
 		if(dd.getDeviceByID(3).getItemByID(5).getLastData()==0||dd.getDeviceByID(3).getItemByID(5).getLastData()==1)
@@ -360,10 +395,10 @@ public class Tabchar extends JPanel implements TabPane {
 			RLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(5).getLastData()));
 		}
 		*/
-		RLDrTmpAnwser.setText(dd.getDeviceByID(15).getItemByID(18).getLastData() +" "+dd.getDeviceByID(15).getItemByID(18).getUnit());	
-		RLMotorTmpAnswer.setText(dd.getDeviceByID(15).getItemByID(17).getLastData() +" "+dd.getDeviceByID(15).getItemByID(17).getUnit());	
+		RLDrTmpAnwser.setText(dd.getDeviceByID(15).getItemByID(19).getLastData() +" "+dd.getDeviceByID(15).getItemByID(19).getUnit());	
+		RLMotorTmpAnswer.setText(dd.getDeviceByID(15).getItemByID(18).getLastData() +" "+dd.getDeviceByID(15).getItemByID(18).getUnit());	
 		RLRmpAnswer.setText(dd.getDeviceByID(15).getItemByID(9).getLastData() +" "+dd.getDeviceByID(15).getItemByID(9).getUnit());
-		
+		RLDsptmpAnswer.setText(dd.getDeviceByID(15).getItemByID(20).getLastData() +" "+dd.getDeviceByID(15).getItemByID(20).getUnit());
 		
 		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
 		pileMaxAnwser.setText(dd.getDeviceByID(7).getItemByID(43).getLastData() +" "+dd.getDeviceByID(7).getItemByID(43).getUnit());
@@ -380,17 +415,17 @@ public class Tabchar extends JPanel implements TabPane {
 			HEURE.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
 		}
 		
-	//	double speed1 = (dd.getDeviceByID(12).getItemByID(10).getLastData())/1000*60*60;
+		double speed1 = (dd.getDeviceByID(12).getItemByID(10).getLastData())/1000*60*60;
 		
-	//	double speed2 = (dd.getDeviceByID(13).getItemByID(10).getLastData())/1000*60*60;
+		double speed2 = (dd.getDeviceByID(13).getItemByID(10).getLastData())/1000*60*60;
 		
-	//	double speed3 = (dd.getDeviceByID(14).getItemByID(10).getLastData())/1000*60*60;
+		double speed3 = (dd.getDeviceByID(14).getItemByID(10).getLastData())/1000*60*60;
 		
-	//	double speed4 = (dd.getDeviceByID(15).getItemByID(10).getLastData())/1000*60*60;
+		double speed4 = (dd.getDeviceByID(15).getItemByID(10).getLastData())/1000*60*60;
 		
-	//	double speedmoy = (speed1 + speed2 + speed3 + speed4)/4; 
+		double speedmoy = (speed1 + speed2 + speed3 + speed4)/4; 
 		
-		//VitesseAnwser.setText(String.format("%.2f", speedmoy)+" Km/h");
+		VitesseAnwser.setText(String.format("%.2f", speedmoy)+" Km/h");
 		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
 		
 		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());
