@@ -6,8 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+// java.text.SimpleDateFormat;
+//import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -27,10 +27,10 @@ public class MatLab implements Runnable{
 		DataManager dd = DataManager.getInstance();
 		FileWriter fstream;
 		BufferedWriter out;
-		Date dNow = new Date( );
-	    SimpleDateFormat ft = new SimpleDateFormat ("_yyyy_MM_dd_hh_mm_ss");
+		//Date dNow = new Date( );
+	   // SimpleDateFormat ft = new SimpleDateFormat ("_yyyy_MM_dd_hh_mm_ss");
 
-		String filename = ft.format(dNow)+".txt";
+		//String filename = ft.format(dNow)+".txt";
 		//String filename = "MATLAB.txt";
 		try {
 //			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
@@ -41,7 +41,7 @@ public class MatLab implements Runnable{
 //		    fstream.close();
 		    while(true){
 		    	if(AcquisitionManager.getInstance().getAcqui(0).getAcquiStatus()){
-			    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
+			    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")/*+filename*/,true);
 			    	out = new BufferedWriter(fstream);
 						 out.write(
 			    			dd.getDeviceByID(6).getItemByID(4).getLastData()+sep+//HEURE
@@ -70,7 +70,7 @@ public class MatLab implements Runnable{
 			 				dd.getDeviceByID(15).getItemByID(7).getLastData()+sep+//RL_AT
 			 				dd.getDeviceByID(15).getItemByID(22).getLastData()+sep+//RL_AH
 			    			dd.getDeviceByID(7).getItemByID(44).getLastData()+sep+//COURANT
-			    			dd.getDeviceByID(7).getItemByID(48).getLastData()+sep//TENSION
+			    			dd.getDeviceByID(7).getItemByID(48).getLastData()+"\r\n"//TENSION
 			 				);
 						 out.close();
 						 fstream.close();
