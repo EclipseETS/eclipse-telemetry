@@ -1092,7 +1092,7 @@
 				<unit>bin</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>15</maxvalue>
+				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -1103,7 +1103,7 @@
 				<unit>bin</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>15</maxvalue>
+				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -1125,7 +1125,7 @@
 				<unit>bin</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>255</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -1136,7 +1136,7 @@
 				<unit>bin</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>255</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>

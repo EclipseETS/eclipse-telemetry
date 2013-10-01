@@ -70,7 +70,9 @@ public class MatLab implements Runnable{
 			 				dd.getDeviceByID(15).getItemByID(7).getLastData()+sep+//RL_AT
 			 				dd.getDeviceByID(15).getItemByID(22).getLastData()+sep+//RL_AH
 			    			dd.getDeviceByID(7).getItemByID(44).getLastData()+sep+//COURANT
-			    			dd.getDeviceByID(7).getItemByID(48).getLastData()+"\r\n"//TENSION
+			    			dd.getDeviceByID(7).getItemByID(48).getLastData()+sep+//TENSION
+			    			dd.getDeviceByID(11).getItemByID(1).getLastData()+sep+//ANÉMOMETRE
+			    			dd.getDeviceByID(11).getItemByID(0).getLastData()+"\r\n"//GIROUETTE
 			 				);
 						 out.close();
 						 fstream.close();

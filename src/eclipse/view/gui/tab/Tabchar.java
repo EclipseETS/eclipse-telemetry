@@ -19,16 +19,17 @@ import eclipse.model.data.DataManager;
 public class Tabchar extends JPanel implements TabPane {
 	 private Image img;
 	 //TODO ajouter temperature du char
-	 JLabel FLStatus = new JLabel("Status:");		
+	 
+	 //FL
+	 	JLabel FLStatus = new JLabel("Status:");		
 		JLabel FLDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel FLDsptmp = new JLabel("DSP Tmp :");
+		JLabel FLDrvCurrent = new JLabel("Drive current :");
 		JLabel FLMotorTmp = new JLabel("Motor Tmp:");
 		JLabel FLRmp = new JLabel("RPM:");		
+		
 		JLabel FLStatusoAnswer = new JLabel("status");
-		
 		JLabel FLDrTmpAnwser = new JLabel();
-		JLabel FLDSPTmpAnswer = new JLabel("DSP Tmp");
-		
+		JLabel FLDrvCurrentAnswer = new JLabel("Drive current :");
 		JLabel FLMotorTmpAnswer = new JLabel();		
 		JLabel FLRmpAnswer = new JLabel();
 		
@@ -36,53 +37,46 @@ public class Tabchar extends JPanel implements TabPane {
 		//FR
 		
 		JLabel FRStatus = new JLabel("Status:");
-		JLabel FRDsptmp = new JLabel("DSP Tmp :");
-		
+		JLabel FRDrvCurrent = new JLabel("Drive current :");
 		JLabel FRDrTmp = new JLabel("Heat Sink Tmp :");
 		JLabel FRMotorTmp = new JLabel("Motor Tmp:");
-		
 		JLabel FRRmp = new JLabel("RPM:");
+		
 		JLabel FRStatusoAnswer = new JLabel("Status:");
 		JLabel FRDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel FRDSPTmpAnswer = new JLabel("DSP Tmp");
-		
+		JLabel FRDrvCurrentAnswer = new JLabel("Drive current :");		
 		JLabel FRMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
 		JLabel FRRmpAnswer = new JLabel("RPM:");
 		
 		//RR
 		
 		JLabel RRStatus = new JLabel("Status:");
-		
 		JLabel RRDrTmp = new JLabel("Heat Sink Tmp :");
 		JLabel RRMotorTmp = new JLabel("Motor Tmp:");
-		JLabel RRDsptmp = new JLabel("DSP Tmp :");
-		
+		JLabel RRDrvCurrent = new JLabel("Drive current :");
 		JLabel RRRmp = new JLabel("RPM:");
+		
 		JLabel RRStatusoAnswer = new JLabel("Status:");
 		JLabel RRDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel RRDsptmpAnswer = new JLabel("DSP Tmp :");
+		JLabel RRDrvCurrentAnswer = new JLabel("Drive current :");
 		JLabel RRMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
 		JLabel RRRmpAnswer = new JLabel("RPM:");
 		
-//RL
+		//RL
 		
 		JLabel RLStatus = new JLabel("Status:");
-		
 		JLabel RLDrTmp = new JLabel("Heat Sink Tmp :");
 		JLabel RLMotorTmp = new JLabel("Motor Tmp:");
-		JLabel RLDsptmp = new JLabel("DSP Tmp :");
-		
+		JLabel RLDrvCurrent = new JLabel("Drive current :");
 		JLabel RLRmp = new JLabel("RPM:");
+		
 		JLabel RLStatusoAnswer = new JLabel("Status:");
-		
 		JLabel RLDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel RLDsptmpAnswer = new JLabel("DSP Tmp :");
-		
+		JLabel RLDrvCurrentAnswer = new JLabel("Drive current :");
 		JLabel RLMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
 		JLabel RLRmpAnswer = new JLabel("RPM:");
+		
+		//Battery
 		
 		JLabel bat = new JLabel("BATTERY");
 		
@@ -96,6 +90,40 @@ public class Tabchar extends JPanel implements TabPane {
 		JLabel courantOutAnwser = new JLabel("Courant:");
 		JLabel Watt = new JLabel("Puissance:");
 		JLabel wattAnwser = new JLabel("W:");
+		
+		//MPPT
+		JLabel MPPT1 = new JLabel("MPPT1");
+		JLabel MPPT2 = new JLabel("MPPT2");
+		JLabel MPPT3 = new JLabel("MPPT3");
+		
+		JLabel Ptotal = new JLabel("Power MPPT:");
+		
+		JLabel Mppt1Vout = new JLabel("Vout:");
+		JLabel Mppt2Vout = new JLabel("Vout:");
+		JLabel Mppt3Vout = new JLabel("Vout:");
+		
+		JLabel Mppt1Cout = new JLabel("Courant:");
+		JLabel Mppt2Cout = new JLabel("Courant:");
+		JLabel Mppt3Cout = new JLabel("Courant:");
+		
+		JLabel Mppt1Power = new JLabel("Power:");
+		JLabel Mppt2Power = new JLabel("Power:");
+		JLabel Mppt3Power = new JLabel("Power:");
+		
+		JLabel PtotalAnswer = new JLabel("Power MPPT:");
+		
+		JLabel Mppt1VoutAnswer = new JLabel("Vout:");
+		JLabel Mppt2VoutAnswer = new JLabel("Vout:");
+		JLabel Mppt3VoutAnswer = new JLabel("Vout:");
+		
+		JLabel Mppt1CoutAnswer = new JLabel("Courant:");
+		JLabel Mppt2CoutAnswer = new JLabel("Courant:");
+		JLabel Mppt3CoutAnswer = new JLabel("Courant:");
+		
+		JLabel Mppt1PowerAnswer = new JLabel("Power:");
+		JLabel Mppt2PowerAnswer = new JLabel("Power:");
+		JLabel Mppt3PowerAnswer = new JLabel("Power:");
+		
 		
 		JLabel LON = new JLabel("LON");
 		
@@ -113,8 +141,6 @@ public class Tabchar extends JPanel implements TabPane {
 	 
 	 
 	 
-	 
-	 
 	public Tabchar() {
 		setBackground(Color.WHITE);
 
@@ -122,8 +148,79 @@ public class Tabchar extends JPanel implements TabPane {
 		setForeground(Color.BLACK);
 		setLayout(null);
 		
-		//DRIVE - MOTEUR
+		// Affichage
 		
+		// MPPT
+				
+				MPPT1.setBounds(70, 380, 100, 14);
+				add(MPPT1);
+				
+				MPPT2.setBounds(190, 380, 100, 14);
+				add(MPPT2);
+				
+				MPPT3.setBounds(310, 380, 100, 14);
+				add(MPPT3);
+		
+				Mppt1Power.setBounds(30, 440, 100, 14);
+				add(Mppt1Power);
+				
+				Mppt2Power.setBounds(160, 440, 100, 14);
+				add(Mppt2Power);
+				
+				Mppt3Power.setBounds(280, 440, 100, 14);
+				add(Mppt3Power);
+				
+				Mppt1Vout.setBounds(30, 420, 100, 14);
+				add(Mppt1Vout);
+				
+				Mppt2Vout.setBounds(160, 420, 100, 14);
+				add(Mppt2Vout);
+				
+				Mppt3Vout.setBounds(280, 420, 100, 14);
+				add(Mppt3Vout);
+				
+				Mppt1Cout.setBounds(30, 400, 100, 14);
+				add(Mppt1Cout);
+				
+				Mppt2Cout.setBounds(160, 400, 100, 14);
+				add(Mppt2Cout);
+				
+				Mppt3Cout.setBounds(280, 400, 100, 14);
+				add(Mppt3Cout);
+				
+				Ptotal.setBounds(120, 480, 100, 14);
+				add(Ptotal);
+				
+				Mppt1PowerAnswer.setBounds(80, 440, 100, 14);
+				add(Mppt1PowerAnswer);
+				
+				Mppt2PowerAnswer.setBounds(210, 440, 100, 14);
+				add(Mppt2PowerAnswer);
+				
+				Mppt3PowerAnswer.setBounds(330, 440, 100, 14);
+				add(Mppt3PowerAnswer);
+				
+				Mppt1VoutAnswer.setBounds(80, 420, 100, 14);
+				add(Mppt1VoutAnswer);
+				
+				Mppt2VoutAnswer.setBounds(210, 420, 100, 14);
+				add(Mppt2VoutAnswer);
+				
+				Mppt3VoutAnswer.setBounds(330, 420, 100, 14);
+				add(Mppt3VoutAnswer);
+				
+				Mppt1CoutAnswer.setBounds(80, 400, 100, 14);
+				add(Mppt1CoutAnswer);
+				
+				Mppt2CoutAnswer.setBounds(210, 400, 100, 14);
+				add(Mppt2CoutAnswer);
+				
+				Mppt3CoutAnswer.setBounds(330, 400, 100, 14);
+				add(Mppt3CoutAnswer);
+				
+				PtotalAnswer.setBounds(210, 480, 100, 14);
+				add(PtotalAnswer);
+				
 		//FL
 		
 				FLStatus.setBounds(800, 100, 100, 14);
@@ -132,8 +229,8 @@ public class Tabchar extends JPanel implements TabPane {
 				FLDrTmp.setBounds(800, 80, 100, 14);
 				add(FLDrTmp);
 				
-				FLDsptmp.setBounds(800, 40, 100, 14);
-				add(FLDsptmp);
+				FLDrvCurrent.setBounds(800, 40, 100, 14);
+				add(FLDrvCurrent);
 				
 				FLMotorTmp.setBounds(800, 60, 100, 14);
 				add(FLMotorTmp);
@@ -150,8 +247,8 @@ public class Tabchar extends JPanel implements TabPane {
 				FLMotorTmpAnswer.setBounds(900, 60, 100, 14);
 				add(FLMotorTmpAnswer);
 				
-				FLDSPTmpAnswer.setBounds(900, 40, 100, 14);
-				add(FLDSPTmpAnswer);
+				FLDrvCurrentAnswer.setBounds(900, 40, 100, 14);
+				add(FLDrvCurrentAnswer);
 				
 				FLRmpAnswer.setBounds(900, 20, 46, 14);
 				add(FLRmpAnswer);
@@ -165,8 +262,8 @@ public class Tabchar extends JPanel implements TabPane {
 				FRDrTmp.setBounds(800, 490, 100, 14);
 				add(FRDrTmp);
 				
-				FRDsptmp.setBounds(800, 450, 100, 14);
-				add(FRDsptmp);
+				FRDrvCurrent.setBounds(800, 450, 100, 14);
+				add(FRDrvCurrent);
 				
 				FRMotorTmp.setBounds(800, 470, 100, 14);
 				add(FRMotorTmp);
@@ -183,8 +280,8 @@ public class Tabchar extends JPanel implements TabPane {
 				FRMotorTmpAnswer.setBounds(900, 470, 100, 14);
 				add(FRMotorTmpAnswer);
 				
-				FRDSPTmpAnswer.setBounds(900, 450, 100, 14);
-				add(FRDSPTmpAnswer);
+				FRDrvCurrentAnswer.setBounds(900, 450, 100, 14);
+				add(FRDrvCurrentAnswer);
 				
 				FRRmpAnswer.setBounds(900, 430, 46, 14);
 				add(FRRmpAnswer);
@@ -200,8 +297,8 @@ public class Tabchar extends JPanel implements TabPane {
 				RRMotorTmp.setBounds(450, 430, 100, 14);
 				add(RRMotorTmp);
 				
-				RRDsptmp.setBounds(450, 410, 100, 14);
-				add(RRDsptmp);
+				RRDrvCurrent.setBounds(450, 410, 100, 14);
+				add(RRDrvCurrent);
 				
 				RRRmp.setBounds(450, 390, 46, 14);
 				add(RRRmp);
@@ -215,8 +312,8 @@ public class Tabchar extends JPanel implements TabPane {
 				RRMotorTmpAnswer.setBounds(550, 430, 100, 14);
 				add(RRMotorTmpAnswer);
 				
-				RRDsptmpAnswer.setBounds(550, 410, 100, 14);
-				add(RRDsptmpAnswer);
+				RRDrvCurrentAnswer.setBounds(550, 410, 100, 14);
+				add(RRDrvCurrentAnswer);
 				
 				RRRmpAnswer.setBounds(550, 390, 46, 14);
 				add(RRRmpAnswer);
@@ -232,8 +329,8 @@ public class Tabchar extends JPanel implements TabPane {
 				RLMotorTmp.setBounds(450, 100, 100, 14);
 				add(RLMotorTmp);
 				
-				RLDsptmp.setBounds(450, 80, 100, 14);
-				add(RLDsptmp);
+				RLDrvCurrent.setBounds(450, 80, 100, 14);
+				add(RLDrvCurrent);
 				
 				RLRmp.setBounds(450, 60, 46, 14);
 				add(RLRmp);
@@ -247,8 +344,8 @@ public class Tabchar extends JPanel implements TabPane {
 				RLMotorTmpAnswer.setBounds(550, 100, 100, 14);
 				add(RLMotorTmpAnswer);
 				
-				RLDsptmpAnswer.setBounds(550, 80, 100, 14);
-				add(RLDsptmpAnswer);
+				RLDrvCurrentAnswer.setBounds(550, 80, 100, 14);
+				add(RLDrvCurrentAnswer);
 
 				RLRmpAnswer.setBounds(550, 60, 100, 14);
 				add(RLRmpAnswer);
@@ -337,7 +434,7 @@ public class Tabchar extends JPanel implements TabPane {
 		FRDrTmpAnwser.setText(dd.getDeviceByID(12).getItemByID(19).getLastData() +" "+dd.getDeviceByID(12).getItemByID(19).getUnit());	
 		FRMotorTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(18).getLastData() +" "+dd.getDeviceByID(12).getItemByID(18).getUnit());	
 		FRRmpAnswer.setText(dd.getDeviceByID(12).getItemByID(9).getLastData() +" "+dd.getDeviceByID(12).getItemByID(9).getUnit());
-		FRDSPTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(20).getLastData() +" "+dd.getDeviceByID(12).getItemByID(20).getUnit());
+		FRDrvCurrentAnswer.setText(dd.getDeviceByID(12).getItemByID(8).getLastData() +" "+dd.getDeviceByID(12).getItemByID(8).getUnit());
 		/*
 		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
 			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
@@ -356,7 +453,7 @@ public class Tabchar extends JPanel implements TabPane {
 		FLDrTmpAnwser.setText(dd.getDeviceByID(13).getItemByID(19).getLastData() +" "+dd.getDeviceByID(13).getItemByID(19).getUnit());	
 		FLMotorTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(18).getLastData() +" "+dd.getDeviceByID(13).getItemByID(18).getUnit());	
 		FLRmpAnswer.setText(dd.getDeviceByID(13).getItemByID(9).getLastData() +" "+dd.getDeviceByID(13).getItemByID(9).getUnit());
-		FLDSPTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(20).getLastData() +" "+dd.getDeviceByID(13).getItemByID(20).getUnit());
+		FLDrvCurrentAnswer.setText(dd.getDeviceByID(13).getItemByID(8).getLastData() +" "+dd.getDeviceByID(13).getItemByID(8).getUnit());
 		
 	
 		
@@ -378,7 +475,7 @@ public class Tabchar extends JPanel implements TabPane {
 		RRDrTmpAnwser.setText(dd.getDeviceByID(14).getItemByID(19).getLastData() +" "+dd.getDeviceByID(14).getItemByID(19).getUnit());	
 		RRMotorTmpAnswer.setText(dd.getDeviceByID(14).getItemByID(18).getLastData() +" "+dd.getDeviceByID(14).getItemByID(18).getUnit());	
 		RRRmpAnswer.setText(dd.getDeviceByID(14).getItemByID(9).getLastData() +" "+dd.getDeviceByID(14).getItemByID(9).getUnit());
-		RRDsptmpAnswer.setText(dd.getDeviceByID(14).getItemByID(20).getLastData() +" "+dd.getDeviceByID(14).getItemByID(20).getUnit());
+		RRDrvCurrentAnswer.setText(dd.getDeviceByID(14).getItemByID(8).getLastData() +" "+dd.getDeviceByID(14).getItemByID(8).getUnit());
 		
 		/*
 		if(dd.getDeviceByID(3).getItemByID(5).getLastData()==0||dd.getDeviceByID(3).getItemByID(5).getLastData()==1)
@@ -398,12 +495,41 @@ public class Tabchar extends JPanel implements TabPane {
 		RLDrTmpAnwser.setText(dd.getDeviceByID(15).getItemByID(19).getLastData() +" "+dd.getDeviceByID(15).getItemByID(19).getUnit());	
 		RLMotorTmpAnswer.setText(dd.getDeviceByID(15).getItemByID(18).getLastData() +" "+dd.getDeviceByID(15).getItemByID(18).getUnit());	
 		RLRmpAnswer.setText(dd.getDeviceByID(15).getItemByID(9).getLastData() +" "+dd.getDeviceByID(15).getItemByID(9).getUnit());
-		RLDsptmpAnswer.setText(dd.getDeviceByID(15).getItemByID(20).getLastData() +" "+dd.getDeviceByID(15).getItemByID(20).getUnit());
+		RLDrvCurrentAnswer.setText(dd.getDeviceByID(15).getItemByID(8).getLastData() +" "+dd.getDeviceByID(15).getItemByID(8).getUnit());
+
 		
 		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
 		pileMaxAnwser.setText(dd.getDeviceByID(7).getItemByID(43).getLastData() +" "+dd.getDeviceByID(7).getItemByID(43).getUnit());
 		pileTotalAnwser.setText(dd.getDeviceByID(7).getItemByID(44).getLastData() +" "+dd.getDeviceByID(7).getItemByID(44).getUnit());
-		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(48).getLastData() +" "+dd.getDeviceByID(7).getItemByID(47).getUnit());
+		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(60).getLastData() +" "+dd.getDeviceByID(7).getItemByID(60).getUnit());
+		
+		Mppt1VoutAnswer.setText(dd.getDeviceByID(8).getItemByID(2).getLastData() +" "+dd.getDeviceByID(8).getItemByID(2).getUnit());
+		Mppt2VoutAnswer.setText(dd.getDeviceByID(8).getItemByID(2).getLastData() +" "+dd.getDeviceByID(8).getItemByID(2).getUnit());
+		Mppt3VoutAnswer.setText(dd.getDeviceByID(8).getItemByID(2).getLastData() +" "+dd.getDeviceByID(8).getItemByID(2).getUnit());
+		
+		Mppt1CoutAnswer.setText(dd.getDeviceByID(9).getItemByID(3).getLastData() +" "+dd.getDeviceByID(9).getItemByID(3).getUnit());
+		Mppt2CoutAnswer.setText(dd.getDeviceByID(9).getItemByID(3).getLastData() +" "+dd.getDeviceByID(9).getItemByID(3).getUnit());
+		Mppt3CoutAnswer.setText(dd.getDeviceByID(9).getItemByID(3).getLastData() +" "+dd.getDeviceByID(9).getItemByID(3).getUnit());
+		
+		//calcul de puisance
+		
+		double  Mppt1P = (dd.getDeviceByID(8).getItemByID(2).getLastData()*dd.getDeviceByID(8).getItemByID(3).getLastData());
+		
+		double  Mppt2P = (dd.getDeviceByID(9).getItemByID(2).getLastData()*dd.getDeviceByID(9).getItemByID(3).getLastData());
+		
+		double  Mppt3P = (dd.getDeviceByID(10).getItemByID(2).getLastData()*dd.getDeviceByID(10).getItemByID(3).getLastData());
+		
+		double  PtotalMppt = (dd.getDeviceByID(8).getItemByID(3).getLastData()+dd.getDeviceByID(9).getItemByID(3).getLastData()+
+				dd.getDeviceByID(10).getItemByID(3).getLastData())*dd.getDeviceByID(8).getItemByID(2).getLastData();
+		
+		
+		Mppt1PowerAnswer.setText(String.format("%.2f", Mppt1P)+" W");
+		Mppt2PowerAnswer.setText(String.format("%.2f", Mppt2P)+" W");
+		Mppt3PowerAnswer.setText(String.format("%.2f", Mppt3P)+" W");
+		
+		PtotalAnswer.setText(String.format("%.2f", PtotalMppt)+" W");
+		
+		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(60).getLastData() +" "+dd.getDeviceByID(7).getItemByID(60).getUnit());
 		
 		LAT.setText(Double.toString(dd.getDeviceByID(6).getItemByID(2).getLastData()));
 		LON.setText(Double.toString(dd.getDeviceByID(6).getItemByID(3).getLastData()));
@@ -414,6 +540,8 @@ public class Tabchar extends JPanel implements TabPane {
 			DATE.setText(date.substring(0, 2)+":"+date.substring(2,4)+":"+date.substring(4,6));
 			HEURE.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
 		}
+		
+		//calcul de la vitesse
 		
 		double speed1 = (dd.getDeviceByID(12).getItemByID(10).getLastData())/1000*60*60;
 		
@@ -426,7 +554,7 @@ public class Tabchar extends JPanel implements TabPane {
 		double speedmoy = (speed1 + speed2 + speed3 + speed4)/4; 
 		
 		VitesseAnwser.setText(String.format("%.2f", speedmoy)+" Km/h");
-		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
+		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(1).getItemByID(1).getLastData()));
 		
 		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());
 		
