@@ -40,7 +40,7 @@ public class MatLab implements Runnable{
 //		    out.close();
 //		    fstream.close();
 		    while(true){
-		    	if(AcquisitionManager.getInstance().getAcqui(0).getAcquiStatus()){
+		    	if(DataAcquisition.getInstance().getAcquiStatus()){
 			    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 			    	out = new BufferedWriter(fstream);
 						 out.write(
