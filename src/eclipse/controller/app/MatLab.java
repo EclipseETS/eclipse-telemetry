@@ -11,7 +11,7 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import eclipse.controller.acqui.AcquisitionManager;
+import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 /**
