@@ -1,0 +1,10 @@
+eclipse.controller.acqui
+eclipse.controller.acqui.handlers
+eclipse.controller.app
+eclipse.controller.util
+eclipse.model.data
+eclipse.model.xml
+eclipse.model.xml8
+eclipse.view.gui
+eclipse.view.gui.tab
+eclipse.view.gui.tab.graph
