@@ -20,6 +20,6 @@ It read standard CANBus from a standard serial interface (tty) or COM in Windows
 GUI is mostely design for our application but core could easely be reuse.
 
 
-You can access documentation and JAVADOC here : http://marcolivierarsenault.github.com/eclipse-telemetry
+You can access documentation and JAVADOC here : http://eclipseets.github.io/eclipse-telemetry/
 
-you can get release here: https://github.com/marcolivierarsenault/eclipse-telemetry/releases
+you can get release here: https://github.com/EclipseETS/eclipse-telemetry/releases
