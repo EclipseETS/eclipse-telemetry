@@ -13,7 +13,6 @@ public abstract class AcquisitionHandler extends Observable {
 	// Start/stop the handler
 	public abstract Boolean start();
 	public abstract void stop();
-
 	public abstract byte readByte();
 	public abstract void writeByte(Byte bt);
 	
