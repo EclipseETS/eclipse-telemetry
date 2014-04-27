@@ -14,7 +14,7 @@ Part of this code is under Apache License.
 
 Basic concept of this application:
 
-It read standard CANBus from a standard serial interface (tty) or COM in Windows and store, show, and calcul many information with those datas.
+It read standard CANBus from a standard serial interface (tty) or COM in Windows and store, show, and calcul many information with these datas.
 
 GUI is mostely design for our application but core could easely be reuse.
 
