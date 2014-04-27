@@ -20,4 +20,5 @@ public abstract class AcquisitionHandler extends Observable {
 	public abstract boolean isConnected();
 	
 	public abstract String getName();
+	
 }
