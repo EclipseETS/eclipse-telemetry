@@ -20,9 +20,9 @@ import eclipse.view.gui.DesktopManager;
  * 
  * This telemetry is used for Eclipse solar car 8.
  * 
- * All this apps is Interface based. For  futher version just add new version of file (every class and package with 8)
+ * All this app is Interface based. For  further version just add new version of file (every class and package with 8)
  * 
- * ETS, École de Technologie suppérieure.
+ * ETS, École de technologie supérieure.
  * 
  * @author Marco
  *
