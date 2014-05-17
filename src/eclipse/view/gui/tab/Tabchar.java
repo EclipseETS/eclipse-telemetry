@@ -13,6 +13,16 @@ import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 /**
  * This view show all important information on 1 single view
+ * 
+ * -----------------------------------------
+ * Value of type anwser are the one modified, the one with the actual value.
+ * exemple 
+ * Speed: 100km/h
+ * String speed = "Speed: "
+ * String speedAnwser = 100km/h
+ * speedAnwser can be initiated to a random value but that is the value that will be modified
+ * as the data came in.
+ * 
  * @author Marco
  *
  */
