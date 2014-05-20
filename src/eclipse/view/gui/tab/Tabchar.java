@@ -23,26 +23,70 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int LINE_OFFSET = 20;
 	
 	private static final int PSU_ID = 7;
-	private static final int PSU_X = 850;
-	private static final int PSU_X_VALUE = 940;
-	private static final int PSU_Y = 480;
+	private static final int PSU_X = 1050;
+	private static final int PSU_X_VALUE = 1140;
+	private static final int PSU_Y = 400;
 	private static final int PSU_ICAN_ID = 2;
 	private static final int PSU_VCAN_ID = 3;
+	
+	private static final int MPPT_VIN_ID = 1;
+	private static final int MPPT_VOUT_ID = 2;
+	private static final int MPPT_IOUT_ID = 3;
+	private static final int MPPT_TEMP_ID = 4;
 	
 	private static final int MPPT1_ID = 8;
 	private static final int MPPT1_X = 50;
 	private static final int MPPT1_X_VALUE = 100;
-	private static final int MPPT1_Y = 480;
-	
+	private static final int MPPT1_Y = 400;
+	private static final int MPPT1_VIN_ID = 1;
+
 	private static final int MPPT2_ID = 9;
 	private static final int MPPT2_X = 250;
 	private static final int MPPT2_X_VALUE = 300;
-	private static final int MPPT2_Y = 480;
+	private static final int MPPT2_Y = 400;
 	
 	private static final int MPPT3_ID = 10;
 	private static final int MPPT3_X = 450;
 	private static final int MPPT3_X_VALUE = 500;
-	private static final int MPPT3_Y = 480;
+	private static final int MPPT3_Y = 400;
+	
+	private static final int DRIVE_ID = 2;
+	private static final int DRIVE_X = 50;
+	private static final int DRIVE_X_VALUE = 150;
+	private static final int DRIVE_Y = 50;
+	private static final int DRIVE_ERRORFLAGS_ID = 5;
+	private static final int DRIVE_LIMITFLAGS_ID = 6;
+	private static final int DRIVE_RPM_ID = 10;
+	private static final int DRIVE_HSTEMP_ID = 23;
+	private static final int DRIVE_MOTORTEMP_ID = 24;
+	private static final int DRIVE_DSPTEMP_ID = 26;
+	
+	private static final int INSTRU_ID = 6;
+	private static final int INSTRU_X = 1050;
+	private static final int INSTRU_X_VALUE = 1100;
+	private static final int INSTRU_Y = 50;
+	private static final int INSTRU_LAT_ID = 2;
+	private static final int INSTRU_LON_ID = 3;
+	private static final int INSTRU_TIME_ID = 4;
+	private static final int INSTRU_DATE_ID = 5;
+	
+	private static final int BMS_ID = 3;
+	private static final int BMS_X = 325;
+	private static final int BMS_X_2 = 500;
+	private static final int BMS_X_VALUE = 400;
+	private static final int BMS_X_2_VALUE = 580;
+	private static final int BMS_Y = 50;
+	private static final int BMS_MAXCELLV_ID = 64;
+	private static final int BMS_MINCELLV_ID = 65;
+	private static final int BMS_MAXCELLT_ID = 70;
+	private static final int BMS_SOCPC_ID = 46;
+	private static final int BMS_SOCAH_ID = 47;
+	private static final int BMS_PACKA_ID = 72;
+	private static final int BMS_PACKV_ID = 73;
+	private static final int BMS_STATUS_ID = 76;
+	private static final int BMS_EXTSTATUS_ID = 86;
+	
+	
 	
 	 private Image img;
 	 
@@ -99,7 +143,7 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	
 	/*MPPT1*/
-	JLabel MPPT1_Label = new JLabel("MPPT1");
+	JLabel MPPT1_Label = new JLabel("[MPPT1]");
 
 	JLabel MPPT1_Vin = new JLabel("Vin :");
 	JLabel MPPT1_Vin_Value = new JLabel("");
@@ -114,7 +158,7 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel MPPT1_Temp_Value = new JLabel("");
 	
 	/*MPPT2*/
-	JLabel MPPT2_Label = new JLabel("MPPT2");
+	JLabel MPPT2_Label = new JLabel("[MPPT2]");
 
 	JLabel MPPT2_Vin = new JLabel("Vin :");
 	JLabel MPPT2_Vin_Value = new JLabel("");
@@ -129,7 +173,7 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel MPPT2_Temp_Value = new JLabel("");
 	
 	/*MPPT3*/
-	JLabel MPPT3_Label = new JLabel("MPPT3");
+	JLabel MPPT3_Label = new JLabel("[MPPT3]");
 
 	JLabel MPPT3_Vin = new JLabel("Vin :");
 	JLabel MPPT3_Vin_Value = new JLabel("");
@@ -144,7 +188,7 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel MPPT3_Temp_Value = new JLabel("");
 	
 	/*PSU*/
-	JLabel PSU_Label = new JLabel("PSU");
+	JLabel PSU_Label = new JLabel("[PSU]");
 	
 	JLabel PSU_ICAN = new JLabel("CAN Current :");
 	JLabel PSU_ICAN_Value = new JLabel("");
@@ -153,18 +197,77 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel PSU_VCAN_Value = new JLabel("");
 	
 	/*Drive*/
-	JLabel Drive_Label = new JLabel("Drive");
+	JLabel Drive_Label = new JLabel("[Drive]");
 	
 	JLabel Drive_ErrorFlags = new JLabel("Error Flags : ");
 	JLabel Drive_ErrorFlags_Value = new JLabel("");
 	
 	JLabel Drive_LimitFlags = new JLabel("Limit Flags : ");
 	JLabel Drive_LimitFlags_Value = new JLabel("");
+	
+	JLabel Drive_RPM = new JLabel("RPM : ");
+	JLabel Drive_RPM_Value = new JLabel("");
+	
+	JLabel Drive_HSTemp = new JLabel("Heat Sink Temp : ");
+	JLabel Drive_HSTemp_Value = new JLabel("");
+	
+	JLabel Drive_MotorTemp = new JLabel("Motor Temp : ");
+	JLabel Drive_MotorTemp_Value = new JLabel("");
+	
+	JLabel Drive_DSPTemp = new JLabel("DSP Temp : ");
+	JLabel Drive_DSPTemp_Value = new JLabel("");
+	
+	/*Instru*/
+	JLabel Instru_Label = new JLabel("[Instru]");
+	
+	JLabel Instru_Lat = new JLabel("Lat : ");
+	JLabel Instru_Lat_Value = new JLabel("");
+	
+	JLabel Instru_Lon = new JLabel("Lon : ");
+	JLabel Instru_Lon_Value = new JLabel("");
+	
+	JLabel Instru_Time = new JLabel("Time : ");
+	JLabel Instru_Time_Value = new JLabel("");
+	
+	JLabel Instru_Date = new JLabel("Date : ");
+	JLabel Instru_Date_Value = new JLabel("");
+	
+	/*BMS*/
+	JLabel BMS_Label = new JLabel("[BMS]");
+	
+	JLabel BMS_MaxCellV = new JLabel("Cell Vmax : ");
+	JLabel BMS_MaxCellV_Value = new JLabel("");
+	
+	JLabel BMS_MinCellV = new JLabel("Cell Vmin : ");
+	JLabel BMS_MinCellV_Value = new JLabel("");
+	
+	JLabel BMS_MaxCellT = new JLabel("Cell Tmax : ");
+	JLabel BMS_MaxCellT_Value = new JLabel("");
+	
+	JLabel BMS_MaxPCBT = new JLabel("PCB Tmax : ");
+	JLabel BMS_MaxPCBT_Value = new JLabel("");
+	
+	JLabel BMS_SOCPc = new JLabel("SoC % : ");
+	JLabel BMS_SOCPc_Value = new JLabel("");
+	
+	JLabel BMS_SOCAh = new JLabel("SoC Ah: ");
+	JLabel BMS_SOCAh_Value = new JLabel("");
+	
+	JLabel BMS_PackV = new JLabel("Total VPack : ");
+	JLabel BMS_PackV_Value = new JLabel("");
+	
+	JLabel BMS_PackA = new JLabel("Total APack : ");
+	JLabel BMS_PackA_Value = new JLabel("");
+	
+	JLabel BMS_Status = new JLabel("Status : ");
+	JLabel BMS_Status_Value = new JLabel("");
+	
+	JLabel BMS_ExtStatus = new JLabel("Ext. Status : ");
+	JLabel BMS_ExtStatus_Value = new JLabel("");
 	 
 	public Tabchar() {
-		setBackground(Color.WHITE);
-
 		
+		setBackground(Color.WHITE);		
 		setForeground(Color.BLACK);
 		setLayout(null);
 		
@@ -255,16 +358,118 @@ public class Tabchar extends JPanel implements TabPane {
 		add(PSU_VCAN_Value);
 		
 		/*Drive*/
-		Drive_Label.setBounds(1050, 480, 100, 14);
+		Drive_Label.setBounds(DRIVE_X, DRIVE_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_Label);
 		
-		Drive_ErrorFlags.setBounds(1050, 500, 100, 14);
+		Drive_RPM.setBounds(DRIVE_X, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_RPM);
+		Drive_RPM_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_RPM_Value);
+		
+		Drive_HSTemp.setBounds(DRIVE_X, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_HSTemp);
+		Drive_HSTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_HSTemp_Value);
+		
+		Drive_MotorTemp.setBounds(DRIVE_X, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_MotorTemp);
+		Drive_MotorTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_MotorTemp_Value);
+		
+		Drive_DSPTemp.setBounds(DRIVE_X, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_DSPTemp);
+		Drive_DSPTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_DSPTemp_Value);
+		
+		Drive_ErrorFlags.setBounds(DRIVE_X, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_ErrorFlags);
-		Drive_LimitFlags.setBounds(1050, 520, 100, 14);
+		Drive_ErrorFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_ErrorFlags_Value);
+		
+		Drive_LimitFlags.setBounds(DRIVE_X, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_LimitFlags);
+		Drive_LimitFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_LimitFlags_Value);
 		
+		/*Instru*/
+		Instru_Label.setBounds(INSTRU_X, INSTRU_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Label);
 		
-		Status.setBounds(500, 100, 100, 14);
+		Instru_Lat.setBounds(INSTRU_X, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lat);
+		Instru_Lat_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lat_Value);
+		
+		Instru_Lon.setBounds(INSTRU_X, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lon);
+		Instru_Lon_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lon_Value);
+		
+		Instru_Time.setBounds(INSTRU_X, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Time);
+		Instru_Time_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Time_Value);
+		
+		Instru_Date.setBounds(INSTRU_X, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Date);
+		Instru_Date_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Date_Value);
+		
+		/*BMS*/
+		BMS_Label.setBounds(BMS_X, BMS_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Label);
+		
+		BMS_MaxCellV.setBounds(BMS_X, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellV);
+		BMS_MaxCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellV_Value);
+		
+		BMS_MinCellV.setBounds(BMS_X, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MinCellV);
+		BMS_MinCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MinCellV_Value);
+		
+		BMS_SOCAh.setBounds(BMS_X, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCAh);
+		BMS_SOCAh_Value.setBounds(BMS_X_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCAh_Value);
+		
+		BMS_SOCPc.setBounds(BMS_X, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCPc);
+		BMS_SOCPc_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCPc_Value);
+		
+		BMS_Status.setBounds(BMS_X, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Status);
+		BMS_Status_Value.setBounds(BMS_X_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Status_Value);
+		
+		BMS_MaxCellT.setBounds(BMS_X_2, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellT);
+		BMS_MaxCellT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellT_Value);
+		
+		BMS_MaxPCBT.setBounds(BMS_X_2, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxPCBT);
+		BMS_MaxPCBT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxPCBT_Value);
+		
+		BMS_PackV.setBounds(BMS_X_2, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_PackV);
+		BMS_PackV_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_PackV_Value);
+		
+		BMS_PackA.setBounds(BMS_X_2, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_PackA);
+		BMS_PackA_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_PackA_Value);
+		
+		BMS_ExtStatus.setBounds(BMS_X_2, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_ExtStatus);
+		BMS_ExtStatus_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_ExtStatus_Value);
+		
+		/*Status.setBounds(500, 100, 100, 14);
 		add(Status);
 		
 		DrTmp.setBounds(800, 80, 100, 14);
@@ -347,7 +552,7 @@ public class Tabchar extends JPanel implements TabPane {
 		add(Commande);
 		
 		CommandeAnwser.setBounds(1100, 270, 100, 14);
-		add(CommandeAnwser);
+		add(CommandeAnwser);*/
 				
 			 
 		
@@ -363,32 +568,56 @@ public class Tabchar extends JPanel implements TabPane {
 		DataManager dd = DataManager.getInstance();
 
 		/*MPPT1*/
-		MPPT1_Vin_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(1).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(1).getUnit());
-		MPPT1_Vout_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(2).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(2).getUnit());
-		MPPT1_Iout_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(3).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(3).getUnit());
-		MPPT1_Temp_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(4).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(4).getUnit());
+		MPPT1_Vin_Value.setText(dd.getValue(MPPT1_ID, MPPT_VIN_ID));
+		MPPT1_Vout_Value.setText(dd.getValue(MPPT1_ID, MPPT_VOUT_ID));
+		MPPT1_Iout_Value.setText(dd.getValue(MPPT1_ID, MPPT_IOUT_ID));
+		MPPT1_Temp_Value.setText(dd.getValue(MPPT1_ID, MPPT_TEMP_ID));
 		
 		/*MPPT2*/
-		MPPT2_Vin_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(1).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(1).getUnit());
-		MPPT2_Vout_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(2).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(2).getUnit());
-		MPPT2_Iout_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(3).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(3).getUnit());
-		MPPT2_Temp_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(4).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(4).getUnit());
+		MPPT2_Vin_Value.setText(dd.getValue(MPPT2_ID, MPPT_VIN_ID));
+		MPPT2_Vout_Value.setText(dd.getValue(MPPT2_ID, MPPT_VOUT_ID));
+		MPPT2_Iout_Value.setText(dd.getValue(MPPT2_ID, MPPT_IOUT_ID));
+		MPPT2_Temp_Value.setText(dd.getValue(MPPT2_ID, MPPT_TEMP_ID));
 		
 		/*MPPT3*/
-		MPPT3_Vin_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(1).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(1).getUnit());
-		MPPT3_Vout_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(2).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(2).getUnit());
-		MPPT3_Iout_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(3).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(3).getUnit());
-		MPPT3_Temp_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(4).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(4).getUnit());
-
+		MPPT3_Vin_Value.setText(dd.getValue(MPPT3_ID, MPPT_VIN_ID));
+		MPPT3_Vout_Value.setText(dd.getValue(MPPT3_ID, MPPT_VOUT_ID));
+		MPPT3_Iout_Value.setText(dd.getValue(MPPT3_ID, MPPT_IOUT_ID));
+		MPPT3_Temp_Value.setText(dd.getValue(MPPT3_ID, MPPT_TEMP_ID));
 		
 		/*PSU*/
-		PSU_ICAN_Value.setText(dd.getDeviceByID(PSU_ID).getItemByID(PSU_ICAN_ID).getLastData() + " " + dd.getDeviceByID(PSU_ID).getItemByID(PSU_ICAN_ID).getUnit());
-		PSU_VCAN_Value.setText(dd.getDeviceByID(PSU_ID).getItemByID(PSU_VCAN_ID).getLastData() + " " + dd.getDeviceByID(PSU_ID).getItemByID(PSU_VCAN_ID).getUnit());
+		PSU_ICAN_Value.setText(dd.getValue(PSU_ID, PSU_ICAN_ID));
+		PSU_VCAN_Value.setText(dd.getValue(PSU_ID, PSU_VCAN_ID));
 		
 		/*Drive*/
-		//Drive_ErrorFlags_Value.setBounds(1050, 500, 100, 14);
-		//Drive_LimitFlags_Value.setBounds(1050, 520, 100, 14);
-
+		Drive_RPM_Value.setText(dd.getValue(DRIVE_ID, DRIVE_RPM_ID));
+		Drive_HSTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_HSTEMP_ID));
+		Drive_MotorTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
+		Drive_DSPTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
+		Drive_ErrorFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
+		Drive_LimitFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
+		
+		/*Instru*/
+		Instru_Lat_Value.setText(dd.getValue(INSTRU_ID, INSTRU_LAT_ID));
+		Instru_Lon_Value.setText(dd.getValue(INSTRU_ID, INSTRU_LON_ID));
+		Instru_Time_Value.setText(dd.getValue(INSTRU_ID, INSTRU_TIME_ID));
+		Instru_Date_Value.setText(dd.getValue(INSTRU_ID, INSTRU_DATE_ID));
+		
+		/*BMS*/
+		BMS_MaxCellV_Value.setText(dd.getValue(BMS_ID, BMS_MAXCELLV_ID));
+		BMS_MinCellV_Value.setText(dd.getValue(BMS_ID, BMS_MINCELLV_ID));
+		BMS_SOCPc_Value.setText(dd.getValue(BMS_ID, BMS_SOCPC_ID));
+		BMS_SOCAh_Value.setText(dd.getValue(BMS_ID, BMS_SOCAH_ID));
+		BMS_Status_Value.setText(dd.getValue(BMS_ID, BMS_STATUS_ID));
+		
+		BMS_MaxCellT_Value.setText(dd.getValue(BMS_ID, BMS_MAXCELLT_ID));
+		//BMS_MaxPCBT_Value.setText(dd.getValue(BMS_ID, BMS_MAXPCBT_ID));
+		BMS_PackV_Value.setText(dd.getValue(BMS_ID, BMS_PACKV_ID));
+		BMS_PackA_Value.setText(dd.getValue(BMS_ID, BMS_PACKA_ID));
+		BMS_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMS_EXTSTATUS_ID));
+		
+		
+		
 		/*
 		
 		DrTmpAnwser.setText(dd.getDeviceByID(2).getItemByID(23).getLastData() +" "+dd.getDeviceByID(2).getItemByID(23).getUnit());	

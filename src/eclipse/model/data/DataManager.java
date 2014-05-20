@@ -279,6 +279,11 @@ public class DataManager implements Serializable{
 	public void addCpt(){
 		cpt++;
 	}
+	
+	public String getValue(int deviceID, int itemID) {
+		
+		return getDeviceByID(deviceID).getItemByID(itemID).getLastData() + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
+	}
 
 	
 

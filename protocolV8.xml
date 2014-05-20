@@ -1340,7 +1340,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="76" name="Status Flags">
-				<unit>number</unit>
+				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>128</maxvalue>
@@ -1458,7 +1458,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="86" name="Status Flags">
-				<unit>number</unit>
+				<unit></unit>
 				<bitsize>32</bitsize>
 				<minvalue>1</minvalue>
 				<maxvalue>4096</maxvalue>
