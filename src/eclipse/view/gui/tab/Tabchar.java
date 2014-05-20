@@ -17,103 +17,149 @@ import eclipse.model.data.DataManager;
  *
  */
 public class Tabchar extends JPanel implements TabPane {
+	
+	private static final int LABEL_WIDTH = 100;
+	private static final int LABEL_HEIGHT = 14;
+	private static final int LINE_OFFSET = 20;
+	
+	private static final int PSU_ID = 7;
+	private static final int PSU_X = 850;
+	private static final int PSU_X_VALUE = 940;
+	private static final int PSU_Y = 480;
+	private static final int PSU_ICAN_ID = 2;
+	private static final int PSU_VCAN_ID = 3;
+	
+	private static final int MPPT1_ID = 8;
+	private static final int MPPT1_X = 50;
+	private static final int MPPT1_X_VALUE = 100;
+	private static final int MPPT1_Y = 480;
+	
+	private static final int MPPT2_ID = 9;
+	private static final int MPPT2_X = 250;
+	private static final int MPPT2_X_VALUE = 300;
+	private static final int MPPT2_Y = 480;
+	
+	private static final int MPPT3_ID = 10;
+	private static final int MPPT3_X = 450;
+	private static final int MPPT3_X_VALUE = 500;
+	private static final int MPPT3_Y = 480;
+	
 	 private Image img;
+	 
 	 //TODO ajouter temperature du char
-	 JLabel FLStatus = new JLabel("Status:");		
-		JLabel FLDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel FLDsptmp = new JLabel("DSP Tmp :");
-		JLabel FLMotorTmp = new JLabel("Motor Tmp:");
-		JLabel FLRmp = new JLabel("RPM:");		
-		JLabel FLStatusoAnswer = new JLabel("status");
-		
-		JLabel FLDrTmpAnwser = new JLabel();
-		JLabel FLDSPTmpAnswer = new JLabel("DSP Tmp");
-		
-		JLabel FLMotorTmpAnswer = new JLabel();		
-		JLabel FLRmpAnswer = new JLabel();
+	 
+ 	JLabel Status = new JLabel("Status:");
+ 	JLabel StatusoAnswer = new JLabel("status");
+ 	
+	JLabel DrTmp = new JLabel("Heat Sink Tmp :");
+	JLabel DrTmpAnwser = new JLabel();
+	
+	JLabel Dsptmp = new JLabel("DSP Tmp :");
+	JLabel DSPTmpAnswer = new JLabel("DSP Tmp");
+	
+	JLabel MotorTmp = new JLabel("Motor Tmp:");
+	JLabel MotorTmpAnswer = new JLabel();
+	
+	JLabel Rmp = new JLabel("RPM:");			
+	JLabel RmpAnswer = new JLabel();
 		
 
-		//FR
+	//------------------//
 		
-		JLabel FRStatus = new JLabel("Status:");
-		JLabel FRDsptmp = new JLabel("DSP Tmp :");
-		
-		JLabel FRDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel FRMotorTmp = new JLabel("Motor Tmp:");
-		
-		JLabel FRRmp = new JLabel("RPM:");
-		JLabel FRStatusoAnswer = new JLabel("Status:");
-		JLabel FRDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel FRDSPTmpAnswer = new JLabel("DSP Tmp");
-		
-		JLabel FRMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
-		JLabel FRRmpAnswer = new JLabel("RPM:");
-		
-		//RR
-		
-		JLabel RRStatus = new JLabel("Status:");
-		
-		JLabel RRDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel RRMotorTmp = new JLabel("Motor Tmp:");
-		JLabel RRDsptmp = new JLabel("DSP Tmp :");
-		
-		JLabel RRRmp = new JLabel("RPM:");
-		JLabel RRStatusoAnswer = new JLabel("Status:");
-		JLabel RRDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel RRDsptmpAnswer = new JLabel("DSP Tmp :");
-		JLabel RRMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
-		JLabel RRRmpAnswer = new JLabel("RPM:");
-		
-//RL
-		
-		JLabel RLStatus = new JLabel("Status:");
-		
-		JLabel RLDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel RLMotorTmp = new JLabel("Motor Tmp:");
-		JLabel RLDsptmp = new JLabel("DSP Tmp :");
-		
-		JLabel RLRmp = new JLabel("RPM:");
-		JLabel RLStatusoAnswer = new JLabel("Status:");
-		
-		JLabel RLDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel RLDsptmpAnswer = new JLabel("DSP Tmp :");
-		
-		JLabel RLMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
-		JLabel RLRmpAnswer = new JLabel("RPM:");
-		
-		JLabel bat = new JLabel("BATTERY");
-		
-		JLabel pileMin = new JLabel("Pile Min:");
-		JLabel pileMinAnwser = new JLabel("Pile Min:");
-		JLabel pileMax = new JLabel("Pile Max:");
-		JLabel pileMaxAnwser = new JLabel("Pile Max:");
-		JLabel pileTotal = new JLabel("Pile Total:");
-		JLabel pileTotalAnwser = new JLabel("Pile Total:");
-		JLabel courantOut = new JLabel("Courant:");
-		JLabel courantOutAnwser = new JLabel("Courant:");
-		JLabel Watt = new JLabel("Puissance:");
-		JLabel wattAnwser = new JLabel("W:");
-		
-		JLabel LON = new JLabel("LON");
-		
-		JLabel LAT = new JLabel("LAT");
-		
-		JLabel HEURE = new JLabel("HEURE");
-		
-		JLabel DATE = new JLabel("DATE");
-	 
-		JLabel Vitesse = new JLabel("Vitesse:");
-		JLabel VitesseAnwser = new JLabel("V:");
-		JLabel Commande = new JLabel("Commande:");
-		JLabel CommandeAnwser = new JLabel("Commande:");
-		
-	 
-	 
-	 
-	 
+	JLabel bat = new JLabel("BATTERY");
+	
+	JLabel pileMin = new JLabel("Pile Min:");
+	JLabel pileMinAnwser = new JLabel("Pile Min:");
+	
+	JLabel pileMax = new JLabel("Pile Max:");
+	JLabel pileMaxAnwser = new JLabel("Pile Max:");
+	
+	JLabel pileTotal = new JLabel("Pile Total:");
+	JLabel pileTotalAnwser = new JLabel("Pile Total:");
+	
+	JLabel courantOut = new JLabel("Courant:");
+	JLabel courantOutAnwser = new JLabel("Courant:");
+	
+	JLabel Watt = new JLabel("Puissance:");
+	JLabel wattAnwser = new JLabel("W:");
+	
+	JLabel LON = new JLabel("LON");
+	
+	JLabel LAT = new JLabel("LAT");
+	
+	JLabel HEURE = new JLabel("HEURE");
+	
+	JLabel DATE = new JLabel("DATE");
+ 
+	JLabel Vitesse = new JLabel("Vitesse:");
+	JLabel VitesseAnwser = new JLabel("V:");
+	
+	JLabel Commande = new JLabel("Commande:");
+	JLabel CommandeAnwser = new JLabel("Commande:");
+	
+	
+	/*MPPT1*/
+	JLabel MPPT1_Label = new JLabel("MPPT1");
+
+	JLabel MPPT1_Vin = new JLabel("Vin :");
+	JLabel MPPT1_Vin_Value = new JLabel("");
+	
+	JLabel MPPT1_Vout = new JLabel("Vout :");
+	JLabel MPPT1_Vout_Value = new JLabel("");
+	
+	JLabel MPPT1_Iout = new JLabel("Iout :");
+	JLabel MPPT1_Iout_Value = new JLabel("");
+	
+	JLabel MPPT1_Temp = new JLabel("Temp :");
+	JLabel MPPT1_Temp_Value = new JLabel("");
+	
+	/*MPPT2*/
+	JLabel MPPT2_Label = new JLabel("MPPT2");
+
+	JLabel MPPT2_Vin = new JLabel("Vin :");
+	JLabel MPPT2_Vin_Value = new JLabel("");
+	
+	JLabel MPPT2_Vout = new JLabel("Vout :");
+	JLabel MPPT2_Vout_Value = new JLabel("");
+	
+	JLabel MPPT2_Iout = new JLabel("Iout :");
+	JLabel MPPT2_Iout_Value = new JLabel("");
+	
+	JLabel MPPT2_Temp = new JLabel("Temp :");
+	JLabel MPPT2_Temp_Value = new JLabel("");
+	
+	/*MPPT3*/
+	JLabel MPPT3_Label = new JLabel("MPPT3");
+
+	JLabel MPPT3_Vin = new JLabel("Vin :");
+	JLabel MPPT3_Vin_Value = new JLabel("");
+	
+	JLabel MPPT3_Vout = new JLabel("Vout :");
+	JLabel MPPT3_Vout_Value = new JLabel("");
+	
+	JLabel MPPT3_Iout = new JLabel("Iout :");
+	JLabel MPPT3_Iout_Value = new JLabel("");
+	
+	JLabel MPPT3_Temp = new JLabel("Temp :");
+	JLabel MPPT3_Temp_Value = new JLabel("");
+	
+	/*PSU*/
+	JLabel PSU_Label = new JLabel("PSU");
+	
+	JLabel PSU_ICAN = new JLabel("CAN Current :");
+	JLabel PSU_ICAN_Value = new JLabel("");
+	
+	JLabel PSU_VCAN = new JLabel("CAN Voltage :");
+	JLabel PSU_VCAN_Value = new JLabel("");
+	
+	/*Drive*/
+	JLabel Drive_Label = new JLabel("Drive");
+	
+	JLabel Drive_ErrorFlags = new JLabel("Error Flags : ");
+	JLabel Drive_ErrorFlags_Value = new JLabel("");
+	
+	JLabel Drive_LimitFlags = new JLabel("Limit Flags : ");
+	JLabel Drive_LimitFlags_Value = new JLabel("");
 	 
 	public Tabchar() {
 		setBackground(Color.WHITE);
@@ -122,189 +168,186 @@ public class Tabchar extends JPanel implements TabPane {
 		setForeground(Color.BLACK);
 		setLayout(null);
 		
-		//DRIVE - MOTEUR
+		/*MPPT1*/
+		MPPT1_Label.setBounds(MPPT1_X, MPPT1_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Label);
 		
-		//FL
+		MPPT1_Vin.setBounds(MPPT1_X, MPPT1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vin);
+		MPPT1_Vin_Value.setBounds(MPPT1_X_VALUE, MPPT1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vin_Value);
 		
-				FLStatus.setBounds(800, 100, 100, 14);
-				add(FLStatus);
-				
-				FLDrTmp.setBounds(800, 80, 100, 14);
-				add(FLDrTmp);
-				
-				FLDsptmp.setBounds(800, 40, 100, 14);
-				add(FLDsptmp);
-				
-				FLMotorTmp.setBounds(800, 60, 100, 14);
-				add(FLMotorTmp);
-				
-				FLRmp.setBounds(800, 20, 46, 14);
-				add(FLRmp);
-				
-				FLStatusoAnswer.setBounds(900, 100, 100, 14);
-				add(FLStatusoAnswer);
-				
-				FLDrTmpAnwser.setBounds(900, 80, 100, 14);
-				add(FLDrTmpAnwser);
-				
-				FLMotorTmpAnswer.setBounds(900, 60, 100, 14);
-				add(FLMotorTmpAnswer);
-				
-				FLDSPTmpAnswer.setBounds(900, 40, 100, 14);
-				add(FLDSPTmpAnswer);
-				
-				FLRmpAnswer.setBounds(900, 20, 46, 14);
-				add(FLRmpAnswer);
-				
+		MPPT1_Vout.setBounds(MPPT1_X, MPPT1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vout);
+		MPPT1_Vout_Value.setBounds(MPPT1_X_VALUE, MPPT1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vout_Value);
+		
+		MPPT1_Iout.setBounds(MPPT1_X, MPPT1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Iout);
+		MPPT1_Iout_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Iout_Value);
+		
+		MPPT1_Temp.setBounds(MPPT1_X, MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Temp);
+		MPPT1_Temp_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Temp_Value);
+		
+		/*MPPT2*/
+		MPPT2_Label.setBounds(MPPT2_X, MPPT2_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Label);
+		
+		MPPT2_Vin.setBounds(MPPT2_X, MPPT2_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vin);
+		MPPT2_Vin_Value.setBounds(MPPT2_X_VALUE, MPPT2_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vin_Value);
+		
+		MPPT2_Vout.setBounds(MPPT2_X, MPPT2_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vout);
+		MPPT2_Vout_Value.setBounds(MPPT2_X_VALUE, MPPT2_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vout_Value);
+		
+		MPPT2_Iout.setBounds(MPPT2_X, MPPT2_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Iout);
+		MPPT2_Iout_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Iout_Value);
+		
+		MPPT2_Temp.setBounds(MPPT2_X, MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Temp);
+		MPPT2_Temp_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Temp_Value);
+		
+		/*MPPT3*/
+		MPPT3_Label.setBounds(MPPT3_X, MPPT3_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Label);
+		
+		MPPT3_Vin.setBounds(MPPT3_X, MPPT3_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vin);
+		MPPT3_Vin_Value.setBounds(MPPT3_X_VALUE, MPPT3_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vin_Value);
+		
+		MPPT3_Vout.setBounds(MPPT3_X, MPPT3_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vout);
+		MPPT3_Vout_Value.setBounds(MPPT3_X_VALUE, MPPT3_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vout_Value);
+		
+		MPPT3_Iout.setBounds(MPPT3_X, MPPT3_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Iout);
+		MPPT3_Iout_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Iout_Value);
+		
+		MPPT3_Temp.setBounds(MPPT3_X, MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Temp);
+		MPPT3_Temp_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Temp_Value);;
+		
+		/*PSU*/
+		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_Label);
+		
+		PSU_ICAN.setBounds(PSU_X, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_ICAN);
+		PSU_ICAN_Value.setBounds(PSU_X_VALUE, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_ICAN_Value);
+		
+		PSU_VCAN.setBounds(PSU_X, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_VCAN);
+		PSU_VCAN_Value.setBounds(PSU_X_VALUE, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_VCAN_Value);
+		
+		/*Drive*/
+		Drive_Label.setBounds(1050, 480, 100, 14);
+		add(Drive_Label);
+		
+		Drive_ErrorFlags.setBounds(1050, 500, 100, 14);
+		add(Drive_ErrorFlags);
+		Drive_LimitFlags.setBounds(1050, 520, 100, 14);
+		add(Drive_LimitFlags);
+		
+		
+		Status.setBounds(500, 100, 100, 14);
+		add(Status);
+		
+		DrTmp.setBounds(800, 80, 100, 14);
+		add(DrTmp);
+		
+		Dsptmp.setBounds(800, 40, 100, 14);
+		add(Dsptmp);
+		
+		MotorTmp.setBounds(800, 60, 100, 14);
+		add(MotorTmp);
+		
+		Rmp.setBounds(800, 20, 46, 14);
+		add(Rmp);
+		
+		StatusoAnswer.setBounds(900, 100, 100, 14);
+		add(StatusoAnswer);
+		
+		DrTmpAnwser.setBounds(900, 80, 100, 14);
+		add(DrTmpAnwser);
+		
+		MotorTmpAnswer.setBounds(900, 60, 100, 14);
+		add(MotorTmpAnswer);
+		
+		DSPTmpAnswer.setBounds(900, 40, 100, 14);
+		add(DSPTmpAnswer);
+		
+		RmpAnswer.setBounds(900, 20, 46, 14);
+		add(RmpAnswer);
 
-				//FR
-				
-				FRStatus.setBounds(800, 510, 100, 14);
-				add(FRStatus);
-				
-				FRDrTmp.setBounds(800, 490, 100, 14);
-				add(FRDrTmp);
-				
-				FRDsptmp.setBounds(800, 450, 100, 14);
-				add(FRDsptmp);
-				
-				FRMotorTmp.setBounds(800, 470, 100, 14);
-				add(FRMotorTmp);
-				
-				FRRmp.setBounds(800, 430, 46, 14);
-				add(FRRmp);
-				
-				FRStatusoAnswer.setBounds(900, 510, 100, 14);
-				add(FRStatusoAnswer);
-				
-				FRDrTmpAnwser.setBounds(900, 490, 100, 14);
-				add(FRDrTmpAnwser);
-				
-				FRMotorTmpAnswer.setBounds(900, 470, 100, 14);
-				add(FRMotorTmpAnswer);
-				
-				FRDSPTmpAnswer.setBounds(900, 450, 100, 14);
-				add(FRDSPTmpAnswer);
-				
-				FRRmpAnswer.setBounds(900, 430, 46, 14);
-				add(FRRmpAnswer);
-				
-//RR
-				
-				RRStatus.setBounds(450, 470, 100, 14);
-				add(RRStatus);
-				
-				RRDrTmp.setBounds(450, 450, 100, 14);
-				add(RRDrTmp);
-				
-				RRMotorTmp.setBounds(450, 430, 100, 14);
-				add(RRMotorTmp);
-				
-				RRDsptmp.setBounds(450, 410, 100, 14);
-				add(RRDsptmp);
-				
-				RRRmp.setBounds(450, 390, 46, 14);
-				add(RRRmp);
-				
-				RRStatusoAnswer.setBounds(550, 470, 100, 14);
-				add(RRStatusoAnswer);
-				
-				RRDrTmpAnwser.setBounds(550, 450, 100, 14);
-				add(RRDrTmpAnwser);
-				
-				RRMotorTmpAnswer.setBounds(550, 430, 100, 14);
-				add(RRMotorTmpAnswer);
-				
-				RRDsptmpAnswer.setBounds(550, 410, 100, 14);
-				add(RRDsptmpAnswer);
-				
-				RRRmpAnswer.setBounds(550, 390, 46, 14);
-				add(RRRmpAnswer);
-				
-//RL
-				
-				RLStatus.setBounds(450, 140, 100, 14);
-				add(RLStatus);
-				
-				RLDrTmp.setBounds(450, 120, 100, 14);
-				add(RLDrTmp);
-				
-				RLMotorTmp.setBounds(450, 100, 100, 14);
-				add(RLMotorTmp);
-				
-				RLDsptmp.setBounds(450, 80, 100, 14);
-				add(RLDsptmp);
-				
-				RLRmp.setBounds(450, 60, 46, 14);
-				add(RLRmp);
-				
-				RLStatusoAnswer.setBounds(550, 140, 100, 14);
-				add(RLStatusoAnswer);
-				
-				RLDrTmpAnwser.setBounds(550, 120, 100, 14);
-				add(RLDrTmpAnwser);
-				
-				RLMotorTmpAnswer.setBounds(550, 100, 100, 14);
-				add(RLMotorTmpAnswer);
-				
-				RLDsptmpAnswer.setBounds(550, 80, 100, 14);
-				add(RLDsptmpAnswer);
-
-				RLRmpAnswer.setBounds(550, 60, 100, 14);
-				add(RLRmpAnswer);
-				
-				bat.setBounds(140, 100, 100, 14);
-				add(bat);
-				
-				pileMin.setBounds(110, 120, 100, 14);
-				add(pileMin);
-				pileMinAnwser.setBounds(180, 120, 100, 14);
-				add(pileMinAnwser);
-				
-				pileMax.setBounds(110, 140, 100, 14);
-				add(pileMax);
-				pileMaxAnwser.setBounds(180, 140, 100, 14);
-				add(pileMaxAnwser);
-				
-				pileTotal.setBounds(110, 160, 100, 14);
-				add(pileTotal);
-				pileTotalAnwser.setBounds(180, 160, 100, 14);
-				add(pileTotalAnwser);
-				
-				courantOut.setBounds(110, 180, 100, 14);
-				add(courantOut);
-				courantOutAnwser.setBounds(180, 180, 100, 14);
-				add(courantOutAnwser);
-				
-				Watt.setBounds(110, 200, 100, 14);
-				add(Watt);
-				wattAnwser.setBounds(180, 200, 100, 14);
-				add(wattAnwser);
-				
-				LON.setBounds(1050, 60, 100, 14);
-				add(LON);
-				
-				LAT.setBounds(1050, 80, 100, 14);
-				add(LAT);
-				
-				HEURE.setBounds(1050, 40, 100, 14);
-				add(HEURE);
-				
-				DATE.setBounds(1050, 20, 100, 14);
-				add(DATE);
-				
-				
-				Vitesse.setBounds(1030, 250, 100, 14);
-				add(Vitesse);
-				
-				VitesseAnwser.setBounds(1100, 250, 100, 14);
-				add(VitesseAnwser);
-				
-				Commande.setBounds(1030, 270, 100, 14);
-				add(Commande);
-				
-				CommandeAnwser.setBounds(1100, 270, 100, 14);
-				add(CommandeAnwser);
+		//------------------//
+		
+		bat.setBounds(140, 100, 100, 14);
+		add(bat);
+		
+		pileMin.setBounds(110, 120, 100, 14);
+		add(pileMin);
+		pileMinAnwser.setBounds(180, 120, 100, 14);
+		add(pileMinAnwser);
+		
+		pileMax.setBounds(110, 140, 100, 14);
+		add(pileMax);
+		pileMaxAnwser.setBounds(180, 140, 100, 14);
+		add(pileMaxAnwser);
+		
+		pileTotal.setBounds(110, 160, 100, 14);
+		add(pileTotal);
+		pileTotalAnwser.setBounds(180, 160, 100, 14);
+		add(pileTotalAnwser);
+		
+		courantOut.setBounds(110, 180, 100, 14);
+		add(courantOut);
+		courantOutAnwser.setBounds(180, 180, 100, 14);
+		add(courantOutAnwser);
+		
+		Watt.setBounds(110, 200, 100, 14);
+		add(Watt);
+		wattAnwser.setBounds(180, 200, 100, 14);
+		add(wattAnwser);
+		
+		LON.setBounds(1050, 60, 100, 14);
+		add(LON);
+		
+		LAT.setBounds(1050, 80, 100, 14);
+		add(LAT);
+		
+		HEURE.setBounds(1050, 40, 100, 14);
+		add(HEURE);
+		
+		DATE.setBounds(1050, 20, 100, 14);
+		add(DATE);
+		
+		
+		Vitesse.setBounds(1030, 250, 100, 14);
+		add(Vitesse);
+		
+		VitesseAnwser.setBounds(1100, 250, 100, 14);
+		add(VitesseAnwser);
+		
+		Commande.setBounds(1030, 270, 100, 14);
+		add(Commande);
+		
+		CommandeAnwser.setBounds(1100, 270, 100, 14);
+		add(CommandeAnwser);
 				
 			 
 		
@@ -318,87 +361,44 @@ public class Tabchar extends JPanel implements TabPane {
 	public void updateValues() {
 		
 		DataManager dd = DataManager.getInstance();
-	/*
-		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
-				FLStatusoAnswer.setForeground(Color.green);
-				FLStatusoAnswer.setText("OK");
-			}
-			else{
-				FLStatusoAnswer.setForeground(Color.red);
-				FLStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			FLStatusoAnswer.setForeground(Color.red);
-			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
-		}
-		*/
+
+		/*MPPT1*/
+		MPPT1_Vin_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(1).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(1).getUnit());
+		MPPT1_Vout_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(2).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(2).getUnit());
+		MPPT1_Iout_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(3).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(3).getUnit());
+		MPPT1_Temp_Value.setText(dd.getDeviceByID(MPPT1_ID).getItemByID(4).getLastData() + " " + dd.getDeviceByID(MPPT1_ID).getItemByID(4).getUnit());
 		
-		FRDrTmpAnwser.setText(dd.getDeviceByID(12).getItemByID(19).getLastData() +" "+dd.getDeviceByID(12).getItemByID(19).getUnit());	
-		FRMotorTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(18).getLastData() +" "+dd.getDeviceByID(12).getItemByID(18).getUnit());	
-		FRRmpAnswer.setText(dd.getDeviceByID(12).getItemByID(9).getLastData() +" "+dd.getDeviceByID(12).getItemByID(9).getUnit());
-		FRDSPTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(20).getLastData() +" "+dd.getDeviceByID(12).getItemByID(20).getUnit());
+		/*MPPT2*/
+		MPPT2_Vin_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(1).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(1).getUnit());
+		MPPT2_Vout_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(2).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(2).getUnit());
+		MPPT2_Iout_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(3).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(3).getUnit());
+		MPPT2_Temp_Value.setText(dd.getDeviceByID(MPPT2_ID).getItemByID(4).getLastData() + " " + dd.getDeviceByID(MPPT2_ID).getItemByID(4).getUnit());
+		
+		/*MPPT3*/
+		MPPT3_Vin_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(1).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(1).getUnit());
+		MPPT3_Vout_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(2).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(2).getUnit());
+		MPPT3_Iout_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(3).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(3).getUnit());
+		MPPT3_Temp_Value.setText(dd.getDeviceByID(MPPT3_ID).getItemByID(4).getLastData() + " " + dd.getDeviceByID(MPPT3_ID).getItemByID(4).getUnit());
+
+		
+		/*PSU*/
+		PSU_ICAN_Value.setText(dd.getDeviceByID(PSU_ID).getItemByID(PSU_ICAN_ID).getLastData() + " " + dd.getDeviceByID(PSU_ID).getItemByID(PSU_ICAN_ID).getUnit());
+		PSU_VCAN_Value.setText(dd.getDeviceByID(PSU_ID).getItemByID(PSU_VCAN_ID).getLastData() + " " + dd.getDeviceByID(PSU_ID).getItemByID(PSU_VCAN_ID).getUnit());
+		
+		/*Drive*/
+		//Drive_ErrorFlags_Value.setBounds(1050, 500, 100, 14);
+		//Drive_LimitFlags_Value.setBounds(1050, 520, 100, 14);
+
 		/*
-		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
-				FLStatusoAnswer.setForeground(Color.green);
-				FLStatusoAnswer.setText("OK");
-			}
-			else{
-				FLStatusoAnswer.setForeground(Color.red);
-				FLStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			FLStatusoAnswer.setForeground(Color.red);
-			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
-		}
-		*/
-		FLDrTmpAnwser.setText(dd.getDeviceByID(13).getItemByID(19).getLastData() +" "+dd.getDeviceByID(13).getItemByID(19).getUnit());	
-		FLMotorTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(18).getLastData() +" "+dd.getDeviceByID(13).getItemByID(18).getUnit());	
-		FLRmpAnswer.setText(dd.getDeviceByID(13).getItemByID(9).getLastData() +" "+dd.getDeviceByID(13).getItemByID(9).getUnit());
-		FLDSPTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(20).getLastData() +" "+dd.getDeviceByID(13).getItemByID(20).getUnit());
+		
+		DrTmpAnwser.setText(dd.getDeviceByID(2).getItemByID(23).getLastData() +" "+dd.getDeviceByID(2).getItemByID(23).getUnit());	
+		MotorTmpAnswer.setText(dd.getDeviceByID(2).getItemByID(24).getLastData() +" "+dd.getDeviceByID(2).getItemByID(24).getUnit());	
+		RmpAnswer.setText(dd.getDeviceByID(2).getItemByID(10).getLastData() +" "+dd.getDeviceByID(2).getItemByID(10).getUnit());
+		DSPTmpAnswer.setText(dd.getDeviceByID(2).getItemByID(26).getLastData() +" "+dd.getDeviceByID(2).getItemByID(26).getUnit());
 		
 	
 		
-		
-		/*if(dd.getDeviceByID(3).getItemByID(4).getLastData()==0||dd.getDeviceByID(3).getItemByID(4).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(21).getLastData()!=0){
-				RRStatusoAnswer.setForeground(Color.green);
-				RRStatusoAnswer.setText("OK");
-			}
-			else{
-				RRStatusoAnswer.setForeground(Color.red);
-				RRStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			RRStatusoAnswer.setForeground(Color.red);
-			RRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(4).getLastData()));
-		}
-		*/
-		RRDrTmpAnwser.setText(dd.getDeviceByID(14).getItemByID(19).getLastData() +" "+dd.getDeviceByID(14).getItemByID(19).getUnit());	
-		RRMotorTmpAnswer.setText(dd.getDeviceByID(14).getItemByID(18).getLastData() +" "+dd.getDeviceByID(14).getItemByID(18).getUnit());	
-		RRRmpAnswer.setText(dd.getDeviceByID(14).getItemByID(9).getLastData() +" "+dd.getDeviceByID(14).getItemByID(9).getUnit());
-		RRDsptmpAnswer.setText(dd.getDeviceByID(14).getItemByID(20).getLastData() +" "+dd.getDeviceByID(14).getItemByID(20).getUnit());
-		
-		/*
-		if(dd.getDeviceByID(3).getItemByID(5).getLastData()==0||dd.getDeviceByID(3).getItemByID(5).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(22).getLastData()!=0){
-				RLStatusoAnswer.setForeground(Color.green);
-				RLStatusoAnswer.setText("OK");
-			}
-			else{
-				RLStatusoAnswer.setForeground(Color.red);
-				RLStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			RLStatusoAnswer.setForeground(Color.red);
-			RLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(5).getLastData()));
-		}
-		*/
-		RLDrTmpAnwser.setText(dd.getDeviceByID(15).getItemByID(19).getLastData() +" "+dd.getDeviceByID(15).getItemByID(19).getUnit());	
-		RLMotorTmpAnswer.setText(dd.getDeviceByID(15).getItemByID(18).getLastData() +" "+dd.getDeviceByID(15).getItemByID(18).getUnit());	
-		RLRmpAnswer.setText(dd.getDeviceByID(15).getItemByID(9).getLastData() +" "+dd.getDeviceByID(15).getItemByID(9).getUnit());
-		RLDsptmpAnswer.setText(dd.getDeviceByID(15).getItemByID(20).getLastData() +" "+dd.getDeviceByID(15).getItemByID(20).getUnit());
+
 		
 		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
 		pileMaxAnwser.setText(dd.getDeviceByID(7).getItemByID(43).getLastData() +" "+dd.getDeviceByID(7).getItemByID(43).getUnit());
@@ -434,7 +434,9 @@ public class Tabchar extends JPanel implements TabPane {
 			wattAnwser.setForeground(Color.red);
 		else
 			wattAnwser.setForeground(Color.green);
-		wattAnwser.setText(Integer.toString(puiss)+" W");	
+		wattAnwser.setText(Integer.toString(puiss)+" W");
+		
+		*/
 	}
 	
 	  public void paintComponent(Graphics g) {

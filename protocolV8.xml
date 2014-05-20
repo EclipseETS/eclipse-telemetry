@@ -1575,30 +1575,6 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-	    <trame identifier="502" type="2">
-			<deviceitem id="4" name="TorqueCMD">
-				<unit>Bin</unit>
-				<bitsize>8</bitsize>
-				<minvalue>-64</minvalue>
-				<maxvalue>64</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="5" name="SpeedCMD">
-				<unit>Km/h</unit>
-				<bitsize>8</bitsize>
-				<minvalue>-100</minvalue>
-				<maxvalue>100</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
 	</device>
 	<!-- Volant -->
 
@@ -1750,6 +1726,83 @@
 		</trame>
 	</device>
 	<!-- Instrumentation -->
+	
+	<!-- Power Supply -->
+	<device id="7" name="PSU">
+	    <trame identifier="700" type="0">
+			<deviceitem id="0" name="Status">
+				<unit>Bin</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="1" name="OSTime">
+				<unit>Tick</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="701" type="0">
+			<deviceitem id="2" name="CAN_Courant">
+				<unit>A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="CAN_Voltage">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="702" type="0">
+			<deviceitem id="4" name="HP_Courant">
+				<unit>A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="5" name="HP_Voltage">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
+	<!-- Power Supply -->
 	
 	<!-- MPPT1 -->	
 	<device id="8" name="MPPT1">
@@ -2117,85 +2170,7 @@
 			</deviceitem>
 		</trame>
 	</device>
-	<!-- MPPT3 -->	
-	
-	<!-- Power Supply -->
-	<device id="7" name="PSU">
-	    <trame identifier="700" type="0">
-			<deviceitem id="0" name="Status">
-				<unit>Bin</unit>
-				<bitsize>16</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="1" name="OSTime">
-				<unit>Tick</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="701" type="0">
-			<deviceitem id="2" name="CAN_Courant">
-				<unit>A</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-			<deviceitem id="3" name="CAN_Voltage">
-				<unit>V</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="702" type="0">
-			<deviceitem id="4" name="HP_Courant">
-				<unit>A</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-			<deviceitem id="5" name="HP_Voltage">
-				<unit>V</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-	</device>
-	<!-- Power Supply -->
-	
+	<!-- MPPT3 -->
 	
 	
 </char> 
