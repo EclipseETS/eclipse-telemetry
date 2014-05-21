@@ -14,14 +14,43 @@ import eclipse.model.data.DataManager;
 /**
  * This view show all important information on 1 single view
  * @author Marco
+ * @author Olivier
  *
  */
 public class Tabchar extends JPanel implements TabPane {
+		
+	private static final long serialVersionUID = 7275321077445435378L;
 	
 	private static final int LABEL_WIDTH = 100;
 	private static final int LABEL_HEIGHT = 14;
 	private static final int LINE_OFFSET = 20;
 	
+	/*MPPT*/
+	private static final int MPPT_VIN_ID = 1;
+	private static final int MPPT_VOUT_ID = 2;
+	private static final int MPPT_IOUT_ID = 3;
+	private static final int MPPT_TEMP_ID = 4;
+	
+	/*MPPT1*/
+	private static final int MPPT1_ID = 8;
+	private static final int MPPT1_X = 50;
+	private static final int MPPT1_X_VALUE = 100;
+	private static final int MPPT1_Y = 400;
+	private static final int MPPT1_VIN_ID = 1;
+
+	/*MPPT2*/
+	private static final int MPPT2_ID = 9;
+	private static final int MPPT2_X = 250;
+	private static final int MPPT2_X_VALUE = 300;
+	private static final int MPPT2_Y = 400;
+	
+	/*MPPT3*/
+	private static final int MPPT3_ID = 10;
+	private static final int MPPT3_X = 450;
+	private static final int MPPT3_X_VALUE = 500;
+	private static final int MPPT3_Y = 400;
+	
+	/*PSU*/
 	private static final int PSU_ID = 7;
 	private static final int PSU_X = 1050;
 	private static final int PSU_X_VALUE = 1140;
@@ -29,27 +58,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int PSU_ICAN_ID = 2;
 	private static final int PSU_VCAN_ID = 3;
 	
-	private static final int MPPT_VIN_ID = 1;
-	private static final int MPPT_VOUT_ID = 2;
-	private static final int MPPT_IOUT_ID = 3;
-	private static final int MPPT_TEMP_ID = 4;
-	
-	private static final int MPPT1_ID = 8;
-	private static final int MPPT1_X = 50;
-	private static final int MPPT1_X_VALUE = 100;
-	private static final int MPPT1_Y = 400;
-	private static final int MPPT1_VIN_ID = 1;
-
-	private static final int MPPT2_ID = 9;
-	private static final int MPPT2_X = 250;
-	private static final int MPPT2_X_VALUE = 300;
-	private static final int MPPT2_Y = 400;
-	
-	private static final int MPPT3_ID = 10;
-	private static final int MPPT3_X = 450;
-	private static final int MPPT3_X_VALUE = 500;
-	private static final int MPPT3_Y = 400;
-	
+	/*Drive*/
 	private static final int DRIVE_ID = 2;
 	private static final int DRIVE_X = 50;
 	private static final int DRIVE_X_VALUE = 150;
@@ -61,6 +70,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int DRIVE_MOTORTEMP_ID = 24;
 	private static final int DRIVE_DSPTEMP_ID = 26;
 	
+	/*Instru*/
 	private static final int INSTRU_ID = 6;
 	private static final int INSTRU_X = 1050;
 	private static final int INSTRU_X_VALUE = 1100;
@@ -70,6 +80,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int INSTRU_TIME_ID = 4;
 	private static final int INSTRU_DATE_ID = 5;
 	
+	/*BMS*/
 	private static final int BMS_ID = 3;
 	private static final int BMS_X = 325;
 	private static final int BMS_X_2 = 500;
@@ -86,62 +97,8 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int BMS_STATUS_ID = 76;
 	private static final int BMS_EXTSTATUS_ID = 86;
 	
-	
-	
-	 private Image img;
+	private Image img;
 	 
-	 //TODO ajouter temperature du char
-	 
- 	JLabel Status = new JLabel("Status:");
- 	JLabel StatusoAnswer = new JLabel("status");
- 	
-	JLabel DrTmp = new JLabel("Heat Sink Tmp :");
-	JLabel DrTmpAnwser = new JLabel();
-	
-	JLabel Dsptmp = new JLabel("DSP Tmp :");
-	JLabel DSPTmpAnswer = new JLabel("DSP Tmp");
-	
-	JLabel MotorTmp = new JLabel("Motor Tmp:");
-	JLabel MotorTmpAnswer = new JLabel();
-	
-	JLabel Rmp = new JLabel("RPM:");			
-	JLabel RmpAnswer = new JLabel();
-		
-
-	//------------------//
-		
-	JLabel bat = new JLabel("BATTERY");
-	
-	JLabel pileMin = new JLabel("Pile Min:");
-	JLabel pileMinAnwser = new JLabel("Pile Min:");
-	
-	JLabel pileMax = new JLabel("Pile Max:");
-	JLabel pileMaxAnwser = new JLabel("Pile Max:");
-	
-	JLabel pileTotal = new JLabel("Pile Total:");
-	JLabel pileTotalAnwser = new JLabel("Pile Total:");
-	
-	JLabel courantOut = new JLabel("Courant:");
-	JLabel courantOutAnwser = new JLabel("Courant:");
-	
-	JLabel Watt = new JLabel("Puissance:");
-	JLabel wattAnwser = new JLabel("W:");
-	
-	JLabel LON = new JLabel("LON");
-	
-	JLabel LAT = new JLabel("LAT");
-	
-	JLabel HEURE = new JLabel("HEURE");
-	
-	JLabel DATE = new JLabel("DATE");
- 
-	JLabel Vitesse = new JLabel("Vitesse:");
-	JLabel VitesseAnwser = new JLabel("V:");
-	
-	JLabel Commande = new JLabel("Commande:");
-	JLabel CommandeAnwser = new JLabel("Commande:");
-	
-	
 	/*MPPT1*/
 	JLabel MPPT1_Label = new JLabel("[MPPT1]");
 
@@ -270,6 +227,8 @@ public class Tabchar extends JPanel implements TabPane {
 		setBackground(Color.WHITE);		
 		setForeground(Color.BLACK);
 		setLayout(null);
+		
+		img = new ImageIcon("images/image.png").getImage();
 		
 		/*MPPT1*/
 		MPPT1_Label.setBounds(MPPT1_X, MPPT1_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -469,100 +428,8 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_ExtStatus_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_ExtStatus_Value);
 		
-		/*Status.setBounds(500, 100, 100, 14);
-		add(Status);
-		
-		DrTmp.setBounds(800, 80, 100, 14);
-		add(DrTmp);
-		
-		Dsptmp.setBounds(800, 40, 100, 14);
-		add(Dsptmp);
-		
-		MotorTmp.setBounds(800, 60, 100, 14);
-		add(MotorTmp);
-		
-		Rmp.setBounds(800, 20, 46, 14);
-		add(Rmp);
-		
-		StatusoAnswer.setBounds(900, 100, 100, 14);
-		add(StatusoAnswer);
-		
-		DrTmpAnwser.setBounds(900, 80, 100, 14);
-		add(DrTmpAnwser);
-		
-		MotorTmpAnswer.setBounds(900, 60, 100, 14);
-		add(MotorTmpAnswer);
-		
-		DSPTmpAnswer.setBounds(900, 40, 100, 14);
-		add(DSPTmpAnswer);
-		
-		RmpAnswer.setBounds(900, 20, 46, 14);
-		add(RmpAnswer);
-
-		//------------------//
-		
-		bat.setBounds(140, 100, 100, 14);
-		add(bat);
-		
-		pileMin.setBounds(110, 120, 100, 14);
-		add(pileMin);
-		pileMinAnwser.setBounds(180, 120, 100, 14);
-		add(pileMinAnwser);
-		
-		pileMax.setBounds(110, 140, 100, 14);
-		add(pileMax);
-		pileMaxAnwser.setBounds(180, 140, 100, 14);
-		add(pileMaxAnwser);
-		
-		pileTotal.setBounds(110, 160, 100, 14);
-		add(pileTotal);
-		pileTotalAnwser.setBounds(180, 160, 100, 14);
-		add(pileTotalAnwser);
-		
-		courantOut.setBounds(110, 180, 100, 14);
-		add(courantOut);
-		courantOutAnwser.setBounds(180, 180, 100, 14);
-		add(courantOutAnwser);
-		
-		Watt.setBounds(110, 200, 100, 14);
-		add(Watt);
-		wattAnwser.setBounds(180, 200, 100, 14);
-		add(wattAnwser);
-		
-		LON.setBounds(1050, 60, 100, 14);
-		add(LON);
-		
-		LAT.setBounds(1050, 80, 100, 14);
-		add(LAT);
-		
-		HEURE.setBounds(1050, 40, 100, 14);
-		add(HEURE);
-		
-		DATE.setBounds(1050, 20, 100, 14);
-		add(DATE);
-		
-		
-		Vitesse.setBounds(1030, 250, 100, 14);
-		add(Vitesse);
-		
-		VitesseAnwser.setBounds(1100, 250, 100, 14);
-		add(VitesseAnwser);
-		
-		Commande.setBounds(1030, 270, 100, 14);
-		add(Commande);
-		
-		CommandeAnwser.setBounds(1100, 270, 100, 14);
-		add(CommandeAnwser);*/
-				
-			 
-		
-		img=new ImageIcon("images/image.png").getImage();
-		  
-
-		
 	}
 
-	private static final long serialVersionUID = 7275321077445435378L;
 	public void updateValues() {
 		
 		DataManager dd = DataManager.getInstance();
@@ -615,124 +482,72 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_PackV_Value.setText(dd.getValue(BMS_ID, BMS_PACKV_ID));
 		BMS_PackA_Value.setText(dd.getValue(BMS_ID, BMS_PACKA_ID));
 		BMS_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMS_EXTSTATUS_ID));
-		
-		
-		
-		/*
-		
-		DrTmpAnwser.setText(dd.getDeviceByID(2).getItemByID(23).getLastData() +" "+dd.getDeviceByID(2).getItemByID(23).getUnit());	
-		MotorTmpAnswer.setText(dd.getDeviceByID(2).getItemByID(24).getLastData() +" "+dd.getDeviceByID(2).getItemByID(24).getUnit());	
-		RmpAnswer.setText(dd.getDeviceByID(2).getItemByID(10).getLastData() +" "+dd.getDeviceByID(2).getItemByID(10).getUnit());
-		DSPTmpAnswer.setText(dd.getDeviceByID(2).getItemByID(26).getLastData() +" "+dd.getDeviceByID(2).getItemByID(26).getUnit());
-		
-	
-		
-
-		
-		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
-		pileMaxAnwser.setText(dd.getDeviceByID(7).getItemByID(43).getLastData() +" "+dd.getDeviceByID(7).getItemByID(43).getUnit());
-		pileTotalAnwser.setText(dd.getDeviceByID(7).getItemByID(44).getLastData() +" "+dd.getDeviceByID(7).getItemByID(44).getUnit());
-		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(48).getLastData() +" "+dd.getDeviceByID(7).getItemByID(47).getUnit());
-		
-		LAT.setText(Double.toString(dd.getDeviceByID(6).getItemByID(2).getLastData()));
-		LON.setText(Double.toString(dd.getDeviceByID(6).getItemByID(3).getLastData()));
-		String date =Double.toString(dd.getDeviceByID(6).getItemByID(5).getLastData());
-		String heure =Double.toString(dd.getDeviceByID(6).getItemByID(4).getLastData());
-		int delay =Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
-		if(Double.parseDouble(date)>9999){
-			DATE.setText(date.substring(0, 2)+":"+date.substring(2,4)+":"+date.substring(4,6));
-			HEURE.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
-		}
-		
-		double speed1 = (dd.getDeviceByID(12).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speed2 = (dd.getDeviceByID(13).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speed3 = (dd.getDeviceByID(14).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speed4 = (dd.getDeviceByID(15).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speedmoy = (speed1 + speed2 + speed3 + speed4)/4; 
-		
-		VitesseAnwser.setText(String.format("%.2f", speedmoy)+" Km/h");
-		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
-		
-		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());
-		
-		if (puiss>0)
-			wattAnwser.setForeground(Color.red);
-		else
-			wattAnwser.setForeground(Color.green);
-		wattAnwser.setText(Integer.toString(puiss)+" W");
-		
-		*/
 	}
 	
-	  public void paintComponent(Graphics g) {
-		    
-		    int width = getWidth();
-		    int height = getHeight();        
+	public void paintComponent(Graphics g) {
+		
+		int width = getWidth();
+		int height = getHeight();
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, width, height);
+		g.drawImage(img, 180, 100, null);
+	}
 
-		    g.setColor(Color.WHITE);
-		    g.fillRect(0, 0, width, height);
-		    g.drawImage(img, 180, 100, null);
-			  }
-	  
-	  
-	  
-	  public String getMessage(int i){
-		  switch (i) {
-		  
-		  case 0:			
+	public String getMessage(int i) {
+		
+		switch (i) {
+			  
+			case 0:			
+			  	return "OK";
+			
+			case 1:			
 				return "OK";
-
-		  case 1:			
+			
+			case 2:			
 				return "OK";
-
-		  case 2:			
-				return "OK";
-
-		  case 3:			
+			
+			case 3:			
 				return "I2CShutOff";
-
-		  case 4:			
+			
+			case 4:			
 				return "AntiBackwardShort";
-
-		  case 5:			
+			
+			case 5:			
 				return "AlarmRegen";
-
-		  case 6:			
+			
+			case 6:			
 				return "AlarmShort";
-
-		  case 7:			
+			
+			case 7:			
 				return "OverSpeedI";
-
-		  case 8:			
+			
+			case 8:			
 				return "OverSpeedV";
-
-		  case 9:			
+			
+			case 9:			
 				return "V12UVP";
-
-		  case 10:			
+			
+			case 10:			
 				return "V12OVP";
-
-		  case 11:			
+			
+			case 11:			
 				return "VPwrUVP";
-
-		  case 12:			
+			
+			case 12:			
 				return "VPwrOVP";
-
-		  case 13:			
+			
+			case 13:			
 				return "OCProtect";
-
-		  case 14:			
+			
+			case 14:			
 				return "BadStatorPN";
-
-		  case 15:			
+			
+			case 15:			
 				return "HallError";
-
+			
 			default:
-			return "UNKOOWN CODE";
+				return "UNKOOWN CODE";
 		}
-	  }
+	}
 }
