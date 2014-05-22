@@ -210,11 +210,11 @@ public class TabBMS extends JPanel implements TabPane {
 	JLabel BMU_SOCAh = new JLabel("SoC Ah: ");
 	JLabel BMU_SOCAh_Value = new JLabel("");
 	
-	JLabel BMU_PackV = new JLabel("Total VPack : ");
-	JLabel BMU_PackV_Value = new JLabel("");
+	JLabel BMU_Vpack = new JLabel("Total Vpack : ");
+	JLabel BMU_Vpack_Value = new JLabel("");
 	
-	JLabel BMU_PackA = new JLabel("Total APack : ");
-	JLabel BMU_PackA_Value = new JLabel("");
+	JLabel BMU_Ipack = new JLabel("Total Ipack : ");
+	JLabel BMU_Ipack_Value = new JLabel("");
 	
 	JLabel BMU_Status = new JLabel("Status : ");
 	JLabel BMU_Status_Value = new JLabel("");
@@ -425,15 +425,15 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_MaxPCBT_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_MaxPCBT_Value);
 		
-		BMU_PackV.setBounds(BMU_X_2, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_PackV);
-		BMU_PackV_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_PackV_Value);
+		BMU_Vpack.setBounds(BMU_X_2, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Vpack);
+		BMU_Vpack_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Vpack_Value);
 		
-		BMU_PackA.setBounds(BMU_X_2, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_PackA);
-		BMU_PackA_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_PackA_Value);
+		BMU_Ipack.setBounds(BMU_X_2, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Ipack);
+		BMU_Ipack_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Ipack_Value);
 		
 		BMU_ExtStatus.setBounds(BMU_X_2, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_ExtStatus);
@@ -489,9 +489,9 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_Status_Value.setText(dd.getValue(BMS_ID, BMU_STATUS_ID));
 		
 		BMU_MaxCellT_Value.setText(dd.getValue(BMS_ID, BMU_MAXCELLT_ID));
-		//BMU_MaxPCBT_Value.setText(dd.getValue(BMS_ID, BMU_MAXPCBT_ID));
-		BMU_PackV_Value.setText(dd.getValue(BMS_ID, BMU_PACKV_ID));
-		BMU_PackA_Value.setText(dd.getValue(BMS_ID, BMU_PACKA_ID));
+		BMU_MaxPCBT_Value.setText(dd.getMaxPCBTemp());
+		BMU_Vpack_Value.setText(dd.getValue(BMS_ID, BMU_PACKV_ID));
+		BMU_Ipack_Value.setText(dd.getValue(BMS_ID, BMU_PACKA_ID));
 		BMU_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMU_EXTSTATUS_ID));
 	
 	}

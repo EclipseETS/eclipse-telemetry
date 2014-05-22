@@ -24,6 +24,7 @@ import java.util.Map;
 
 
 
+
 import org.apache.log4j.Logger;
 
 import eclipse.controller.util.ByteManipulator;
@@ -280,9 +281,20 @@ public class DataManager implements Serializable{
 		cpt++;
 	}
 	
+	//Helper functions for displaying values
 	public String getValue(int deviceID, int itemID) {
 		
 		return getDeviceByID(deviceID).getItemByID(itemID).getLastData() + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
+	}
+	
+	public String getMaxPCBTemp() {
+		
+		float CMU1PCBTemp = (float)(getDeviceByID(3).getItemByID(3).getLastData());
+		float CMU2PCBTemp = (float)(getDeviceByID(3).getItemByID(14).getLastData());
+		float CMU3PCBTemp = (float)(getDeviceByID(3).getItemByID(25).getLastData());
+		float CMU4PCBTemp = (float)(getDeviceByID(3).getItemByID(36).getLastData());
+		
+		return Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)) + " " + getDeviceByID(3).getItemByID(3).getUnit();		
 	}
 
 	
