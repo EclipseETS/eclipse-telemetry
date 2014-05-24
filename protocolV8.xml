@@ -1729,7 +1729,7 @@
 	
 	<!-- Power Supply -->
 	<device id="7" name="PSU">
-	    <trame identifier="700" type="0">
+	    <trame identifier="700" type="2">
 			<deviceitem id="0" name="Status">
 				<unit>Bin</unit>
 				<bitsize>16</bitsize>
@@ -1753,7 +1753,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="701" type="0">
+		<trame identifier="701" type="2">
 			<deviceitem id="2" name="CAN_Courant">
 				<unit>A</unit>
 				<bitsize>32</bitsize>
@@ -1777,7 +1777,7 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="702" type="0">
+		<trame identifier="702" type="2">
 			<deviceitem id="4" name="HP_Courant">
 				<unit>A</unit>
 				<bitsize>32</bitsize>

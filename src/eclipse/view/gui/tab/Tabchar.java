@@ -461,8 +461,10 @@ public class Tabchar extends JPanel implements TabPane {
 		Drive_HSTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_HSTEMP_ID));
 		Drive_MotorTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
 		Drive_DSPTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
-		Drive_ErrorFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
-		Drive_LimitFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
+		//Drive_ErrorFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
+		Drive_ErrorFlags_Value.setText(dd.getDriveErrorFlags());
+		//Drive_LimitFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
+		Drive_LimitFlags_Value.setText(dd.getDriveLimitFlags());
 		
 		/*Instru*/
 		Instru_Lat_Value.setText(dd.getValue(INSTRU_ID, INSTRU_LAT_ID));
@@ -481,7 +483,8 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_MaxPCBT_Value.setText(dd.getMaxPCBTemp());
 		BMS_Vpack_Value.setText(dd.getValue(BMS_ID, BMS_PACKV_ID));
 		BMS_Ipack_Value.setText(dd.getValue(BMS_ID, BMS_PACKA_ID));
-		BMS_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMS_EXTSTATUS_ID));
+		//BMS_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMS_EXTSTATUS_ID));
+		BMS_ExtStatus_Value.setText(dd.getBMUExtStatus());
 	}
 	
 	public void paintComponent(Graphics g) {

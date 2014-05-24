@@ -296,6 +296,54 @@ public class DataManager implements Serializable{
 		
 		return Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)) + " " + getDeviceByID(3).getItemByID(3).getUnit();		
 	}
+	
+	public String getDriveErrorFlags() {
+		
+		int errorFlags = (int)(getDeviceByID(2).getItemByID(5).getLastData());
+		
+//		String error = "";
+//		
+//		if ((errorFlags & 0x01) > 0) {
+//			error = "Cell Over Voltage, \n";
+//		}
+//		if ((errorFlags & 0x02) > 0) {
+//			error = error + "Cell Under Voltage, \n";
+//		}
+//		if ((errorFlags & 0x04) > 0) {
+//			error = error + "Cell Over Temperature, \n";
+//		}
+//		if ((errorFlags & 0x08) > 0) {
+//			error = error + "Measurement Untrusted, \n";
+//		}
+//		if ((errorFlags & 0x10) > 0) {
+//			error = error + "CMU Communications Timeout, \n";
+//		}
+//		if ((errorFlags & 0x20) > 0) {
+//			error = error + "Vehicle Communications Timeout, \n";
+//		}
+//		if ((errorFlags & 0x40) > 0) {
+//			error = error + "BMU is in Setup mode, \n";
+//		}
+//		if ((errorFlags & 0x80) > 0) {
+//			error = error + "CMU CAN bus power status, \n";
+//		}
+		
+		return Integer.toString(errorFlags & 0xFF);		
+	}
+	
+	public String getDriveLimitFlags() {
+		
+		int limitFlags = (int)(getDeviceByID(2).getItemByID(6).getLastData());
+		
+		return Integer.toString(limitFlags & 0x7F);		
+	}
+	
+	public String getBMUExtStatus() {
+		
+		int extStatusFlags = (int)(getDeviceByID(3).getItemByID(86).getLastData());
+		
+		return Integer.toString(extStatusFlags & 0x1FFF);		
+	}
 
 	
 
