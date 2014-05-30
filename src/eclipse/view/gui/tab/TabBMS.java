@@ -19,7 +19,8 @@ import eclipse.model.data.DataManager;
  */
 public class TabBMS extends JPanel implements TabPane {
 	
-	//private static final long serialVersionUID = 7275321077445435378L;
+	
+	private static final long serialVersionUID = 7310556852006215008L;
 	
 	private static final int LABEL_WIDTH = 100;
 	private static final int LABEL_HEIGHT = 14;
