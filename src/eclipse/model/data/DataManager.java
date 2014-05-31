@@ -15,19 +15,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
-
-
-
-
-
-
-
-
 import org.apache.log4j.Logger;
-
 import eclipse.controller.util.ByteManipulator;
+import eclipse.controller.util.Rounding;
 
 /**
  * Main point of entry for all the model of the application
@@ -287,63 +277,12 @@ public class DataManager implements Serializable{
 		return getDeviceByID(deviceID).getItemByID(itemID).getLastData() + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
 	}
 	
-	public String getMaxPCBTemp() {
+	public String getRoundedValue(int deviceID, int itemID) {
 		
-		float CMU1PCBTemp = (float)(getDeviceByID(3).getItemByID(3).getLastData());
-		float CMU2PCBTemp = (float)(getDeviceByID(3).getItemByID(14).getLastData());
-		float CMU3PCBTemp = (float)(getDeviceByID(3).getItemByID(25).getLastData());
-		float CMU4PCBTemp = (float)(getDeviceByID(3).getItemByID(36).getLastData());
-		
-		return Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)) + " " + getDeviceByID(3).getItemByID(3).getUnit();		
+		return String.valueOf(Rounding.roundDouble(getDeviceByID(deviceID).getItemByID(itemID).getLastData(), 3)) + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
 	}
 	
-	public String getDriveErrorFlags() {
-		
-		int errorFlags = (int)(getDeviceByID(2).getItemByID(5).getLastData());
-		
-//		String error = "";
-//		
-//		if ((errorFlags & 0x01) > 0) {
-//			error = "Cell Over Voltage, \n";
-//		}
-//		if ((errorFlags & 0x02) > 0) {
-//			error = error + "Cell Under Voltage, \n";
-//		}
-//		if ((errorFlags & 0x04) > 0) {
-//			error = error + "Cell Over Temperature, \n";
-//		}
-//		if ((errorFlags & 0x08) > 0) {
-//			error = error + "Measurement Untrusted, \n";
-//		}
-//		if ((errorFlags & 0x10) > 0) {
-//			error = error + "CMU Communications Timeout, \n";
-//		}
-//		if ((errorFlags & 0x20) > 0) {
-//			error = error + "Vehicle Communications Timeout, \n";
-//		}
-//		if ((errorFlags & 0x40) > 0) {
-//			error = error + "BMU is in Setup mode, \n";
-//		}
-//		if ((errorFlags & 0x80) > 0) {
-//			error = error + "CMU CAN bus power status, \n";
-//		}
-		
-		return Integer.toString(errorFlags & 0xFF);		
-	}
-	
-	public String getDriveLimitFlags() {
-		
-		int limitFlags = (int)(getDeviceByID(2).getItemByID(6).getLastData());
-		
-		return Integer.toString(limitFlags & 0x7F);		
-	}
-	
-	public String getBMUExtStatus() {
-		
-		int extStatusFlags = (int)(getDeviceByID(3).getItemByID(86).getLastData());
-		
-		return Integer.toString(extStatusFlags & 0x1FFF);		
-	}
+
 
 	
 

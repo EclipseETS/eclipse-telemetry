@@ -11,6 +11,7 @@ import java.awt.Image;
 
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
+import eclipse.controller.util.Rounding;
 /**
  * This view show all important information related to the BMS
  * @author Marco
@@ -93,6 +94,8 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int BMU_EXTSTATUS_ID = 86;
 	
 	private Image img;
+	
+	DataManager dd = DataManager.getInstance();
 	
 	/*CMU1*/
 	JLabel CMU1_Label = new JLabel("[CMU1]");
@@ -444,56 +447,56 @@ public class TabBMS extends JPanel implements TabPane {
 	
 	public void updateValues() {
 		
-		DataManager dd = DataManager.getInstance();
+		
 		
 		/*CMU1*/
-		CMU1_Cell0_Value.setText(dd.getValue(BMS_ID, CMU1_CELL0_ID));
-		CMU1_Cell1_Value.setText(dd.getValue(BMS_ID, CMU1_CELL1_ID));
-		CMU1_Cell2_Value.setText(dd.getValue(BMS_ID, CMU1_CELL2_ID));
-		CMU1_Cell3_Value.setText(dd.getValue(BMS_ID, CMU1_CELL3_ID));
-		CMU1_Cell4_Value.setText(dd.getValue(BMS_ID, CMU1_CELL4_ID));
-		CMU1_Cell5_Value.setText(dd.getValue(BMS_ID, CMU1_CELL5_ID));
-		CMU1_Cell6_Value.setText(dd.getValue(BMS_ID, CMU1_CELL6_ID));
+		CMU1_Cell0_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL0_ID));
+		CMU1_Cell1_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL1_ID));
+		CMU1_Cell2_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL2_ID));
+		CMU1_Cell3_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL3_ID));
+		CMU1_Cell4_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL4_ID));
+		CMU1_Cell5_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL5_ID));
+		CMU1_Cell6_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL6_ID));
 		
 		/*CMU2*/
-		CMU2_Cell0_Value.setText(dd.getValue(BMS_ID, CMU2_CELL0_ID));
-		CMU2_Cell1_Value.setText(dd.getValue(BMS_ID, CMU2_CELL1_ID));
-		CMU2_Cell2_Value.setText(dd.getValue(BMS_ID, CMU2_CELL2_ID));
-		CMU2_Cell3_Value.setText(dd.getValue(BMS_ID, CMU2_CELL3_ID));
-		CMU2_Cell4_Value.setText(dd.getValue(BMS_ID, CMU2_CELL4_ID));
-		CMU2_Cell5_Value.setText(dd.getValue(BMS_ID, CMU2_CELL5_ID));
-		CMU2_Cell6_Value.setText(dd.getValue(BMS_ID, CMU2_CELL6_ID));
+		CMU2_Cell0_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL0_ID));
+		CMU2_Cell1_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL1_ID));
+		CMU2_Cell2_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL2_ID));
+		CMU2_Cell3_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL3_ID));
+		CMU2_Cell4_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL4_ID));
+		CMU2_Cell5_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL5_ID));
+		CMU2_Cell6_Value.setText(dd.getRoundedValue(BMS_ID, CMU2_CELL6_ID));
 		
 		/*CMU3*/
-		CMU3_Cell0_Value.setText(dd.getValue(BMS_ID, CMU3_CELL0_ID));
-		CMU3_Cell1_Value.setText(dd.getValue(BMS_ID, CMU3_CELL1_ID));
-		CMU3_Cell2_Value.setText(dd.getValue(BMS_ID, CMU3_CELL2_ID));
-		CMU3_Cell3_Value.setText(dd.getValue(BMS_ID, CMU3_CELL3_ID));
-		CMU3_Cell4_Value.setText(dd.getValue(BMS_ID, CMU3_CELL4_ID));
-		CMU3_Cell5_Value.setText(dd.getValue(BMS_ID, CMU3_CELL5_ID));
-		CMU3_Cell6_Value.setText(dd.getValue(BMS_ID, CMU3_CELL6_ID));
+		CMU3_Cell0_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL0_ID));
+		CMU3_Cell1_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL1_ID));
+		CMU3_Cell2_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL2_ID));
+		CMU3_Cell3_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL3_ID));
+		CMU3_Cell4_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL4_ID));
+		CMU3_Cell5_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL5_ID));
+		CMU3_Cell6_Value.setText(dd.getRoundedValue(BMS_ID, CMU3_CELL6_ID));
 		
 		/*CMU4*/
-		CMU4_Cell0_Value.setText(dd.getValue(BMS_ID, CMU4_CELL0_ID));
-		CMU4_Cell1_Value.setText(dd.getValue(BMS_ID, CMU4_CELL1_ID));
-		CMU4_Cell2_Value.setText(dd.getValue(BMS_ID, CMU4_CELL2_ID));
-		CMU4_Cell3_Value.setText(dd.getValue(BMS_ID, CMU4_CELL3_ID));
-		CMU4_Cell4_Value.setText(dd.getValue(BMS_ID, CMU4_CELL4_ID));
-		CMU4_Cell5_Value.setText(dd.getValue(BMS_ID, CMU4_CELL5_ID));
-		CMU4_Cell6_Value.setText(dd.getValue(BMS_ID, CMU4_CELL6_ID));
+		CMU4_Cell0_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL0_ID));
+		CMU4_Cell1_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL1_ID));
+		CMU4_Cell2_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL2_ID));
+		CMU4_Cell3_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL3_ID));
+		CMU4_Cell4_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL4_ID));
+		CMU4_Cell5_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL5_ID));
+		CMU4_Cell6_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL6_ID));
 		
 		/*BMU*/
-		BMU_MaxCellV_Value.setText(dd.getValue(BMS_ID, BMU_MAXCELLV_ID));
-		BMU_MinCellV_Value.setText(dd.getValue(BMS_ID, BMU_MINCELLV_ID));
-		BMU_SOCPc_Value.setText(dd.getValue(BMS_ID, BMU_SOCPC_ID));
-		BMU_SOCAh_Value.setText(dd.getValue(BMS_ID, BMU_SOCAH_ID));
-		BMU_Status_Value.setText(dd.getValue(BMS_ID, BMU_STATUS_ID));
+		BMU_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MAXCELLV_ID));
+		BMU_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MINCELLV_ID));
+		BMU_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMU_SOCPC_ID));
+		BMU_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMU_SOCAH_ID));
+		BMU_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMU_STATUS_ID));
 		
-		BMU_MaxCellT_Value.setText(dd.getValue(BMS_ID, BMU_MAXCELLT_ID));
-		BMU_MaxPCBT_Value.setText(dd.getMaxPCBTemp());
-		BMU_Vpack_Value.setText(dd.getValue(BMS_ID, BMU_PACKV_ID));
-		BMU_Ipack_Value.setText(dd.getValue(BMS_ID, BMU_PACKA_ID));
-		BMU_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMU_EXTSTATUS_ID));
+		BMU_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MAXCELLT_ID));
+		BMU_MaxPCBT_Value.setText(getMaxPCBTemp());
+		BMU_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMU_PACKV_ID));
+		BMU_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMU_PACKA_ID));
+		BMU_ExtStatus_Value.setText(dd.getRoundedValue(BMS_ID, BMU_EXTSTATUS_ID));
 	
 	}
 	
@@ -562,5 +565,15 @@ public class TabBMS extends JPanel implements TabPane {
 			default:
 				return "UNKOOWN CODE";
 		}
+	}
+	
+	private String getMaxPCBTemp() {
+		
+		double CMU1PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(3).getLastData());
+		double CMU2PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(14).getLastData());
+		double CMU3PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(25).getLastData());
+		double CMU4PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(36).getLastData());
+		
+		return Rounding.roundDouble(Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)), 3) + " " + dd.getDeviceByID(3).getItemByID(3).getUnit();		
 	}
 }

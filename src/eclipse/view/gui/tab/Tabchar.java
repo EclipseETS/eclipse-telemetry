@@ -36,7 +36,6 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int MPPT1_X = 50;
 	private static final int MPPT1_X_VALUE = 100;
 	private static final int MPPT1_Y = 400;
-	private static final int MPPT1_VIN_ID = 1;
 
 	/*MPPT2*/
 	private static final int MPPT2_ID = 9;
@@ -97,7 +96,15 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int BMS_STATUS_ID = 76;
 	private static final int BMS_EXTSTATUS_ID = 86;
 	
+	/*Error Messages*/
+	private static final int MSG_LABEL_WIDTH = 900;
+	private static final int ERRORMSG_X = 50;
+	private static final int ERRORMSG_X_VALUE = 100;
+	private static final int ERRORMSG_Y = 575;
+	
 	private Image img;
+	
+	DataManager dd = DataManager.getInstance();
 	 
 	/*MPPT1*/
 	JLabel MPPT1_Label = new JLabel("[MPPT1]");
@@ -221,6 +228,18 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	JLabel BMS_ExtStatus = new JLabel("Ext. Status : ");
 	JLabel BMS_ExtStatus_Value = new JLabel("");
+	
+	/*Error Messages*/
+	JLabel ErrorMsg_Label = new JLabel("[Error Messages]");
+	
+	JLabel ErrorMsg_BMUExtStatus = new JLabel("BMU Status > ");
+	JLabel ErrorMsg_BMUExtStatus_Value = new JLabel("");
+	
+	JLabel ErrorMsg_DriveErrorFlags = new JLabel("Drive Error  > ");
+	JLabel ErrorMsg_DriveErrorFlags_Value = new JLabel("");
+	
+	JLabel ErrorMsg_DriveLimitFlags = new JLabel("Drive Limit  > ");
+	JLabel ErrorMsg_DriveLimitFlags_Value = new JLabel("");
 	 
 	public Tabchar() {
 		
@@ -428,63 +447,87 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_ExtStatus_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_ExtStatus_Value);
 		
+		/*Error Messages*/
+		ErrorMsg_Label.setBounds(ERRORMSG_X, ERRORMSG_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_Label);
+		
+		ErrorMsg_BMUExtStatus.setBounds(ERRORMSG_X, ERRORMSG_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_BMUExtStatus);
+		ErrorMsg_BMUExtStatus_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_BMUExtStatus_Value);
+		
+		ErrorMsg_DriveErrorFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveErrorFlags);
+		ErrorMsg_DriveErrorFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 2*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveErrorFlags_Value);
+		
+		ErrorMsg_DriveLimitFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveLimitFlags);
+		ErrorMsg_DriveLimitFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 3*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveLimitFlags_Value);
+		
 	}
 
 	public void updateValues() {
 		
-		DataManager dd = DataManager.getInstance();
 
 		/*MPPT1*/
-		MPPT1_Vin_Value.setText(dd.getValue(MPPT1_ID, MPPT_VIN_ID));
-		MPPT1_Vout_Value.setText(dd.getValue(MPPT1_ID, MPPT_VOUT_ID));
-		MPPT1_Iout_Value.setText(dd.getValue(MPPT1_ID, MPPT_IOUT_ID));
-		MPPT1_Temp_Value.setText(dd.getValue(MPPT1_ID, MPPT_TEMP_ID));
+		MPPT1_Vin_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VIN_ID));
+		MPPT1_Vout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VOUT_ID));
+		MPPT1_Iout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_IOUT_ID));
+		MPPT1_Temp_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_TEMP_ID));
 		
 		/*MPPT2*/
-		MPPT2_Vin_Value.setText(dd.getValue(MPPT2_ID, MPPT_VIN_ID));
-		MPPT2_Vout_Value.setText(dd.getValue(MPPT2_ID, MPPT_VOUT_ID));
-		MPPT2_Iout_Value.setText(dd.getValue(MPPT2_ID, MPPT_IOUT_ID));
-		MPPT2_Temp_Value.setText(dd.getValue(MPPT2_ID, MPPT_TEMP_ID));
+		MPPT2_Vin_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VIN_ID));
+		MPPT2_Vout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VOUT_ID));
+		MPPT2_Iout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_IOUT_ID));
+		MPPT2_Temp_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_TEMP_ID));
 		
 		/*MPPT3*/
-		MPPT3_Vin_Value.setText(dd.getValue(MPPT3_ID, MPPT_VIN_ID));
-		MPPT3_Vout_Value.setText(dd.getValue(MPPT3_ID, MPPT_VOUT_ID));
-		MPPT3_Iout_Value.setText(dd.getValue(MPPT3_ID, MPPT_IOUT_ID));
-		MPPT3_Temp_Value.setText(dd.getValue(MPPT3_ID, MPPT_TEMP_ID));
+		MPPT3_Vin_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VIN_ID));
+		MPPT3_Vout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VOUT_ID));
+		MPPT3_Iout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_IOUT_ID));
+		MPPT3_Temp_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_TEMP_ID));
 		
 		/*PSU*/
-		PSU_ICAN_Value.setText(dd.getValue(PSU_ID, PSU_ICAN_ID));
-		PSU_VCAN_Value.setText(dd.getValue(PSU_ID, PSU_VCAN_ID));
+		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ICAN_ID));
+		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
 		
 		/*Drive*/
-		Drive_RPM_Value.setText(dd.getValue(DRIVE_ID, DRIVE_RPM_ID));
-		Drive_HSTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_HSTEMP_ID));
-		Drive_MotorTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
-		Drive_DSPTemp_Value.setText(dd.getValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
-		//Drive_ErrorFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
-		Drive_ErrorFlags_Value.setText(dd.getDriveErrorFlags());
-		//Drive_LimitFlags_Value.setText(dd.getValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
-		Drive_LimitFlags_Value.setText(dd.getDriveLimitFlags());
+		Drive_RPM_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_RPM_ID));
+		Drive_HSTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_HSTEMP_ID));
+		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
+		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
+		//Drive_ErrorFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
+		Drive_ErrorFlags_Value.setText(getDriveErrorFlags());
+		//Drive_LimitFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
+		Drive_LimitFlags_Value.setText(getDriveLimitFlags());
 		
 		/*Instru*/
-		Instru_Lat_Value.setText(dd.getValue(INSTRU_ID, INSTRU_LAT_ID));
-		Instru_Lon_Value.setText(dd.getValue(INSTRU_ID, INSTRU_LON_ID));
-		Instru_Time_Value.setText(dd.getValue(INSTRU_ID, INSTRU_TIME_ID));
-		Instru_Date_Value.setText(dd.getValue(INSTRU_ID, INSTRU_DATE_ID));
+		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
+		Instru_Lon_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LON_ID));
+		Instru_Time_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_TIME_ID));
+		Instru_Date_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_DATE_ID));
 		
 		/*BMS*/
-		BMS_MaxCellV_Value.setText(dd.getValue(BMS_ID, BMS_MAXCELLV_ID));
-		BMS_MinCellV_Value.setText(dd.getValue(BMS_ID, BMS_MINCELLV_ID));
-		BMS_SOCPc_Value.setText(dd.getValue(BMS_ID, BMS_SOCPC_ID));
-		BMS_SOCAh_Value.setText(dd.getValue(BMS_ID, BMS_SOCAH_ID));
-		BMS_Status_Value.setText(dd.getValue(BMS_ID, BMS_STATUS_ID));
+		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));
+		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
+		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
+		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
+		BMS_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMS_STATUS_ID));
 		
-		BMS_MaxCellT_Value.setText(dd.getValue(BMS_ID, BMS_MAXCELLT_ID));
-		BMS_MaxPCBT_Value.setText(dd.getMaxPCBTemp());
-		BMS_Vpack_Value.setText(dd.getValue(BMS_ID, BMS_PACKV_ID));
-		BMS_Ipack_Value.setText(dd.getValue(BMS_ID, BMS_PACKA_ID));
-		//BMS_ExtStatus_Value.setText(dd.getValue(BMS_ID, BMS_EXTSTATUS_ID));
-		BMS_ExtStatus_Value.setText(dd.getBMUExtStatus());
+		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
+		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
+		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
+		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
+		//BMS_ExtStatus_Value.setText(dd.getRoundedValue(BMS_ID, BMS_EXTSTATUS_ID));
+		BMS_ExtStatus_Value.setText(getBMUExtStatus());
+		
+		/*Error Message*/
+		ErrorMsg_BMUExtStatus_Value.setText(getBMUExtStatusMsg());
+		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
+		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
+		
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -553,4 +596,181 @@ public class Tabchar extends JPanel implements TabPane {
 				return "UNKOOWN CODE";
 		}
 	}
+	
+	public String getMaxPCBTemp() {
+		
+		float CMU1PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(3).getLastData());
+		float CMU2PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(14).getLastData());
+		float CMU3PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(25).getLastData());
+		float CMU4PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(36).getLastData());
+		
+		return Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)) + " " + dd.getDeviceByID(3).getItemByID(3).getUnit();		
+	}
+	
+	public String getDriveErrorFlags() {
+		
+		int errorFlags = (int)(dd.getDeviceByID(2).getItemByID(5).getLastData());
+		
+		return Integer.toString(errorFlags & 0xFF);		
+	}
+	
+	public String getDriveErrorFlagsMsg() {
+		
+		int errorFlags = (int)(dd.getDeviceByID(2).getItemByID(5).getLastData());
+		
+		String errorMsg = "";
+		
+		if ((errorFlags & 0x01) > 0) {
+			errorMsg = "Hardware over current, ";
+		}
+		if ((errorFlags & 0x02) > 0) {
+			errorMsg = errorMsg + "Software over current, ";
+		}
+		if ((errorFlags & 0x04) > 0) {
+			errorMsg = errorMsg + "DC Bus over voltage, ";
+		}
+		if ((errorFlags & 0x08) > 0) {
+			errorMsg = errorMsg + "Bad motor position hall sequence, ";
+		}
+		if ((errorFlags & 0x10) > 0) {
+			errorMsg = errorMsg + "Watchdog caused last reset, ";
+		}
+		if ((errorFlags & 0x20) > 0) {
+			errorMsg = errorMsg + "Config read error (some values may be reset to defaults), ";
+		}
+		if ((errorFlags & 0x40) > 0) {
+			errorMsg = errorMsg + "15V rail under voltage lock out (UVLO), ";
+		}
+		if ((errorFlags & 0x80) > 0) {
+			errorMsg = errorMsg + "Desaturation fault (MOSFET driver UVLO), ";
+		}
+
+		if (errorMsg != "") {			
+			errorMsg = errorMsg.substring(0, errorMsg.length()-2);
+		}
+		
+		return errorMsg;
+		
+	}
+	
+	public String getDriveLimitFlags() {
+		
+		int limitFlags = (int)(dd.getDeviceByID(2).getItemByID(6).getLastData());
+		
+		return Integer.toString(limitFlags & 0x7F);		
+	}
+	
+	public String getDriveLimitFlagsMsg() {
+		
+		int limitFlags = (int)(dd.getDeviceByID(2).getItemByID(6).getLastData());
+		
+		String errorMsg = "";
+		
+		if ((limitFlags & 0x01) > 0) {
+			errorMsg = "Output Voltage PWM, ";
+		}
+		if ((limitFlags & 0x02) > 0) {
+			errorMsg = errorMsg + "Motor Current, ";
+		}
+		if ((limitFlags & 0x04) > 0) {
+			errorMsg = errorMsg + "Velocity, ";
+		}
+		if ((limitFlags & 0x08) > 0) {
+			errorMsg = errorMsg + "Bus Current, ";
+		}
+		if ((limitFlags & 0x10) > 0) {
+			errorMsg = errorMsg + "Bus Voltage Upper Limit, ";
+		}
+		if ((limitFlags & 0x20) > 0) {
+			errorMsg = errorMsg + "Bus Voltage Lower Limit, ";
+		}
+		if ((limitFlags & 0x40) > 0) {
+			errorMsg = errorMsg + "IPM Temperature or Motor Temperature, ";
+		}
+		
+		if (errorMsg != "") {			
+			errorMsg = errorMsg.substring(0, errorMsg.length()-1);
+		}
+		
+		return errorMsg;	
+	}
+	
+	
+	public String getBMUExtStatus() {
+		
+		int extStatusFlags = (int)(dd.getDeviceByID(3).getItemByID(86).getLastData());
+		
+		return Integer.toString(extStatusFlags & 0x1FFF);		
+	}
+	
+	public String getBMUExtStatusMsg() {
+		
+		int extStatusFlags = (int)(dd.getDeviceByID(3).getItemByID(86).getLastData());
+		
+		String errorMsg = "";
+
+		if ((extStatusFlags & 0x01) > 0) {
+			errorMsg = "Cell Over Voltage, ";
+		}
+		if ((extStatusFlags & 0x02) > 0) {
+			errorMsg = errorMsg + "Cell Under Voltage, ";
+		}
+		if ((extStatusFlags & 0x04) > 0) {
+			errorMsg = errorMsg + "Cell Over Temperature, ";
+		}
+		if ((extStatusFlags & 0x08) > 0) {
+			errorMsg = errorMsg + "Measurement Untrusted (channel mismatch), ";
+		}
+		if ((extStatusFlags & 0x10) > 0) {
+			errorMsg = errorMsg + "CMU Communications Timeout (lost CMU), ";
+		}
+		if ((extStatusFlags & 0x20) > 0) {
+			errorMsg = errorMsg + "Vehicle Communications Timeout (lost EVDC), ";
+		}
+		if ((extStatusFlags & 0x40) > 0) {
+			errorMsg = errorMsg + "BMU is in Setup mode, ";
+		}
+		if ((extStatusFlags & 0x80) > 0) {
+			errorMsg = errorMsg + "CMU CAN bus power status, ";
+		}
+		if ((extStatusFlags & 0x100) > 0) {
+			errorMsg = errorMsg + "Pack Isolation test failure, ";
+		}
+		if ((extStatusFlags & 0x200) > 0) {
+			errorMsg = errorMsg + "SOC measurement is not valid, ";
+		}
+		if ((extStatusFlags & 0x400) > 0) {
+			errorMsg = errorMsg + "CAN 12V supply is low - about to shut down, ";
+		}
+		if ((extStatusFlags & 0x800) > 0) {
+			errorMsg = errorMsg + "A contactor is stuck / not engaged, ";
+		}
+		if ((extStatusFlags & 0x1000) > 0) {
+			errorMsg = errorMsg + "A CMU has detected an extra cell present, ";
+		}
+		
+		if (errorMsg != "") {			
+			errorMsg = errorMsg.substring(0, errorMsg.length()-1);
+		}
+		
+		return errorMsg;		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
