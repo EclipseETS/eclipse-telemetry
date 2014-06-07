@@ -509,63 +509,6 @@ public class TabBMS extends JPanel implements TabPane {
 		g.fillRect(0, 0, width, height);
 		g.drawImage(img, 180, 100, null);
 	}
-
-	public String getMessage(int i) {
-		
-		switch (i) {
-			  
-			case 0:			
-			  	return "OK";
-			
-			case 1:			
-				return "OK";
-			
-			case 2:			
-				return "OK";
-			
-			case 3:			
-				return "I2CShutOff";
-			
-			case 4:			
-				return "AntiBackwardShort";
-			
-			case 5:			
-				return "AlarmRegen";
-			
-			case 6:			
-				return "AlarmShort";
-			
-			case 7:			
-				return "OverSpeedI";
-			
-			case 8:			
-				return "OverSpeedV";
-			
-			case 9:			
-				return "V12UVP";
-			
-			case 10:			
-				return "V12OVP";
-			
-			case 11:			
-				return "VPwrUVP";
-			
-			case 12:			
-				return "VPwrOVP";
-			
-			case 13:			
-				return "OCProtect";
-			
-			case 14:			
-				return "BadStatorPN";
-			
-			case 15:			
-				return "HallError";
-			
-			default:
-				return "UNKOOWN CODE";
-		}
-	}
 	
 	private String getMaxPCBTemp() {
 		

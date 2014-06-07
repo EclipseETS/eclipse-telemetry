@@ -99,8 +99,17 @@ public class Tabchar extends JPanel implements TabPane {
 	/*Error Messages*/
 	private static final int MSG_LABEL_WIDTH = 900;
 	private static final int ERRORMSG_X = 50;
-	private static final int ERRORMSG_X_VALUE = 100;
+	private static final int ERRORMSG_X_VALUE = 130;
 	private static final int ERRORMSG_Y = 575;
+	
+	/*Info 1*/
+	private static final int INFO1_LABEL_WIDTH = 900;
+	private static final int INFO1_X = 1050;
+	private static final int INFO1_X_VALUE = 1115;
+	private static final int INFO1_Y = 228;
+	private static final int DRIVE_SPEED_ID = 9;
+	private static final int DRIVECTRL_ID = 1;
+	private static final int DRIVECTRL_RPM_ID = 1;
 	
 	private Image img;
 	
@@ -240,6 +249,16 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	JLabel ErrorMsg_DriveLimitFlags = new JLabel("Drive Limit  > ");
 	JLabel ErrorMsg_DriveLimitFlags_Value = new JLabel("");
+	
+	/*Info 1*/
+	JLabel Info1_Speed = new JLabel("Speed : ");
+	JLabel Info1_Speed_Value = new JLabel("");
+	
+	JLabel Info1_Setpoint = new JLabel("Setpoint : ");
+	JLabel Info1_Setpoint_Value = new JLabel("");
+	
+	JLabel Info1_Power = new JLabel("Power : ");
+	JLabel Info1_Power_Value = new JLabel("");
 	 
 	public Tabchar() {
 		
@@ -466,6 +485,24 @@ public class Tabchar extends JPanel implements TabPane {
 		ErrorMsg_DriveLimitFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 3*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
 		add(ErrorMsg_DriveLimitFlags_Value);
 		
+		/*Info 1*/
+		Info1_Speed.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Speed);
+		Info1_Speed_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Speed_Value);
+		
+		Info1_Setpoint.setBounds(INFO1_X, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Setpoint);
+		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Setpoint_Value);
+		
+		Info1_Power.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Power);
+		Info1_Power_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Power_Value);
+		
+
+		
 	}
 
 	public void updateValues() {
@@ -528,6 +565,12 @@ public class Tabchar extends JPanel implements TabPane {
 		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 		
+		/*Info 1*/
+		Info1_Speed_Value.setText(String.format("%.2f", dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60) + " Km/h");
+		Info1_Setpoint_Value.setText(String.format("%.2f", (dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) * ((2*Math.PI*0.50) * 60 / 1000))) + " Km/h");
+		Info1_Power_Value.setText(String.format("%.2f", dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID)) + " Watts");
+		
+		
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -538,63 +581,6 @@ public class Tabchar extends JPanel implements TabPane {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, width, height);
 		g.drawImage(img, 180, 100, null);
-	}
-
-	public String getMessage(int i) {
-		
-		switch (i) {
-			  
-			case 0:			
-			  	return "OK";
-			
-			case 1:			
-				return "OK";
-			
-			case 2:			
-				return "OK";
-			
-			case 3:			
-				return "I2CShutOff";
-			
-			case 4:			
-				return "AntiBackwardShort";
-			
-			case 5:			
-				return "AlarmRegen";
-			
-			case 6:			
-				return "AlarmShort";
-			
-			case 7:			
-				return "OverSpeedI";
-			
-			case 8:			
-				return "OverSpeedV";
-			
-			case 9:			
-				return "V12UVP";
-			
-			case 10:			
-				return "V12OVP";
-			
-			case 11:			
-				return "VPwrUVP";
-			
-			case 12:			
-				return "VPwrOVP";
-			
-			case 13:			
-				return "OCProtect";
-			
-			case 14:			
-				return "BadStatorPN";
-			
-			case 15:			
-				return "HallError";
-			
-			default:
-				return "UNKOOWN CODE";
-		}
 	}
 	
 	public String getMaxPCBTemp() {

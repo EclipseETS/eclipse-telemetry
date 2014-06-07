@@ -281,6 +281,10 @@ public class DataManager implements Serializable{
 		
 		return String.valueOf(Rounding.roundDouble(getDeviceByID(deviceID).getItemByID(itemID).getLastData(), 3)) + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
 	}
+	public double getRawValue(int deviceID, int itemID) {
+		
+		return getDeviceByID(deviceID).getItemByID(itemID).getLastData();
+	}
 	
 
 
