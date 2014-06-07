@@ -24,494 +24,749 @@ import eclipse.model.data.DataManager;
  * as the data came in.
  * 
  * @author Marco
+ * @author Olivier
  *
  */
 public class Tabchar extends JPanel implements TabPane {
-	 private Image img;
-	 //TODO ajouter temperature du char
-	 JLabel FLStatus = new JLabel("Status:");		
-		JLabel FLDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel FLDsptmp = new JLabel("DSP Tmp :");
-		JLabel FLMotorTmp = new JLabel("Motor Tmp:");
-		JLabel FLRmp = new JLabel("RPM:");		
-		JLabel FLStatusoAnswer = new JLabel("status");
 		
-		JLabel FLDrTmpAnwser = new JLabel();
-		JLabel FLDSPTmpAnswer = new JLabel("DSP Tmp");
-		
-		JLabel FLMotorTmpAnswer = new JLabel();		
-		JLabel FLRmpAnswer = new JLabel();
-		
+	private static final long serialVersionUID = 7275321077445435378L;
+	
+	private static final int LABEL_WIDTH = 100;
+	private static final int LABEL_HEIGHT = 14;
+	private static final int LINE_OFFSET = 20;
+	
+	/*MPPT*/
+	private static final int MPPT_VIN_ID = 1;
+	private static final int MPPT_VOUT_ID = 2;
+	private static final int MPPT_IOUT_ID = 3;
+	private static final int MPPT_TEMP_ID = 4;
+	
+	/*MPPT1*/
+	private static final int MPPT1_ID = 8;
+	private static final int MPPT1_X = 50;
+	private static final int MPPT1_X_VALUE = 100;
+	private static final int MPPT1_Y = 400;
 
-		//FR
-		
-		JLabel FRStatus = new JLabel("Status:");
-		JLabel FRDsptmp = new JLabel("DSP Tmp :");
-		
-		JLabel FRDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel FRMotorTmp = new JLabel("Motor Tmp:");
-		
-		JLabel FRRmp = new JLabel("RPM:");
-		JLabel FRStatusoAnswer = new JLabel("Status:");
-		JLabel FRDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel FRDSPTmpAnswer = new JLabel("DSP Tmp");
-		
-		JLabel FRMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
-		JLabel FRRmpAnswer = new JLabel("RPM:");
-		
-		//RR
-		
-		JLabel RRStatus = new JLabel("Status:");
-		
-		JLabel RRDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel RRMotorTmp = new JLabel("Motor Tmp:");
-		JLabel RRDsptmp = new JLabel("DSP Tmp :");
-		
-		JLabel RRRmp = new JLabel("RPM:");
-		JLabel RRStatusoAnswer = new JLabel("Status:");
-		JLabel RRDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel RRDsptmpAnswer = new JLabel("DSP Tmp :");
-		JLabel RRMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
-		JLabel RRRmpAnswer = new JLabel("RPM:");
-		
-//RL
-		
-		JLabel RLStatus = new JLabel("Status:");
-		
-		JLabel RLDrTmp = new JLabel("Heat Sink Tmp :");
-		JLabel RLMotorTmp = new JLabel("Motor Tmp:");
-		JLabel RLDsptmp = new JLabel("DSP Tmp :");
-		
-		JLabel RLRmp = new JLabel("RPM:");
-		JLabel RLStatusoAnswer = new JLabel("Status:");
-		
-		JLabel RLDrTmpAnwser = new JLabel("Drive Tmp :");
-		JLabel RLDsptmpAnswer = new JLabel("DSP Tmp :");
-		
-		JLabel RLMotorTmpAnswer = new JLabel("Motor Tmp:");
-		
-		JLabel RLRmpAnswer = new JLabel("RPM:");
-		
-		JLabel bat = new JLabel("BATTERY");
-		
-		JLabel pileMin = new JLabel("Pile Min:");
-		JLabel pileMinAnwser = new JLabel("Pile Min:");
-		JLabel pileMax = new JLabel("Pile Max:");
-		JLabel pileMaxAnwser = new JLabel("Pile Max:");
-		JLabel pileTotal = new JLabel("Pile Total:");
-		JLabel pileTotalAnwser = new JLabel("Pile Total:");
-		JLabel courantOut = new JLabel("Courant:");
-		JLabel courantOutAnwser = new JLabel("Courant:");
-		JLabel Watt = new JLabel("Puissance:");
-		JLabel wattAnwser = new JLabel("W:");
-		
-		JLabel LON = new JLabel("LON");
-		
-		JLabel LAT = new JLabel("LAT");
-		
-		JLabel HEURE = new JLabel("HEURE");
-		
-		JLabel DATE = new JLabel("DATE");
+	/*MPPT2*/
+	private static final int MPPT2_ID = 9;
+	private static final int MPPT2_X = 250;
+	private static final int MPPT2_X_VALUE = 300;
+	private static final int MPPT2_Y = 400;
+	
+	/*MPPT3*/
+	private static final int MPPT3_ID = 10;
+	private static final int MPPT3_X = 450;
+	private static final int MPPT3_X_VALUE = 500;
+	private static final int MPPT3_Y = 400;
+	
+	/*PSU*/
+	private static final int PSU_ID = 7;
+	private static final int PSU_X = 1050;
+	private static final int PSU_X_VALUE = 1140;
+	private static final int PSU_Y = 400;
+	private static final int PSU_ICAN_ID = 2;
+	private static final int PSU_VCAN_ID = 3;
+	
+	/*Drive*/
+	private static final int DRIVE_ID = 2;
+	private static final int DRIVE_X = 50;
+	private static final int DRIVE_X_VALUE = 150;
+	private static final int DRIVE_Y = 50;
+	private static final int DRIVE_ERRORFLAGS_ID = 5;
+	private static final int DRIVE_LIMITFLAGS_ID = 6;
+	private static final int DRIVE_RPM_ID = 10;
+	private static final int DRIVE_HSTEMP_ID = 23;
+	private static final int DRIVE_MOTORTEMP_ID = 24;
+	private static final int DRIVE_DSPTEMP_ID = 26;
+	
+	/*Instru*/
+	private static final int INSTRU_ID = 6;
+	private static final int INSTRU_X = 1050;
+	private static final int INSTRU_X_VALUE = 1100;
+	private static final int INSTRU_Y = 50;
+	private static final int INSTRU_LAT_ID = 2;
+	private static final int INSTRU_LON_ID = 3;
+	private static final int INSTRU_TIME_ID = 4;
+	private static final int INSTRU_DATE_ID = 5;
+	
+	/*BMS*/
+	private static final int BMS_ID = 3;
+	private static final int BMS_X = 325;
+	private static final int BMS_X_2 = 500;
+	private static final int BMS_X_VALUE = 400;
+	private static final int BMS_X_2_VALUE = 580;
+	private static final int BMS_Y = 50;
+	private static final int BMS_MAXCELLV_ID = 64;
+	private static final int BMS_MINCELLV_ID = 65;
+	private static final int BMS_MAXCELLT_ID = 70;
+	private static final int BMS_SOCPC_ID = 46;
+	private static final int BMS_SOCAH_ID = 47;
+	private static final int BMS_PACKA_ID = 72;
+	private static final int BMS_PACKV_ID = 73;
+	private static final int BMS_STATUS_ID = 76;
+	private static final int BMS_EXTSTATUS_ID = 86;
+	
+	/*Error Messages*/
+	private static final int MSG_LABEL_WIDTH = 900;
+	private static final int ERRORMSG_X = 50;
+	private static final int ERRORMSG_X_VALUE = 130;
+	private static final int ERRORMSG_Y = 575;
+	
+	/*Info 1*/
+	private static final int INFO1_LABEL_WIDTH = 900;
+	private static final int INFO1_X = 1050;
+	private static final int INFO1_X_VALUE = 1115;
+	private static final int INFO1_Y = 228;
+	private static final int DRIVE_SPEED_ID = 9;
+	private static final int DRIVECTRL_ID = 1;
+	private static final int DRIVECTRL_RPM_ID = 1;
+	
+	private Image img;
+	
+	DataManager dd = DataManager.getInstance();
 	 
-		JLabel Vitesse = new JLabel("Vitesse:");
-		JLabel VitesseAnwser = new JLabel("V:");
-		JLabel Commande = new JLabel("Commande:");
-		JLabel CommandeAnwser = new JLabel("Commande:");
-		
-	 
-	 
-	 
-	 
+	/*MPPT1*/
+	JLabel MPPT1_Label = new JLabel("[MPPT1]");
+
+	JLabel MPPT1_Vin = new JLabel("Vin :");
+	JLabel MPPT1_Vin_Value = new JLabel("");
+	
+	JLabel MPPT1_Vout = new JLabel("Vout :");
+	JLabel MPPT1_Vout_Value = new JLabel("");
+	
+	JLabel MPPT1_Iout = new JLabel("Iout :");
+	JLabel MPPT1_Iout_Value = new JLabel("");
+	
+	JLabel MPPT1_Temp = new JLabel("Temp :");
+	JLabel MPPT1_Temp_Value = new JLabel("");
+	
+	/*MPPT2*/
+	JLabel MPPT2_Label = new JLabel("[MPPT2]");
+
+	JLabel MPPT2_Vin = new JLabel("Vin :");
+	JLabel MPPT2_Vin_Value = new JLabel("");
+	
+	JLabel MPPT2_Vout = new JLabel("Vout :");
+	JLabel MPPT2_Vout_Value = new JLabel("");
+	
+	JLabel MPPT2_Iout = new JLabel("Iout :");
+	JLabel MPPT2_Iout_Value = new JLabel("");
+	
+	JLabel MPPT2_Temp = new JLabel("Temp :");
+	JLabel MPPT2_Temp_Value = new JLabel("");
+	
+	/*MPPT3*/
+	JLabel MPPT3_Label = new JLabel("[MPPT3]");
+
+	JLabel MPPT3_Vin = new JLabel("Vin :");
+	JLabel MPPT3_Vin_Value = new JLabel("");
+	
+	JLabel MPPT3_Vout = new JLabel("Vout :");
+	JLabel MPPT3_Vout_Value = new JLabel("");
+	
+	JLabel MPPT3_Iout = new JLabel("Iout :");
+	JLabel MPPT3_Iout_Value = new JLabel("");
+	
+	JLabel MPPT3_Temp = new JLabel("Temp :");
+	JLabel MPPT3_Temp_Value = new JLabel("");
+	
+	/*PSU*/
+	JLabel PSU_Label = new JLabel("[PSU]");
+	
+	JLabel PSU_ICAN = new JLabel("CAN Current :");
+	JLabel PSU_ICAN_Value = new JLabel("");
+	
+	JLabel PSU_VCAN = new JLabel("CAN Voltage :");
+	JLabel PSU_VCAN_Value = new JLabel("");
+	
+	/*Drive*/
+	JLabel Drive_Label = new JLabel("[Drive]");
+	
+	JLabel Drive_ErrorFlags = new JLabel("Error Flags : ");
+	JLabel Drive_ErrorFlags_Value = new JLabel("");
+	
+	JLabel Drive_LimitFlags = new JLabel("Limit Flags : ");
+	JLabel Drive_LimitFlags_Value = new JLabel("");
+	
+	JLabel Drive_RPM = new JLabel("RPM : ");
+	JLabel Drive_RPM_Value = new JLabel("");
+	
+	JLabel Drive_HSTemp = new JLabel("Heat Sink Temp : ");
+	JLabel Drive_HSTemp_Value = new JLabel("");
+	
+	JLabel Drive_MotorTemp = new JLabel("Motor Temp : ");
+	JLabel Drive_MotorTemp_Value = new JLabel("");
+	
+	JLabel Drive_DSPTemp = new JLabel("DSP Temp : ");
+	JLabel Drive_DSPTemp_Value = new JLabel("");
+	
+	/*Instru*/
+	JLabel Instru_Label = new JLabel("[Instru]");
+	
+	JLabel Instru_Lat = new JLabel("Lat : ");
+	JLabel Instru_Lat_Value = new JLabel("");
+	
+	JLabel Instru_Lon = new JLabel("Lon : ");
+	JLabel Instru_Lon_Value = new JLabel("");
+	
+	JLabel Instru_Time = new JLabel("Time : ");
+	JLabel Instru_Time_Value = new JLabel("");
+	
+	JLabel Instru_Date = new JLabel("Date : ");
+	JLabel Instru_Date_Value = new JLabel("");
+	
+	/*BMS*/
+	JLabel BMS_Label = new JLabel("[BMS]");
+	
+	JLabel BMS_MaxCellV = new JLabel("Cell Vmax : ");
+	JLabel BMS_MaxCellV_Value = new JLabel("");
+	
+	JLabel BMS_MinCellV = new JLabel("Cell Vmin : ");
+	JLabel BMS_MinCellV_Value = new JLabel("");
+	
+	JLabel BMS_MaxCellT = new JLabel("Cell Tmax : ");
+	JLabel BMS_MaxCellT_Value = new JLabel("");
+	
+	JLabel BMS_MaxPCBT = new JLabel("PCB Tmax : ");
+	JLabel BMS_MaxPCBT_Value = new JLabel("");
+	
+	JLabel BMS_SOCPc = new JLabel("SoC % : ");
+	JLabel BMS_SOCPc_Value = new JLabel("");
+	
+	JLabel BMS_SOCAh = new JLabel("SoC Ah: ");
+	JLabel BMS_SOCAh_Value = new JLabel("");
+	
+	JLabel BMS_Vpack = new JLabel("Total Vpack : ");
+	JLabel BMS_Vpack_Value = new JLabel("");
+	
+	JLabel BMS_Ipack = new JLabel("Total Ipack : ");
+	JLabel BMS_Ipack_Value = new JLabel("");
+	
+	JLabel BMS_Status = new JLabel("Status : ");
+	JLabel BMS_Status_Value = new JLabel("");
+	
+	JLabel BMS_ExtStatus = new JLabel("Ext. Status : ");
+	JLabel BMS_ExtStatus_Value = new JLabel("");
+	
+	/*Error Messages*/
+	JLabel ErrorMsg_Label = new JLabel("[Error Messages]");
+	
+	JLabel ErrorMsg_BMUExtStatus = new JLabel("BMU Status > ");
+	JLabel ErrorMsg_BMUExtStatus_Value = new JLabel("");
+	
+	JLabel ErrorMsg_DriveErrorFlags = new JLabel("Drive Error  > ");
+	JLabel ErrorMsg_DriveErrorFlags_Value = new JLabel("");
+	
+	JLabel ErrorMsg_DriveLimitFlags = new JLabel("Drive Limit  > ");
+	JLabel ErrorMsg_DriveLimitFlags_Value = new JLabel("");
+	
+	/*Info 1*/
+	JLabel Info1_Speed = new JLabel("Speed : ");
+	JLabel Info1_Speed_Value = new JLabel("");
+	
+	JLabel Info1_Setpoint = new JLabel("Setpoint : ");
+	JLabel Info1_Setpoint_Value = new JLabel("");
+	
+	JLabel Info1_Power = new JLabel("Power : ");
+	JLabel Info1_Power_Value = new JLabel("");
 	 
 	public Tabchar() {
-		setBackground(Color.WHITE);
-
 		
+		setBackground(Color.WHITE);		
 		setForeground(Color.BLACK);
 		setLayout(null);
 		
-		//DRIVE - MOTEUR
+		img = new ImageIcon("images/image.png").getImage();
 		
-		//FL
+		/*MPPT1*/
+		MPPT1_Label.setBounds(MPPT1_X, MPPT1_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Label);
 		
-				FLStatus.setBounds(800, 100, 100, 14);
-				add(FLStatus);
-				
-				FLDrTmp.setBounds(800, 80, 100, 14);
-				add(FLDrTmp);
-				
-				FLDsptmp.setBounds(800, 40, 100, 14);
-				add(FLDsptmp);
-				
-				FLMotorTmp.setBounds(800, 60, 100, 14);
-				add(FLMotorTmp);
-				
-				FLRmp.setBounds(800, 20, 46, 14);
-				add(FLRmp);
-				
-				FLStatusoAnswer.setBounds(900, 100, 100, 14);
-				add(FLStatusoAnswer);
-				
-				FLDrTmpAnwser.setBounds(900, 80, 100, 14);
-				add(FLDrTmpAnwser);
-				
-				FLMotorTmpAnswer.setBounds(900, 60, 100, 14);
-				add(FLMotorTmpAnswer);
-				
-				FLDSPTmpAnswer.setBounds(900, 40, 100, 14);
-				add(FLDSPTmpAnswer);
-				
-				FLRmpAnswer.setBounds(900, 20, 46, 14);
-				add(FLRmpAnswer);
-				
-
-				//FR
-				
-				FRStatus.setBounds(800, 510, 100, 14);
-				add(FRStatus);
-				
-				FRDrTmp.setBounds(800, 490, 100, 14);
-				add(FRDrTmp);
-				
-				FRDsptmp.setBounds(800, 450, 100, 14);
-				add(FRDsptmp);
-				
-				FRMotorTmp.setBounds(800, 470, 100, 14);
-				add(FRMotorTmp);
-				
-				FRRmp.setBounds(800, 430, 46, 14);
-				add(FRRmp);
-				
-				FRStatusoAnswer.setBounds(900, 510, 100, 14);
-				add(FRStatusoAnswer);
-				
-				FRDrTmpAnwser.setBounds(900, 490, 100, 14);
-				add(FRDrTmpAnwser);
-				
-				FRMotorTmpAnswer.setBounds(900, 470, 100, 14);
-				add(FRMotorTmpAnswer);
-				
-				FRDSPTmpAnswer.setBounds(900, 450, 100, 14);
-				add(FRDSPTmpAnswer);
-				
-				FRRmpAnswer.setBounds(900, 430, 46, 14);
-				add(FRRmpAnswer);
-				
-//RR
-				
-				RRStatus.setBounds(450, 470, 100, 14);
-				add(RRStatus);
-				
-				RRDrTmp.setBounds(450, 450, 100, 14);
-				add(RRDrTmp);
-				
-				RRMotorTmp.setBounds(450, 430, 100, 14);
-				add(RRMotorTmp);
-				
-				RRDsptmp.setBounds(450, 410, 100, 14);
-				add(RRDsptmp);
-				
-				RRRmp.setBounds(450, 390, 46, 14);
-				add(RRRmp);
-				
-				RRStatusoAnswer.setBounds(550, 470, 100, 14);
-				add(RRStatusoAnswer);
-				
-				RRDrTmpAnwser.setBounds(550, 450, 100, 14);
-				add(RRDrTmpAnwser);
-				
-				RRMotorTmpAnswer.setBounds(550, 430, 100, 14);
-				add(RRMotorTmpAnswer);
-				
-				RRDsptmpAnswer.setBounds(550, 410, 100, 14);
-				add(RRDsptmpAnswer);
-				
-				RRRmpAnswer.setBounds(550, 390, 46, 14);
-				add(RRRmpAnswer);
-				
-//RL
-				
-				RLStatus.setBounds(450, 140, 100, 14);
-				add(RLStatus);
-				
-				RLDrTmp.setBounds(450, 120, 100, 14);
-				add(RLDrTmp);
-				
-				RLMotorTmp.setBounds(450, 100, 100, 14);
-				add(RLMotorTmp);
-				
-				RLDsptmp.setBounds(450, 80, 100, 14);
-				add(RLDsptmp);
-				
-				RLRmp.setBounds(450, 60, 46, 14);
-				add(RLRmp);
-				
-				RLStatusoAnswer.setBounds(550, 140, 100, 14);
-				add(RLStatusoAnswer);
-				
-				RLDrTmpAnwser.setBounds(550, 120, 100, 14);
-				add(RLDrTmpAnwser);
-				
-				RLMotorTmpAnswer.setBounds(550, 100, 100, 14);
-				add(RLMotorTmpAnswer);
-				
-				RLDsptmpAnswer.setBounds(550, 80, 100, 14);
-				add(RLDsptmpAnswer);
-
-				RLRmpAnswer.setBounds(550, 60, 100, 14);
-				add(RLRmpAnswer);
-				
-				bat.setBounds(140, 100, 100, 14);
-				add(bat);
-				
-				pileMin.setBounds(110, 120, 100, 14);
-				add(pileMin);
-				pileMinAnwser.setBounds(180, 120, 100, 14);
-				add(pileMinAnwser);
-				
-				pileMax.setBounds(110, 140, 100, 14);
-				add(pileMax);
-				pileMaxAnwser.setBounds(180, 140, 100, 14);
-				add(pileMaxAnwser);
-				
-				pileTotal.setBounds(110, 160, 100, 14);
-				add(pileTotal);
-				pileTotalAnwser.setBounds(180, 160, 100, 14);
-				add(pileTotalAnwser);
-				
-				courantOut.setBounds(110, 180, 100, 14);
-				add(courantOut);
-				courantOutAnwser.setBounds(180, 180, 100, 14);
-				add(courantOutAnwser);
-				
-				Watt.setBounds(110, 200, 100, 14);
-				add(Watt);
-				wattAnwser.setBounds(180, 200, 100, 14);
-				add(wattAnwser);
-				
-				LON.setBounds(1050, 60, 100, 14);
-				add(LON);
-				
-				LAT.setBounds(1050, 80, 100, 14);
-				add(LAT);
-				
-				HEURE.setBounds(1050, 40, 100, 14);
-				add(HEURE);
-				
-				DATE.setBounds(1050, 20, 100, 14);
-				add(DATE);
-				
-				
-				Vitesse.setBounds(1030, 250, 100, 14);
-				add(Vitesse);
-				
-				VitesseAnwser.setBounds(1100, 250, 100, 14);
-				add(VitesseAnwser);
-				
-				Commande.setBounds(1030, 270, 100, 14);
-				add(Commande);
-				
-				CommandeAnwser.setBounds(1100, 270, 100, 14);
-				add(CommandeAnwser);
-				
-			 
+		MPPT1_Vin.setBounds(MPPT1_X, MPPT1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vin);
+		MPPT1_Vin_Value.setBounds(MPPT1_X_VALUE, MPPT1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vin_Value);
 		
-		img=new ImageIcon("images/image.png").getImage();
-		  
+		MPPT1_Vout.setBounds(MPPT1_X, MPPT1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vout);
+		MPPT1_Vout_Value.setBounds(MPPT1_X_VALUE, MPPT1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Vout_Value);
+		
+		MPPT1_Iout.setBounds(MPPT1_X, MPPT1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Iout);
+		MPPT1_Iout_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Iout_Value);
+		
+		MPPT1_Temp.setBounds(MPPT1_X, MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Temp);
+		MPPT1_Temp_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT1_Temp_Value);
+		
+		/*MPPT2*/
+		MPPT2_Label.setBounds(MPPT2_X, MPPT2_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Label);
+		
+		MPPT2_Vin.setBounds(MPPT2_X, MPPT2_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vin);
+		MPPT2_Vin_Value.setBounds(MPPT2_X_VALUE, MPPT2_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vin_Value);
+		
+		MPPT2_Vout.setBounds(MPPT2_X, MPPT2_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vout);
+		MPPT2_Vout_Value.setBounds(MPPT2_X_VALUE, MPPT2_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Vout_Value);
+		
+		MPPT2_Iout.setBounds(MPPT2_X, MPPT2_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Iout);
+		MPPT2_Iout_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Iout_Value);
+		
+		MPPT2_Temp.setBounds(MPPT2_X, MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Temp);
+		MPPT2_Temp_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT2_Temp_Value);
+		
+		/*MPPT3*/
+		MPPT3_Label.setBounds(MPPT3_X, MPPT3_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Label);
+		
+		MPPT3_Vin.setBounds(MPPT3_X, MPPT3_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vin);
+		MPPT3_Vin_Value.setBounds(MPPT3_X_VALUE, MPPT3_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vin_Value);
+		
+		MPPT3_Vout.setBounds(MPPT3_X, MPPT3_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vout);
+		MPPT3_Vout_Value.setBounds(MPPT3_X_VALUE, MPPT3_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Vout_Value);
+		
+		MPPT3_Iout.setBounds(MPPT3_X, MPPT3_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Iout);
+		MPPT3_Iout_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Iout_Value);
+		
+		MPPT3_Temp.setBounds(MPPT3_X, MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Temp);
+		MPPT3_Temp_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT3_Temp_Value);;
+		
+		/*PSU*/
+		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_Label);
+		
+		PSU_ICAN.setBounds(PSU_X, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_ICAN);
+		PSU_ICAN_Value.setBounds(PSU_X_VALUE, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_ICAN_Value);
+		
+		PSU_VCAN.setBounds(PSU_X, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_VCAN);
+		PSU_VCAN_Value.setBounds(PSU_X_VALUE, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(PSU_VCAN_Value);
+		
+		/*Drive*/
+		Drive_Label.setBounds(DRIVE_X, DRIVE_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_Label);
+		
+		Drive_RPM.setBounds(DRIVE_X, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_RPM);
+		Drive_RPM_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_RPM_Value);
+		
+		Drive_HSTemp.setBounds(DRIVE_X, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_HSTemp);
+		Drive_HSTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_HSTemp_Value);
+		
+		Drive_MotorTemp.setBounds(DRIVE_X, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_MotorTemp);
+		Drive_MotorTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_MotorTemp_Value);
+		
+		Drive_DSPTemp.setBounds(DRIVE_X, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_DSPTemp);
+		Drive_DSPTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_DSPTemp_Value);
+		
+		Drive_ErrorFlags.setBounds(DRIVE_X, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_ErrorFlags);
+		Drive_ErrorFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_ErrorFlags_Value);
+		
+		Drive_LimitFlags.setBounds(DRIVE_X, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_LimitFlags);
+		Drive_LimitFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Drive_LimitFlags_Value);
+		
+		/*Instru*/
+		Instru_Label.setBounds(INSTRU_X, INSTRU_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Label);
+		
+		Instru_Lat.setBounds(INSTRU_X, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lat);
+		Instru_Lat_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lat_Value);
+		
+		Instru_Lon.setBounds(INSTRU_X, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lon);
+		Instru_Lon_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Lon_Value);
+		
+		Instru_Time.setBounds(INSTRU_X, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Time);
+		Instru_Time_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Time_Value);
+		
+		Instru_Date.setBounds(INSTRU_X, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Date);
+		Instru_Date_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Instru_Date_Value);
+		
+		/*BMS*/
+		BMS_Label.setBounds(BMS_X, BMS_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Label);
+		
+		BMS_MaxCellV.setBounds(BMS_X, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellV);
+		BMS_MaxCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellV_Value);
+		
+		BMS_MinCellV.setBounds(BMS_X, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MinCellV);
+		BMS_MinCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MinCellV_Value);
+		
+		BMS_SOCAh.setBounds(BMS_X, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCAh);
+		BMS_SOCAh_Value.setBounds(BMS_X_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCAh_Value);
+		
+		BMS_SOCPc.setBounds(BMS_X, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCPc);
+		BMS_SOCPc_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCPc_Value);
+		
+		BMS_Status.setBounds(BMS_X, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Status);
+		BMS_Status_Value.setBounds(BMS_X_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Status_Value);
+		
+		BMS_MaxCellT.setBounds(BMS_X_2, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellT);
+		BMS_MaxCellT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxCellT_Value);
+		
+		BMS_MaxPCBT.setBounds(BMS_X_2, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxPCBT);
+		BMS_MaxPCBT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_MaxPCBT_Value);
+		
+		BMS_Vpack.setBounds(BMS_X_2, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Vpack);
+		BMS_Vpack_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Vpack_Value);
+		
+		BMS_Ipack.setBounds(BMS_X_2, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Ipack);
+		BMS_Ipack_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Ipack_Value);
+		
+		BMS_ExtStatus.setBounds(BMS_X_2, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_ExtStatus);
+		BMS_ExtStatus_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_ExtStatus_Value);
+		
+		/*Error Messages*/
+		ErrorMsg_Label.setBounds(ERRORMSG_X, ERRORMSG_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_Label);
+		
+		ErrorMsg_BMUExtStatus.setBounds(ERRORMSG_X, ERRORMSG_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_BMUExtStatus);
+		ErrorMsg_BMUExtStatus_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_BMUExtStatus_Value);
+		
+		ErrorMsg_DriveErrorFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveErrorFlags);
+		ErrorMsg_DriveErrorFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 2*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveErrorFlags_Value);
+		
+		ErrorMsg_DriveLimitFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveLimitFlags);
+		ErrorMsg_DriveLimitFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 3*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+		add(ErrorMsg_DriveLimitFlags_Value);
+		
+		/*Info 1*/
+		Info1_Speed.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Speed);
+		Info1_Speed_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Speed_Value);
+		
+		Info1_Setpoint.setBounds(INFO1_X, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Setpoint);
+		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Setpoint_Value);
+		
+		Info1_Power.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Power);
+		Info1_Power_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Power_Value);
+		
 
 		
 	}
 
-	private static final long serialVersionUID = 7275321077445435378L;
 	public void updateValues() {
 		
-		DataManager dd = DataManager.getInstance();
-	/*
-		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
-				FLStatusoAnswer.setForeground(Color.green);
-				FLStatusoAnswer.setText("OK");
-			}
-			else{
-				FLStatusoAnswer.setForeground(Color.red);
-				FLStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			FLStatusoAnswer.setForeground(Color.red);
-			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
-		}
-		*/
+
+		/*MPPT1*/
+		MPPT1_Vin_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VIN_ID));
+		MPPT1_Vout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VOUT_ID));
+		MPPT1_Iout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_IOUT_ID));
+		MPPT1_Temp_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_TEMP_ID));
 		
-		FRDrTmpAnwser.setText(dd.getDeviceByID(12).getItemByID(19).getLastData() +" "+dd.getDeviceByID(12).getItemByID(19).getUnit());	
-		FRMotorTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(18).getLastData() +" "+dd.getDeviceByID(12).getItemByID(18).getUnit());	
-		FRRmpAnswer.setText(dd.getDeviceByID(12).getItemByID(9).getLastData() +" "+dd.getDeviceByID(12).getItemByID(9).getUnit());
-		FRDSPTmpAnswer.setText(dd.getDeviceByID(12).getItemByID(20).getLastData() +" "+dd.getDeviceByID(12).getItemByID(20).getUnit());
-		/*
-		if(dd.getDeviceByID(3).getItemByID(3).getLastData()==0||dd.getDeviceByID(3).getItemByID(3).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(20).getLastData()!=0){
-				FLStatusoAnswer.setForeground(Color.green);
-				FLStatusoAnswer.setText("OK");
-			}
-			else{
-				FLStatusoAnswer.setForeground(Color.red);
-				FLStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			FLStatusoAnswer.setForeground(Color.red);
-			FLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(3).getLastData()));
-		}
-		*/
-		FLDrTmpAnwser.setText(dd.getDeviceByID(13).getItemByID(19).getLastData() +" "+dd.getDeviceByID(13).getItemByID(19).getUnit());	
-		FLMotorTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(18).getLastData() +" "+dd.getDeviceByID(13).getItemByID(18).getUnit());	
-		FLRmpAnswer.setText(dd.getDeviceByID(13).getItemByID(9).getLastData() +" "+dd.getDeviceByID(13).getItemByID(9).getUnit());
-		FLDSPTmpAnswer.setText(dd.getDeviceByID(13).getItemByID(20).getLastData() +" "+dd.getDeviceByID(13).getItemByID(20).getUnit());
+		/*MPPT2*/
+		MPPT2_Vin_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VIN_ID));
+		MPPT2_Vout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VOUT_ID));
+		MPPT2_Iout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_IOUT_ID));
+		MPPT2_Temp_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_TEMP_ID));
 		
-	
+		/*MPPT3*/
+		MPPT3_Vin_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VIN_ID));
+		MPPT3_Vout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VOUT_ID));
+		MPPT3_Iout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_IOUT_ID));
+		MPPT3_Temp_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_TEMP_ID));
+		
+		/*PSU*/
+		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ICAN_ID));
+		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
+		
+		/*Drive*/
+		Drive_RPM_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_RPM_ID));
+		Drive_HSTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_HSTEMP_ID));
+		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
+		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
+		//Drive_ErrorFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
+		Drive_ErrorFlags_Value.setText(getDriveErrorFlags());
+		//Drive_LimitFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
+		Drive_LimitFlags_Value.setText(getDriveLimitFlags());
+		
+		/*Instru*/
+		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
+		Instru_Lon_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LON_ID));
+		Instru_Time_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_TIME_ID));
+		Instru_Date_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_DATE_ID));
+		
+		/*BMS*/
+		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));
+		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
+		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
+		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
+		BMS_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMS_STATUS_ID));
+		
+		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
+		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
+		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
+		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
+		//BMS_ExtStatus_Value.setText(dd.getRoundedValue(BMS_ID, BMS_EXTSTATUS_ID));
+		BMS_ExtStatus_Value.setText(getBMUExtStatus());
+		
+		/*Error Message*/
+		ErrorMsg_BMUExtStatus_Value.setText(getBMUExtStatusMsg());
+		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
+		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
+		
+		/*Info 1*/
+		Info1_Speed_Value.setText(String.format("%.2f", dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60) + " Km/h");
+		Info1_Setpoint_Value.setText(String.format("%.2f", (dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) * ((2*Math.PI*0.50) * 60 / 1000))) + " Km/h");
+		Info1_Power_Value.setText(String.format("%.2f", dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID)) + " Watts");
 		
 		
-		/*if(dd.getDeviceByID(3).getItemByID(4).getLastData()==0||dd.getDeviceByID(3).getItemByID(4).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(21).getLastData()!=0){
-				RRStatusoAnswer.setForeground(Color.green);
-				RRStatusoAnswer.setText("OK");
-			}
-			else{
-				RRStatusoAnswer.setForeground(Color.red);
-				RRStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			RRStatusoAnswer.setForeground(Color.red);
-			RRStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(4).getLastData()));
-		}
-		*/
-		RRDrTmpAnwser.setText(dd.getDeviceByID(14).getItemByID(19).getLastData() +" "+dd.getDeviceByID(14).getItemByID(19).getUnit());	
-		RRMotorTmpAnswer.setText(dd.getDeviceByID(14).getItemByID(18).getLastData() +" "+dd.getDeviceByID(14).getItemByID(18).getUnit());	
-		RRRmpAnswer.setText(dd.getDeviceByID(14).getItemByID(9).getLastData() +" "+dd.getDeviceByID(14).getItemByID(9).getUnit());
-		RRDsptmpAnswer.setText(dd.getDeviceByID(14).getItemByID(20).getLastData() +" "+dd.getDeviceByID(14).getItemByID(20).getUnit());
-		
-		/*
-		if(dd.getDeviceByID(3).getItemByID(5).getLastData()==0||dd.getDeviceByID(3).getItemByID(5).getLastData()==1)
-			if(dd.getDeviceByID(3).getItemByID(22).getLastData()!=0){
-				RLStatusoAnswer.setForeground(Color.green);
-				RLStatusoAnswer.setText("OK");
-			}
-			else{
-				RLStatusoAnswer.setForeground(Color.red);
-				RLStatusoAnswer.setText("ERREUR");
-			}
-		else{
-			RLStatusoAnswer.setForeground(Color.red);
-			RLStatusoAnswer.setText(getMessage((int) dd.getDeviceByID(3).getItemByID(5).getLastData()));
-		}
-		*/
-		RLDrTmpAnwser.setText(dd.getDeviceByID(15).getItemByID(19).getLastData() +" "+dd.getDeviceByID(15).getItemByID(19).getUnit());	
-		RLMotorTmpAnswer.setText(dd.getDeviceByID(15).getItemByID(18).getLastData() +" "+dd.getDeviceByID(15).getItemByID(18).getUnit());	
-		RLRmpAnswer.setText(dd.getDeviceByID(15).getItemByID(9).getLastData() +" "+dd.getDeviceByID(15).getItemByID(9).getUnit());
-		RLDsptmpAnswer.setText(dd.getDeviceByID(15).getItemByID(20).getLastData() +" "+dd.getDeviceByID(15).getItemByID(20).getUnit());
-		
-		pileMinAnwser.setText(dd.getDeviceByID(7).getItemByID(42).getLastData() +" "+dd.getDeviceByID(7).getItemByID(42).getUnit());
-		pileMaxAnwser.setText(dd.getDeviceByID(7).getItemByID(43).getLastData() +" "+dd.getDeviceByID(7).getItemByID(43).getUnit());
-		pileTotalAnwser.setText(dd.getDeviceByID(7).getItemByID(44).getLastData() +" "+dd.getDeviceByID(7).getItemByID(44).getUnit());
-		courantOutAnwser.setText(dd.getDeviceByID(7).getItemByID(48).getLastData() +" "+dd.getDeviceByID(7).getItemByID(47).getUnit());
-		
-		LAT.setText(Double.toString(dd.getDeviceByID(6).getItemByID(2).getLastData()));
-		LON.setText(Double.toString(dd.getDeviceByID(6).getItemByID(3).getLastData()));
-		String date =Double.toString(dd.getDeviceByID(6).getItemByID(5).getLastData());
-		String heure =Double.toString(dd.getDeviceByID(6).getItemByID(4).getLastData());
-		int delay =Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
-		if(Double.parseDouble(date)>9999){
-			DATE.setText(date.substring(0, 2)+":"+date.substring(2,4)+":"+date.substring(4,6));
-			HEURE.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
-		}
-		
-		double speed1 = (dd.getDeviceByID(12).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speed2 = (dd.getDeviceByID(13).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speed3 = (dd.getDeviceByID(14).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speed4 = (dd.getDeviceByID(15).getItemByID(10).getLastData())/1000*60*60;
-		
-		double speedmoy = (speed1 + speed2 + speed3 + speed4)/4; 
-		
-		VitesseAnwser.setText(String.format("%.2f", speedmoy)+" Km/h");
-		CommandeAnwser.setText(Integer.toString((int) dd.getDeviceByID(5).getItemByID(4).getLastData()));
-		
-		Integer puiss = (int) (dd.getDeviceByID(7).getItemByID(44).getLastData()*dd.getDeviceByID(7).getItemByID(47).getLastData());
-		
-		if (puiss>0)
-			wattAnwser.setForeground(Color.red);
-		else
-			wattAnwser.setForeground(Color.green);
-		wattAnwser.setText(Integer.toString(puiss)+" W");	
 	}
 	
-	  public void paintComponent(Graphics g) {
-		    
-		    int width = getWidth();
-		    int height = getHeight();        
-
-		    g.setColor(Color.WHITE);
-		    g.fillRect(0, 0, width, height);
-		    g.drawImage(img, 180, 100, null);
-			  }
-	  
-	  
-	  
-	  public String getMessage(int i){
-		  switch (i) {
-		  
-		  case 0:			
-				return "OK";
-
-		  case 1:			
-				return "OK";
-
-		  case 2:			
-				return "OK";
-
-		  case 3:			
-				return "I2CShutOff";
-
-		  case 4:			
-				return "AntiBackwardShort";
-
-		  case 5:			
-				return "AlarmRegen";
-
-		  case 6:			
-				return "AlarmShort";
-
-		  case 7:			
-				return "OverSpeedI";
-
-		  case 8:			
-				return "OverSpeedV";
-
-		  case 9:			
-				return "V12UVP";
-
-		  case 10:			
-				return "V12OVP";
-
-		  case 11:			
-				return "VPwrUVP";
-
-		  case 12:			
-				return "VPwrOVP";
-
-		  case 13:			
-				return "OCProtect";
-
-		  case 14:			
-				return "BadStatorPN";
-
-		  case 15:			
-				return "HallError";
-
-			default:
-			return "UNKOOWN CODE";
+	public void paintComponent(Graphics g) {
+		
+		int width = getWidth();
+		int height = getHeight();
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, width, height);
+		g.drawImage(img, 180, 100, null);
+	}
+	
+	public String getMaxPCBTemp() {
+		
+		float CMU1PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(3).getLastData());
+		float CMU2PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(14).getLastData());
+		float CMU3PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(25).getLastData());
+		float CMU4PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(36).getLastData());
+		
+		return Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)) + " " + dd.getDeviceByID(3).getItemByID(3).getUnit();		
+	}
+	
+	public String getDriveErrorFlags() {
+		
+		int errorFlags = (int)(dd.getDeviceByID(2).getItemByID(5).getLastData());
+		
+		return Integer.toString(errorFlags & 0xFF);		
+	}
+	
+	public String getDriveErrorFlagsMsg() {
+		
+		int errorFlags = (int)(dd.getDeviceByID(2).getItemByID(5).getLastData());
+		
+		String errorMsg = "";
+		
+		if ((errorFlags & 0x01) > 0) {
+			errorMsg = "Hardware over current, ";
 		}
-	  }
+		if ((errorFlags & 0x02) > 0) {
+			errorMsg = errorMsg + "Software over current, ";
+		}
+		if ((errorFlags & 0x04) > 0) {
+			errorMsg = errorMsg + "DC Bus over voltage, ";
+		}
+		if ((errorFlags & 0x08) > 0) {
+			errorMsg = errorMsg + "Bad motor position hall sequence, ";
+		}
+		if ((errorFlags & 0x10) > 0) {
+			errorMsg = errorMsg + "Watchdog caused last reset, ";
+		}
+		if ((errorFlags & 0x20) > 0) {
+			errorMsg = errorMsg + "Config read error (some values may be reset to defaults), ";
+		}
+		if ((errorFlags & 0x40) > 0) {
+			errorMsg = errorMsg + "15V rail under voltage lock out (UVLO), ";
+		}
+		if ((errorFlags & 0x80) > 0) {
+			errorMsg = errorMsg + "Desaturation fault (MOSFET driver UVLO), ";
+		}
+
+		if (errorMsg != "") {			
+			errorMsg = errorMsg.substring(0, errorMsg.length()-2);
+		}
+		
+		return errorMsg;
+		
+	}
+	
+	public String getDriveLimitFlags() {
+		
+		int limitFlags = (int)(dd.getDeviceByID(2).getItemByID(6).getLastData());
+		
+		return Integer.toString(limitFlags & 0x7F);		
+	}
+	
+	public String getDriveLimitFlagsMsg() {
+		
+		int limitFlags = (int)(dd.getDeviceByID(2).getItemByID(6).getLastData());
+		
+		String errorMsg = "";
+		
+		if ((limitFlags & 0x01) > 0) {
+			errorMsg = "Output Voltage PWM, ";
+		}
+		if ((limitFlags & 0x02) > 0) {
+			errorMsg = errorMsg + "Motor Current, ";
+		}
+		if ((limitFlags & 0x04) > 0) {
+			errorMsg = errorMsg + "Velocity, ";
+		}
+		if ((limitFlags & 0x08) > 0) {
+			errorMsg = errorMsg + "Bus Current, ";
+		}
+		if ((limitFlags & 0x10) > 0) {
+			errorMsg = errorMsg + "Bus Voltage Upper Limit, ";
+		}
+		if ((limitFlags & 0x20) > 0) {
+			errorMsg = errorMsg + "Bus Voltage Lower Limit, ";
+		}
+		if ((limitFlags & 0x40) > 0) {
+			errorMsg = errorMsg + "IPM Temperature or Motor Temperature, ";
+		}
+		
+		if (errorMsg != "") {			
+			errorMsg = errorMsg.substring(0, errorMsg.length()-1);
+		}
+		
+		return errorMsg;	
+	}
+	
+	
+	public String getBMUExtStatus() {
+		
+		int extStatusFlags = (int)(dd.getDeviceByID(3).getItemByID(86).getLastData());
+		
+		return Integer.toString(extStatusFlags & 0x1FFF);		
+	}
+	
+	public String getBMUExtStatusMsg() {
+		
+		int extStatusFlags = (int)(dd.getDeviceByID(3).getItemByID(86).getLastData());
+		
+		String errorMsg = "";
+
+		if ((extStatusFlags & 0x01) > 0) {
+			errorMsg = "Cell Over Voltage, ";
+		}
+		if ((extStatusFlags & 0x02) > 0) {
+			errorMsg = errorMsg + "Cell Under Voltage, ";
+		}
+		if ((extStatusFlags & 0x04) > 0) {
+			errorMsg = errorMsg + "Cell Over Temperature, ";
+		}
+		if ((extStatusFlags & 0x08) > 0) {
+			errorMsg = errorMsg + "Measurement Untrusted (channel mismatch), ";
+		}
+		if ((extStatusFlags & 0x10) > 0) {
+			errorMsg = errorMsg + "CMU Communications Timeout (lost CMU), ";
+		}
+		if ((extStatusFlags & 0x20) > 0) {
+			errorMsg = errorMsg + "Vehicle Communications Timeout (lost EVDC), ";
+		}
+		if ((extStatusFlags & 0x40) > 0) {
+			errorMsg = errorMsg + "BMU is in Setup mode, ";
+		}
+		if ((extStatusFlags & 0x80) > 0) {
+			errorMsg = errorMsg + "CMU CAN bus power status, ";
+		}
+		if ((extStatusFlags & 0x100) > 0) {
+			errorMsg = errorMsg + "Pack Isolation test failure, ";
+		}
+		if ((extStatusFlags & 0x200) > 0) {
+			errorMsg = errorMsg + "SOC measurement is not valid, ";
+		}
+		if ((extStatusFlags & 0x400) > 0) {
+			errorMsg = errorMsg + "CAN 12V supply is low - about to shut down, ";
+		}
+		if ((extStatusFlags & 0x800) > 0) {
+			errorMsg = errorMsg + "A contactor is stuck / not engaged, ";
+		}
+		if ((extStatusFlags & 0x1000) > 0) {
+			errorMsg = errorMsg + "A CMU has detected an extra cell present, ";
+		}
+		
+		if (errorMsg != "") {			
+			errorMsg = errorMsg.substring(0, errorMsg.length()-1);
+		}
+		
+		return errorMsg;		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

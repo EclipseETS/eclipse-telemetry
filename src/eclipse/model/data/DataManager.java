@@ -15,18 +15,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
-
-
-
-
-
-
-
 import org.apache.log4j.Logger;
-
 import eclipse.controller.util.ByteManipulator;
+import eclipse.controller.util.Rounding;
 
 /**
  * Main point of entry for all the model of the application
@@ -279,6 +270,23 @@ public class DataManager implements Serializable{
 	public void addCpt(){
 		cpt++;
 	}
+	
+	//Helper functions for displaying values
+	public String getValue(int deviceID, int itemID) {
+		
+		return getDeviceByID(deviceID).getItemByID(itemID).getLastData() + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
+	}
+	
+	public String getRoundedValue(int deviceID, int itemID) {
+		
+		return String.valueOf(Rounding.roundDouble(getDeviceByID(deviceID).getItemByID(itemID).getLastData(), 3)) + " " + getDeviceByID(deviceID).getItemByID(itemID).getUnit();
+	}
+	public double getRawValue(int deviceID, int itemID) {
+		
+		return getDeviceByID(deviceID).getItemByID(itemID).getLastData();
+	}
+	
+
 
 	
 

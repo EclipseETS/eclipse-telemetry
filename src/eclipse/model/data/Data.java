@@ -50,5 +50,4 @@ public class Data implements Serializable{
 	public void setData(double data) {
 		this.data = data;
 	}
-	
 }

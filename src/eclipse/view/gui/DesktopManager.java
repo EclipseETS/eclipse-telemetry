@@ -38,6 +38,7 @@ import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
+import eclipse.view.gui.tab.TabBMS;
 import eclipse.view.gui.tab.TelemetryStrategie;
 import eclipse.view.gui.tab.graph.TelemetryGraphPoint;
 /**
@@ -303,6 +304,18 @@ public class DesktopManager implements Runnable {
 	       			logger.debug("File->Global Pressed");
 	       			JPanel charSolaire = new Tabchar();
 	       			tab.addTab(charSolaire,TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
+					
+				}
+
+	        });
+		
+		JMenuItem mnBMS= new JMenuItem(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_BMS"));
+		mnView.add(mnBMS);
+		mnBMS.addActionListener(new ActionListener() {
+	           public void actionPerformed(ActionEvent arg0) {
+	       			logger.debug("File->BMS Pressed");
+	       			JPanel batteryManagementSystem = new TabBMS();
+	       			tab.addTab(batteryManagementSystem,TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_BMS"));
 					
 				}
 
