@@ -282,7 +282,19 @@ public class DesktopManager implements Runnable {
         });
 		mnStop.setEnabled(false);
 		
-		JMenuItem mntDeleteError = new JMenuItem("Delete Error");
+		JMenuItem mntReleasePort = new JMenuItem("Release port");
+		mnAcqui.add(mntReleasePort);
+		mntReleasePort.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent arg0) {
+        	   DataAcquisition.getInstance().stopAcquiring();
+        	   TelemetrySettings.getInstance().setSetting("HANDLER_SERIAL_PORT", "XXX");
+				
+				
+			}
+           
+		});
+		
+		JMenuItem mntDeleteError = new JMenuItem("Clear errors");
 		mnAcqui.add(mntDeleteError);
 		mntDeleteError.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {

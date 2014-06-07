@@ -752,21 +752,3 @@ public class Tabchar extends JPanel implements TabPane {
 		return errorMsg;		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

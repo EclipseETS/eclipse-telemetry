@@ -445,9 +445,7 @@ public class TabBMS extends JPanel implements TabPane {
 		add(BMU_ExtStatus_Value);
 	}
 	
-	public void updateValues() {
-		
-		
+	public void updateValues() {		
 		
 		/*CMU1*/
 		CMU1_Cell0_Value.setText(dd.getRoundedValue(BMS_ID, CMU1_CELL0_ID));
