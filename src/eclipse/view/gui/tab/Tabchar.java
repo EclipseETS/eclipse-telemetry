@@ -113,10 +113,9 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int ERRORMSG_Y = 575;
 	
 	/*Info 1*/
-	private static final int INFO1_LABEL_WIDTH = 900;
 	private static final int INFO1_X = 1050;
-	private static final int INFO1_X_VALUE = 1115;
-	private static final int INFO1_Y = 228;
+	private static final int INFO1_X_VALUE = 1140;
+	private static final int INFO1_Y = 210;
 	private static final int DRIVE_SPEED_ID = 9;
 	private static final int DRIVECTRL_ID = 1;
 	private static final int DRIVECTRL_RPM_ID = 1;
@@ -261,14 +260,22 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel ErrorMsg_DriveLimitFlags_Value = new JLabel("");
 	
 	/*Info 1*/
+	JLabel Info1_Label = new JLabel("[Info]");
+	
 	JLabel Info1_Speed = new JLabel("Speed : ");
 	JLabel Info1_Speed_Value = new JLabel("");
 	
 	JLabel Info1_Setpoint = new JLabel("Setpoint : ");
 	JLabel Info1_Setpoint_Value = new JLabel("");
 	
-	JLabel Info1_Power = new JLabel("Power : ");
+	JLabel Info1_Power = new JLabel("Power Bat. : ");
 	JLabel Info1_Power_Value = new JLabel("");
+	
+	JLabel Info1_PanelPow = new JLabel("Power Pan. : ");
+	JLabel Info1_PanelPow_Value = new JLabel("");
+	
+	JLabel Info1_Consumption = new JLabel("Consumption : ");
+	JLabel Info1_Consumption_Value = new JLabel("");
 	 
 	public Tabchar() {
 		
@@ -496,6 +503,9 @@ public class Tabchar extends JPanel implements TabPane {
 		add(ErrorMsg_DriveLimitFlags_Value);
 		
 		/*Info 1*/
+		Info1_Label.setBounds(INFO1_X, INFO1_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Label);
+		
 		Info1_Speed.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Speed);
 		Info1_Speed_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
@@ -510,6 +520,16 @@ public class Tabchar extends JPanel implements TabPane {
 		add(Info1_Power);
 		Info1_Power_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Power_Value);
+		
+		Info1_PanelPow.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PanelPow);
+		Info1_PanelPow_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PanelPow_Value);
+		
+		Info1_Consumption.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Consumption);
+		Info1_Consumption_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_Consumption_Value);
 		
 
 		
@@ -576,9 +596,22 @@ public class Tabchar extends JPanel implements TabPane {
 		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 		
 		/*Info 1*/
-		Info1_Speed_Value.setText(String.format("%.2f", dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60) + " Km/h");
-		Info1_Setpoint_Value.setText(String.format("%.2f", (dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) * ((2*Math.PI*0.50) * 60 / 1000))) + " Km/h");
-		Info1_Power_Value.setText(String.format("%.2f", dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID)) + " Watts");
+		double speed = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60;
+		Info1_Speed_Value.setText(String.format("%.2f", speed) + " Km/h");
+		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) * (2*Math.PI*0.50) * 60 / 1000;
+		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " Km/h");
+		double power = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
+		Info1_Power_Value.setText(String.format("%.2f", power) + " Watts");
+		double panelPow = (dd.getRawValue(MPPT1_ID, MPPT_IOUT_ID) + dd.getRawValue(MPPT2_ID, MPPT_IOUT_ID) + dd.getRawValue(MPPT3_ID, MPPT_IOUT_ID)) * dd.getRawValue(MPPT1_ID, MPPT_VOUT_ID);
+		Info1_PanelPow_Value.setText(String.format("%.2f", panelPow) + " Watts");
+		double consumption = panelPow - power;
+		if (consumption >= 0) {
+			Info1_Consumption_Value.setForeground(Color.green);
+		}
+		else {
+			Info1_Consumption_Value.setForeground(Color.red);
+		}
+		Info1_Consumption_Value.setText(String.format("%.2f", consumption) + " Watts");
 		
 		
 	}
