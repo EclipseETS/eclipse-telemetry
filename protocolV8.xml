@@ -1297,7 +1297,7 @@
 				<minvalue>-2147483648</minvalue>
 				<maxvalue>2147483648</maxvalue>
 				<resolution>1</resolution>
-				<factor>10</factor>
+				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
