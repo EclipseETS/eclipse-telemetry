@@ -4,13 +4,21 @@ package eclipse.view.gui;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.text.SimpleDateFormat;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+
+
+
 
 
 import eclipse.controller.util.TelemetrySettings;
@@ -27,7 +35,7 @@ import eclipse.view.gui.tab.TelemetryGraph;
  * @author MArco
  *
  */
-public class DeviceTable extends JPanel  {
+public class DeviceTable extends JPanel implements ItemListener  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
 	private JScrollPane scrollPane;
@@ -35,18 +43,19 @@ public class DeviceTable extends JPanel  {
 	private JButton btnGraph;
 	private JButton btnIndex;
 	private DataManager dataManager = DataManager.getInstance();
+	JPanel[] checkBoxPanel = new JPanel[2];		
+	JCheckBox[] deviceCheckBox = new JCheckBox[10];
 
 	/**
 	 * Creates the panel
 	 */
-	public DeviceTable() {
-		
+	public DeviceTable() {		
 		
 		int nmItem = dataManager.getCpt();
 		
 		// Builds a layout without borders between elements
 		this.setLayout(new BorderLayout());		
-		DefaultTableModel model = new DefaultTableModel(nmItem, 5)
+		DefaultTableModel model = new DefaultTableModel(0, 5)
 		  {
 			private static final long serialVersionUID = 5555926687022393905L;
 			public boolean isCellEditable(int row, int column)
@@ -58,6 +67,39 @@ public class DeviceTable extends JPanel  {
 		btnGraph = new JButton("Graph this data");
 		btnIndex = new JButton("Keep this value");
 		
+		JPanel upControlPanel = new JPanel();
+		upControlPanel.setLayout(new BoxLayout(upControlPanel, BoxLayout.Y_AXIS));
+		
+		checkBoxPanel[0] = new JPanel();
+		checkBoxPanel[1] = new JPanel();
+		
+		deviceCheckBox[0] = new JCheckBox("Driver Ctrl");
+		deviceCheckBox[1] = new JCheckBox("Drive");
+		deviceCheckBox[2] = new JCheckBox("BMS");
+		deviceCheckBox[3] = new JCheckBox("Flashers");
+		deviceCheckBox[4] = new JCheckBox("Volant");
+		deviceCheckBox[5] = new JCheckBox("Instru");
+		deviceCheckBox[6] = new JCheckBox("PSU");
+		deviceCheckBox[7] = new JCheckBox("MPPT1");
+		deviceCheckBox[8] = new JCheckBox("MPPT2");
+		deviceCheckBox[9] = new JCheckBox("MPPT3");
+		
+		int i = 0;
+		
+		for (; i<10 ; i++) {			
+			deviceCheckBox[i].setSelected(true);
+			deviceCheckBox[i].addItemListener(this);
+		}
+		for (i = 0 ; i<5 ; i++) {
+			checkBoxPanel[0].add(deviceCheckBox[i]);
+		}
+		for (; i<10 ; i++) {
+			checkBoxPanel[1].add(deviceCheckBox[i]);
+		}
+		
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.add(btnGraph, BorderLayout.WEST);
+		buttonPanel.add(btnIndex, BorderLayout.EAST);
 		
 		//Action Listner on the button, to use in case we want to add items to important list 
 		btnIndex.addActionListener(new ActionListener() {
@@ -121,42 +163,77 @@ public class DeviceTable extends JPanel  {
 		// Creates a scroll pane as a container for the table
 		scrollPane = new JScrollPane(dataTable);
 		this.add(scrollPane);
-		this.add(btnGraph, BorderLayout.NORTH);
-		this.add(btnIndex, BorderLayout.SOUTH);
 		
-		//Fill table
-		int i=0;
-		String lbl1;
-		String lbl2;
+		upControlPanel.add(buttonPanel);
+		upControlPanel.add(checkBoxPanel[0]);
+		upControlPanel.add(checkBoxPanel[1]);		
 		
+		this.add(upControlPanel, BorderLayout.NORTH);
 		
-		//Create static information (name, unit, etc)s
-		for(Device dev : DataManager.getInstance().getDevices()){
-			lbl1=dev.getDeviceId()+"-"+dev.getDeviceName();
-			for(DeviceItem item : dev.getItems()){
-				lbl2=item.getItemId()+"-"+item.getName();				
-				dataTable.getModel().setValueAt(lbl1, i, 0);
-				dataTable.getModel().setValueAt(lbl2, i, 1);
-				dataTable.getModel().setValueAt(item.getUnit(), i, 3);
-				i++;
-			}
-		}
+		fillTable();
+
+	}
+	
+	public void itemStateChanged(ItemEvent ev) {
+		emptyTable();
+		fillTable();
+		updateTable();
 	}
 	
 	/**
 	 * This method is called every second by the DesktopManager to add one line to the table
 	 */
 	public void updateTable() {
+		
 		int i=0;
-		for(Device dev : DataManager.getInstance().getDevices())
-			for(DeviceItem item : dev.getItems()){
-				String S = new SimpleDateFormat("hh:mm:ss:SS").format(item.getLastSeen());
-				dataTable.getModel().setValueAt(item.getLastData(), i, 2);
-				dataTable.getModel().setValueAt(S, i, 4);
-				i++;
+		int j=0;
+		for(Device dev : DataManager.getInstance().getDevices()) {
+			if (deviceCheckBox[j].isSelected()) {
+				for(DeviceItem item : dev.getItems()){
+					String S = new SimpleDateFormat("hh:mm:ss:SS").format(item.getLastSeen());
+					dataTable.getModel().setValueAt(item.getLastData(), i, 2);
+					dataTable.getModel().setValueAt(S, i, 4);
+					i++;
+				}
 			}
+			j++;
+		}
+	}
+	
+	public void fillTable() {
+		
+		//Fill table
+		int i=0;
+		int j=0;
+		int k=0;
+		String lbl1;
+		String lbl2;
 		
 		
+		//Create static information (name, unit, etc)s
+		for(Device dev : DataManager.getInstance().getDevices()) {
+			if (deviceCheckBox[j].isSelected()) {				
+				lbl1=dev.getDeviceId()+"-"+dev.getDeviceName();
+				for(DeviceItem item : dev.getItems()){
+					((DefaultTableModel)dataTable.getModel()).addRow(new Object[]{"", "", "", "", ""});
+					lbl2=item.getItemId()+"-"+item.getName();				
+					dataTable.getModel().setValueAt(lbl1, i, 0);
+					dataTable.getModel().setValueAt(lbl2, i, 1);
+					dataTable.getModel().setValueAt(item.getUnit(), i, 3);
+					i++;					
+				}
+			}
+			j++;
+		}
+		
+	}
+	
+	public void emptyTable() {
+	
+		int rowCount = ((DefaultTableModel)dataTable.getModel()).getRowCount();
+		for(int i=0; i<rowCount; i++) {
+			((DefaultTableModel)dataTable.getModel()).removeRow(0);
+		}
 	}
 	
 	

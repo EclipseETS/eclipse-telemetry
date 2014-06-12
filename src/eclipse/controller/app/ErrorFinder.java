@@ -49,6 +49,7 @@ public class ErrorFinder implements Runnable{
 					for(DeviceItem itm : dev.getItems()){
 						if(itm.getError()){
 								DesktopManager.getIstance().getErrorPanel().addItem(itm, dev);
+								//TODO log error
 						}
 //						else{
 //							DesktopManager.getIstance().getErrorPanel().remItem(itm, dev);
@@ -66,6 +67,7 @@ public class ErrorFinder implements Runnable{
 					i=dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastData();
 					if(i<oldValues[cpt]||dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]).getLastSeen()+10000<System.currentTimeMillis())
 						DesktopManager.getIstance().getErrorPanel().addItem(dd.getDeviceByID(tmp[0]).getItemByID(tmp[1]), dd.getDeviceByID(tmp[0]));
+					//TODO error
 					oldValues[cpt]=(int) i;
 					cpt++;
 				}
