@@ -15,23 +15,23 @@ import org.apache.log4j.spi.ErrorCode;
 * @author veera | http://veerasundar.com
 *
 */
-public class NewLogForEachRunFileAppender extends FileAppender {
+public class AppenderDeviceErrors extends FileAppender {
 
-public NewLogForEachRunFileAppender() {
+public AppenderDeviceErrors() {
 }
 
-public NewLogForEachRunFileAppender(Layout layout, String filename,
+public AppenderDeviceErrors(Layout layout, String filename,
         boolean append, boolean bufferedIO, int bufferSize)
         throws IOException {
     super(layout, filename, append, bufferedIO, bufferSize);
 }
 
-public NewLogForEachRunFileAppender(Layout layout, String filename,
+public AppenderDeviceErrors(Layout layout, String filename,
         boolean append) throws IOException {
     super(layout, filename, append);
 }
 
-public NewLogForEachRunFileAppender(Layout layout, String filename)
+public AppenderDeviceErrors(Layout layout, String filename)
         throws IOException {
     super(layout, filename);
 }
@@ -42,7 +42,7 @@ if (fileName != null) {
     	Date dNow = new Date( );
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd_hh_mm_ss");
 
-    	fileName = "log/Telemetry_"+ft.format(dNow)+".txt";
+    	fileName = "log/DeviceErrors_"+ft.format(dNow)+".txt";
         setFile(fileName, fileAppend, bufferedIO, bufferSize);
     } catch (Exception e) {
         errorHandler.error("Error while activating log options", e,

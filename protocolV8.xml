@@ -38,7 +38,7 @@
 				<unit>%</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>1</maxvalue>
+				<maxvalue>100</maxvalue>
 				<resolution>1</resolution>
 				<factor>0.01</factor>
 				<offset>0</offset>
