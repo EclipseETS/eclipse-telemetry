@@ -573,15 +573,15 @@ public class Tabchar extends JPanel implements TabPane {
 		/*Instru*/
 		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
 		Instru_Lon_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LON_ID));
-//		String heure = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID));
-//		String date = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_DATE_ID));
-//		int delay = Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
-//		if(Double.parseDouble(date)>9999){
-//			Instru_Time_Value.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
-//			Instru_Date_Value.setText(date.substring(0, 2)+":"+date.substring(2,4)+":"+date.substring(4,6));			
-//		}
-		Instru_Time_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_TIME_ID));
-		Instru_Date_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_DATE_ID));
+		String heure = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID));
+		String date = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_DATE_ID));
+		int delay = Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
+		if(Double.parseDouble(date)>9999){
+			Instru_Time_Value.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
+			Instru_Date_Value.setText(date.substring(0, 2)+"/"+date.substring(2,4)+"/"+date.substring(4,6));			
+		}
+//		Instru_Time_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_TIME_ID));
+//		Instru_Date_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_DATE_ID));
 		
 		/*BMS*/
 		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));

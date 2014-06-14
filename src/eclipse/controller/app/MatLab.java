@@ -20,6 +20,28 @@ import eclipse.model.data.DataManager;
  *
  */
 public class MatLab implements Runnable{
+	
+	private static final int DRIVE_ID = 2;
+	private static final int BMS_ID = 3;
+	private static final int INSTRU_ID = 6;
+	private static final int MPPT1_ID = 8;
+	private static final int MPPT2_ID = 9;
+	private static final int MPPT3_ID = 10;
+	
+	private static final int DRIVE_VOLTAGE_ID = 7;
+	private static final int DRIVE_CURRENT_ID = 8;
+	private static final int DRIVE_RPM_ID = 10;
+	
+	private static final int BMS_CAPACITY_ID = 50;
+	private static final int BMS_PACKA_ID = 72;
+	private static final int BMS_PACKV_ID = 73;
+	
+	private static final int INSTRU_LAT_ID = 2;
+	private static final int INSTRU_LON_ID = 3;
+	private static final int INSTRU_TIME_ID = 4;
+	
+	private static final int MPPT_VOUT_ID = 2;
+	private static final int MPPT_IOUT_ID = 3;
 
 	private String sep = ",";
 	
@@ -44,33 +66,22 @@ public class MatLab implements Runnable{
 			    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
 			    	out = new BufferedWriter(fstream);
 						 out.write(
-			    			dd.getDeviceByID(6).getItemByID(4).getLastData()+sep+//HEURE
-			    			dd.getDeviceByID(6).getItemByID(2).getLastData()+sep+//LAT
-			 				dd.getDeviceByID(6).getItemByID(3).getLastData()+sep+//LON
-			 				dd.getDeviceByID(8).getItemByID(2).getLastData()+sep+//MPPT_1_V
-			 				dd.getDeviceByID(8).getItemByID(3).getLastData()+sep+//MPPT_1_C
-			 				dd.getDeviceByID(9).getItemByID(2).getLastData()+sep+//MPPT_2_V
-			 				dd.getDeviceByID(9).getItemByID(3).getLastData()+sep+//MPPT_2_C
-			 				dd.getDeviceByID(10).getItemByID(2).getLastData()+sep+//MPPT_3_V
-			 				dd.getDeviceByID(10).getItemByID(3).getLastData()+sep+//MPPT_3_C
-			 				dd.getDeviceByID(12).getItemByID(9).getLastData()+sep+//FR_RPM
-			 				dd.getDeviceByID(12).getItemByID(8).getLastData()+sep+//FR_C
-			 				dd.getDeviceByID(12).getItemByID(7).getLastData()+sep+//FR_T
-			 				dd.getDeviceByID(12).getItemByID(22).getLastData()+sep+//FR_AH
-			 				dd.getDeviceByID(13).getItemByID(9).getLastData()+sep+//FL_RPM
-			 				dd.getDeviceByID(13).getItemByID(8).getLastData()+sep+//FL_C
-			 				dd.getDeviceByID(13).getItemByID(7).getLastData()+sep+//FL_T
-			 				dd.getDeviceByID(13).getItemByID(22).getLastData()+sep+//FL_AH
-			 				dd.getDeviceByID(14).getItemByID(9).getLastData()+sep+//RR_RPM
-			 				dd.getDeviceByID(14).getItemByID(8).getLastData()+sep+//RR_C
-			 				dd.getDeviceByID(14).getItemByID(7).getLastData()+sep+//RR_T
-			 				dd.getDeviceByID(14).getItemByID(22).getLastData()+sep+//RR_AH
-			 				dd.getDeviceByID(15).getItemByID(9).getLastData()+sep+//RL_RPM
-			 				dd.getDeviceByID(15).getItemByID(8).getLastData()+sep+//RL_C
-			 				dd.getDeviceByID(15).getItemByID(7).getLastData()+sep+//RL_AT
-			 				dd.getDeviceByID(15).getItemByID(22).getLastData()+sep+//RL_AH
-			    			dd.getDeviceByID(7).getItemByID(44).getLastData()+sep+//COURANT
-			    			dd.getDeviceByID(7).getItemByID(48).getLastData()+sep//TENSION
+			    			dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID)+sep+//HEURE
+			    			dd.getRawValue(INSTRU_ID, INSTRU_LAT_ID)+sep+//LAT
+			 				dd.getRawValue(INSTRU_ID, INSTRU_LON_ID)+sep+//LON
+			 				dd.getRawValue(MPPT1_ID, MPPT_VOUT_ID)+sep+//MPPT_1_V
+			 				dd.getRawValue(MPPT1_ID, MPPT_IOUT_ID)+sep+//MPPT_1_C
+			 				dd.getRawValue(MPPT2_ID, MPPT_VOUT_ID)+sep+//MPPT_2_V
+			 				dd.getRawValue(MPPT2_ID, MPPT_IOUT_ID)+sep+//MPPT_2_C
+			 				dd.getRawValue(MPPT3_ID, MPPT_VOUT_ID)+sep+//MPPT_3_V
+			 				dd.getRawValue(MPPT3_ID, MPPT_IOUT_ID)+sep+//MPPT_3_C
+			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//FR_RPM
+			 				dd.getRawValue(DRIVE_ID, DRIVE_CURRENT_ID)+sep+//FR_C
+			 				dd.getRawValue(DRIVE_ID, DRIVE_VOLTAGE_ID)+sep+//FR_T
+			 				dd.getRawValue(BMS_ID, BMS_CAPACITY_ID)+sep+//BMS_AH
+			    			dd.getRawValue(BMS_ID, BMS_PACKA_ID)+sep+//BMS_COURANT
+			    			dd.getRawValue(BMS_ID, BMS_PACKV_ID)+//BMS_TENSION
+			    			"\r\n"
 			 				);
 						 out.close();
 						 fstream.close();
