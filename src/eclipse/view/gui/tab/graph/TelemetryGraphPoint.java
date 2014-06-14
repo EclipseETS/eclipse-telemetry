@@ -163,8 +163,8 @@ public class TelemetryGraphPoint extends JPanel implements Observer, TabPane {
 		List<Data> speed = item.getAllData();
 		List<Data> voltage = null;
 		List<Data> current = null;
-		voltage =DataManager.getInstance().getDeviceByID(7).getItemByID(44).getAllData();	
-	    current =DataManager.getInstance().getDeviceByID(7).getItemByID(48).getAllData();
+		voltage =DataManager.getInstance().getDeviceByID(3).getItemByID(73).getAllData();	
+	    current =DataManager.getInstance().getDeviceByID(3).getItemByID(72).getAllData();
 		seriesmarco = new double[2][speed.size()];
 		for(int i=0;i<seriesmarco[0].length;i++){
 			if(i<voltage.size()&&i<current.size())
