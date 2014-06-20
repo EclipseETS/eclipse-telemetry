@@ -80,8 +80,8 @@ public class TabBMS extends JPanel implements TabPane {
 	/*BMU*/
 	private static final int BMU_X = 460;
 	private static final int BMU_X_2 = 635;
-	private static final int BMU_X_VALUE = 535;
-	private static final int BMU_X_2_VALUE = 715;
+	private static final int BMU_X_VALUE = 540;
+	private static final int BMU_X_2_VALUE = 705;
 	private static final int BMU_Y = 500;
 	private static final int BMU_MAXCELLV_ID = 64;
 	private static final int BMU_MINCELLV_ID = 65;
@@ -404,15 +404,15 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_MinCellV_Value.setBounds(BMU_X_VALUE, BMU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_MinCellV_Value);
 		
-		BMU_SOCAh.setBounds(BMU_X, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_SOCAh);
-		BMU_SOCAh_Value.setBounds(BMU_X_VALUE, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_SOCAh_Value);
+		BMU_Vpack.setBounds(BMU_X, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Vpack);
+		BMU_Vpack_Value.setBounds(BMU_X_VALUE, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Vpack_Value);
 		
-		BMU_SOCPc.setBounds(BMU_X, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_SOCPc);
-		BMU_SOCPc_Value.setBounds(BMU_X_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_SOCPc_Value);
+		BMU_Ipack.setBounds(BMU_X, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Ipack);
+		BMU_Ipack_Value.setBounds(BMU_X_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_Ipack_Value);
 		
 		BMU_Status.setBounds(BMU_X, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_Status);
@@ -429,15 +429,15 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_MaxPCBT_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_MaxPCBT_Value);
 		
-		BMU_Vpack.setBounds(BMU_X_2, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_Vpack);
-		BMU_Vpack_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_Vpack_Value);
+		BMU_SOCAh.setBounds(BMU_X_2, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_SOCAh);
+		BMU_SOCAh_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_SOCAh_Value);
 		
-		BMU_Ipack.setBounds(BMU_X_2, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_Ipack);
-		BMU_Ipack_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_Ipack_Value);
+		BMU_SOCPc.setBounds(BMU_X_2, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_SOCPc);
+		BMU_SOCPc_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMU_SOCPc_Value);
 		
 		BMU_ExtStatus.setBounds(BMU_X_2, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_ExtStatus);

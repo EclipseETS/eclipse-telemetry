@@ -4,8 +4,10 @@
 log4j.logger.main=INFO, file
 # telemetry
 #log4j.logger.telemetry=ALL, file
-# device_errors
+# device errors
 log4j.logger.devices=INFO, file2
+# calculated values
+log4j.logger.calculated_values=INFO, file3
 
 # Appender console
 log4j.appender.console=org.apache.log4j.ConsoleAppender
@@ -29,6 +31,14 @@ log4j.appender.file2.File=log/Errors
 log4j.appender.file2.Append=true
 log4j.appender.file2.layout=org.apache.log4j.PatternLayout
 log4j.appender.file2.layout.ConversionPattern=%d{ISO8601} [%5p] %m%n
+
+# Appender file3
+log4j.appender.file3=eclipse.controller.util.AppenderCalculatedValues
+log4j.appender.file3.Threshold=trace
+log4j.appender.file3.File=log/CalculatedValues
+log4j.appender.file3.Append=true
+log4j.appender.file3.layout=org.apache.log4j.PatternLayout
+log4j.appender.file3.layout.ConversionPattern=%d{ISO8601} [%5p] %m%n
 
 
 #      NIVEAU UTILISÉ = ERROR, INFO, DEBUG

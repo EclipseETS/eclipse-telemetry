@@ -93,8 +93,8 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int BMS_ID = 3;
 	private static final int BMS_X = 325;
 	private static final int BMS_X_2 = 500;
-	private static final int BMS_X_VALUE = 400;
-	private static final int BMS_X_2_VALUE = 580;
+	private static final int BMS_X_VALUE = 405;
+	private static final int BMS_X_2_VALUE = 570;
 	private static final int BMS_Y = 50;
 	private static final int BMS_MAXCELLV_ID = 64;
 	private static final int BMS_MINCELLV_ID = 65;
@@ -443,15 +443,15 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_MinCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_MinCellV_Value);
 		
-		BMS_SOCAh.setBounds(BMS_X, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCAh);
-		BMS_SOCAh_Value.setBounds(BMS_X_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCAh_Value);
+		BMS_Vpack.setBounds(BMS_X, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Vpack);
+		BMS_Vpack_Value.setBounds(BMS_X_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Vpack_Value);
 		
-		BMS_SOCPc.setBounds(BMS_X, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCPc);
-		BMS_SOCPc_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCPc_Value);
+		BMS_Ipack.setBounds(BMS_X, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Ipack);
+		BMS_Ipack_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_Ipack_Value);
 		
 		BMS_Status.setBounds(BMS_X, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_Status);
@@ -468,15 +468,15 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_MaxPCBT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_MaxPCBT_Value);
 		
-		BMS_Vpack.setBounds(BMS_X_2, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Vpack);
-		BMS_Vpack_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Vpack_Value);
+		BMS_SOCAh.setBounds(BMS_X_2, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCAh);
+		BMS_SOCAh_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCAh_Value);
 		
-		BMS_Ipack.setBounds(BMS_X_2, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Ipack);
-		BMS_Ipack_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Ipack_Value);
+		BMS_SOCPc.setBounds(BMS_X_2, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCPc);
+		BMS_SOCPc_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(BMS_SOCPc_Value);
 		
 		BMS_ExtStatus.setBounds(BMS_X_2, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_ExtStatus);
@@ -579,6 +579,10 @@ public class Tabchar extends JPanel implements TabPane {
 		if(Double.parseDouble(date)>9999){
 			Instru_Time_Value.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
 			Instru_Date_Value.setText(date.substring(0, 2)+"/"+date.substring(2,4)+"/"+date.substring(4,6));			
+		}
+		else {
+			Instru_Time_Value.setText("0");
+			Instru_Date_Value.setText("0");
 		}
 //		Instru_Time_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_TIME_ID));
 //		Instru_Date_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_DATE_ID));
@@ -725,7 +729,7 @@ public class Tabchar extends JPanel implements TabPane {
 		}
 		
 		if (errorMsg != "") {			
-			errorMsg = errorMsg.substring(0, errorMsg.length()-1);
+			errorMsg = errorMsg.substring(0, errorMsg.length()-2);
 		}
 		
 		return errorMsg;	
@@ -786,7 +790,7 @@ public class Tabchar extends JPanel implements TabPane {
 		}
 		
 		if (errorMsg != "") {			
-			errorMsg = errorMsg.substring(0, errorMsg.length()-1);
+			errorMsg = errorMsg.substring(0, errorMsg.length()-2);
 		}
 		
 		return errorMsg;		
