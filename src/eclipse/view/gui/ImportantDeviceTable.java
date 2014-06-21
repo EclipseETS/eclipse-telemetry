@@ -19,6 +19,10 @@ import javax.swing.table.DefaultTableModel;
 
 
 
+
+
+
+
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
@@ -42,6 +46,8 @@ public class ImportantDeviceTable extends JPanel  {
 	protected JTable dataTable;
 	protected DefaultTableModel model;
 	protected List<DeviceItem> items;
+	private static final String SETTINGS_FILE = "telemetrySettings.properties";
+	private DataManager dataManager = DataManager.getInstance();
 
 	/**
 	 * Creates the panel
@@ -89,6 +95,18 @@ public class ImportantDeviceTable extends JPanel  {
 						
 						//REsize important table
 						DesktopManager.getIstance().resizedMe();
+						
+						// Remove device.item from setting file
+						TelemetrySettings.getInstance().load(SETTINGS_FILE);
+						String importantValuesRaw = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_VALUES");
+						if (importantValuesRaw.contains("," + deviceId + "." + deviceItemId)) {
+							importantValuesRaw = importantValuesRaw.replace("," + deviceId + "." + deviceItemId, "");
+						}
+						else if (importantValuesRaw.contains(deviceId + "." + deviceItemId)) {
+							importantValuesRaw = importantValuesRaw.replace(deviceId + "." + deviceItemId, "");
+						}
+						
+						TelemetrySettings.getInstance().setSetting("GUI_IMPORTANT_VALUES", importantValuesRaw);
 			         }
 			         }
 			      else if(e.getClickCount() == 2) {
@@ -126,7 +144,7 @@ public class ImportantDeviceTable extends JPanel  {
 
 		JScrollPane scrollPane = new JScrollPane(dataTable);
 		this.add(scrollPane);
-		
+	
 	}
 	
 	/**

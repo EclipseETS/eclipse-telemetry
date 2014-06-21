@@ -21,6 +21,10 @@ import javax.swing.table.DefaultTableModel;
 
 
 
+
+
+
+
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
@@ -38,6 +42,7 @@ import eclipse.view.gui.tab.TelemetryGraph;
 public class DeviceTable extends JPanel implements ItemListener  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
+	private static final String SETTINGS_FILE = "telemetrySettings.properties";
 	private JScrollPane scrollPane;
 	private JTable dataTable;
 	private JButton btnGraph;
@@ -45,6 +50,8 @@ public class DeviceTable extends JPanel implements ItemListener  {
 	private DataManager dataManager = DataManager.getInstance();
 	JPanel[] checkBoxPanel = new JPanel[2];		
 	JCheckBox[] deviceCheckBox = new JCheckBox[10];
+	
+	Device dev;
 
 	/**
 	 * Creates the panel
@@ -117,6 +124,14 @@ public class DeviceTable extends JPanel implements ItemListener  {
 				DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
 
 				DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
+				
+				String importantValuesRaw = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_VALUES");
+				if (importantValuesRaw.contains(".")) {
+					importantValuesRaw = importantValuesRaw + ",";
+				}
+				importantValuesRaw = importantValuesRaw + deviceId + "." + deviceItemId;
+			
+				TelemetrySettings.getInstance().setSetting("GUI_IMPORTANT_VALUES", importantValuesRaw);
 				//DesktopManager.getIstance().getErrorPanel().addItem(item, dev);
 				}
 			}
@@ -171,7 +186,7 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		this.add(upControlPanel, BorderLayout.NORTH);
 		
 		fillTable();
-
+		
 	}
 	
 	public void itemStateChanged(ItemEvent ev) {

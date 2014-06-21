@@ -1928,8 +1928,8 @@
 	
 	
 	<!-- MPPT2 -->	
-	<device id="9" name="MPPT2">
-	    <trame identifier="901" type="2">
+	<device id="12" name="MPPT2">
+	    <trame identifier="1201" type="2">
 			<deviceitem id="0" name="Status">
 				<unit></unit>
 				<bitsize>16</bitsize>
@@ -1942,7 +1942,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-	    <trame identifier="902" type="2">
+	    <trame identifier="1202" type="2">
 			<deviceitem id="1" name="V IN">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
@@ -1955,7 +1955,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-	    <trame identifier="903" type="2">
+	    <trame identifier="1203" type="2">
 			<deviceitem id="2" name="V OUT">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
@@ -1968,7 +1968,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="904" type="2">
+		<trame identifier="1204" type="2">
 			<deviceitem id="3" name="I OUT">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
@@ -1981,7 +1981,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="905" type="2">
+		<trame identifier="1205" type="2">
 			<deviceitem id="4" name="Temp">
 				<unit>°C</unit>
 				<bitsize>16</bitsize>
@@ -1994,7 +1994,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="906" type="2">
+		<trame identifier="1206" type="2">
 			<deviceitem id="5" name="I OUT limit">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
@@ -2007,7 +2007,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="907" type="2">
+		<trame identifier="1207" type="2">
 			<deviceitem id="6" name="I OUT limit term">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
@@ -2020,7 +2020,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="908" type="2">
+		<trame identifier="1208" type="2">
 			<deviceitem id="7" name="I OUT limit can">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
@@ -2033,7 +2033,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="909" type="2">
+		<trame identifier="1209" type="2">
 			<deviceitem id="8" name="PWM">
 				<unit>A</unit>
 				<bitsize>16</bitsize>

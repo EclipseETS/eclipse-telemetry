@@ -33,9 +33,13 @@ import org.apache.log4j.Logger;
 
 
 
+
+
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
+import eclipse.model.data.Device;
+import eclipse.model.data.DeviceItem;
 import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
 import eclipse.view.gui.tab.TabBMS;
@@ -65,6 +69,8 @@ public class DesktopManager implements Runnable {
 	static Logger logger = Logger.getLogger("main");
 	JMenuItem mnStart;
 	JMenuItem mnStop;
+	private static final String SETTINGS_FILE = "telemetrySettings.properties";
+	private DataManager dataManager = DataManager.getInstance();
 
 	static public DesktopManager getIstance(){
 		return desinstance;
@@ -125,6 +131,32 @@ public class DesktopManager implements Runnable {
 		defineMenus();
 		
 		defineLayout();
+		
+		// File important list		
+		TelemetrySettings.getInstance().load(SETTINGS_FILE);
+		
+//		String deviceId = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_DEVICE_ID");
+//		String deviceItemId = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_ITEM_ID");
+		
+		String importantValuesRaw = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_VALUES");
+		
+		if (importantValuesRaw.contains(",")) {
+			String[] importantValues = importantValuesRaw.split(",");
+	
+			for(String pairValueRaw : importantValues) {
+				String[] pairValue = pairValueRaw.split("\\.");
+				Device dev = dataManager.getDeviceByID(Integer.valueOf(pairValue[0]));
+				DeviceItem item = dev.getItemByID(Integer.valueOf(pairValue[1]));
+				DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
+			}
+		}
+		else if (importantValuesRaw.contains(".")) {
+			String pairValueRaw = importantValuesRaw;
+			String[] pairValue = pairValueRaw.split("\\.");
+			Device dev = dataManager.getDeviceByID(Integer.valueOf(pairValue[0]));
+			DeviceItem item = dev.getItemByID(Integer.valueOf(pairValue[1]));
+			DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
+		}
 		
 		//Used to automatically resize the windows
 		frmclipseViii.addComponentListener(new ComponentAdapter() {

@@ -48,7 +48,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int MPPT1_Y = 400;
 
 	/*MPPT2*/
-	private static final int MPPT2_ID = 9;
+	private static final int MPPT2_ID = 12;
 	private static final int MPPT2_X = 250;
 	private static final int MPPT2_X_VALUE = 300;
 	private static final int MPPT2_Y = 400;

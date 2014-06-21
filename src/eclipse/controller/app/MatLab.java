@@ -25,7 +25,7 @@ public class MatLab implements Runnable{
 	private static final int BMS_ID = 3;
 	private static final int INSTRU_ID = 6;
 	private static final int MPPT1_ID = 8;
-	private static final int MPPT2_ID = 9;
+	private static final int MPPT2_ID = 12;
 	private static final int MPPT3_ID = 10;
 	
 	private static final int DRIVE_VOLTAGE_ID = 7;
