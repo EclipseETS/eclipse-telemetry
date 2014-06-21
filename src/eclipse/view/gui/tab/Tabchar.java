@@ -5,6 +5,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.apache.log4j.Logger;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -110,7 +112,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int MSG_LABEL_WIDTH = 900;
 	private static final int ERRORMSG_X = 50;
 	private static final int ERRORMSG_X_VALUE = 130;
-	private static final int ERRORMSG_Y = 575;
+	private static final int ERRORMSG_Y = 540;
 	
 	/*Info 1*/
 	private static final int INFO1_X = 1050;
@@ -262,8 +264,9 @@ public class Tabchar extends JPanel implements TabPane {
 	/*Info 1*/
 	JLabel Info1_Label = new JLabel("[Info]");
 	
-	JLabel Info1_Speed = new JLabel("Speed : ");
-	JLabel Info1_Speed_Value = new JLabel("");
+	JLabel Info1_SpeedKMH = new JLabel("Speed : ");
+	JLabel Info1_SpeedKMH_Value = new JLabel("");
+	JLabel Info1_SpeedMPH_Value = new JLabel("");
 	
 	JLabel Info1_Setpoint = new JLabel("Setpoint : ");
 	JLabel Info1_Setpoint_Value = new JLabel("");
@@ -506,29 +509,31 @@ public class Tabchar extends JPanel implements TabPane {
 		Info1_Label.setBounds(INFO1_X, INFO1_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Label);
 		
-		Info1_Speed.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Speed);
-		Info1_Speed_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Speed_Value);
+		Info1_SpeedKMH.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_SpeedKMH);
+		Info1_SpeedKMH_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_SpeedKMH_Value);
+		Info1_SpeedMPH_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_SpeedMPH_Value);
 		
-		Info1_Setpoint.setBounds(INFO1_X, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_Setpoint.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Setpoint);
-		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Setpoint_Value);
 		
-		Info1_Power.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_Power.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Power);
-		Info1_Power_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_Power_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Power_Value);
 		
-		Info1_PanelPow.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PanelPow.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PanelPow);
-		Info1_PanelPow_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PanelPow_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PanelPow_Value);
 		
-		Info1_Consumption.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_Consumption.setBounds(INFO1_X, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Consumption);
-		Info1_Consumption_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_Consumption_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Consumption_Value);
 		
 
@@ -607,8 +612,10 @@ public class Tabchar extends JPanel implements TabPane {
 		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 		
 		/*Info 1*/
-		double speed = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60;
-		Info1_Speed_Value.setText(String.format("%.2f", speed) + " Km/h");
+		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60;
+		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " Km/h");
+		double speedMph = speedKmh * 0.621371;
+		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " MPH");
 		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) * (2*Math.PI*0.50) * 60 / 1000;
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " Km/h");
 		double power = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
@@ -624,7 +631,12 @@ public class Tabchar extends JPanel implements TabPane {
 		}
 		Info1_Consumption_Value.setText(String.format("%.2f", consumption) + " Watts");
 		
-		
+		/*Log info 1 values*/
+		Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " Km/h" + ", " + String.format("%.2f", speedMph) + " MPH");
+		Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " Km/h");
+		Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", power) + " Watts");
+		Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", panelPow) + " Watts");
+		Logger.getLogger("calculated_values").info("Consumption : " + String.format("%.2f", consumption) + " Watts");		
 	}
 	
 	public void paintComponent(Graphics g) {

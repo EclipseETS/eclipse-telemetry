@@ -32,7 +32,7 @@ public class MatLab implements Runnable{
 	private static final int DRIVE_CURRENT_ID = 8;
 	private static final int DRIVE_RPM_ID = 10;
 	
-	private static final int BMS_CAPACITY_ID = 50;
+	private static final int BMS_AH_ID = 47;
 	private static final int BMS_PACKA_ID = 72;
 	private static final int BMS_PACKV_ID = 73;
 	
@@ -75,10 +75,10 @@ public class MatLab implements Runnable{
 			 				dd.getRawValue(MPPT2_ID, MPPT_IOUT_ID)+sep+//MPPT_2_C
 			 				dd.getRawValue(MPPT3_ID, MPPT_VOUT_ID)+sep+//MPPT_3_V
 			 				dd.getRawValue(MPPT3_ID, MPPT_IOUT_ID)+sep+//MPPT_3_C
-			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//FR_RPM
-			 				dd.getRawValue(DRIVE_ID, DRIVE_CURRENT_ID)+sep+//FR_C
-			 				dd.getRawValue(DRIVE_ID, DRIVE_VOLTAGE_ID)+sep+//FR_T
-			 				dd.getRawValue(BMS_ID, BMS_CAPACITY_ID)+sep+//BMS_AH
+			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//DRIVE_RPM
+			 				dd.getRawValue(DRIVE_ID, DRIVE_CURRENT_ID)+sep+//DRIVE_C
+			 				dd.getRawValue(DRIVE_ID, DRIVE_VOLTAGE_ID)+sep+//DRIVE_T
+			 				dd.getRawValue(BMS_ID, BMS_AH_ID)+sep+//BMS_AH
 			    			dd.getRawValue(BMS_ID, BMS_PACKA_ID)+sep+//BMS_COURANT
 			    			dd.getRawValue(BMS_ID, BMS_PACKV_ID)+//BMS_TENSION
 			    			"\r\n"
