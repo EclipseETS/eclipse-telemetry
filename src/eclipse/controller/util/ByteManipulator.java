@@ -34,7 +34,7 @@ public class ByteManipulator {
 		if(isFloat)
 			return byteArrayToFloat(b, offset);
 		
-		int value = 0;
+		long value = 0;
 
 		if ((size > 4) || (size <= 0)) {
 			throw new Exception("Value out of range");
@@ -44,23 +44,22 @@ public class ByteManipulator {
 			throw new ArrayIndexOutOfBoundsException();
 		}
 
+		// extract value from array
 		for (int i = 0; i < size; i++) {
 			int shift = (size - 1 - i) * 8;
-			value += (b[i + offset] & 0x000000FF) << shift;
+			value += (Long.valueOf(b[i + offset]) & 0xFF) << shift;
 		}
 
 		if (isSigned == true) {
-			if ((b[offset] & 0x80) != 0) {
+			if ((b[offset] & 0x80) != 0) { // check if number is big enough to be negative
+				// do 2's complement
 				value -= 1;
-				if(size==1)
-					value=-256+value;
-				else if (size ==2)
-					value=-65536+value;
+				if (size == 1)
+					value = -255L + value;
+				else if (size == 2)
+					value = -65535L + value;
 				else
-					value = ~value;
-			}
-		} else {
-			if ((b[offset] & 0x80) != 0) {
+					value = -4294967295L + value;
 			}
 		}
 
