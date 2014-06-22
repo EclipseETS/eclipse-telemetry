@@ -66,8 +66,10 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int PSU_X = 1050;
 	private static final int PSU_X_VALUE = 1140;
 	private static final int PSU_Y = 400;
-	private static final int PSU_ICAN_ID = 2;
+	private static final int PSU_ACAN_ID = 2;
 	private static final int PSU_VCAN_ID = 3;
+	private static final int PSU_AHP_ID = 4;
+	private static final int PSU_VHP_ID = 5;
 	
 	/*Drive*/
 	private static final int DRIVE_ID = 2;
@@ -80,6 +82,8 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int DRIVE_HSTEMP_ID = 23;
 	private static final int DRIVE_MOTORTEMP_ID = 24;
 	private static final int DRIVE_DSPTEMP_ID = 26;
+	private static final int DRIVE_ABUS_ID = 7;
+	private static final int DRIVE_VBUS_ID = 8;
 	
 	/*Instru*/
 	private static final int INSTRU_ID = 6;
@@ -562,7 +566,7 @@ public class Tabchar extends JPanel implements TabPane {
 		MPPT3_Temp_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_TEMP_ID));
 		
 		/*PSU*/
-		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ICAN_ID));
+		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ACAN_ID));
 		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
 		
 		/*Drive*/
@@ -616,11 +620,13 @@ public class Tabchar extends JPanel implements TabPane {
 		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " Km/h");
 		double speedMph = speedKmh * 0.621371;
 		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " MPH");
-		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) * (2*Math.PI*0.50) * 60 / 1000;
+		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " Km/h");
 		double power = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
 		Info1_Power_Value.setText(String.format("%.2f", power) + " Watts");
-		double panelPow = (dd.getRawValue(MPPT1_ID, MPPT_IOUT_ID) + dd.getRawValue(MPPT2_ID, MPPT_IOUT_ID) + dd.getRawValue(MPPT3_ID, MPPT_IOUT_ID)) * dd.getRawValue(MPPT1_ID, MPPT_VOUT_ID);
+		double panelPow = 	((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
+							(dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 
+							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)));
 		Info1_PanelPow_Value.setText(String.format("%.2f", panelPow) + " Watts");
 		double consumption = panelPow - power;
 		if (consumption >= 0) {

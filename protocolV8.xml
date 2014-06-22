@@ -177,12 +177,12 @@
 		<!-- Velocity Measurement  -->
 		<trame identifier="203" type="0">
 			<deviceitem id="9" name="Vehicle_velocity">
-				<unit>m/s</unit>
+				<unit>km/h</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-2147483648</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.28</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>true</isFloat>
