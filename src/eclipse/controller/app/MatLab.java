@@ -2,6 +2,7 @@ package eclipse.controller.app;
 
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,9 +51,12 @@ public class MatLab implements Runnable{
 		FileWriter fstream;
 		BufferedWriter out;
 		Date dNow = new Date( );
-	    SimpleDateFormat ft = new SimpleDateFormat ("_yyyy_MM_dd_hh_mm_ss");
+	    SimpleDateFormat ft = new SimpleDateFormat ("yyyy_MM_dd_hh_mm_ss");
+	    
+		String dirName = "MathLab_" + ft.format(dNow);
+		File dir = new File("log/" + dirName);
+		dir.mkdir();
 
-		String filename = ft.format(dNow)+".txt";
 		//String filename = "MATLAB.txt";
 		try {
 //			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
@@ -63,7 +67,7 @@ public class MatLab implements Runnable{
 //		    fstream.close();
 		    while(true){
 		    	if(DataAcquisition.getInstance().getAcquiStatus()){
-			    	fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
+			    	fstream = new FileWriter(dir.getPath() + "/" + TelemetrySettings.getInstance().getSetting("MATLABFILE")+".dat",true);
 			    	out = new BufferedWriter(fstream);
 						 out.write(
 			    			dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID)+sep+//HEURE
