@@ -47,6 +47,8 @@ public class DeviceTable extends JPanel implements ItemListener  {
 	private JTable dataTable;
 	private JButton btnGraph;
 	private JButton btnIndex;
+	private JButton btnAll;
+	private JButton btnNone;
 	private DataManager dataManager = DataManager.getInstance();
 	JPanel[] checkBoxPanel = new JPanel[2];		
 	JCheckBox[] deviceCheckBox = new JCheckBox[7];
@@ -73,6 +75,8 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		dataTable = new JTable(model);
 		btnGraph = new JButton("Graph this data");
 		btnIndex = new JButton("Keep this value");
+		btnAll = new JButton("All");
+		btnNone = new JButton("None");
 		
 		JPanel upControlPanel = new JPanel();
 		upControlPanel.setLayout(new BoxLayout(upControlPanel, BoxLayout.Y_AXIS));
@@ -105,8 +109,10 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		}
 		
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.add(btnGraph, BorderLayout.WEST);
-		buttonPanel.add(btnIndex, BorderLayout.EAST);
+		buttonPanel.add(btnAll);
+		buttonPanel.add(btnGraph);
+		buttonPanel.add(btnIndex);
+		buttonPanel.add(btnNone);
 		
 		//Action Listner on the button, to use in case we want to add items to important list 
 		btnIndex.addActionListener(new ActionListener() {
@@ -157,6 +163,30 @@ public class DeviceTable extends JPanel implements ItemListener  {
 				DesktopManager.getIstance().getTabbedPannel().addTab(
 						new TelemetryGraph(Integer.valueOf(deviceId), Integer.valueOf(deviceItemId)),dev.getDeviceName()+"-"+item.getName());
 				}
+			}
+
+			});
+
+		btnAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int i;
+				for (i=0; i<7 ; i++) {			
+					deviceCheckBox[i].setSelected(true);
+				}
+
+			}
+
+			});
+		
+		btnNone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int i;
+				for (i=0; i<7 ; i++) {			
+					deviceCheckBox[i].setSelected(false);
+				}
+
 			}
 
 			});
