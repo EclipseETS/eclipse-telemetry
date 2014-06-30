@@ -110,7 +110,7 @@ public class TelemetryGraphPoint extends JPanel implements Observer, TabPane {
 		domain.setTickLabelsVisible(true);
 		//range.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		
-		JFreeChart chart = new JFreeChart("Puissance dépensé vs vitesse",
+		JFreeChart chart = new JFreeChart("Puissance vs Vitesse",
 										 new Font("SansSerif",Font.BOLD, 24),
 										 plot,
 										 true);

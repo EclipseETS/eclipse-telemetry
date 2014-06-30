@@ -49,7 +49,7 @@ public class DeviceTable extends JPanel implements ItemListener  {
 	private JButton btnIndex;
 	private DataManager dataManager = DataManager.getInstance();
 	JPanel[] checkBoxPanel = new JPanel[2];		
-	JCheckBox[] deviceCheckBox = new JCheckBox[10];
+	JCheckBox[] deviceCheckBox = new JCheckBox[7];
 	
 	Device dev;
 
@@ -87,20 +87,20 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		deviceCheckBox[4] = new JCheckBox("Volant");
 		deviceCheckBox[5] = new JCheckBox("Instru");
 		deviceCheckBox[6] = new JCheckBox("PSU");
-		deviceCheckBox[7] = new JCheckBox("MPPT1");
-		deviceCheckBox[8] = new JCheckBox("MPPT2");
-		deviceCheckBox[9] = new JCheckBox("MPPT3");
+//		deviceCheckBox[7] = new JCheckBox("MPPT1");
+//		deviceCheckBox[8] = new JCheckBox("MPPT2");
+//		deviceCheckBox[9] = new JCheckBox("MPPT3");
 		
 		int i = 0;
 		
-		for (; i<10 ; i++) {			
+		for (; i<7 ; i++) {			
 			deviceCheckBox[i].setSelected(true);
 			deviceCheckBox[i].addItemListener(this);
 		}
-		for (i = 0 ; i<5 ; i++) {
+		for (i = 0 ; i<4 ; i++) {
 			checkBoxPanel[0].add(deviceCheckBox[i]);
 		}
-		for (; i<10 ; i++) {
+		for (; i<7 ; i++) {
 			checkBoxPanel[1].add(deviceCheckBox[i]);
 		}
 		

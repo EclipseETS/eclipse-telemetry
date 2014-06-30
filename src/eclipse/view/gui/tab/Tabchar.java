@@ -116,7 +116,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int MSG_LABEL_WIDTH = 900;
 	private static final int ERRORMSG_X = 50;
 	private static final int ERRORMSG_X_VALUE = 130;
-	private static final int ERRORMSG_Y = 540;
+	private static final int ERRORMSG_Y = 400;
 	
 	/*Info 1*/
 	private static final int INFO1_X = 1050;
@@ -292,7 +292,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		img = new ImageIcon("images/image.png").getImage();
 		
-		/*MPPT1*/
+/*		MPPT1
 		MPPT1_Label.setBounds(MPPT1_X, MPPT1_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(MPPT1_Label);
 		
@@ -316,7 +316,7 @@ public class Tabchar extends JPanel implements TabPane {
 		MPPT1_Temp_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(MPPT1_Temp_Value);
 		
-		/*MPPT2*/
+		MPPT2
 		MPPT2_Label.setBounds(MPPT2_X, MPPT2_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(MPPT2_Label);
 		
@@ -340,7 +340,7 @@ public class Tabchar extends JPanel implements TabPane {
 		MPPT2_Temp_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(MPPT2_Temp_Value);
 		
-		/*MPPT3*/
+		MPPT3
 		MPPT3_Label.setBounds(MPPT3_X, MPPT3_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(MPPT3_Label);
 		
@@ -362,7 +362,7 @@ public class Tabchar extends JPanel implements TabPane {
 		MPPT3_Temp.setBounds(MPPT3_X, MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(MPPT3_Temp);
 		MPPT3_Temp_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Temp_Value);;
+		add(MPPT3_Temp_Value);*/
 		
 		/*PSU*/
 		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -547,23 +547,23 @@ public class Tabchar extends JPanel implements TabPane {
 	public void updateValues() {
 		
 
-		/*MPPT1*/
+/*		MPPT1
 		MPPT1_Vin_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VIN_ID));
 		MPPT1_Vout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VOUT_ID));
 		MPPT1_Iout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_IOUT_ID));
 		MPPT1_Temp_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_TEMP_ID));
 		
-		/*MPPT2*/
+		MPPT2
 		MPPT2_Vin_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VIN_ID));
 		MPPT2_Vout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VOUT_ID));
 		MPPT2_Iout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_IOUT_ID));
 		MPPT2_Temp_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_TEMP_ID));
 		
-		/*MPPT3*/
+		MPPT3
 		MPPT3_Vin_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VIN_ID));
 		MPPT3_Vout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VOUT_ID));
 		MPPT3_Iout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_IOUT_ID));
-		MPPT3_Temp_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_TEMP_ID));
+		MPPT3_Temp_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_TEMP_ID));*/
 		
 		/*PSU*/
 		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ACAN_ID));
