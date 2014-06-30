@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 /**
@@ -402,7 +403,7 @@ public class Tabchar extends JPanel implements TabPane {
 		Drive_DSPTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_DSPTemp_Value);
 		
-		Drive_ErrorFlags.setBounds(DRIVE_X, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+/*		Drive_ErrorFlags.setBounds(DRIVE_X, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_ErrorFlags);
 		Drive_ErrorFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_ErrorFlags_Value);
@@ -410,7 +411,7 @@ public class Tabchar extends JPanel implements TabPane {
 		Drive_LimitFlags.setBounds(DRIVE_X, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_LimitFlags);
 		Drive_LimitFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_LimitFlags_Value);
+		add(Drive_LimitFlags_Value);*/
 		
 		/*Instru*/
 		Instru_Label.setBounds(INSTRU_X, INSTRU_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -460,10 +461,10 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_Ipack_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_Ipack_Value);
 		
-		BMS_Status.setBounds(BMS_X, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+/*		BMS_Status.setBounds(BMS_X, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_Status);
 		BMS_Status_Value.setBounds(BMS_X_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Status_Value);
+		add(BMS_Status_Value);*/
 		
 		BMS_MaxCellT.setBounds(BMS_X_2, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_MaxCellT);
@@ -485,10 +486,10 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_SOCPc_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_SOCPc_Value);
 		
-		BMS_ExtStatus.setBounds(BMS_X_2, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+/*		BMS_ExtStatus.setBounds(BMS_X_2, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_ExtStatus);
 		BMS_ExtStatus_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_ExtStatus_Value);
+		add(BMS_ExtStatus_Value);*/
 		
 		/*Error Messages*/
 		ErrorMsg_Label.setBounds(ERRORMSG_X, ERRORMSG_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -575,9 +576,9 @@ public class Tabchar extends JPanel implements TabPane {
 		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
 		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
 		//Drive_ErrorFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
-		Drive_ErrorFlags_Value.setText(getDriveErrorFlags());
+//		Drive_ErrorFlags_Value.setText(getDriveErrorFlags());
 		//Drive_LimitFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
-		Drive_LimitFlags_Value.setText(getDriveLimitFlags());
+//		Drive_LimitFlags_Value.setText(getDriveLimitFlags());
 		
 		/*Instru*/
 		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
@@ -601,14 +602,14 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
 		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
 		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
-		BMS_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMS_STATUS_ID));
+//		BMS_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMS_STATUS_ID));
 		
 		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
 		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
 		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
 		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
 		//BMS_ExtStatus_Value.setText(dd.getRoundedValue(BMS_ID, BMS_EXTSTATUS_ID));
-		BMS_ExtStatus_Value.setText(getBMUExtStatus());
+//		BMS_ExtStatus_Value.setText(getBMUExtStatus());
 		
 		/*Error Message*/
 		ErrorMsg_BMUExtStatus_Value.setText(getBMUExtStatusMsg());
@@ -637,12 +638,14 @@ public class Tabchar extends JPanel implements TabPane {
 		}
 		Info1_Consumption_Value.setText(String.format("%.2f", consumption) + " Watts");
 		
-		/*Log info 1 values*/
-		Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " Km/h" + ", " + String.format("%.2f", speedMph) + " MPH");
-		Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " Km/h");
-		Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", power) + " Watts");
-		Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", panelPow) + " Watts");
-		Logger.getLogger("calculated_values").info("Consumption : " + String.format("%.2f", consumption) + " Watts");		
+		if (DataAcquisition.getInstance().getAcquiStatus()) {
+			/*Log info 1 values*/
+			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " Km/h" + ", " + String.format("%.2f", speedMph) + " MPH");
+			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " Km/h");
+			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", power) + " Watts");
+			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", panelPow) + " Watts");
+			Logger.getLogger("calculated_values").info("Consumption : " + String.format("%.2f", consumption) + " Watts");
+		}
 	}
 	
 	public void paintComponent(Graphics g) {

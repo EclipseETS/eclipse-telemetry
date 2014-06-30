@@ -25,12 +25,13 @@ public class MatLab implements Runnable{
 	private static final int DRIVE_ID = 2;
 	private static final int BMS_ID = 3;
 	private static final int INSTRU_ID = 6;
+	private static final int PSU_ID = 7;
 	private static final int MPPT1_ID = 8;
 	private static final int MPPT2_ID = 12;
 	private static final int MPPT3_ID = 10;
 	
-	private static final int DRIVE_VOLTAGE_ID = 7;
-	private static final int DRIVE_CURRENT_ID = 8;
+	private static final int DRIVE_ABUS_ID = 7;
+	private static final int DRIVE_VBUS_ID = 8;
 	private static final int DRIVE_RPM_ID = 10;
 	
 	private static final int BMS_AH_ID = 47;
@@ -40,6 +41,9 @@ public class MatLab implements Runnable{
 	private static final int INSTRU_LAT_ID = 2;
 	private static final int INSTRU_LON_ID = 3;
 	private static final int INSTRU_TIME_ID = 4;
+	
+	private static final int PSU_AHP_ID = 4;
+	private static final int PSU_VHP_ID = 5;
 	
 	private static final int MPPT_VOUT_ID = 2;
 	private static final int MPPT_IOUT_ID = 3;
@@ -73,15 +77,18 @@ public class MatLab implements Runnable{
 			    			dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID)+sep+//HEURE
 			    			dd.getRawValue(INSTRU_ID, INSTRU_LAT_ID)+sep+//LAT
 			 				dd.getRawValue(INSTRU_ID, INSTRU_LON_ID)+sep+//LON
-			 				dd.getRawValue(MPPT1_ID, MPPT_VOUT_ID)+sep+//MPPT_1_V
+			 				((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
+							(dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 
+							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)))+sep+//PANEL_POWER
+/*			 				dd.getRawValue(MPPT1_ID, MPPT_VOUT_ID)+sep+//MPPT_1_V
 			 				dd.getRawValue(MPPT1_ID, MPPT_IOUT_ID)+sep+//MPPT_1_C
 			 				dd.getRawValue(MPPT2_ID, MPPT_VOUT_ID)+sep+//MPPT_2_V
 			 				dd.getRawValue(MPPT2_ID, MPPT_IOUT_ID)+sep+//MPPT_2_C
 			 				dd.getRawValue(MPPT3_ID, MPPT_VOUT_ID)+sep+//MPPT_3_V
 			 				dd.getRawValue(MPPT3_ID, MPPT_IOUT_ID)+sep+//MPPT_3_C
-			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//DRIVE_RPM
-			 				dd.getRawValue(DRIVE_ID, DRIVE_CURRENT_ID)+sep+//DRIVE_C
-			 				dd.getRawValue(DRIVE_ID, DRIVE_VOLTAGE_ID)+sep+//DRIVE_T
+*/			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//DRIVE_RPM
+			 				dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID)+sep+//DRIVE_C
+			 				dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)+sep+//DRIVE_T
 			 				dd.getRawValue(BMS_ID, BMS_AH_ID)+sep+//BMS_AH
 			    			dd.getRawValue(BMS_ID, BMS_PACKA_ID)+sep+//BMS_COURANT
 			    			dd.getRawValue(BMS_ID, BMS_PACKV_ID)+//BMS_TENSION
