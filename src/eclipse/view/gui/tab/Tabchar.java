@@ -16,16 +16,6 @@ import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 /**
  * This view show all important information on 1 single view
- * 
- * -----------------------------------------
- * Value of type anwser are the one modified, the one with the actual value.
- * exemple 
- * Speed: 100km/h
- * String speed = "Speed: "
- * String speedAnwser = 100km/h
- * speedAnwser can be initiated to a random value but that is the value that will be modified
- * as the data came in.
- * 
  * @author Marco
  * @author Olivier
  *
@@ -64,9 +54,9 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	/*PSU*/
 	private static final int PSU_ID = 7;
-	private static final int PSU_X = 1050;
-	private static final int PSU_X_VALUE = 1140;
-	private static final int PSU_Y = 400;
+	private static final int PSU_X = 40;
+	private static final int PSU_X_VALUE = 120;
+	private static final int PSU_Y = 250;
 	private static final int PSU_ACAN_ID = 2;
 	private static final int PSU_VCAN_ID = 3;
 	private static final int PSU_AHP_ID = 4;
@@ -74,8 +64,8 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	/*Drive*/
 	private static final int DRIVE_ID = 2;
-	private static final int DRIVE_X = 50;
-	private static final int DRIVE_X_VALUE = 150;
+	private static final int DRIVE_X = 40;
+	private static final int DRIVE_X_VALUE = 140;
 	private static final int DRIVE_Y = 50;
 	private static final int DRIVE_ERRORFLAGS_ID = 5;
 	private static final int DRIVE_LIMITFLAGS_ID = 6;
@@ -89,7 +79,7 @@ public class Tabchar extends JPanel implements TabPane {
 	/*Instru*/
 	private static final int INSTRU_ID = 6;
 	private static final int INSTRU_X = 1050;
-	private static final int INSTRU_X_VALUE = 1100;
+	private static final int INSTRU_X_VALUE = 1090;
 	private static final int INSTRU_Y = 50;
 	private static final int INSTRU_LAT_ID = 2;
 	private static final int INSTRU_LON_ID = 3;
@@ -115,8 +105,8 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	/*Error Messages*/
 	private static final int MSG_LABEL_WIDTH = 900;
-	private static final int ERRORMSG_X = 50;
-	private static final int ERRORMSG_X_VALUE = 130;
+	private static final int ERRORMSG_X = 40;
+	private static final int ERRORMSG_X_VALUE = 120;
 	private static final int ERRORMSG_Y = 400;
 	
 	/*Info 1*/
@@ -126,6 +116,16 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int DRIVE_SPEED_ID = 9;
 	private static final int DRIVECTRL_ID = 1;
 	private static final int DRIVECTRL_RPM_ID = 1;
+	
+	/*MPPT*/
+	private static final int MPPT_ID = 7;
+	private static final int MPPT_X = 1050;
+	private static final int MPPT_X_VALUE = 1145;
+	private static final int MPPT_Y = 400;
+	private static final int MPPT_MAINRELAY_ID = 7;
+	private static final int MPPT_ONESTATUS_ID = 9;
+	private static final int MPPT_TWOSTATUS_ID = 10;
+	private static final int MPPT_THREESTATUS_ID = 11;
 	
 	private Image img;
 	
@@ -284,6 +284,22 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	JLabel Info1_Consumption = new JLabel("Consumption : ");
 	JLabel Info1_Consumption_Value = new JLabel("");
+	
+	/*MPPT*/
+	JLabel MPPT_Label = new JLabel("[MPPT]");
+	
+	JLabel MPPT_MainRelay = new JLabel("Main Relay : ");
+	JLabel MPPT_MainRelay_Value = new JLabel("");
+	
+	JLabel MPPT_OneStatus = new JLabel("MPPT1 Status : ");
+	JLabel MPPT_OneStatus_Value = new JLabel("");
+	
+	JLabel MPPT_TwoStatus = new JLabel("MPPT2 Status : ");
+	JLabel MPPT_TwoStatus_Value = new JLabel("");
+	
+	JLabel MPPT_ThreeStatus = new JLabel("MPPT3 Status : ");
+	JLabel MPPT_ThreeStatus_Value = new JLabel("");
+	
 	 
 	public Tabchar() {
 		
@@ -541,7 +557,29 @@ public class Tabchar extends JPanel implements TabPane {
 		Info1_Consumption_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Consumption_Value);
 		
-
+		/*MPPT*/		
+		MPPT_Label.setBounds(MPPT_X, MPPT_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_Label);
+		
+		MPPT_MainRelay.setBounds(MPPT_X, MPPT_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_MainRelay);
+		MPPT_MainRelay_Value.setBounds(MPPT_X_VALUE, MPPT_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_MainRelay_Value);
+		
+		MPPT_OneStatus.setBounds(MPPT_X, MPPT_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_OneStatus);
+		MPPT_OneStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_OneStatus_Value);
+		
+		MPPT_TwoStatus.setBounds(MPPT_X, MPPT_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_TwoStatus);
+		MPPT_TwoStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_TwoStatus_Value);
+		
+		MPPT_ThreeStatus.setBounds(MPPT_X, MPPT_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_ThreeStatus);
+		MPPT_ThreeStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(MPPT_ThreeStatus_Value);
 		
 	}
 
@@ -618,17 +656,17 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		/*Info 1*/
 		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60;
-		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " Km/h");
+		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " km/h");
 		double speedMph = speedKmh * 0.621371;
-		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " MPH");
+		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
 		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
-		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " Km/h");
+		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
 		double power = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
-		Info1_Power_Value.setText(String.format("%.2f", power) + " Watts");
+		Info1_Power_Value.setText(String.format("%.2f", power) + " W");
 		double panelPow = 	((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
 							(dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 
 							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)));
-		Info1_PanelPow_Value.setText(String.format("%.2f", panelPow) + " Watts");
+		Info1_PanelPow_Value.setText(String.format("%.2f", panelPow) + " W");
 		double consumption = panelPow - power;
 		if (consumption >= 0) {
 			Info1_Consumption_Value.setForeground(Color.green);
@@ -636,16 +674,57 @@ public class Tabchar extends JPanel implements TabPane {
 		else {
 			Info1_Consumption_Value.setForeground(Color.red);
 		}
-		Info1_Consumption_Value.setText(String.format("%.2f", consumption) + " Watts");
+		Info1_Consumption_Value.setText(String.format("%.2f", consumption) + " W");
 		
 		if (DataAcquisition.getInstance().getAcquiStatus()) {
 			/*Log info 1 values*/
-			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " Km/h" + ", " + String.format("%.2f", speedMph) + " MPH");
-			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " Km/h");
+			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " km/h" + ", " + String.format("%.2f", speedMph) + " mph");
+			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " km/h");
 			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", power) + " Watts");
 			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", panelPow) + " Watts");
 			Logger.getLogger("calculated_values").info("Consumption : " + String.format("%.2f", consumption) + " Watts");
 		}
+		
+		/*MPPT*/
+		if (dd.getRawValue(MPPT_ID, MPPT_MAINRELAY_ID) == 0) {
+			MPPT_MainRelay_Value.setText("OFF");
+			MPPT_MainRelay_Value.setForeground(Color.red);
+		}
+		else {
+			MPPT_MainRelay_Value.setText("ON");
+			MPPT_MainRelay_Value.setForeground(Color.green);
+		}
+		
+		if (dd.getRawValue(MPPT_ID, MPPT_ONESTATUS_ID) == 0) {
+			MPPT_OneStatus_Value.setText("OFF");
+			MPPT_OneStatus_Value.setForeground(Color.red);
+		}
+		else {
+			MPPT_OneStatus_Value.setText("ON");
+			MPPT_OneStatus_Value.setForeground(Color.green);
+		}
+		
+		if (dd.getRawValue(MPPT_ID, MPPT_TWOSTATUS_ID) == 0) {
+			MPPT_TwoStatus_Value.setText("OFF");
+			MPPT_TwoStatus_Value.setForeground(Color.red);
+		}
+		else {
+			MPPT_TwoStatus_Value.setText("ON");
+			MPPT_TwoStatus_Value.setForeground(Color.green);
+		}
+		
+		if (dd.getRawValue(MPPT_ID, MPPT_THREESTATUS_ID) == 0) {
+			MPPT_ThreeStatus_Value.setText("OFF");
+			MPPT_ThreeStatus_Value.setForeground(Color.red);
+		}
+		else {
+			MPPT_ThreeStatus_Value.setText("ON");
+			MPPT_ThreeStatus_Value.setForeground(Color.green);
+		}
+//		MPPT_MainRelay_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_MAINRELAY_ID));
+//		MPPT_OneStatus_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_ONESTATUS_ID));
+//		MPPT_TwoStatus_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_TWOSTATUS_ID));
+//		MPPT_ThreeStatus_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_THREESTATUS_ID));		
 	}
 	
 	public void paintComponent(Graphics g) {
