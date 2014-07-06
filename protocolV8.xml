@@ -981,9 +981,138 @@
 			</deviceitem>
 		</trame>
 		
+		<!-- CMU5 -->
+		<trame identifier="30D" type="0">
+			<deviceitem id="46" name="CMU5 Cell Temp">
+				<unit>°C</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-100</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="47" name="CMU5 PCB Temp">
+				<unit>°C</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-100</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>10</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="48" name="CMU5 Serial No">
+				<unit></unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>	
+		</trame>
+		<trame identifier="30E" type="0">
+			<deviceitem id="49" name="CMU5 Cell3 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="50" name="CMU5 Cell2 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="51" name="CMU5 Cell1 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="52" name="CMU5 Cell0 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="30F" type="0">
+			<deviceitem id="53" name="CMU5 Cell7 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="54" name="CMU5 Cell6 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="55" name="CMU5 Cell5 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="56" name="CMU5 Cell4 Voltage">
+				<unit>V</unit>
+				<bitsize>16</bitsize>
+				<minvalue>-4.2</minvalue>
+				<maxvalue>4.2</maxvalue>
+				<resolution>1</resolution>
+				<factor>1000</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		
 		<!-- SOC -->
 		<trame identifier="3F4" type="0">
-			<deviceitem id="46" name="SoC (%)">
+			<deviceitem id="57" name="SoC (%)">
 				<unit>%</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -994,7 +1123,7 @@
 				<signed>false</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="47" name="SoC (Ah)">
+			<deviceitem id="58" name="SoC (Ah)">
 				<unit>Ah</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-0.1</minvalue>
@@ -1009,7 +1138,7 @@
 		
 		<!-- Balanced SOC -->
 		<trame identifier="3F5" type="0">
-			<deviceitem id="48" name="Bal. SoC (%)">
+			<deviceitem id="59" name="Bal. SoC (%)">
 				<unit>%</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1020,7 +1149,7 @@
 				<signed>false</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="49" name="Bal. SoC (Ah)">
+			<deviceitem id="60" name="Bal. SoC (Ah)">
 				<unit>Ah</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-0.1</minvalue>
@@ -1035,7 +1164,7 @@
 		
 		<!-- Charger Control Information -->
 		<trame identifier="3F6" type="0">
-			<deviceitem id="50" name="Total Pack Cap.">
+			<deviceitem id="61" name="Total Pack Cap.">
 				<unit>Ah</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1046,7 +1175,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="51" name="Disch. Cell Volt. Err.">
+			<deviceitem id="62" name="Disch. Cell Volt. Err.">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>-32768</minvalue>
@@ -1057,7 +1186,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="52" name="Cell. Temp. Margin">
+			<deviceitem id="63" name="Cell. Temp. Margin">
 				<unit>°C</unit>
 				<bitsize>16</bitsize>
 				<minvalue>-32768</minvalue>
@@ -1068,7 +1197,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="53" name="Charg. Cell. Volt. Err.">
+			<deviceitem id="64" name="Charg. Cell. Volt. Err.">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>-32768</minvalue>
@@ -1083,7 +1212,7 @@
 	
 		<!-- PRECHARGE STATUS -->
 		<trame identifier="3f7" type="0">
-			<deviceitem id="54" name="Precharge Timer">
+			<deviceitem id="65" name="Precharge Timer">
 				<unit>ms</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1094,7 +1223,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="55" name="Precharge Elapsed">
+			<deviceitem id="66" name="Precharge Elapsed">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1105,7 +1234,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="56" name="Unused">
+			<deviceitem id="67" name="Unused">
 				<unit></unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1116,7 +1245,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="57" name="Unused">
+			<deviceitem id="68" name="Unused">
 				<unit></unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1127,7 +1256,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="58" name="Precharge State">
+			<deviceitem id="69" name="Precharge State">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1138,7 +1267,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="59" name="Contactor Status">
+			<deviceitem id="70" name="Contactor Status">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1153,7 +1282,7 @@
 		
 		<!-- MINIMUM / MAXIMUM CELL VOLTAGE -->
 		<trame identifier="3f8" type="0">
-			<deviceitem id="60" name="Cell With Max Volt.">
+			<deviceitem id="71" name="Cell With Max Volt.">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1164,7 +1293,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="61" name="CMU with Max Volt.">
+			<deviceitem id="72" name="CMU with Max Volt.">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1175,7 +1304,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="62" name="Cell with Min Volt.">
+			<deviceitem id="73" name="Cell with Min Volt.">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1186,7 +1315,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="63" name="CMU with Min Volt.">
+			<deviceitem id="74" name="CMU with Min Volt.">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1197,7 +1326,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="64" name="Max Cell Volt.">
+			<deviceitem id="75" name="Max Cell Volt.">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1208,7 +1337,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="65" name="Min Cell Volt.">
+			<deviceitem id="76" name="Min Cell Volt.">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1222,7 +1351,7 @@
 		</trame>
 		<!-- MINIMUM / MAXIMUM CELL TEMPERATURE -->
 		<trame identifier="3f9" type="0">
-			<deviceitem id="66" name="Unused">
+			<deviceitem id="77" name="Unused">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1233,7 +1362,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="67" name="CMU with Max Cell Temp.">
+			<deviceitem id="78" name="CMU with Max Cell Temp.">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1244,7 +1373,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="68" name="Unused">
+			<deviceitem id="79" name="Unused">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1255,7 +1384,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="69" name="CMU with Min Cell Temp.">
+			<deviceitem id="80" name="CMU with Min Cell Temp.">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1266,7 +1395,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="70" name="Max Cell Temp.">
+			<deviceitem id="81" name="Max Cell Temp.">
 				<unit>°C</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1277,7 +1406,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="71" name="Min Cell Temp.">
+			<deviceitem id="82" name="Min Cell Temp.">
 				<unit>°C</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1291,7 +1420,7 @@
 		</trame>
 		<!-- BATTERY PACK VOLTAGE / CURRENT -->
 		<trame identifier="3fa" type="0">
-			<deviceitem id="72" name="Battery Current">
+			<deviceitem id="83" name="Battery Current">
 				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-2147483648</minvalue>
@@ -1302,7 +1431,7 @@
 				<signed>true</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="73" name="Battery Voltage">
+			<deviceitem id="84" name="Battery Voltage">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1317,7 +1446,7 @@
 		
 		<!-- BATTERY PACK STATUS -->
 		<trame identifier="3fb" type="0">
-			<deviceitem id="74" name="BMU Firmware">
+			<deviceitem id="85" name="BMU Firmware">
 				<unit></unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1328,7 +1457,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="75" name="CMU Count">
+			<deviceitem id="86" name="CMU Count">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1339,7 +1468,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="76" name="Status Flags">
+			<deviceitem id="87" name="Status Flags">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1350,7 +1479,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="77" name="Bal. Volt. Threshold falling">
+			<deviceitem id="88" name="Bal. Volt. Threshold falling">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1361,7 +1490,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="78" name="Bal. Volt. Threshold Rising">
+			<deviceitem id="89" name="Bal. Volt. Threshold Rising">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1376,7 +1505,7 @@
 		
 		<!-- BATTERY PACK FAN STATUS -->
 		<trame identifier="3fc" type="0">
-			<deviceitem id="79" name="CMUs 12V Current Consump.">
+			<deviceitem id="90" name="CMUs 12V Current Consump.">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1387,7 +1516,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="80" name="Fans/Contactors 12V Current Consump.">
+			<deviceitem id="91" name="Fans/Contactors 12V Current Consump.">
 				<unit>A</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1398,7 +1527,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="81" name="Fan Speed 1">
+			<deviceitem id="92" name="Fan Speed 1">
 				<unit>rpm</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1409,7 +1538,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="82" name="Fan Speed 0">
+			<deviceitem id="93" name="Fan Speed 0">
 				<unit>rpm</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1424,7 +1553,7 @@
 		
 		<!-- EXTENDED BATTERY PACK STATUS -->
 		<trame identifier="3fd" type="0">
-			<deviceitem id="83" name="Unused">
+			<deviceitem id="94" name="Unused">
 				<unit></unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -1435,7 +1564,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="84" name="BMU Model ID">
+			<deviceitem id="95" name="BMU Model ID">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1446,7 +1575,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="85" name="BMU Hardware Version">
+			<deviceitem id="96" name="BMU Hardware Version">
 				<unit></unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -1457,7 +1586,7 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="86" name="Status Flags">
+			<deviceitem id="97" name="Status Flags">
 				<unit></unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1761,7 +1890,7 @@
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
-				<offset>0</offset>
+				<offset>-2</offset>
 				<signed>false</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
@@ -1772,7 +1901,7 @@
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
-				<offset>0</offset>
+				<offset>-2</offset>
 				<signed>false</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
@@ -1785,7 +1914,7 @@
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
-				<offset>0</offset>
+				<offset>-2</offset>
 				<signed>false</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
@@ -1796,7 +1925,7 @@
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
-				<offset>0</offset>
+				<offset>-2</offset>
 				<signed>false</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>

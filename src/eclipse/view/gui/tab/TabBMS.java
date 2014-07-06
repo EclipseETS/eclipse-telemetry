@@ -33,6 +33,7 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int CMU1_X = 150;
 	private static final int CMU1_X_VALUE = 200;
 	private static final int CMU1_Y = 25;
+	private static final int CMU1_PCBTEMP_ID = 3;
 	private static final int CMU1_CELL0_ID = 8;
 	private static final int CMU1_CELL1_ID = 7;
 	private static final int CMU1_CELL2_ID = 6;
@@ -45,6 +46,7 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int CMU2_X = 975;
 	private static final int CMU2_X_VALUE = 1025;
 	private static final int CMU2_Y = 25;
+	private static final int CMU2_PCBTEMP_ID = 14;
 	private static final int CMU2_CELL0_ID = 19;
 	private static final int CMU2_CELL1_ID = 18;
 	private static final int CMU2_CELL2_ID = 17;
@@ -57,6 +59,7 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int CMU3_X = 150;
 	private static final int CMU3_X_VALUE = 200;
 	private static final int CMU3_Y = 380;
+	private static final int CMU3_PCBTEMP_ID = 25;
 	private static final int CMU3_CELL0_ID = 30;
 	private static final int CMU3_CELL1_ID = 29;
 	private static final int CMU3_CELL2_ID = 28;
@@ -69,6 +72,7 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int CMU4_X = 975;
 	private static final int CMU4_X_VALUE = 1025;
 	private static final int CMU4_Y = 380;
+	private static final int CMU4_PCBTEMP_ID = 36;
 	private static final int CMU4_CELL0_ID = 41;
 	private static final int CMU4_CELL1_ID = 40;
 	private static final int CMU4_CELL2_ID = 39;
@@ -77,21 +81,34 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int CMU4_CELL5_ID = 44;
 	private static final int CMU4_CELL6_ID = 43;
 	
+	/*CMU5*/
+	private static final int CMU5_X = 560;
+	private static final int CMU5_X_VALUE = 610;
+	private static final int CMU5_Y = 25;
+	private static final int CMU5_PCBTEMP_ID = 47;
+	private static final int CMU5_CELL0_ID = 52;
+	private static final int CMU5_CELL1_ID = 51;
+	private static final int CMU5_CELL2_ID = 50;
+	private static final int CMU5_CELL3_ID = 49;
+	private static final int CMU5_CELL4_ID = 56;
+	private static final int CMU5_CELL5_ID = 55;
+	private static final int CMU5_CELL6_ID = 54;
+	
 	/*BMU*/
 	private static final int BMU_X = 460;
 	private static final int BMU_X_2 = 635;
 	private static final int BMU_X_VALUE = 540;
 	private static final int BMU_X_2_VALUE = 705;
 	private static final int BMU_Y = 500;
-	private static final int BMU_MAXCELLV_ID = 64;
-	private static final int BMU_MINCELLV_ID = 65;
-	private static final int BMU_MAXCELLT_ID = 70;
-	private static final int BMU_SOCPC_ID = 46;
-	private static final int BMU_SOCAH_ID = 47;
-	private static final int BMU_PACKA_ID = 72;
-	private static final int BMU_PACKV_ID = 73;
-	private static final int BMU_STATUS_ID = 76;
-	private static final int BMU_EXTSTATUS_ID = 86;
+	private static final int BMU_MAXCELLV_ID = 75;
+	private static final int BMU_MINCELLV_ID = 76;
+	private static final int BMU_MAXCELLT_ID = 81;
+	private static final int BMU_SOCPC_ID = 57;
+	private static final int BMU_SOCAH_ID = 58;
+	private static final int BMU_PACKA_ID = 83;
+	private static final int BMU_PACKV_ID = 84;
+	private static final int BMU_STATUS_ID = 87;
+	private static final int BMU_EXTSTATUS_ID = 97;
 	
 	private Image img;
 	
@@ -192,6 +209,30 @@ public class TabBMS extends JPanel implements TabPane {
 	
 	JLabel CMU4_Cell6 = new JLabel("Cell6 :");
 	JLabel CMU4_Cell6_Value = new JLabel("");
+	
+	/*CMU5*/
+	JLabel CMU5_Label = new JLabel("[CMU5]");
+	
+	JLabel CMU5_Cell0 = new JLabel("Cell0 :");
+	JLabel CMU5_Cell0_Value = new JLabel("");
+	
+	JLabel CMU5_Cell1 = new JLabel("Cell1 :");
+	JLabel CMU5_Cell1_Value = new JLabel("");
+	
+	JLabel CMU5_Cell2 = new JLabel("Cell2 :");
+	JLabel CMU5_Cell2_Value = new JLabel("");
+	
+	JLabel CMU5_Cell3 = new JLabel("Cell3 :");
+	JLabel CMU5_Cell3_Value = new JLabel("");
+	
+	JLabel CMU5_Cell4 = new JLabel("Cell4 :");
+	JLabel CMU5_Cell4_Value = new JLabel("");
+	
+	JLabel CMU5_Cell5 = new JLabel("Cell5 :");
+	JLabel CMU5_Cell5_Value = new JLabel("");
+	
+	JLabel CMU5_Cell6 = new JLabel("Cell6 :");
+	JLabel CMU5_Cell6_Value = new JLabel("");
 	
 	/*BMU*/
 	JLabel BMU_Label = new JLabel("[BMU]");
@@ -390,6 +431,45 @@ public class TabBMS extends JPanel implements TabPane {
 		CMU4_Cell6_Value.setBounds(CMU4_X_VALUE, CMU4_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(CMU4_Cell6_Value);
 		
+		/*CMU5*/
+		CMU5_Label.setBounds(CMU5_X, CMU5_Y, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Label);
+		
+		CMU5_Cell0.setBounds(CMU5_X, CMU5_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell0);
+		CMU5_Cell0_Value.setBounds(CMU5_X_VALUE, CMU5_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell0_Value);
+		
+		CMU5_Cell1.setBounds(CMU5_X, CMU5_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell1);
+		CMU5_Cell1_Value.setBounds(CMU5_X_VALUE, CMU5_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell1_Value);
+		
+		CMU5_Cell2.setBounds(CMU5_X, CMU5_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell2);
+		CMU5_Cell2_Value.setBounds(CMU5_X_VALUE, CMU5_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell2_Value);
+		
+		CMU5_Cell3.setBounds(CMU5_X, CMU5_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell3);
+		CMU5_Cell3_Value.setBounds(CMU5_X_VALUE, CMU5_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell3_Value);
+		
+		CMU5_Cell4.setBounds(CMU5_X, CMU5_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell4);
+		CMU5_Cell4_Value.setBounds(CMU5_X_VALUE, CMU5_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell4_Value);
+		
+		CMU5_Cell5.setBounds(CMU5_X, CMU5_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell5);
+		CMU5_Cell5_Value.setBounds(CMU5_X_VALUE, CMU5_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell5_Value);
+		
+		CMU5_Cell6.setBounds(CMU5_X, CMU5_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell6);
+		CMU5_Cell6_Value.setBounds(CMU5_X_VALUE, CMU5_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(CMU5_Cell6_Value);
+		
 		/*BMU*/
 		BMU_Label.setBounds(BMU_X, BMU_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_Label);
@@ -483,6 +563,15 @@ public class TabBMS extends JPanel implements TabPane {
 		CMU4_Cell5_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL5_ID));
 		CMU4_Cell6_Value.setText(dd.getRoundedValue(BMS_ID, CMU4_CELL6_ID));
 		
+		/*CMU5*/
+		CMU5_Cell0_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL0_ID));
+		CMU5_Cell1_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL1_ID));
+		CMU5_Cell2_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL2_ID));
+		CMU5_Cell3_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL3_ID));
+		CMU5_Cell4_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL4_ID));
+		CMU5_Cell5_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL5_ID));
+		CMU5_Cell6_Value.setText(dd.getRoundedValue(BMS_ID, CMU5_CELL6_ID));
+		
 		/*BMU*/
 		BMU_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MAXCELLV_ID));
 		BMU_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MINCELLV_ID));
@@ -510,11 +599,12 @@ public class TabBMS extends JPanel implements TabPane {
 	
 	private String getMaxPCBTemp() {
 		
-		double CMU1PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(3).getLastData());
-		double CMU2PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(14).getLastData());
-		double CMU3PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(25).getLastData());
-		double CMU4PCBTemp = (double)(dd.getDeviceByID(3).getItemByID(36).getLastData());
+		double CMU1PCBTemp = (double)(dd.getDeviceByID(BMS_ID).getItemByID(CMU1_PCBTEMP_ID).getLastData());
+		double CMU2PCBTemp = (double)(dd.getDeviceByID(BMS_ID).getItemByID(CMU2_PCBTEMP_ID).getLastData());
+		double CMU3PCBTemp = (double)(dd.getDeviceByID(BMS_ID).getItemByID(CMU3_PCBTEMP_ID).getLastData());
+		double CMU4PCBTemp = (double)(dd.getDeviceByID(BMS_ID).getItemByID(CMU4_PCBTEMP_ID).getLastData());
+		double CMU5PCBTemp = (double)(dd.getDeviceByID(BMS_ID).getItemByID(CMU5_PCBTEMP_ID).getLastData());
 		
-		return Rounding.roundDouble(Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)), 3) + " " + dd.getDeviceByID(3).getItemByID(3).getUnit();		
+		return Rounding.roundDouble(Math.max(Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)), CMU5PCBTemp), 3) + " " + dd.getDeviceByID(BMS_ID).getItemByID(CMU1_PCBTEMP_ID).getUnit();		
 	}
 }

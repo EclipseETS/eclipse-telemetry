@@ -93,15 +93,20 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int BMS_X_VALUE = 405;
 	private static final int BMS_X_2_VALUE = 570;
 	private static final int BMS_Y = 50;
-	private static final int BMS_MAXCELLV_ID = 64;
-	private static final int BMS_MINCELLV_ID = 65;
-	private static final int BMS_MAXCELLT_ID = 70;
-	private static final int BMS_SOCPC_ID = 46;
-	private static final int BMS_SOCAH_ID = 47;
-	private static final int BMS_PACKA_ID = 72;
-	private static final int BMS_PACKV_ID = 73;
-	private static final int BMS_STATUS_ID = 76;
-	private static final int BMS_EXTSTATUS_ID = 86;
+	private static final int BMS_MAXCELLV_ID = 75;
+	private static final int BMS_MINCELLV_ID = 76;
+	private static final int BMS_MAXCELLT_ID = 81;
+	private static final int BMS_SOCPC_ID = 57;
+	private static final int BMS_SOCAH_ID = 58;
+	private static final int BMS_PACKA_ID = 83;
+	private static final int BMS_PACKV_ID = 84;
+	private static final int BMS_STATUS_ID = 87;
+	private static final int BMS_EXTSTATUS_ID = 97;
+	private static final int CMU1_PCBTEMP_ID = 3;
+	private static final int CMU2_PCBTEMP_ID = 14;
+	private static final int CMU3_PCBTEMP_ID = 25;
+	private static final int CMU4_PCBTEMP_ID = 36;
+	private static final int CMU5_PCBTEMP_ID = 47;
 	
 	/*Error Messages*/
 	private static final int MSG_LABEL_WIDTH = 900;
@@ -655,7 +660,7 @@ public class Tabchar extends JPanel implements TabPane {
 		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 		
 		/*Info 1*/
-		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID) / 1000*60*60;
+		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID);
 		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " km/h");
 		double speedMph = speedKmh * 0.621371;
 		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
@@ -663,11 +668,18 @@ public class Tabchar extends JPanel implements TabPane {
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
 		double power = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
 		Info1_Power_Value.setText(String.format("%.2f", power) + " W");
-		double panelPow = 	((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
+		double panelPow = 0;
+		if (power < 0) {
+			panelPow = power + (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) + 60;
+		}
+		else {
+			panelPow = power - (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 60;
+		}
+/*		double panelPow = 	((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
 							(dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 
-							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)));
+							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)));*/
 		Info1_PanelPow_Value.setText(String.format("%.2f", panelPow) + " W");
-		double consumption = panelPow - power;
+		double consumption = power;
 		if (consumption >= 0) {
 			Info1_Consumption_Value.setForeground(Color.green);
 		}
@@ -739,24 +751,25 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	public String getMaxPCBTemp() {
 		
-		float CMU1PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(3).getLastData());
-		float CMU2PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(14).getLastData());
-		float CMU3PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(25).getLastData());
-		float CMU4PCBTemp = (float)(dd.getDeviceByID(3).getItemByID(36).getLastData());
+		float CMU1PCBTemp = (float)(dd.getDeviceByID(BMS_ID).getItemByID(CMU1_PCBTEMP_ID).getLastData());
+		float CMU2PCBTemp = (float)(dd.getDeviceByID(BMS_ID).getItemByID(CMU2_PCBTEMP_ID).getLastData());
+		float CMU3PCBTemp = (float)(dd.getDeviceByID(BMS_ID).getItemByID(CMU3_PCBTEMP_ID).getLastData());
+		float CMU4PCBTemp = (float)(dd.getDeviceByID(BMS_ID).getItemByID(CMU4_PCBTEMP_ID).getLastData());
+		float CMU5PCBTemp = (float)(dd.getDeviceByID(BMS_ID).getItemByID(CMU5_PCBTEMP_ID).getLastData());
 		
-		return Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)) + " " + dd.getDeviceByID(3).getItemByID(3).getUnit();		
+		return Math.max(Math.max(Math.max(CMU1PCBTemp, CMU2PCBTemp), Math.max(CMU3PCBTemp, CMU4PCBTemp)), CMU5PCBTemp) + " " + dd.getDeviceByID(BMS_ID).getItemByID(CMU1_PCBTEMP_ID).getUnit();		
 	}
 	
 	public String getDriveErrorFlags() {
 		
-		int errorFlags = (int)(dd.getDeviceByID(2).getItemByID(5).getLastData());
+		int errorFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_ERRORFLAGS_ID).getLastData());
 		
 		return Integer.toString(errorFlags & 0xFF);		
 	}
 	
 	public String getDriveErrorFlagsMsg() {
 		
-		int errorFlags = (int)(dd.getDeviceByID(2).getItemByID(5).getLastData());
+		int errorFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_ERRORFLAGS_ID).getLastData());
 		
 		String errorMsg = "";
 		
@@ -795,14 +808,14 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	public String getDriveLimitFlags() {
 		
-		int limitFlags = (int)(dd.getDeviceByID(2).getItemByID(6).getLastData());
+		int limitFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_LIMITFLAGS_ID).getLastData());
 		
 		return Integer.toString(limitFlags & 0x7F);		
 	}
 	
 	public String getDriveLimitFlagsMsg() {
 		
-		int limitFlags = (int)(dd.getDeviceByID(2).getItemByID(6).getLastData());
+		int limitFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_LIMITFLAGS_ID).getLastData());
 		
 		String errorMsg = "";
 		
@@ -838,14 +851,14 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	public String getBMUExtStatus() {
 		
-		int extStatusFlags = (int)(dd.getDeviceByID(3).getItemByID(86).getLastData());
+		int extStatusFlags = (int)(dd.getDeviceByID(BMS_ID).getItemByID(BMS_EXTSTATUS_ID).getLastData());
 		
 		return Integer.toString(extStatusFlags & 0x1FFF);		
 	}
 	
 	public String getBMUExtStatusMsg() {
 		
-		int extStatusFlags = (int)(dd.getDeviceByID(3).getItemByID(86).getLastData());
+		int extStatusFlags = (int)(dd.getDeviceByID(BMS_ID).getItemByID(BMS_EXTSTATUS_ID).getLastData());
 		
 		String errorMsg = "";
 
