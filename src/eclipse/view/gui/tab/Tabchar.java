@@ -578,7 +578,7 @@ public class Tabchar extends JPanel implements TabPane {
 			errorMsg = errorMsg + "Config read error (some values may be reset to defaults), ";
 		}
 		if ((errorFlags & 0x40) > 0) {
-			errorMsg = errorMsg + "15V rail under voltage lock out (UVLO), ";
+			//errorMsg = errorMsg + "15V rail under voltage lock out (UVLO), ";
 		}
 		if ((errorFlags & 0x80) > 0) {
 			errorMsg = errorMsg + "Desaturation fault (MOSFET driver UVLO), ";
