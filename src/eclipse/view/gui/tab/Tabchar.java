@@ -670,7 +670,7 @@ public class Tabchar extends JPanel implements TabPane {
 			errorMsg = errorMsg + "BMU is in Setup mode, ";
 		}
 		if ((extStatusFlags & 0x80) > 0) {
-			errorMsg = errorMsg + "CMU CAN bus power status, ";
+			//errorMsg = errorMsg + "CMU CAN bus power status, ";
 		}
 		if ((extStatusFlags & 0x100) > 0) {
 			errorMsg = errorMsg + "Pack Isolation test failure, ";
