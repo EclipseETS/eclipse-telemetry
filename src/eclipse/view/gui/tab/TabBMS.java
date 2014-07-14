@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.controller.util.Rounding;
 /**
@@ -107,8 +106,6 @@ public class TabBMS extends JPanel implements TabPane {
 	private static final int BMU_SOCAH_ID = 58;
 	private static final int BMU_PACKA_ID = 83;
 	private static final int BMU_PACKV_ID = 84;
-	private static final int BMU_STATUS_ID = 87;
-	private static final int BMU_EXTSTATUS_ID = 97;
 	
 	private Image img;
 	
@@ -494,11 +491,6 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_Ipack_Value.setBounds(BMU_X_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_Ipack_Value);
 		
-/*		BMU_Status.setBounds(BMU_X, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_Status);
-		BMU_Status_Value.setBounds(BMU_X_VALUE, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_Status_Value);*/
-		
 		BMU_MaxCellT.setBounds(BMU_X_2, BMU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_MaxCellT);
 		BMU_MaxCellT_Value.setBounds(BMU_X_2_VALUE, BMU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
@@ -519,10 +511,6 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_SOCPc_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMU_SOCPc_Value);
 		
-/*		BMU_ExtStatus.setBounds(BMU_X_2, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_ExtStatus);
-		BMU_ExtStatus_Value.setBounds(BMU_X_2_VALUE, BMU_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMU_ExtStatus_Value);*/
 	}
 	
 	public void updateValues() {		
@@ -577,13 +565,11 @@ public class TabBMS extends JPanel implements TabPane {
 		BMU_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MINCELLV_ID));
 		BMU_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMU_SOCPC_ID));
 		BMU_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMU_SOCAH_ID));
-//		BMU_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMU_STATUS_ID));
 		
 		BMU_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMU_MAXCELLT_ID));
 		BMU_MaxPCBT_Value.setText(getMaxPCBTemp());
 		BMU_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMU_PACKV_ID));
 		BMU_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMU_PACKA_ID));
-//		BMU_ExtStatus_Value.setText(dd.getRoundedValue(BMS_ID, BMU_EXTSTATUS_ID));
 	
 	}
 	

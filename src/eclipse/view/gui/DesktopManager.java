@@ -135,9 +135,6 @@ public class DesktopManager implements Runnable {
 		// File important list		
 		TelemetrySettings.getInstance().load(SETTINGS_FILE);
 		
-//		String deviceId = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_DEVICE_ID");
-//		String deviceItemId = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_ITEM_ID");
-		
 		String importantValuesRaw = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_VALUES");
 		
 		if (importantValuesRaw.contains(",")) {

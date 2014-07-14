@@ -26,9 +26,6 @@ public class MatLab implements Runnable{
 	private static final int BMS_ID = 3;
 	private static final int INSTRU_ID = 6;
 	private static final int PSU_ID = 7;
-	private static final int MPPT1_ID = 8;
-	private static final int MPPT2_ID = 12;
-	private static final int MPPT3_ID = 10;
 	
 	private static final int DRIVE_ABUS_ID = 7;
 	private static final int DRIVE_VBUS_ID = 8;
@@ -44,9 +41,6 @@ public class MatLab implements Runnable{
 	
 	private static final int PSU_AHP_ID = 4;
 	private static final int PSU_VHP_ID = 5;
-	
-	private static final int MPPT_VOUT_ID = 2;
-	private static final int MPPT_IOUT_ID = 3;
 
 	private String sep = ",";
 	
@@ -61,14 +55,8 @@ public class MatLab implements Runnable{
 		File dir = new File("log/" + dirName);
 		dir.mkdir();
 
-		//String filename = "MATLAB.txt";
 		try {
-//			FileWriter fstream = new FileWriter(TelemetrySettings.getInstance().getSetting("MATLABFILE")+filename,true);
-//			BufferedWriter out = new BufferedWriter(fstream);
-//			//Copy value with this format
-//			 // out.write("HEURE,TENSION,COURANT,RPMFR,RPMFL,RPMRR,RPMRL,LAT,LON,X,Y,X,INCL\r\n");
-//		    out.close();
-//		    fstream.close();
+
 		    while(true){
 		    	if(DataAcquisition.getInstance().getAcquiStatus()){
 			    	fstream = new FileWriter(dir.getPath() + "/" + TelemetrySettings.getInstance().getSetting("MATLABFILE")+".dat",true);
@@ -80,13 +68,7 @@ public class MatLab implements Runnable{
 			 				((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
 							(dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 
 							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)))+sep+//PANEL_POWER
-/*			 				dd.getRawValue(MPPT1_ID, MPPT_VOUT_ID)+sep+//MPPT_1_V
-			 				dd.getRawValue(MPPT1_ID, MPPT_IOUT_ID)+sep+//MPPT_1_C
-			 				dd.getRawValue(MPPT2_ID, MPPT_VOUT_ID)+sep+//MPPT_2_V
-			 				dd.getRawValue(MPPT2_ID, MPPT_IOUT_ID)+sep+//MPPT_2_C
-			 				dd.getRawValue(MPPT3_ID, MPPT_VOUT_ID)+sep+//MPPT_3_V
-			 				dd.getRawValue(MPPT3_ID, MPPT_IOUT_ID)+sep+//MPPT_3_C
-*/			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//DRIVE_RPM
+			 				dd.getRawValue(DRIVE_ID, DRIVE_RPM_ID)+sep+//DRIVE_RPM
 			 				dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID)+sep+//DRIVE_C
 			 				dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)+sep+//DRIVE_T
 			 				dd.getRawValue(BMS_ID, BMS_AH_ID)+sep+//BMS_AH
@@ -100,7 +82,6 @@ public class MatLab implements Runnable{
 						Thread.sleep(Integer.parseInt(TelemetrySettings.getInstance().getSetting("MATLABTIMER")));
 					} catch (InterruptedException e) {
 						StringWriter stack = new StringWriter();
-//						e.printStackTrace(new PrintWriter(stack));
 						Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 					}
 		    	}

@@ -28,30 +28,6 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int LABEL_HEIGHT = 14;
 	private static final int LINE_OFFSET = 20;
 	
-	/*MPPT*/
-	private static final int MPPT_VIN_ID = 1;
-	private static final int MPPT_VOUT_ID = 2;
-	private static final int MPPT_IOUT_ID = 3;
-	private static final int MPPT_TEMP_ID = 4;
-	
-	/*MPPT1*/
-	private static final int MPPT1_ID = 8;
-	private static final int MPPT1_X = 50;
-	private static final int MPPT1_X_VALUE = 100;
-	private static final int MPPT1_Y = 400;
-
-	/*MPPT2*/
-	private static final int MPPT2_ID = 12;
-	private static final int MPPT2_X = 250;
-	private static final int MPPT2_X_VALUE = 300;
-	private static final int MPPT2_Y = 400;
-	
-	/*MPPT3*/
-	private static final int MPPT3_ID = 10;
-	private static final int MPPT3_X = 450;
-	private static final int MPPT3_X_VALUE = 500;
-	private static final int MPPT3_Y = 400;
-	
 	/*PSU*/
 	private static final int PSU_ID = 7;
 	private static final int PSU_X = 40;
@@ -59,8 +35,6 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int PSU_Y = 250;
 	private static final int PSU_ACAN_ID = 2;
 	private static final int PSU_VCAN_ID = 3;
-	private static final int PSU_AHP_ID = 4;
-	private static final int PSU_VHP_ID = 5;
 	
 	/*Drive*/
 	private static final int DRIVE_ID = 2;
@@ -100,7 +74,6 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int BMS_SOCAH_ID = 58;
 	private static final int BMS_PACKA_ID = 83;
 	private static final int BMS_PACKV_ID = 84;
-	private static final int BMS_STATUS_ID = 87;
 	private static final int BMS_EXTSTATUS_ID = 97;
 	private static final int CMU1_PCBTEMP_ID = 3;
 	private static final int CMU2_PCBTEMP_ID = 14;
@@ -116,7 +89,7 @@ public class Tabchar extends JPanel implements TabPane {
 	
 	/*Info 1*/
 	private static final int INFO1_X = 1050;
-	private static final int INFO1_X_VALUE = 1140;
+	private static final int INFO1_X_VALUE = 1125;
 	private static final int INFO1_Y = 210;
 	private static final int DRIVE_SPEED_ID = 9;
 	private static final int DRIVECTRL_ID = 1;
@@ -135,51 +108,6 @@ public class Tabchar extends JPanel implements TabPane {
 	private Image img;
 	
 	DataManager dd = DataManager.getInstance();
-	 
-	/*MPPT1*/
-	JLabel MPPT1_Label = new JLabel("[MPPT1]");
-
-	JLabel MPPT1_Vin = new JLabel("Vin :");
-	JLabel MPPT1_Vin_Value = new JLabel("");
-	
-	JLabel MPPT1_Vout = new JLabel("Vout :");
-	JLabel MPPT1_Vout_Value = new JLabel("");
-	
-	JLabel MPPT1_Iout = new JLabel("Iout :");
-	JLabel MPPT1_Iout_Value = new JLabel("");
-	
-	JLabel MPPT1_Temp = new JLabel("Temp :");
-	JLabel MPPT1_Temp_Value = new JLabel("");
-	
-	/*MPPT2*/
-	JLabel MPPT2_Label = new JLabel("[MPPT2]");
-
-	JLabel MPPT2_Vin = new JLabel("Vin :");
-	JLabel MPPT2_Vin_Value = new JLabel("");
-	
-	JLabel MPPT2_Vout = new JLabel("Vout :");
-	JLabel MPPT2_Vout_Value = new JLabel("");
-	
-	JLabel MPPT2_Iout = new JLabel("Iout :");
-	JLabel MPPT2_Iout_Value = new JLabel("");
-	
-	JLabel MPPT2_Temp = new JLabel("Temp :");
-	JLabel MPPT2_Temp_Value = new JLabel("");
-	
-	/*MPPT3*/
-	JLabel MPPT3_Label = new JLabel("[MPPT3]");
-
-	JLabel MPPT3_Vin = new JLabel("Vin :");
-	JLabel MPPT3_Vin_Value = new JLabel("");
-	
-	JLabel MPPT3_Vout = new JLabel("Vout :");
-	JLabel MPPT3_Vout_Value = new JLabel("");
-	
-	JLabel MPPT3_Iout = new JLabel("Iout :");
-	JLabel MPPT3_Iout_Value = new JLabel("");
-	
-	JLabel MPPT3_Temp = new JLabel("Temp :");
-	JLabel MPPT3_Temp_Value = new JLabel("");
 	
 	/*PSU*/
 	JLabel PSU_Label = new JLabel("[PSU]");
@@ -281,14 +209,11 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel Info1_Setpoint = new JLabel("Setpoint : ");
 	JLabel Info1_Setpoint_Value = new JLabel("");
 	
-	JLabel Info1_Power = new JLabel("Power Bat. : ");
-	JLabel Info1_Power_Value = new JLabel("");
+	JLabel Info1_PowerPan = new JLabel("Power Pan. : ");
+	JLabel Info1_PowerPan_Value = new JLabel("");
 	
-	JLabel Info1_PanelPow = new JLabel("Power Pan. : ");
-	JLabel Info1_PanelPow_Value = new JLabel("");
-	
-	JLabel Info1_Consumption = new JLabel("Consumption : ");
-	JLabel Info1_Consumption_Value = new JLabel("");
+	JLabel Info1_PowerBat = new JLabel("Power Bat. : ");
+	JLabel Info1_PowerBat_Value = new JLabel("");
 	
 	/*MPPT*/
 	JLabel MPPT_Label = new JLabel("[MPPT]");
@@ -313,78 +238,6 @@ public class Tabchar extends JPanel implements TabPane {
 		setLayout(null);
 		
 		img = new ImageIcon("images/image.png").getImage();
-		
-/*		MPPT1
-		MPPT1_Label.setBounds(MPPT1_X, MPPT1_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Label);
-		
-		MPPT1_Vin.setBounds(MPPT1_X, MPPT1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Vin);
-		MPPT1_Vin_Value.setBounds(MPPT1_X_VALUE, MPPT1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Vin_Value);
-		
-		MPPT1_Vout.setBounds(MPPT1_X, MPPT1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Vout);
-		MPPT1_Vout_Value.setBounds(MPPT1_X_VALUE, MPPT1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Vout_Value);
-		
-		MPPT1_Iout.setBounds(MPPT1_X, MPPT1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Iout);
-		MPPT1_Iout_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Iout_Value);
-		
-		MPPT1_Temp.setBounds(MPPT1_X, MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Temp);
-		MPPT1_Temp_Value.setBounds(MPPT1_X_VALUE,  MPPT1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT1_Temp_Value);
-		
-		MPPT2
-		MPPT2_Label.setBounds(MPPT2_X, MPPT2_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Label);
-		
-		MPPT2_Vin.setBounds(MPPT2_X, MPPT2_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Vin);
-		MPPT2_Vin_Value.setBounds(MPPT2_X_VALUE, MPPT2_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Vin_Value);
-		
-		MPPT2_Vout.setBounds(MPPT2_X, MPPT2_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Vout);
-		MPPT2_Vout_Value.setBounds(MPPT2_X_VALUE, MPPT2_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Vout_Value);
-		
-		MPPT2_Iout.setBounds(MPPT2_X, MPPT2_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Iout);
-		MPPT2_Iout_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Iout_Value);
-		
-		MPPT2_Temp.setBounds(MPPT2_X, MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Temp);
-		MPPT2_Temp_Value.setBounds(MPPT2_X_VALUE,  MPPT2_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT2_Temp_Value);
-		
-		MPPT3
-		MPPT3_Label.setBounds(MPPT3_X, MPPT3_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Label);
-		
-		MPPT3_Vin.setBounds(MPPT3_X, MPPT3_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Vin);
-		MPPT3_Vin_Value.setBounds(MPPT3_X_VALUE, MPPT3_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Vin_Value);
-		
-		MPPT3_Vout.setBounds(MPPT3_X, MPPT3_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Vout);
-		MPPT3_Vout_Value.setBounds(MPPT3_X_VALUE, MPPT3_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Vout_Value);
-		
-		MPPT3_Iout.setBounds(MPPT3_X, MPPT3_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Iout);
-		MPPT3_Iout_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Iout_Value);
-		
-		MPPT3_Temp.setBounds(MPPT3_X, MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Temp);
-		MPPT3_Temp_Value.setBounds(MPPT3_X_VALUE,  MPPT3_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT3_Temp_Value);*/
 		
 		/*PSU*/
 		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -423,16 +276,6 @@ public class Tabchar extends JPanel implements TabPane {
 		add(Drive_DSPTemp);
 		Drive_DSPTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Drive_DSPTemp_Value);
-		
-/*		Drive_ErrorFlags.setBounds(DRIVE_X, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_ErrorFlags);
-		Drive_ErrorFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_ErrorFlags_Value);
-		
-		Drive_LimitFlags.setBounds(DRIVE_X, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_LimitFlags);
-		Drive_LimitFlags_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_LimitFlags_Value);*/
 		
 		/*Instru*/
 		Instru_Label.setBounds(INSTRU_X, INSTRU_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -482,11 +325,6 @@ public class Tabchar extends JPanel implements TabPane {
 		BMS_Ipack_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_Ipack_Value);
 		
-/*		BMS_Status.setBounds(BMS_X, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Status);
-		BMS_Status_Value.setBounds(BMS_X_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Status_Value);*/
-		
 		BMS_MaxCellT.setBounds(BMS_X_2, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_MaxCellT);
 		BMS_MaxCellT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
@@ -506,11 +344,6 @@ public class Tabchar extends JPanel implements TabPane {
 		add(BMS_SOCPc);
 		BMS_SOCPc_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(BMS_SOCPc_Value);
-		
-/*		BMS_ExtStatus.setBounds(BMS_X_2, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_ExtStatus);
-		BMS_ExtStatus_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_ExtStatus_Value);*/
 		
 		/*Error Messages*/
 		ErrorMsg_Label.setBounds(ERRORMSG_X, ERRORMSG_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -547,20 +380,15 @@ public class Tabchar extends JPanel implements TabPane {
 		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_Setpoint_Value);
 		
-		Info1_Power.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Power);
-		Info1_Power_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Power_Value);
+		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerPan);
+		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerPan_Value);
 		
-		Info1_PanelPow.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_PanelPow);
-		Info1_PanelPow_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_PanelPow_Value);
-		
-		Info1_Consumption.setBounds(INFO1_X, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Consumption);
-		Info1_Consumption_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Consumption_Value);
+		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerBat);
+		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerBat_Value);
 		
 		/*MPPT*/		
 		MPPT_Label.setBounds(MPPT_X, MPPT_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -590,25 +418,6 @@ public class Tabchar extends JPanel implements TabPane {
 
 	public void updateValues() {
 		
-
-/*		MPPT1
-		MPPT1_Vin_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VIN_ID));
-		MPPT1_Vout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_VOUT_ID));
-		MPPT1_Iout_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_IOUT_ID));
-		MPPT1_Temp_Value.setText(dd.getRoundedValue(MPPT1_ID, MPPT_TEMP_ID));
-		
-		MPPT2
-		MPPT2_Vin_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VIN_ID));
-		MPPT2_Vout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_VOUT_ID));
-		MPPT2_Iout_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_IOUT_ID));
-		MPPT2_Temp_Value.setText(dd.getRoundedValue(MPPT2_ID, MPPT_TEMP_ID));
-		
-		MPPT3
-		MPPT3_Vin_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VIN_ID));
-		MPPT3_Vout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_VOUT_ID));
-		MPPT3_Iout_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_IOUT_ID));
-		MPPT3_Temp_Value.setText(dd.getRoundedValue(MPPT3_ID, MPPT_TEMP_ID));*/
-		
 		/*PSU*/
 		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ACAN_ID));
 		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
@@ -618,10 +427,6 @@ public class Tabchar extends JPanel implements TabPane {
 		Drive_HSTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_HSTEMP_ID));
 		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
 		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
-		//Drive_ErrorFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_ERRORFLAGS_ID));
-//		Drive_ErrorFlags_Value.setText(getDriveErrorFlags());
-		//Drive_LimitFlags_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_LIMITFLAGS_ID));
-//		Drive_LimitFlags_Value.setText(getDriveLimitFlags());
 		
 		/*Instru*/
 		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
@@ -637,22 +442,17 @@ public class Tabchar extends JPanel implements TabPane {
 			Instru_Time_Value.setText("0");
 			Instru_Date_Value.setText("0");
 		}
-//		Instru_Time_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_TIME_ID));
-//		Instru_Date_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_DATE_ID));
 		
 		/*BMS*/
 		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));
 		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
 		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
 		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
-//		BMS_Status_Value.setText(dd.getRoundedValue(BMS_ID, BMS_STATUS_ID));
 		
 		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
 		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
 		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
 		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
-		//BMS_ExtStatus_Value.setText(dd.getRoundedValue(BMS_ID, BMS_EXTSTATUS_ID));
-//		BMS_ExtStatus_Value.setText(getBMUExtStatus());
 		
 		/*Error Message*/
 		ErrorMsg_BMUExtStatus_Value.setText(getBMUExtStatusMsg());
@@ -666,35 +466,25 @@ public class Tabchar extends JPanel implements TabPane {
 		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
 		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
-		double power = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
-		Info1_Power_Value.setText(String.format("%.2f", power) + " W");
-		double panelPow = 0;
-		if (power < 0) {
-			panelPow = power + (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) + 60;
+		double powerBat = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
+		Info1_PowerBat_Value.setText(String.format("%.2f", powerBat) + " W");
+		double powerPan = 0;
+		if (powerBat < 0) {
+			powerPan = powerBat + (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) + 60;
+			Info1_PowerBat_Value.setForeground(Color.red);
 		}
 		else {
-			panelPow = power - (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 60;
+			powerPan = powerBat - (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 60;
+			Info1_PowerBat_Value.setForeground(Color.green);
 		}
-/*		double panelPow = 	((dd.getRawValue(BMS_ID, BMS_PACKA_ID) * dd.getRawValue(BMS_ID, BMS_PACKV_ID)) - 
-							(dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 
-							(dd.getRawValue(PSU_ID, PSU_AHP_ID) * dd.getRawValue(PSU_ID, PSU_VHP_ID)));*/
-		Info1_PanelPow_Value.setText(String.format("%.2f", panelPow) + " W");
-		double consumption = power;
-		if (consumption >= 0) {
-			Info1_Consumption_Value.setForeground(Color.green);
-		}
-		else {
-			Info1_Consumption_Value.setForeground(Color.red);
-		}
-		Info1_Consumption_Value.setText(String.format("%.2f", consumption) + " W");
+		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
 		
 		if (DataAcquisition.getInstance().getAcquiStatus()) {
 			/*Log info 1 values*/
 			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " km/h" + ", " + String.format("%.2f", speedMph) + " mph");
 			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " km/h");
-			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", power) + " Watts");
-			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", panelPow) + " Watts");
-			Logger.getLogger("calculated_values").info("Consumption : " + String.format("%.2f", consumption) + " Watts");
+			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", powerBat) + " watts");
+			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", powerPan) + " watts");
 		}
 		
 		/*MPPT*/
@@ -732,11 +522,7 @@ public class Tabchar extends JPanel implements TabPane {
 		else {
 			MPPT_ThreeStatus_Value.setText("ON");
 			MPPT_ThreeStatus_Value.setForeground(Color.green);
-		}
-//		MPPT_MainRelay_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_MAINRELAY_ID));
-//		MPPT_OneStatus_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_ONESTATUS_ID));
-//		MPPT_TwoStatus_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_TWOSTATUS_ID));
-//		MPPT_ThreeStatus_Value.setText(dd.getRoundedValue(MPPT_ID, MPPT_THREESTATUS_ID));		
+		}	
 	}
 	
 	public void paintComponent(Graphics g) {

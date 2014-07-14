@@ -42,7 +42,6 @@ import eclipse.view.gui.tab.TelemetryGraph;
 public class DeviceTable extends JPanel implements ItemListener  {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
-	private static final String SETTINGS_FILE = "telemetrySettings.properties";
 	private JScrollPane scrollPane;
 	private JTable dataTable;
 	private JButton btnGraph;
@@ -59,8 +58,6 @@ public class DeviceTable extends JPanel implements ItemListener  {
 	 * Creates the panel
 	 */
 	public DeviceTable() {		
-		
-		int nmItem = dataManager.getCpt();
 		
 		// Builds a layout without borders between elements
 		this.setLayout(new BorderLayout());		
@@ -91,9 +88,6 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		deviceCheckBox[4] = new JCheckBox("Volant");
 		deviceCheckBox[5] = new JCheckBox("Instru");
 		deviceCheckBox[6] = new JCheckBox("PSU");
-//		deviceCheckBox[7] = new JCheckBox("MPPT1");
-//		deviceCheckBox[8] = new JCheckBox("MPPT2");
-//		deviceCheckBox[9] = new JCheckBox("MPPT3");
 		
 		int i = 0;
 		
@@ -138,7 +132,6 @@ public class DeviceTable extends JPanel implements ItemListener  {
 				importantValuesRaw = importantValuesRaw + deviceId + "." + deviceItemId;
 			
 				TelemetrySettings.getInstance().setSetting("GUI_IMPORTANT_VALUES", importantValuesRaw);
-				//DesktopManager.getIstance().getErrorPanel().addItem(item, dev);
 				}
 			}
 
@@ -250,7 +243,6 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		//Fill table
 		int i=0;
 		int j=0;
-		int k=0;
 		String lbl1;
 		String lbl2;
 		

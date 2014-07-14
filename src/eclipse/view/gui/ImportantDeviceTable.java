@@ -47,7 +47,6 @@ public class ImportantDeviceTable extends JPanel  {
 	protected DefaultTableModel model;
 	protected List<DeviceItem> items;
 	private static final String SETTINGS_FILE = "telemetrySettings.properties";
-	private DataManager dataManager = DataManager.getInstance();
 
 	/**
 	 * Creates the panel
