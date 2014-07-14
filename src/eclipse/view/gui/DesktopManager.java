@@ -175,7 +175,7 @@ public class DesktopManager implements Runnable {
 		leftPart.setDividerLocation(0.75);
 		rightPart.setDividerLocation(panTable2.getHeightCustom());
 		rightFullPart.setDividerLocation(all.getHeight()+-errTable.getHeightCustom());
-		all.setDividerLocation(0.75);
+		all.setDividerLocation(0.78);
 		
 	}
     

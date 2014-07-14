@@ -73,8 +73,8 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		    }
 		  };
 		dataTable = new JTable(model);
-		btnGraph = new JButton("Graph this data");
-		btnIndex = new JButton("Keep this value");
+		btnGraph = new JButton("Graph");
+		btnIndex = new JButton("Keep");
 		btnAll = new JButton("All");
 		btnNone = new JButton("None");
 		
