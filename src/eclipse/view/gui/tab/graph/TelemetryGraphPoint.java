@@ -147,7 +147,6 @@ public class TelemetryGraphPoint extends JPanel implements Observer, TabPane {
 
 			@Override
 			public void chartMouseMoved(ChartMouseEvent arg0) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
