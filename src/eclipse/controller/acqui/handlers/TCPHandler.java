@@ -28,7 +28,7 @@ public class TCPHandler extends AcquisitionHandler {
 	public Boolean start() {
 		Socket clientSocket;
 		try {
-			clientSocket = new Socket(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_IP"), Integer.parseInt(TelemetrySettings.getInstance().getSetting("HANDLER_SERIAL_BAULT")));
+			clientSocket = new Socket(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_IP"), Integer.parseInt(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_PORT")));
 			outToServer = new DataOutputStream(clientSocket.getOutputStream());
 			inFromServer = clientSocket.getInputStream();
 			isConnected=true;
