@@ -1,0 +1,123 @@
+package eclipse.controller.app;
+
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
+import eclipse.controller.util.TelemetrySettings;
+import eclipse.model.xml.ProtocolLoader;
+import eclipse.model.xml.ProtocolValidator;
+import eclipse.model.xml8.ProtocolLoaderV8;
+import eclipse.model.xml8.ProtocolValidatorV8;
+
+/**
+ * This is the Eclipse telemetry simulator, This version of the simulator will replace the car with a simple interface and add
+ * a stubbed acquisition handler.
+ * 
+ * The simulator will send stubbed data to the real application so it will be possible to do some test without the real car.
+ * 
+ * ETS, École de technologie supérieure.
+ * 
+ * @author Marco
+ *
+ */
+public class Simulator {
+	
+	private static ThreadGen threadGenInstance;
+	private static final String SETTINGS_FILE = "telemetrySettings.properties";
+	//private static DataAcquisition dataAcqui;
+	static Logger logger = Logger.getLogger("main");
+
+
+
+	public static void main(String[] args) {
+		
+		
+		//init threadGen
+		threadGenInstance = ThreadGen.getInstance();
+		
+		//Initialisation
+		initApp();
+		
+		logger.info("App / SIMULATOR started");
+	}
+	
+	/**
+	 * Initialise all information and thread for this app
+	 * XML, Acquisition, gui, persistance, etc
+	 */
+	private static void initApp(){
+		
+		//==============================Logger configuration========================================
+		PropertyConfigurator.configure("log4j.configuration");		
+		logger.info("App initializing..");
+		
+		// =============================Load global settings========================================
+		logger.info("Loading global telemetry settings..");
+		TelemetrySettings.getInstance().load(SETTINGS_FILE);
+
+		
+		
+		//===================================Load XML===============================================
+		logger.debug("XML verification");
+		
+		// Load needed settings for init
+		String protocolSchema = TelemetrySettings.getInstance().getSetting("XML_PROTOCOL_SCHEMA");
+		String protocolXML = TelemetrySettings.getInstance().getSetting("XML_PROTOCOL_FILE");
+
+		// Create ProtocolValidator using ProtocolValidatorV7
+		ProtocolValidator protocolValidator;
+		
+		// Making sure nothing goes wrong in the init.
+		try {
+			protocolValidator = new ProtocolValidatorV8(protocolXML, protocolSchema);
+			
+			// Validate and load protocol into data structure using ProtocolLoaderV7
+			if (protocolValidator.xmlIsValid()) {
+				ProtocolLoader protocolLoader = new ProtocolLoaderV8(protocolXML);
+				protocolLoader.load();
+			}
+			else {
+				logger.error("Initialization failure. XML validation eror. Exiting.");
+				abort();
+			}
+			
+		} catch (Exception e) {
+			logger.error("Initialization failure. " + e.getMessage() + ". Exiting.");
+			 abort();
+		} 
+		
+				
+		//=================================Acquisition============================================
+		//dataAcqui = DataAcquisition.getInstance();
+		//dataAcqui.Ititalize(new SimpleSerialHandler(),new DesencapsulatorE8Serial());
+		//threadGenInstance.addThread(dataAcqui);
+		
+		//==================================SIMULATOR==================================================
+		threadGenInstance.addThread(new SimulatorEngine());
+		
+
+		//=================================MATLAB===============================================
+		//threadGenInstance.addThread(new MatLab());
+		
+		//=================================ERROR===============================================
+		//threadGenInstance.addThread(new ErrorFinder());
+		
+		
+		//=================================Start Gui===============================================
+		//threadGenInstance.addThread(DesktopManager.getIstance());
+				
+		//==========================Start the ThreadGenerator=======================================
+		threadGenInstance.startThread();
+	}
+	
+	
+	/**
+	 * Application killer, whit error log4j
+	 */
+	public static void abort() {
+		logger.debug("App abort. X button pressed!!!");
+		System.exit(1);
+	}
+
+}
