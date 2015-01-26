@@ -120,7 +120,7 @@ public class DesktopManager implements Runnable {
 		
 		Image im = null;
 		try {
-			im = ImageIO.read(new File("images/eclipse.png"));
+			im = ImageIO.read(getClass().getClassLoader().getResource("eclipse.png"));			
 		} catch (IOException e) {
 			StringWriter stack = new StringWriter();
 			e.printStackTrace(new PrintWriter(stack));
