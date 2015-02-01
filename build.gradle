@@ -2,9 +2,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.7
-version = ''
+version = getDate()
 jar {
-    baseName = 'EclipseTelemetry_V' + getDate()
+    baseName = 'EclipseTelemetry9_V' 
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }   
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
@@ -37,20 +37,6 @@ dependencies {
 test {
     systemProperties 'property': 'value'
 }
-
-uploadArchives {
-    repositories {
-       flatDir {
-           dirs 'repos'
-       }
-    }
-}
-
-sourceSets {
-    main { 
-      output.resourcesDir = "build/lib" 
-    }
-  }
 
 task zip(dependsOn: jar, type: Zip) {
     from configurations.runtime.allArtifacts.files
