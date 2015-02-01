@@ -2,13 +2,20 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.7
-version = '1.0'
+version = ''
 jar {
+    baseName = 'EclipseTelemetry_V' + getDate()
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }   
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
         attributes 'Main-Class': "eclipse.controller.app.EclipseTelemetry"
     }
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd_HHmmss')
+    return formattedDate
 }
 
 repositories {
