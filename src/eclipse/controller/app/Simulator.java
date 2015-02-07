@@ -33,7 +33,6 @@ public class Simulator {
 	static Logger logger = Logger.getLogger("main");
 
 
-
 	public static void main(String[] args) {
 		
 		
