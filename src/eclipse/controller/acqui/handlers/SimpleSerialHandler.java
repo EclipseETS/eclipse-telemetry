@@ -6,11 +6,12 @@ import java.io.StringWriter;
 
 import javax.swing.JOptionPane;
 
-import org.apache.log4j.Logger;
-
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
+
+import org.apache.log4j.Logger;
+
 import eclipse.controller.acqui.AcquisitionHandler;
 import eclipse.controller.util.TelemetrySettings;
 

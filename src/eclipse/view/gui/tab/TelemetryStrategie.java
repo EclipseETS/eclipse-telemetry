@@ -52,7 +52,8 @@ public class TelemetryStrategie extends JPanel implements TabPane, ActionListene
 	private JLabel label_1;
 	private JLabel label_2;
 	
-	public TelemetryStrategie() {
+	public TelemetryStrategie() 
+	{
 		setLayout(new MigLayout("", "[][][42.00,grow][grow][][grow][]", "[][][][][][][][][]"));
 		bgroup = new ButtonGroup();
 		label = new JLabel("");

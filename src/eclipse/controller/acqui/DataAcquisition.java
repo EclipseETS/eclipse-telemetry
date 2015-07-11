@@ -26,7 +26,8 @@ public class DataAcquisition implements Runnable {
 	static private DataAcquisition acqui = new DataAcquisition();
 	private boolean acquisition = false;
 	
-	public void Ititalize(AcquisitionHandler ah, Desencapsulator de) {
+	public void Ititalize(AcquisitionHandler ah, Desencapsulator de) 
+	{
 		this.handler = ah;
 		this.de=de;
 	}
@@ -53,34 +54,53 @@ public class DataAcquisition implements Runnable {
 	/**
 	 * Start acquisition
 	 */
-	public void startAcquiring() {
-		if(handler.start()){
+	public void startAcquiring() 
+	{
+		if(handler.start())
+		{
 			logger.info("Acquisition start");
 			DesktopManager.getIstance().menuStop();
 			acquisition=true;
 		}
 		else
+		{
 			logger.error("Error with interface");
+		}			
 	}
 	
 	/**
 	 * Program wil loop here forever, will decode byte and transfer it to createArray
 	 */
-	public void listen(){
-		while(true){
-			while(acquisition){
+	public void listen()
+	{
+		while(true)
+		{
+			while(acquisition)
+			{
 				currentByte=handler.readByte();
-				de.receiveChar(currentByte);
+				
+				if (handler.isConnected() == true)
+				{
+					de.receiveChar(currentByte);
+				}
+				else
+				{
+					logger.info("Disconnected from TCP server");
+					acquisition = false;					
+				}
 			}
-			try {
+
+			try 
+			{
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			} 
+			catch (InterruptedException e) 
+			{
 				StringWriter stack = new StringWriter();
 				e.printStackTrace(new PrintWriter(stack));
 				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
 			}
 		}
-		
 	}
 	
 	/**
@@ -93,8 +113,7 @@ public class DataAcquisition implements Runnable {
 	}
 
 	public void run() {
-		listen();
-		
+		listen();		
 	}
 	
 	/**

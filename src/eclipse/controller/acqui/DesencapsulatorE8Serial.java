@@ -76,6 +76,7 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 				//CRC VALID 
 
 				//Get trame
+		
 				Trame t = DataManager.getInstance().getTrame(id);
 				
 				if(t!=null)
@@ -88,7 +89,8 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 					for(DeviceItem itm : items)
 					{
 						double value;
-						try {
+						try 
+						{
 							//Get data from the right part of the array
 							value = ByteManipulator.byteArrayToInt(Arrays.copyOfRange(byteArray,i,i+(itm.getBitSize()/8)),
 									0, (itm.getBitSize()/8), itm.isSigned(), itm.isFloat());
@@ -100,7 +102,9 @@ public class DesencapsulatorE8Serial implements Desencapsulator {
 							
 							
 							// copy tram in save file
-						} catch (Exception e) {
+						}
+						catch (Exception e) 
+						{
 							StringWriter stack = new StringWriter();
 							e.printStackTrace(new PrintWriter(stack));
 							Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());

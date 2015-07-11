@@ -34,8 +34,10 @@ public class TabbedPannel extends JPanel {
 	 * @param comp
 	 * @param name
 	 */
-	public void addTab(Component comp, String name){
-		if(comp instanceof TabPane){
+	public void addTab(Component comp, String name)
+	{
+		if(comp instanceof TabPane)
+		{
 			tabPanel.add(name,comp);
 			tabPanel.setSelectedIndex(tabPanel.getTabCount()-1);
 		}
@@ -46,9 +48,12 @@ public class TabbedPannel extends JPanel {
 	 * @author Marco
 	 *
 	 */
-	public class RightClickListener extends MouseAdapter {
-	    public void mouseClicked(MouseEvent e) {
-	        if (SwingUtilities.isRightMouseButton(e)) {
+	public class RightClickListener extends MouseAdapter 
+	{
+	    public void mouseClicked(MouseEvent e) 
+	    {
+	        if (SwingUtilities.isRightMouseButton(e)) 
+	        {
 	        	int idx =tabPanel.indexAtLocation(e.getX(), e.getY());
 	        	if(tabPanel.indexAtLocation(e.getX(), e.getY())>=0)
 	        		tabPanel.remove(idx);

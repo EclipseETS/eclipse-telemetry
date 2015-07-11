@@ -12,9 +12,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+
+
 
 
 
@@ -29,7 +33,9 @@ import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.view.gui.tab.TabPane;
 import eclipse.view.gui.tab.TelemetryGraph;
+import eclipse.view.gui.tab.tabDetails;
 
 /**
  * This class is used to create the table that displays the car data
@@ -39,13 +45,15 @@ import eclipse.view.gui.tab.TelemetryGraph;
  * @author MArco
  *
  */
-public class DeviceTable extends JPanel implements ItemListener  {
+public class DeviceTable extends JPanel implements ItemListener  
+{
 	
 	private static final long serialVersionUID = -2652127495341433024L;
 	private JScrollPane scrollPane;
 	private JTable dataTable;
 	private JButton btnGraph;
 	private JButton btnIndex;
+	private JButton btn_Monitor;
 	private JButton btnAll;
 	private JButton btnNone;
 	private DataManager dataManager = DataManager.getInstance();
@@ -72,6 +80,7 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		dataTable = new JTable(model);
 		btnGraph = new JButton("Graph");
 		btnIndex = new JButton("Keep");
+		btn_Monitor = new JButton("monitor");
 		btnAll = new JButton("All");
 		btnNone = new JButton("None");
 		
@@ -107,70 +116,102 @@ public class DeviceTable extends JPanel implements ItemListener  {
 		buttonPanel.add(btnGraph);
 		buttonPanel.add(btnIndex);
 		buttonPanel.add(btnNone);
+		buttonPanel.add(btn_Monitor);
+		
+		
+		
+		
 		
 		//Action Listner on the button, to use in case we want to add items to important list 
-		btnIndex.addActionListener(new ActionListener() {
+		btnIndex.addActionListener(new ActionListener() 
+		{
 			public void actionPerformed(ActionEvent e) {
 				
-				for (int i : dataTable.getSelectedRows()){
-				String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
-				deviceId=deviceId.substring(0,deviceId.indexOf("-"));
-				
-				
-				String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
-				deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
-				
-				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
-				DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
-
-				DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
-				
-				String importantValuesRaw = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_VALUES");
-				if (importantValuesRaw.contains(".")) {
-					importantValuesRaw = importantValuesRaw + ",";
-				}
-				importantValuesRaw = importantValuesRaw + deviceId + "." + deviceItemId;
-			
-				TelemetrySettings.getInstance().setSetting("GUI_IMPORTANT_VALUES", importantValuesRaw);
-				}
-			}
-
-			});
-		
-		
-		btnGraph.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				for (int i : dataTable.getSelectedRows()){
+				for (int i : dataTable.getSelectedRows())
+				{
+					String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
+					deviceId=deviceId.substring(0,deviceId.indexOf("-"));
 					
-				String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
-				deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+					
+					String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
+					deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
+					
+					Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
+					DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+	
+					DesktopManager.getIstance().getImportantPanel().addItem(item, dev);
+					
+					String importantValuesRaw = TelemetrySettings.getInstance().getSetting("GUI_IMPORTANT_VALUES");
+					
+					if (importantValuesRaw.contains(".")) 
+					{
+						importantValuesRaw = importantValuesRaw + ",";
+					}
+					
+					importantValuesRaw = importantValuesRaw + deviceId + "." + deviceItemId;
 				
-				
-				String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
-				deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
-				
-				Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
-				DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
-				
-				DesktopManager.getIstance().getTabbedPannel().addTab(
-						new TelemetryGraph(Integer.valueOf(deviceId), Integer.valueOf(deviceItemId)),dev.getDeviceName()+"-"+item.getName());
+					TelemetrySettings.getInstance().setSetting("GUI_IMPORTANT_VALUES", importantValuesRaw);
 				}
 			}
 
 			});
+		
+		
+		btnGraph.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{				
+				for (int i : dataTable.getSelectedRows())
+				{					
+					String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
+					deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+										
+					String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
+					deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
+					
+					Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
+					DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+					
+					DesktopManager.getIstance().getTabbedPannel().addTab(
+							new TelemetryGraph(Integer.valueOf(deviceId), Integer.valueOf(deviceItemId)),dev.getDeviceName()+"-"+item.getName());
+				}
+			}
+		});
+		
+		btn_Monitor.addActionListener(new ActionListener() 
+		{			
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				for (int i : dataTable.getSelectedRows())
+				{	
+					String deviceId = (String) dataTable.getModel().getValueAt(i, 0);
+					deviceId=deviceId.substring(0,deviceId.indexOf("-"));
+										
+					String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
+					deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
+					
+					Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
+					DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+					
+					((tabDetails)((JTabbedPane)DesktopManager.getIstance().getTabbedPannel().getComponent(0)).getComponent(1)).addItem(deviceId, deviceId);
+	
+				}				
+			}
+		});
 
-		btnAll.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnAll.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
 				
 				int i;
-				for (i=0; i<7 ; i++) {			
+				for (i=0; i<7 ; i++) 
+				{			
 					deviceCheckBox[i].setSelected(true);
 				}
-
 			}
-
-			});
+		});
 		
 		btnNone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

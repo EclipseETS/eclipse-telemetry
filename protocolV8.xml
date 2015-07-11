@@ -511,7 +511,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="6" name="CMU1 Cell2 Voltage">
 				<unit>V</unit>
@@ -522,7 +522,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="7" name="CMU1 Cell1 Voltage">
 				<unit>V</unit>
@@ -533,7 +533,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="8" name="CMU1 Cell0 Voltage">
 				<unit>V</unit>
@@ -544,7 +544,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="303" type="0">
@@ -557,7 +557,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="10" name="CMU1 Cell6 Voltage">
 				<unit>V</unit>
@@ -568,7 +568,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="11" name="CMU1 Cell5 Voltage">
 				<unit>V</unit>
@@ -579,7 +579,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="12" name="CMU1 Cell4 Voltage">
 				<unit>V</unit>
@@ -590,7 +590,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		
@@ -640,7 +640,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="17" name="CMU2 Cell2 Voltage">
 				<unit>V</unit>
@@ -651,7 +651,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="18" name="CMU2 Cell1 Voltage">
 				<unit>V</unit>
@@ -662,7 +662,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="19" name="CMU2 Cell0 Voltage">
 				<unit>V</unit>
@@ -673,7 +673,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="306" type="0">
@@ -686,7 +686,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="21" name="CMU2 Cell6 Voltage">
 				<unit>V</unit>
@@ -697,7 +697,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="22" name="CMU2 Cell5 Voltage">
 				<unit>V</unit>
@@ -708,7 +708,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="23" name="CMU2 Cell4 Voltage">
 				<unit>V</unit>
@@ -719,7 +719,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		
@@ -769,7 +769,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="28" name="CMU3 Cell2 Voltage">
 				<unit>V</unit>
@@ -780,7 +780,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="29" name="CMU3 Cell1 Voltage">
 				<unit>V</unit>
@@ -791,7 +791,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="30" name="CMU3 Cell0 Voltage">
 				<unit>V</unit>
@@ -802,7 +802,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="309" type="0">
@@ -815,7 +815,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="32" name="CMU3 Cell6 Voltage">
 				<unit>V</unit>
@@ -826,7 +826,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="33" name="CMU3 Cell5 Voltage">
 				<unit>V</unit>
@@ -837,7 +837,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="34" name="CMU3 Cell4 Voltage">
 				<unit>V</unit>
@@ -848,7 +848,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		
@@ -898,7 +898,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="39" name="CMU4 Cell2 Voltage">
 				<unit>V</unit>
@@ -909,7 +909,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="40" name="CMU4 Cell1 Voltage">
 				<unit>V</unit>
@@ -920,7 +920,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="41" name="CMU4 Cell0 Voltage">
 				<unit>V</unit>
@@ -931,7 +931,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="30C" type="0">
@@ -944,7 +944,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="43" name="CMU4 Cell6 Voltage">
 				<unit>V</unit>
@@ -955,7 +955,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="44" name="CMU4 Cell5 Voltage">
 				<unit>V</unit>
@@ -966,7 +966,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="45" name="CMU4 Cell4 Voltage">
 				<unit>V</unit>
@@ -977,7 +977,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		
@@ -1027,7 +1027,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="50" name="CMU5 Cell2 Voltage">
 				<unit>V</unit>
@@ -1038,7 +1038,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="51" name="CMU5 Cell1 Voltage">
 				<unit>V</unit>
@@ -1049,7 +1049,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="52" name="CMU5 Cell0 Voltage">
 				<unit>V</unit>
@@ -1060,7 +1060,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="30F" type="0">
@@ -1073,7 +1073,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="54" name="CMU5 Cell6 Voltage">
 				<unit>V</unit>
@@ -1084,7 +1084,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="55" name="CMU5 Cell5 Voltage">
 				<unit>V</unit>
@@ -1095,7 +1095,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="56" name="CMU5 Cell4 Voltage">
 				<unit>V</unit>
@@ -1106,7 +1106,7 @@
 				<factor>1000</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>false</isFloat>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 		
@@ -1424,7 +1424,7 @@
 				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-2147483648</minvalue>
-				<maxvalue>2147483648</maxvalue>
+				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1000</factor>
 				<offset>0</offset>

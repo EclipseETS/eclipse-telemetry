@@ -35,15 +35,21 @@ import org.apache.log4j.Logger;
 
 
 
+
+
+
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.view.gui.DeviceTable;
+import eclipse.view.gui.ImportantDeviceTable;
 import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
 import eclipse.view.gui.tab.TabBMS;
 import eclipse.view.gui.tab.TelemetryStrategie;
+import eclipse.view.gui.tab.tabDetails;
 import eclipse.view.gui.tab.graph.TelemetryGraphPoint;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
@@ -205,16 +211,22 @@ public class DesktopManager implements Runnable {
 		
 		//Show Global View at startup
 		tab.addTab(new Tabchar(),TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
+		tab.addTab(new tabDetails(),"TEST COMPARER");
 		
 		//This is the timer for the gui part of the application
-		while(true){
+		while(true)
+		{
 			//refresh value every second
 			panTable.updateTable();
 			panTable2.updateTable();
 			tab.update();
-			try {
+			
+			try 
+			{
 				Thread.sleep(1000);
-			} catch (Exception e) {
+			} 
+			catch (Exception e) 
+			{
 				StringWriter stack = new StringWriter();
 				e.printStackTrace(new PrintWriter(stack));
 				Logger.getLogger("main").error("Caught exception; decorating with appropriate status template : " + stack.toString());
@@ -434,6 +446,8 @@ public class DesktopManager implements Runnable {
 	public TabbedPannel getTabbedPannel(){
 		return tab;
 	}
+	
+	
 	
 	public void menuStop(){
 		mnStart.setEnabled(false);

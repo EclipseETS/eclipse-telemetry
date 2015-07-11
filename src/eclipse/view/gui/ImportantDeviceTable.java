@@ -72,12 +72,16 @@ public class ImportantDeviceTable extends JPanel  {
 		dataTable = new JTable(model);
 		
 		//This is the mouse listner on double click Item get erased
-		dataTable.addMouseListener(new MouseAdapter() {
-			   public void mouseClicked(MouseEvent e) {
-			      if (SwingUtilities.isRightMouseButton(e)) {
+		dataTable.addMouseListener(new MouseAdapter() 
+		{
+			   public void mouseClicked(MouseEvent e) 
+			   {
+			      if (SwingUtilities.isRightMouseButton(e)) 
+			      {
 			         JTable target = (JTable)e.getSource();
 			         int row = target.getSelectedRow();
-			         if(row!=-1){
+			         if(row!=-1)
+			         {
 			         String deviceId = (String) dataTable.getModel().getValueAt(dataTable.getSelectedRow(), 0);
 			         deviceId=deviceId.substring(0,deviceId.indexOf("-"));
 						

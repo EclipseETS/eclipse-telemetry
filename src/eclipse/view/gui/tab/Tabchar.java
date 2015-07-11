@@ -4,12 +4,15 @@ package eclipse.view.gui.tab;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import org.apache.log4j.Logger;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.util.TelemetrySettings;
@@ -20,8 +23,13 @@ import eclipse.model.data.DataManager;
  * @author Olivier
  *
  */
-public class Tabchar extends JPanel implements TabPane {
-		
+
+
+
+
+public class Tabchar extends JPanel implements TabPane, MouseListener 
+{
+	
 	private static final long serialVersionUID = 7275321077445435378L;
 	
 	private static final int LABEL_WIDTH = 100;
@@ -33,8 +41,10 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int PSU_X = 40;
 	private static final int PSU_X_VALUE = 120;
 	private static final int PSU_Y = 250;
+	
 	private static final int PSU_ACAN_ID = 2;
 	private static final int PSU_VCAN_ID = 3;
+	
 	
 	/*Drive*/
 	private static final int DRIVE_ID = 2;
@@ -230,19 +240,23 @@ public class Tabchar extends JPanel implements TabPane {
 	JLabel MPPT_ThreeStatus = new JLabel("MPPT3 Status : ");
 	JLabel MPPT_ThreeStatus_Value = new JLabel("");
 	
-	 
-	public Tabchar() {
-		
+	JTable table;
+	
+	public Tabchar() 
+	{
+		addMouseListener(this);		
 		setBackground(Color.WHITE);		
 		setForeground(Color.BLACK);
 		setLayout(null);
 		
+	
+	
 		img = new ImageIcon("images/image.png").getImage();
 		
 		/*PSU*/
 		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
 		add(PSU_Label);
-		
+	
 		PSU_ICAN.setBounds(PSU_X, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(PSU_ICAN);
 		PSU_ICAN_Value.setBounds(PSU_X_VALUE, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
@@ -633,8 +647,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		return errorMsg;	
 	}
-	
-	
+		
 	public String getBMUExtStatus() {
 		
 		int extStatusFlags = (int)(dd.getDeviceByID(BMS_ID).getItemByID(BMS_EXTSTATUS_ID).getLastData());
@@ -694,4 +707,33 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		return errorMsg;		
 	}
+	
+	public void mousePressed(MouseEvent e) 
+	{
+		//javax.swing.JOptionPane.showMessageDialog(null,"bonjour");  
+	}
+	
+	public void mouseReleased(MouseEvent e) 
+	{
+		//javax.swing.JOptionPane.showMessageDialog(null,"aurevoir");
+	}
+	
+	public void mouseEntered(MouseEvent e) 
+	{
+		//javax.swing.JOptionPane.showMessageDialog(null,"bienvenue");  
+	}
+	
+	public void mouseExited(MouseEvent e) 
+	{
+		//javax.swing.JOptionPane.showMessageDialog(null,"bye");  
+	}
+	
+	public void mouseClicked(MouseEvent e) 
+	{
+		//javax.swing.JOptionPane.showMessageDialog(null,"click");  
+	} 
 }
+
+
+
+
