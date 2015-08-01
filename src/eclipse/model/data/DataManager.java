@@ -201,7 +201,7 @@ public class DataManager implements Serializable{
 				{
 					//trame exist
 					int date = (int) ByteManipulator.byteArrayToInt(arrydebites, 0, 4, false, false);
-					//long datte =eclipse.controller.util.ByteManipulator.bytesToLong(Arrays.copyOfRange(arrydebites,0,4));
+					
 					
 					
 					List<DeviceItem> items = t.getItems();

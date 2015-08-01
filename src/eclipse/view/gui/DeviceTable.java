@@ -191,11 +191,8 @@ public class DeviceTable extends JPanel implements ItemListener
 					String deviceItemId = (String) dataTable.getModel().getValueAt(i, 1);
 					deviceItemId=deviceItemId.substring(0,deviceItemId.indexOf("-"));
 					
-					Device dev = dataManager.getDeviceByID(Integer.valueOf(deviceId));
-					DeviceItem item = dev.getItemByID(Integer.valueOf(deviceItemId));
+					((tabDetails)((JTabbedPane)DesktopManager.getIstance().getTabbedPannel().getComponent(0)).getComponent(1)).addItem(deviceId, deviceItemId);
 					
-					((tabDetails)((JTabbedPane)DesktopManager.getIstance().getTabbedPannel().getComponent(0)).getComponent(1)).addItem(deviceId, deviceId);
-	
 				}				
 			}
 		});

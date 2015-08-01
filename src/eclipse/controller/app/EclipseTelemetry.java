@@ -7,6 +7,7 @@ import org.apache.log4j.PropertyConfigurator;
 import eclipse.controller.acqui.DataAcquisition;
 import eclipse.controller.acqui.DesencapsulatorE8Serial;
 import eclipse.controller.acqui.handlers.SimpleSerialHandler;
+import eclipse.controller.acqui.handlers.TCPHandler;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.xml.ProtocolLoader;
 import eclipse.model.xml.ProtocolValidator;
@@ -96,7 +97,24 @@ public class EclipseTelemetry {
 				
 		//=================================Acquisition============================================
 		dataAcqui = DataAcquisition.getInstance();
-		dataAcqui.Ititalize(new SimpleSerialHandler(),new DesencapsulatorE8Serial());
+		
+		
+		
+		
+		 if((TelemetrySettings.getInstance().getSetting("HANDLER_TYPE")).equals("TCP_HANDLER"))
+		 {
+				dataAcqui.Ititalize(new TCPHandler(),new DesencapsulatorE8Serial());
+		 }
+		 else
+		 {
+			  dataAcqui.Ititalize(new SimpleSerialHandler(),new DesencapsulatorE8Serial());
+		 }
+		
+		
+	
+		
+		
+		
 		threadGenInstance.addThread(dataAcqui);
 		
 		//==================================STUB==================================================

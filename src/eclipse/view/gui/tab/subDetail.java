@@ -9,13 +9,13 @@ import eclipse.model.data.DataManager;
 
 public class subDetail extends JPanel
 {
-
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 846991104427450638L;
 	
-	JLabel Drive_Label = new JLabel("[Drive]");
+	JLabel Drive_Label = new JLabel("[Item]");
 	
 	JLabel Drive_ErrorFlags = new JLabel("Error Flags : ");
 	JLabel Drive_ErrorFlags_Value = new JLabel("");
@@ -23,11 +23,11 @@ public class subDetail extends JPanel
 	String deviceID;
 	String deviceItemId;
 	
-	DataManager dd = DataManager.getInstance();
+	DataManager dm = DataManager.getInstance();
 	
 	public subDetail(String devID, String devIId) 
 	{	
-		setBackground(Color.BLUE);		
+		setBackground(Color.lightGray);		
 		setForeground(Color.BLACK);
 		
 		deviceID = devID;
@@ -41,14 +41,14 @@ public class subDetail extends JPanel
 		add(Drive_Label);
 		add(Drive_ErrorFlags);
 		add(Drive_ErrorFlags_Value);
-		
+
 
 		
 	}
 	
 	public void updateValues()
 	{
-		Drive_ErrorFlags_Value.setText(dd.getRoundedValue(Integer.parseInt(deviceID), Integer.parseInt(deviceItemId)));
+		Drive_ErrorFlags_Value.setText(dm.getRoundedValue(Integer.parseInt(deviceID), Integer.parseInt(deviceItemId)));
 	}
 	
 
