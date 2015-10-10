@@ -27,7 +27,7 @@ public class SimpleSerialHandler extends AcquisitionHandler {
 	
 	private SerialPort serialPort;
 	private Boolean connected=false;
-	private String name = "XBEE";
+	private String name = "XBEE"; 
 	private int cpt=0;
 
 	/**
