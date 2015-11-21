@@ -1,9 +1,12 @@
 package eclipse.controller.acqui.handlers;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Arrays;
 
 import eclipse.controller.acqui.AcquisitionHandler;
 import eclipse.controller.util.TelemetrySettings;
@@ -26,21 +29,20 @@ public class TCPHandler extends AcquisitionHandler {
 	@Override
 	public Boolean start() 
 	{
-		//Socket clientSocket;
+		
 		
 		try 
 		{
 			clientSocket = new Socket(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_IP"), Integer.parseInt(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_PORT")));
 			Boolean isOk = true;
 			
-			// isOk = authenticate();
-			
+			isOk = authenticate();
 			outToServer = new DataOutputStream(clientSocket.getOutputStream());
 			inFromServer = clientSocket.getInputStream();
 			
 			if (isOk == true)
 			{
-				isConnected=true;		
+				isConnected=true;	
 			}
 			else
 			{
@@ -59,7 +61,7 @@ public class TCPHandler extends AcquisitionHandler {
 	public boolean authenticate()
 	{
 		boolean returnValue = true;
-		/*
+		
 		try 
 		{
 			OutputStream tempOutputStream =  clientSocket.getOutputStream();
@@ -72,7 +74,9 @@ public class TCPHandler extends AcquisitionHandler {
 			byte[] received = new byte[16];
 				
 			in.read(received, 0, 16);
-				
+			
+			System.out.println(Arrays.toString(received));
+		   
 			toSend = xorString(received);
 			
 			out.write(toSend);
@@ -80,11 +84,12 @@ public class TCPHandler extends AcquisitionHandler {
 		} 
 		catch (IOException e) 
 		{
+			System.out.println("Authenticate IOException");
 			System.out.println(e.toString());
 			e.printStackTrace();
 			returnValue = false;
 			System.out.println(e.toString());
-		}*/
+		}
 		
 		
 		return returnValue;
@@ -92,13 +97,19 @@ public class TCPHandler extends AcquisitionHandler {
 	
 	public byte[] xorString(byte[] received)
 	{
+		
+		
+		
+		
 		byte [] xored = new byte[16];
 		byte [] toxor = received;
-		byte [] key =  ("xcxisourprincess").getBytes();
+		byte [] key =  ("kperryisourqueen").getBytes();
+		
 		
 		for(int i = 0; i < 16; ++i)
 		{
 			xored[i]  = (byte) ((toxor[i]) ^ (key[i]));
+			
 		}
 		
 		return xored;
