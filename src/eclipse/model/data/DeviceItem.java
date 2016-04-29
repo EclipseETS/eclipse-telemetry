@@ -121,7 +121,7 @@ public class DeviceItem extends Observable implements Serializable {
 	 * @param value value as double to be added to the table
 	 */
 	public void setValue(Double value){
-		value=value*resolution/factor+offset;
+		value=value*factor/resolution+offset;
 		values.add(new Data(value));
 		if(value<minValue||value>maxValue)
 			erreur=true;
@@ -136,7 +136,7 @@ public class DeviceItem extends Observable implements Serializable {
 	}
 	
 	public void addOldDATA(double value, long date){
-		value=value*resolution/factor+offset;
+		value=value*factor/resolution+offset;
 		values.add(new Data(value,date));
 		setChanged();
 		notifyObservers();
