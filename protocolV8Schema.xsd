@@ -8,8 +8,8 @@
 			<xs:element name="bitsize" type="xs:integer" />
 			<xs:element name="minvalue" type="xs:double" />
 			<xs:element name="maxvalue" type="xs:double" />
-			<xs:element name="resolution" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
-			<xs:element name="factor" type="xs:double" /><!--(VALEUR*resolution)/factor+offset-->
+			<xs:element name="resolution" type="xs:double" /><!--(VALEUR*factor)/resolution+offset-->
+			<xs:element name="factor" type="xs:double" /><!--(VALEUR*factor)/resolution+offset-->
 			<xs:element name="offset" type="xs:double" />
 			<xs:element name="signed" type="xs:boolean" />
 			<xs:element name="isFloat" type="xs:boolean" />
