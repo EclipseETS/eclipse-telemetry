@@ -36,14 +36,20 @@ import org.apache.log4j.Logger;
 
 
 import eclipse.controller.acqui.DataAcquisition;
+import eclipse.controller.acqui.DesencapsulatorE8Serial;
+import eclipse.controller.acqui.handlers.SimpleSerialHandler;
+import eclipse.controller.acqui.handlers.TCPHandler;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
 import eclipse.model.data.DeviceItem;
+import eclipse.view.gui.DeviceTable;
+import eclipse.view.gui.ImportantDeviceTable;
 import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
 import eclipse.view.gui.tab.TabBMS;
 import eclipse.view.gui.tab.TelemetryStrategie;
+import eclipse.view.gui.tab.tabDetails;
 import eclipse.view.gui.tab.graph.TelemetryGraphPoint;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
@@ -308,8 +314,7 @@ public class DesktopManager implements Runnable {
 		mnStop.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent arg0) {
         	   DataAcquisition.getInstance().stopAcquiring();
-        	   
-    			}
+           }
 
         });
 		mnStop.setEnabled(false);
@@ -337,6 +342,28 @@ public class DesktopManager implements Runnable {
 
         });
 		
+		JMenuItem mntChangeHandler = new JMenuItem();
+
+		if((TelemetrySettings.getInstance().getSetting("HANDLER_TYPE")).equals("TCP_HANDLER"))
+		 {
+			mntChangeHandler.setText("Change Handler to SERIAL");
+		 }
+		 else
+		 {
+			 mntChangeHandler.setText("Change Handler to TCP");
+		 }
+
+		mnAcqui.add(mntChangeHandler);
+		mntChangeHandler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if((TelemetrySettings.getInstance().getSetting("HANDLER_TYPE")).equals("TCP_HANDLER")) {
+					TelemetrySettings.getInstance().setSetting("HANDLER_TYPE", "SERIAL_HANDLER");
+				} else {
+					TelemetrySettings.getInstance().setSetting("HANDLER_TYPE", "TCP_HANDLER");
+				}
+			}
+		});
+
 		//PANEL
 		JMenu mnView = new JMenu(TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL"));
 		menuBar.add(mnView);
