@@ -24,21 +24,7 @@ import javax.swing.JSplitPane;
 
 import org.apache.log4j.Logger;
 
-
-
-
-
-
-
-
-
-
-
-
 import eclipse.controller.acqui.DataAcquisition;
-import eclipse.controller.acqui.DesencapsulatorE8Serial;
-import eclipse.controller.acqui.handlers.SimpleSerialHandler;
-import eclipse.controller.acqui.handlers.TCPHandler;
 import eclipse.controller.util.TelemetrySettings;
 import eclipse.model.data.DataManager;
 import eclipse.model.data.Device;
@@ -49,7 +35,6 @@ import eclipse.view.gui.tab.TabbedPannel;
 import eclipse.view.gui.tab.Tabchar;
 import eclipse.view.gui.tab.TabBMS;
 import eclipse.view.gui.tab.TelemetryStrategie;
-import eclipse.view.gui.tab.tabDetails;
 import eclipse.view.gui.tab.graph.TelemetryGraphPoint;
 /**
  * This Desktop Manager is the Main Gui point of entry for this application
