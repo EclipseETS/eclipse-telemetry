@@ -331,11 +331,11 @@ public class DesktopManager implements Runnable {
 
 		if((TelemetrySettings.getInstance().getSetting("HANDLER_TYPE")).equals("TCP_HANDLER"))
 		 {
-			mntChangeHandler.setText("Change Handler to SERIAL");
+			mntChangeHandler.setText("Use XBee (after relaunch)");
 		 }
 		 else
 		 {
-			 mntChangeHandler.setText("Change Handler to TCP");
+			 mntChangeHandler.setText("Use 3G (after relaunch)");
 		 }
 
 		mnAcqui.add(mntChangeHandler);
