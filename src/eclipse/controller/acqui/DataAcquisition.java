@@ -69,8 +69,13 @@ public class DataAcquisition implements Runnable {
 	public void listen(){
 		while(true){
 			while(acquisition){
-				currentByte=handler.readByte();
-				de.receiveChar(currentByte);
+				if (handler.isConnected()) {
+					currentByte=handler.readByte();
+					de.receiveChar(currentByte);
+				} else {
+					logger.info("Communication with peer closed");
+					acquisition = false;
+				}
 			}
 			try {
 				Thread.sleep(1000);
