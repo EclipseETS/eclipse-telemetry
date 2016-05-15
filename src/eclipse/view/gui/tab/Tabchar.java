@@ -85,7 +85,7 @@ public class Tabchar extends JPanel implements TabPane {
 	private static final int MSG_LABEL_WIDTH = 900;
 	private static final int ERRORMSG_X = 40;
 	private static final int ERRORMSG_X_VALUE = 120;
-	private static final int ERRORMSG_Y = 400;
+	private static final int ERRORMSG_Y = 500;
 	
 	/*Info 1*/
 	private static final int INFO1_X = 1050;
@@ -532,7 +532,7 @@ public class Tabchar extends JPanel implements TabPane {
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, width, height);
-		g.drawImage(img, 180, 100, null);
+		g.drawImage(img, 180, 150, null);
 	}
 	
 	public String getMaxPCBTemp() {
