@@ -214,8 +214,8 @@ public class DesktopManager implements Runnable {
 		frmclipseViii.setVisible(true);
 		
 		//Show Global View at startup
-		tab.addTab(new Tabchar(),TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
-		tab.addTab(new tabDetails(),"TEST COMPARER");
+		//tab.addTab(new Tabchar(),TelemetrySettings.getInstance().getSetting("GUI_MENU_PANEL_CHAR"));
+		//tab.addTab(new tabDetails(),"TEST COMPARER");
 		
 		//This is the timer for the gui part of the application
 		while(true)
