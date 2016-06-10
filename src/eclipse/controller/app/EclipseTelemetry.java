@@ -122,7 +122,7 @@ public class EclipseTelemetry {
 		
 
 		//=================================MATLAB===============================================
-		threadGenInstance.addThread(new MatLab());
+		//threadGenInstance.addThread(new MatLab());
 		
 		//=================================ERROR===============================================
 		threadGenInstance.addThread(new ErrorFinder());
