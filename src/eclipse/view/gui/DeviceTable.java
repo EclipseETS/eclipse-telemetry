@@ -58,7 +58,7 @@ public class DeviceTable extends JPanel implements ItemListener
 	private JButton btnNone;
 	private DataManager dataManager = DataManager.getInstance();
 	JPanel[] checkBoxPanel = new JPanel[2];		
-	JCheckBox[] deviceCheckBox = new JCheckBox[7];
+	JCheckBox[] deviceCheckBox = new JCheckBox[10];
 	
 	Device dev;
 
@@ -80,7 +80,7 @@ public class DeviceTable extends JPanel implements ItemListener
 		dataTable = new JTable(model);
 		btnGraph = new JButton("Graph");
 		btnIndex = new JButton("Keep");
-		btn_Monitor = new JButton("monitor");
+		btn_Monitor = new JButton("Monitor");
 		btnAll = new JButton("All");
 		btnNone = new JButton("None");
 		
@@ -90,24 +90,27 @@ public class DeviceTable extends JPanel implements ItemListener
 		checkBoxPanel[0] = new JPanel();
 		checkBoxPanel[1] = new JPanel();
 		
-		deviceCheckBox[0] = new JCheckBox("Driver Ctrl");
-		deviceCheckBox[1] = new JCheckBox("Drive");
-		deviceCheckBox[2] = new JCheckBox("BMS");
-		deviceCheckBox[3] = new JCheckBox("Flashers");
-		deviceCheckBox[4] = new JCheckBox("Volant");
-		deviceCheckBox[5] = new JCheckBox("Instru");
-		deviceCheckBox[6] = new JCheckBox("PSU");
+		deviceCheckBox[0] = new JCheckBox("Driver");
+		deviceCheckBox[1] = new JCheckBox("Drive (L)");
+		deviceCheckBox[2] = new JCheckBox("Drive (R)");
+		deviceCheckBox[3] = new JCheckBox("BMS");
+		deviceCheckBox[4] = new JCheckBox("Dash");
+		deviceCheckBox[5] = new JCheckBox("Volant");
+		deviceCheckBox[6] = new JCheckBox("Instru");
+		deviceCheckBox[7] = new JCheckBox("PSU");
+		deviceCheckBox[8] = new JCheckBox("Ignition");
+		deviceCheckBox[9] = new JCheckBox("Flashers");
 		
 		int i = 0;
 		
-		for (; i<7 ; i++) {			
+		for (; i<9 ; i++) {
 			deviceCheckBox[i].setSelected(true);
 			deviceCheckBox[i].addItemListener(this);
 		}
 		for (i = 0 ; i<4 ; i++) {
 			checkBoxPanel[0].add(deviceCheckBox[i]);
 		}
-		for (; i<7 ; i++) {
+		for (; i<9 ; i++) {
 			checkBoxPanel[1].add(deviceCheckBox[i]);
 		}
 		
@@ -203,7 +206,7 @@ public class DeviceTable extends JPanel implements ItemListener
 			{
 				
 				int i;
-				for (i=0; i<7 ; i++) 
+				for (i=0; i<9 ; i++)
 				{			
 					deviceCheckBox[i].setSelected(true);
 				}
@@ -214,7 +217,7 @@ public class DeviceTable extends JPanel implements ItemListener
 			public void actionPerformed(ActionEvent e) {
 				
 				int i;
-				for (i=0; i<7 ; i++) {			
+				for (i=0; i<9 ; i++) {
 					deviceCheckBox[i].setSelected(false);
 				}
 
