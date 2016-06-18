@@ -2,24 +2,24 @@
 <char xmlns="http://eclipse.etsmtl.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://eclipse.etsmtl.ca protocolV8Schema.xsd">
 	<device id="1" name="DRIVER">
 		<trame identifier="101" type="0">
-			<deviceitem id="0" name="S_DRIVER_MOTOR_VELOCITY">
+			<deviceitem id="0" name="S_DRIVER_MOTOR_CURRENT">
+				<unit>PC</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-100</minvalue>
+				<maxvalue>100</maxvalue>
+				<resolution>1</resolution>
+				<factor>100</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="1" name="S_DRIVER_MOTOR_VELOCITY">
 				<unit>RPM</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-1500</minvalue>
 				<maxvalue>1500</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-			<deviceitem id="1" name="S_DRIVER_MOTOR_CURRENT">
-				<unit>PC</unit>
-				<bitsize>32</bitsize>
-				<minvalue>-100</minvalue>
-				<maxvalue>100</maxvalue>
-				<resolution>1</resolution>
-				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>true</isFloat>
@@ -32,10 +32,21 @@
 				<minvalue>0</minvalue>
 				<maxvalue>100</maxvalue>
 				<resolution>1</resolution>
-				<factor>0.01</factor>
+				<factor>100</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="S_DRIVER_POWER_OFFSET">
+				<unit>N/A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>0</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
 	</device>
@@ -65,22 +76,22 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="201" type="0">
-			<deviceitem id="2" name="S_DRIVE_L_LIMIT_FLAGS">
+			<deviceitem id="2" name="S_DRIVE_L_RX_ERR_CNT">
 				<unit>N/A</unit>
-				<bitsize>16</bitsize>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>15</maxvalue>
+				<maxvalue>256</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="3" name="S_DRIVE_L_ERR_FLAGS">
+			<deviceitem id="3" name="S_DRIVE_L_TX_ERR_CNT">
 				<unit>N/A</unit>
-				<bitsize>16</bitsize>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>15</maxvalue>
+				<maxvalue>256</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -98,22 +109,22 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="5" name="S_DRIVE_L_TX_ERR_CNT">
+			<deviceitem id="5" name="S_DRIVE_L_ERR_FLAGS">
 				<unit>N/A</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>15</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="6" name="S_DRIVE_L_RX_ERR_CNT">
+			<deviceitem id="6" name="S_DRIVE_L_LIMIT_FLAGS">
 				<unit>N/A</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>15</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -122,8 +133,8 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="202" type="0">
-			<deviceitem id="7" name="S_DRIVE_L_BUS_VOLTAGE">
-				<unit>V</unit>
+			<deviceitem id="7" name="S_DRIVE_L_BUS_CURRENT">
+				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -133,8 +144,8 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="8" name="S_DRIVE_L_BUS_CURRENT">
-				<unit>A</unit>
+			<deviceitem id="8" name="S_DRIVE_L_BUS_VOLTAGE">
+				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -146,7 +157,18 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="203" type="0">
-			<deviceitem id="9" name="S_DRIVE_L_MOTOR_VELOCITY">
+			<deviceitem id="9" name="S_DRIVE_L_VEHICLE_VELOCITY">
+				<unit>KM/H</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-2147483648</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>3.6</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="10" name="S_DRIVE_L_MOTOR_VELOCITY">
 				<unit>RPM</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-2147483648</minvalue>
@@ -157,20 +179,9 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="10" name="S_DRIVE_L_VEHICLE_VELOCITY">
-				<unit>KM/H</unit>
-				<bitsize>32</bitsize>
-				<minvalue>-2147483648</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>0.28</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
 		</trame>
 		<trame identifier="204" type="0">
-			<deviceitem id="11" name="S_DRIVE_L_PHASE_C_CURRENT">
+			<deviceitem id="11" name="S_DRIVE_L_PHASE_B_CURRENT">
 				<unit>ARMS</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -181,7 +192,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="12" name="S_DRIVE_L_PHASE_B_CURRENT">
+			<deviceitem id="12" name="S_DRIVE_L_PHASE_C_CURRENT">
 				<unit>ARMS</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -194,7 +205,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="207" type="0">
-			<deviceitem id="13" name="S_DRIVE_L_BEMFQ">
+			<deviceitem id="13" name="S_DRIVE_L_BEMFD">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -205,7 +216,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="14" name="S_DRIVE_L_BEMFD">
+			<deviceitem id="14" name="S_DRIVE_L_BEMFQ">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -229,9 +240,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-		</trame>
-		<trame identifier="209" type="0">
-			<deviceitem id="16" name="S_DRIVE_L_1_9V">
+			<deviceitem id="16" name="S_DRIVE_L_15V_OFFSET">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -242,7 +251,20 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
+		</trame>
+		<trame identifier="209" type="0">
 			<deviceitem id="17" name="S_DRIVE_L_3_3V">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="18" name="S_DRIVE_L_1_9V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -255,7 +277,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="20b" type="0">
-			<deviceitem id="18" name="S_DRIVE_L_MOTOR_TEMP">
+			<deviceitem id="19" name="S_DRIVE_L_HEATSINK_TEMP">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -266,7 +288,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="19" name="S_DRIVE_L_HEATSINK_TEMP">
+			<deviceitem id="20" name="S_DRIVE_L_MOTOR_TEMP">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -279,7 +301,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="20c" type="0">
-			<deviceitem id="20" name="S_DRIVE_L_DSP_TEMP">
+			<deviceitem id="21" name="S_DRIVE_L_DSP_TEMP">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -292,8 +314,8 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="20e" type="0">
-			<deviceitem id="21" name="S_DRIVE_L_ODOMETER">
-				<unit>M</unit>
+			<deviceitem id="22" name="S_DRIVE_L_DCBUS_AMPHOUR">
+				<unit>AH</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -303,8 +325,8 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="22" name="S_DRIVE_L_DCBUS_AMPHOUR">
-				<unit>AH</unit>
+			<deviceitem id="23" name="S_DRIVE_L_ODOMETER">
+				<unit>M</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -342,22 +364,22 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="301" type="0">
-			<deviceitem id="2" name="S_DRIVE_R_LIMIT_FLAGS">
+			<deviceitem id="2" name="S_DRIVE_R_RX_ERR_CNT">
 				<unit>N/A</unit>
-				<bitsize>16</bitsize>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>15</maxvalue>
+				<maxvalue>256</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="3" name="S_DRIVE_R_ERR_FLAGS">
+			<deviceitem id="3" name="S_DRIVE_R_TX_ERR_CNT">
 				<unit>N/A</unit>
-				<bitsize>16</bitsize>
+				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>15</maxvalue>
+				<maxvalue>256</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -375,22 +397,22 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="5" name="S_DRIVE_R_TX_ERR_CNT">
+			<deviceitem id="5" name="S_DRIVE_R_ERR_FLAGS">
 				<unit>N/A</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>15</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="6" name="S_DRIVE_R_RX_ERR_CNT">
+			<deviceitem id="6" name="S_DRIVE_R_LIMIT_FLAGS">
 				<unit>N/A</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>256</maxvalue>
+				<maxvalue>15</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -399,8 +421,8 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="302" type="0">
-			<deviceitem id="7" name="S_DRIVE_R_BUS_VOLTAGE">
-				<unit>V</unit>
+			<deviceitem id="7" name="S_DRIVE_R_BUS_CURRENT">
+				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -410,8 +432,8 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="8" name="S_DRIVE_R_BUS_CURRENT">
-				<unit>A</unit>
+			<deviceitem id="8" name="S_DRIVE_R_BUS_VOLTAGE">
+				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -423,7 +445,18 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="303" type="0">
-			<deviceitem id="9" name="S_DRIVE_R_MOTOR_VELOCITY">
+			<deviceitem id="9" name="S_DRIVE_R_VEHICLE_VELOCITY">
+				<unit>KM/H</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-2147483648</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>3.6</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="10" name="S_DRIVE_R_MOTOR_VELOCITY">
 				<unit>RPM</unit>
 				<bitsize>32</bitsize>
 				<minvalue>-2147483648</minvalue>
@@ -434,20 +467,9 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="10" name="S_DRIVE_R_VEHICLE_VELOCITY">
-				<unit>KM/H</unit>
-				<bitsize>32</bitsize>
-				<minvalue>-2147483648</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>0.28</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
 		</trame>
 		<trame identifier="304" type="0">
-			<deviceitem id="11" name="S_DRIVE_R_PHASE_C_CURRENT">
+			<deviceitem id="11" name="S_DRIVE_R_PHASE_B_CURRENT">
 				<unit>ARMS</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -458,7 +480,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="12" name="S_DRIVE_R_PHASE_B_CURRENT">
+			<deviceitem id="12" name="S_DRIVE_R_PHASE_C_CURRENT">
 				<unit>ARMS</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -471,7 +493,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="307" type="0">
-			<deviceitem id="13" name="S_DRIVE_R_BEMFQ">
+			<deviceitem id="13" name="S_DRIVE_R_BEMFD">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -482,7 +504,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="14" name="S_DRIVE_R_BEMFD">
+			<deviceitem id="14" name="S_DRIVE_R_BEMFQ">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -506,9 +528,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-		</trame>
-		<trame identifier="309" type="0">
-			<deviceitem id="16" name="S_DRIVE_R_1_9V">
+			<deviceitem id="16" name="S_DRIVE_R_15V_OFFSET">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -519,7 +539,20 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
+		</trame>
+		<trame identifier="309" type="0">
 			<deviceitem id="17" name="S_DRIVE_R_3_3V">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="18" name="S_DRIVE_R_1_9V">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -532,7 +565,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="30b" type="0">
-			<deviceitem id="18" name="S_DRIVE_R_MOTOR_TEMP">
+			<deviceitem id="19" name="S_DRIVE_R_HEATSINK_TEMP">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -543,7 +576,7 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="19" name="S_DRIVE_R_HEATSINK_TEMP">
+			<deviceitem id="20" name="S_DRIVE_R_MOTOR_TEMP">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -556,7 +589,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="30c" type="0">
-			<deviceitem id="20" name="S_DRIVE_R_DSP_TEMP">
+			<deviceitem id="21" name="S_DRIVE_R_DSP_TEMP">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -569,8 +602,8 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="30e" type="0">
-			<deviceitem id="21" name="S_DRIVE_R_ODOMETER">
-				<unit>M</unit>
+			<deviceitem id="22" name="S_DRIVE_R_DCBUS_AMPHOUR">
+				<unit>AH</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -580,8 +613,8 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="22" name="S_DRIVE_R_DCBUS_AMPHOUR">
-				<unit>AH</unit>
+			<deviceitem id="23" name="S_DRIVE_R_ODOMETER">
+				<unit>M</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
@@ -649,7 +682,7 @@
 				<minvalue>960</minvalue>
 				<maxvalue>1596</maxvalue>
 				<resolution>1</resolution>
-				<factor>10</factor>
+				<factor>0.1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -657,7 +690,7 @@
 		</trame>
 		<trame identifier="413" type="2">
 			<deviceitem id="5" name="S_BMS_CELL_LOWEST_VOLTAGE">
-				<unit>MV</unit>
+				<unit>NO</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>4200</maxvalue>
@@ -679,7 +712,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="7" name="S_BMS_CELL_HIGHEST_VOLTAGE">
-				<unit>MV</unit>
+				<unit>NO</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>4200</maxvalue>
@@ -855,7 +888,7 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="421" type="2">
-			<deviceitem id="22" name="S_BMS_CAN_DISCHARGE_EN/ABLE">
+			<deviceitem id="22" name="S_BMS_CAN_DISCHARGE_ENABLE">
 				<unit>N/A</unit>
 				<bitsize>8</bitsize>
 				<minvalue>0</minvalue>
@@ -894,16 +927,16 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="501" type="2">
-			<deviceitem id="2" name="S_DASHBOARD_REGEN">
+			<deviceitem id="2" name="S_DASHBOARD_PADDLE">
 				<unit>N/A</unit>
 				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
+				<minvalue>-2147483647</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
 			</deviceitem>
 			<deviceitem id="3" name="S_DASHBOARD_BREAK">
 				<unit>N/A</unit>
@@ -929,58 +962,8 @@
 			</deviceitem>
 		</trame>
 	</device>
-	<device id="6" name="VOLANT">
+	<device id="6" name="INSTRU">
 		<trame identifier="600" type="2">
-			<deviceitem id="0" name="S_VOLANT_STATUS">
-				<unit>N/A</unit>
-				<bitsize>16</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="1" name="S_VOLANT_OSTICK">
-				<unit>TICK</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="601" type="2">
-			<deviceitem id="2" name="S_VOLANT_OPMODE">
-				<unit>N/A</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="3" name="S_VOLANT_BUTTON">
-				<unit>N/A</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
-	</device>
-	<device id="7" name="INSTRU">
-		<trame identifier="700" type="2">
 			<deviceitem id="0" name="S_INSTRU_STATUS">
 				<unit>N/A</unit>
 				<bitsize>16</bitsize>
@@ -1004,7 +987,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="701" type="2">
+		<trame identifier="601" type="2">
 			<deviceitem id="2" name="S_INSTRU_GPSLAT">
 				<unit>DEG</unit>
 				<bitsize>32</bitsize>
@@ -1028,7 +1011,7 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="702" type="2">
+		<trame identifier="602" type="2">
 			<deviceitem id="4" name="S_INSTRU_TIME">
 				<unit>N/A</unit>
 				<bitsize>32</bitsize>
@@ -1052,7 +1035,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="703" type="2">
+		<trame identifier="603" type="2">
 			<deviceitem id="6" name="S_INSTRU_TEMPINCL">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
@@ -1076,7 +1059,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="704" type="2">
+		<trame identifier="604" type="2">
 			<deviceitem id="8" name="S_INSTRU_CMD">
 				<unit>N/A</unit>
 				<bitsize>8</bitsize>
@@ -1089,7 +1072,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="705" type="2">
+		<trame identifier="605" type="2">
 			<deviceitem id="9" name="S_INSTRU_ACC_X">
 				<unit>G</unit>
 				<bitsize>16</bitsize>
@@ -1125,6 +1108,128 @@
 			</deviceitem>
 		</trame>
 	</device>
+	<device id="7" name="VOLANT">
+		<trame identifier="700" type="2">
+			<deviceitem id="0" name="S_VOLANT_STATUS">
+				<unit>N/A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="1" name="S_VOLANT_OSTICK">
+				<unit>TICK</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="701" type="2">
+			<deviceitem id="2" name="S_VOLANT_OPMODE">
+				<unit>N/A</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>255</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="S_VOLANT_BUTTON">
+				<unit>N/A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>255</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="702" type="2">
+			<deviceitem id="4" name="S_VOLANT_VEHICLE_VELOCITY">
+				<unit>KM/H</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-2147483648</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>3.6</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="5" name="S_VOLANT_MOTOR_VELOCITY">
+				<unit>RPM</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-2147483648</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="703" type="2">
+			<deviceitem id="6" name="S_VOLANT_BUS_VOLTAGE">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="7" name="S_VOLANT_BUS_CURRENT">
+				<unit>A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="704" type="2">
+			<deviceitem id="8" name="S_VOLANT_ODOMETER">
+				<unit>M</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="9" name="S_VOLANT_DCBUS_AMPHOUR">
+				<unit>AH</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
 	<device id="8" name="POWERSUPPLY">
 		<trame identifier="800" type="2">
 			<deviceitem id="0" name="S_POWERSUPPLY_STATUS">
@@ -1153,73 +1258,73 @@
 		<trame identifier="801" type="2">
 			<deviceitem id="2" name="S_POWERSUPPLY_12V_CAN_COURANT">
 				<unit>A</unit>
-				<bitsize>32</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>true</isFloat>
+				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="3" name="S_POWERSUPPLY_12V_CAN_VOLTAGE">
 				<unit>V</unit>
-				<bitsize>32</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>11</minvalue>
 				<maxvalue>13.5</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>true</isFloat>
+				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="802" type="2">
 			<deviceitem id="4" name="S_POWERSUPPLY_12V_HP_COURANT">
 				<unit>A</unit>
-				<bitsize>32</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>true</isFloat>
+				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="5" name="S_POWERSUPPLY_12V_HP_VOLTAGE">
 				<unit>V</unit>
-				<bitsize>32</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>11</minvalue>
 				<maxvalue>13.5</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>true</isFloat>
+				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
 		<trame identifier="803" type="2">
 			<deviceitem id="6" name="S_POWERSUPPLY_12V_AUX_COURANT">
 				<unit>A</unit>
-				<bitsize>32</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>true</isFloat>
+				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="7" name="S_POWERSUPPLY_12V_AUX_VOLTAGE">
 				<unit>V</unit>
-				<bitsize>32</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>11</minvalue>
 				<maxvalue>13.5</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.01</factor>
 				<offset>0</offset>
 				<signed>true</signed>
-				<isFloat>true</isFloat>
+				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
 	</device>
