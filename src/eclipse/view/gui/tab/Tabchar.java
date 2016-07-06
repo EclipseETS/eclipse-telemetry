@@ -253,290 +253,290 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	
 		img = new ImageIcon("images/image.png").getImage();
 		
-		/*PSU*/
-		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(PSU_Label);
-	
-		PSU_ICAN.setBounds(PSU_X, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(PSU_ICAN);
-		PSU_ICAN_Value.setBounds(PSU_X_VALUE, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(PSU_ICAN_Value);
-		
-		PSU_VCAN.setBounds(PSU_X, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(PSU_VCAN);
-		PSU_VCAN_Value.setBounds(PSU_X_VALUE, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(PSU_VCAN_Value);
-		
-		/*Drive*/
-		Drive_Label.setBounds(DRIVE_X, DRIVE_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_Label);
-		
-		Drive_RPM.setBounds(DRIVE_X, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_RPM);
-		Drive_RPM_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_RPM_Value);
-		
-		Drive_HSTemp.setBounds(DRIVE_X, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_HSTemp);
-		Drive_HSTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_HSTemp_Value);
-		
-		Drive_MotorTemp.setBounds(DRIVE_X, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_MotorTemp);
-		Drive_MotorTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_MotorTemp_Value);
-		
-		Drive_DSPTemp.setBounds(DRIVE_X, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_DSPTemp);
-		Drive_DSPTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Drive_DSPTemp_Value);
-		
-		/*Instru*/
-		Instru_Label.setBounds(INSTRU_X, INSTRU_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Label);
-		
-		Instru_Lat.setBounds(INSTRU_X, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Lat);
-		Instru_Lat_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Lat_Value);
-		
-		Instru_Lon.setBounds(INSTRU_X, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Lon);
-		Instru_Lon_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Lon_Value);
-		
-		Instru_Time.setBounds(INSTRU_X, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Time);
-		Instru_Time_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Time_Value);
-		
-		Instru_Date.setBounds(INSTRU_X, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Date);
-		Instru_Date_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Instru_Date_Value);
-		
-		/*BMS*/
-		BMS_Label.setBounds(BMS_X, BMS_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Label);
-		
-		BMS_MaxCellV.setBounds(BMS_X, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MaxCellV);
-		BMS_MaxCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MaxCellV_Value);
-		
-		BMS_MinCellV.setBounds(BMS_X, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MinCellV);
-		BMS_MinCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MinCellV_Value);
-		
-		BMS_Vpack.setBounds(BMS_X, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Vpack);
-		BMS_Vpack_Value.setBounds(BMS_X_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Vpack_Value);
-		
-		BMS_Ipack.setBounds(BMS_X, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Ipack);
-		BMS_Ipack_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_Ipack_Value);
-		
-		BMS_MaxCellT.setBounds(BMS_X_2, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MaxCellT);
-		BMS_MaxCellT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MaxCellT_Value);
-		
-		BMS_MaxPCBT.setBounds(BMS_X_2, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MaxPCBT);
-		BMS_MaxPCBT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_MaxPCBT_Value);
-		
-		BMS_SOCAh.setBounds(BMS_X_2, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCAh);
-		BMS_SOCAh_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCAh_Value);
-		
-		BMS_SOCPc.setBounds(BMS_X_2, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCPc);
-		BMS_SOCPc_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(BMS_SOCPc_Value);
-		
-		/*Error Messages*/
-		ErrorMsg_Label.setBounds(ERRORMSG_X, ERRORMSG_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_Label);
-		
-		ErrorMsg_BMUExtStatus.setBounds(ERRORMSG_X, ERRORMSG_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_BMUExtStatus);
-		ErrorMsg_BMUExtStatus_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_BMUExtStatus_Value);
-		
-		ErrorMsg_DriveErrorFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_DriveErrorFlags);
-		ErrorMsg_DriveErrorFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 2*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_DriveErrorFlags_Value);
-		
-		ErrorMsg_DriveLimitFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_DriveLimitFlags);
-		ErrorMsg_DriveLimitFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 3*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
-		add(ErrorMsg_DriveLimitFlags_Value);
-		
-		/*Info 1*/
-		Info1_Label.setBounds(INFO1_X, INFO1_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Label);
-		
-		Info1_SpeedKMH.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_SpeedKMH);
-		Info1_SpeedKMH_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_SpeedKMH_Value);
-		Info1_SpeedMPH_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_SpeedMPH_Value);
-		
-		Info1_Setpoint.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Setpoint);
-		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_Setpoint_Value);
-		
-		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_PowerPan);
-		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_PowerPan_Value);
-		
-		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_PowerBat);
-		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(Info1_PowerBat_Value);
-		
-		/*MPPT*/		
-		MPPT_Label.setBounds(MPPT_X, MPPT_Y, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_Label);
-		
-		MPPT_MainRelay.setBounds(MPPT_X, MPPT_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_MainRelay);
-		MPPT_MainRelay_Value.setBounds(MPPT_X_VALUE, MPPT_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_MainRelay_Value);
-		
-		MPPT_OneStatus.setBounds(MPPT_X, MPPT_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_OneStatus);
-		MPPT_OneStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_OneStatus_Value);
-		
-		MPPT_TwoStatus.setBounds(MPPT_X, MPPT_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_TwoStatus);
-		MPPT_TwoStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_TwoStatus_Value);
-		
-		MPPT_ThreeStatus.setBounds(MPPT_X, MPPT_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_ThreeStatus);
-		MPPT_ThreeStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-		add(MPPT_ThreeStatus_Value);
+//		/*PSU*/
+//		PSU_Label.setBounds(PSU_X, PSU_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(PSU_Label);
+//	
+//		PSU_ICAN.setBounds(PSU_X, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(PSU_ICAN);
+//		PSU_ICAN_Value.setBounds(PSU_X_VALUE, PSU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(PSU_ICAN_Value);
+//		
+//		PSU_VCAN.setBounds(PSU_X, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(PSU_VCAN);
+//		PSU_VCAN_Value.setBounds(PSU_X_VALUE, PSU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(PSU_VCAN_Value);
+//		
+//		/*Drive*/
+//		Drive_Label.setBounds(DRIVE_X, DRIVE_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_Label);
+//		
+//		Drive_RPM.setBounds(DRIVE_X, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_RPM);
+//		Drive_RPM_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_RPM_Value);
+//		
+//		Drive_HSTemp.setBounds(DRIVE_X, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_HSTemp);
+//		Drive_HSTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_HSTemp_Value);
+//		
+//		Drive_MotorTemp.setBounds(DRIVE_X, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_MotorTemp);
+//		Drive_MotorTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_MotorTemp_Value);
+//		
+//		Drive_DSPTemp.setBounds(DRIVE_X, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_DSPTemp);
+//		Drive_DSPTemp_Value.setBounds(DRIVE_X_VALUE, DRIVE_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Drive_DSPTemp_Value);
+//		
+//		/*Instru*/
+//		Instru_Label.setBounds(INSTRU_X, INSTRU_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Label);
+//		
+//		Instru_Lat.setBounds(INSTRU_X, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Lat);
+//		Instru_Lat_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Lat_Value);
+//		
+//		Instru_Lon.setBounds(INSTRU_X, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Lon);
+//		Instru_Lon_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Lon_Value);
+//		
+//		Instru_Time.setBounds(INSTRU_X, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Time);
+//		Instru_Time_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Time_Value);
+//		
+//		Instru_Date.setBounds(INSTRU_X, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Date);
+//		Instru_Date_Value.setBounds(INSTRU_X_VALUE, INSTRU_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Instru_Date_Value);
+//		
+//		/*BMS*/
+//		BMS_Label.setBounds(BMS_X, BMS_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_Label);
+//		
+//		BMS_MaxCellV.setBounds(BMS_X, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MaxCellV);
+//		BMS_MaxCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MaxCellV_Value);
+//		
+//		BMS_MinCellV.setBounds(BMS_X, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MinCellV);
+//		BMS_MinCellV_Value.setBounds(BMS_X_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MinCellV_Value);
+//		
+//		BMS_Vpack.setBounds(BMS_X, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_Vpack);
+//		BMS_Vpack_Value.setBounds(BMS_X_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_Vpack_Value);
+//		
+//		BMS_Ipack.setBounds(BMS_X, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_Ipack);
+//		BMS_Ipack_Value.setBounds(BMS_X_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_Ipack_Value);
+//		
+//		BMS_MaxCellT.setBounds(BMS_X_2, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MaxCellT);
+//		BMS_MaxCellT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MaxCellT_Value);
+//		
+//		BMS_MaxPCBT.setBounds(BMS_X_2, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MaxPCBT);
+//		BMS_MaxPCBT_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_MaxPCBT_Value);
+//		
+//		BMS_SOCAh.setBounds(BMS_X_2, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_SOCAh);
+//		BMS_SOCAh_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_SOCAh_Value);
+//		
+//		BMS_SOCPc.setBounds(BMS_X_2, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_SOCPc);
+//		BMS_SOCPc_Value.setBounds(BMS_X_2_VALUE, BMS_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(BMS_SOCPc_Value);
+//		
+//		/*Error Messages*/
+//		ErrorMsg_Label.setBounds(ERRORMSG_X, ERRORMSG_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_Label);
+//		
+//		ErrorMsg_BMUExtStatus.setBounds(ERRORMSG_X, ERRORMSG_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_BMUExtStatus);
+//		ErrorMsg_BMUExtStatus_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_BMUExtStatus_Value);
+//		
+//		ErrorMsg_DriveErrorFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_DriveErrorFlags);
+//		ErrorMsg_DriveErrorFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 2*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_DriveErrorFlags_Value);
+//		
+//		ErrorMsg_DriveLimitFlags.setBounds(ERRORMSG_X, ERRORMSG_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_DriveLimitFlags);
+//		ErrorMsg_DriveLimitFlags_Value.setBounds(ERRORMSG_X_VALUE, ERRORMSG_Y + 3*LINE_OFFSET, MSG_LABEL_WIDTH, LABEL_HEIGHT);
+//		add(ErrorMsg_DriveLimitFlags_Value);
+//		
+//		/*Info 1*/
+//		Info1_Label.setBounds(INFO1_X, INFO1_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_Label);
+//		
+//		Info1_SpeedKMH.setBounds(INFO1_X, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_SpeedKMH);
+//		Info1_SpeedKMH_Value.setBounds(INFO1_X_VALUE, INFO1_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_SpeedKMH_Value);
+//		Info1_SpeedMPH_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_SpeedMPH_Value);
+//		
+//		Info1_Setpoint.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_Setpoint);
+//		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_Setpoint_Value);
+//		
+//		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_PowerPan);
+//		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_PowerPan_Value);
+//		
+//		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_PowerBat);
+//		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(Info1_PowerBat_Value);
+//		
+//		/*MPPT*/		
+//		MPPT_Label.setBounds(MPPT_X, MPPT_Y, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_Label);
+//		
+//		MPPT_MainRelay.setBounds(MPPT_X, MPPT_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_MainRelay);
+//		MPPT_MainRelay_Value.setBounds(MPPT_X_VALUE, MPPT_Y + LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_MainRelay_Value);
+//		
+//		MPPT_OneStatus.setBounds(MPPT_X, MPPT_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_OneStatus);
+//		MPPT_OneStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 2*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_OneStatus_Value);
+//		
+//		MPPT_TwoStatus.setBounds(MPPT_X, MPPT_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_TwoStatus);
+//		MPPT_TwoStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_TwoStatus_Value);
+//		
+//		MPPT_ThreeStatus.setBounds(MPPT_X, MPPT_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_ThreeStatus);
+//		MPPT_ThreeStatus_Value.setBounds(MPPT_X_VALUE, MPPT_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+//		add(MPPT_ThreeStatus_Value);
 		
 	}
 
 	public void updateValues() {
 		
-		/*PSU*/
-		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ACAN_ID));
-		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
-		
-		/*Drive*/
-		Drive_RPM_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_RPM_ID));
-		Drive_HSTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_HSTEMP_ID));
-		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
-		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
-		
-		/*Instru*/
-		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
-		Instru_Lon_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LON_ID));
-		String heure = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID));
-		String date = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_DATE_ID));
-		int delay = Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
-		if(Double.parseDouble(date)>9999){
-			Instru_Time_Value.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
-			Instru_Date_Value.setText(date.substring(0, 2)+"/"+date.substring(2,4)+"/"+date.substring(4,6));			
-		}
-		else {
-			Instru_Time_Value.setText("0");
-			Instru_Date_Value.setText("0");
-		}
-		
-		/*BMS*/
-		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));
-		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
-		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
-		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
-		
-		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
-		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
-		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
-		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
-		
-		/*Error Message*/
-		ErrorMsg_BMUExtStatus_Value.setText(getBMUExtStatusMsg());
-		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
-		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
-		
-		/*Info 1*/
-		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID);
-		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " km/h");
-		double speedMph = speedKmh * 0.621371;
-		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
-		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
-		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
-		double powerBat = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
-		Info1_PowerBat_Value.setText(String.format("%.2f", powerBat) + " W");
-		double powerPan = 0;
-		if (powerBat < 0) {
-			powerPan = powerBat + (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) + 60;
-			Info1_PowerBat_Value.setForeground(Color.red);
-		}
-		else {
-			powerPan = powerBat - (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 60;
-			Info1_PowerBat_Value.setForeground(Color.green);
-		}
-		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
-		
-		if (DataAcquisition.getInstance().getAcquiStatus()) {
-			/*Log info 1 values*/
-			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " km/h" + ", " + String.format("%.2f", speedMph) + " mph");
-			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " km/h");
-			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", powerBat) + " watts");
-			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", powerPan) + " watts");
-		}
-		
-		/*MPPT*/
-		if (dd.getRawValue(MPPT_ID, MPPT_MAINRELAY_ID) == 0) {
-			MPPT_MainRelay_Value.setText("OFF");
-			MPPT_MainRelay_Value.setForeground(Color.red);
-		}
-		else {
-			MPPT_MainRelay_Value.setText("ON");
-			MPPT_MainRelay_Value.setForeground(Color.green);
-		}
-		
-		if (dd.getRawValue(MPPT_ID, MPPT_ONESTATUS_ID) == 0) {
-			MPPT_OneStatus_Value.setText("OFF");
-			MPPT_OneStatus_Value.setForeground(Color.red);
-		}
-		else {
-			MPPT_OneStatus_Value.setText("ON");
-			MPPT_OneStatus_Value.setForeground(Color.green);
-		}
-		
-		if (dd.getRawValue(MPPT_ID, MPPT_TWOSTATUS_ID) == 0) {
-			MPPT_TwoStatus_Value.setText("OFF");
-			MPPT_TwoStatus_Value.setForeground(Color.red);
-		}
-		else {
-			MPPT_TwoStatus_Value.setText("ON");
-			MPPT_TwoStatus_Value.setForeground(Color.green);
-		}
-		
-		if (dd.getRawValue(MPPT_ID, MPPT_THREESTATUS_ID) == 0) {
-			MPPT_ThreeStatus_Value.setText("OFF");
-			MPPT_ThreeStatus_Value.setForeground(Color.red);
-		}
-		else {
-			MPPT_ThreeStatus_Value.setText("ON");
-			MPPT_ThreeStatus_Value.setForeground(Color.green);
-		}	
+//		/*PSU*/
+//		PSU_ICAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_ACAN_ID));
+//		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
+//		
+//		/*Drive*/
+//		Drive_RPM_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_RPM_ID));
+//		Drive_HSTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_HSTEMP_ID));
+//		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
+//		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
+//		
+//		/*Instru*/
+//		Instru_Lat_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LAT_ID));
+//		Instru_Lon_Value.setText(dd.getRoundedValue(INSTRU_ID, INSTRU_LON_ID));
+//		String heure = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_TIME_ID));
+//		String date = Double.toString(dd.getRawValue(INSTRU_ID, INSTRU_DATE_ID));
+//		int delay = Integer.parseInt(TelemetrySettings.getInstance().getSetting("DELAY_TIME"));
+//		if(Double.parseDouble(date)>9999){
+//			Instru_Time_Value.setText((Integer.parseInt(heure.substring(0, 2))+delay)+":"+heure.substring(2,4)+":"+heure.substring(4,6));
+//			Instru_Date_Value.setText(date.substring(0, 2)+"/"+date.substring(2,4)+"/"+date.substring(4,6));			
+//		}
+//		else {
+//			Instru_Time_Value.setText("0");
+//			Instru_Date_Value.setText("0");
+//		}
+//		
+//		/*BMS*/
+//		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));
+//		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
+//		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
+//		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
+//		
+//		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
+//		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
+//		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
+//		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
+//		
+//		/*Error Message*/
+//		ErrorMsg_BMUExtStatus_Value.setText(getBMUExtStatusMsg());
+//		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
+//		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
+//		
+//		/*Info 1*/
+//		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID);
+//		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " km/h");
+//		double speedMph = speedKmh * 0.621371;
+//		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
+//		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
+//		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
+//		double powerBat = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
+//		Info1_PowerBat_Value.setText(String.format("%.2f", powerBat) + " W");
+//		double powerPan = 0;
+//		if (powerBat < 0) {
+//			powerPan = powerBat + (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) + 60;
+//			Info1_PowerBat_Value.setForeground(Color.red);
+//		}
+//		else {
+//			powerPan = powerBat - (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 60;
+//			Info1_PowerBat_Value.setForeground(Color.green);
+//		}
+//		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
+//		
+//		if (DataAcquisition.getInstance().getAcquiStatus()) {
+//			/*Log info 1 values*/
+//			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " km/h" + ", " + String.format("%.2f", speedMph) + " mph");
+//			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " km/h");
+//			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", powerBat) + " watts");
+//			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", powerPan) + " watts");
+//		}
+//		
+//		/*MPPT*/
+//		if (dd.getRawValue(MPPT_ID, MPPT_MAINRELAY_ID) == 0) {
+//			MPPT_MainRelay_Value.setText("OFF");
+//			MPPT_MainRelay_Value.setForeground(Color.red);
+//		}
+//		else {
+//			MPPT_MainRelay_Value.setText("ON");
+//			MPPT_MainRelay_Value.setForeground(Color.green);
+//		}
+//		
+//		if (dd.getRawValue(MPPT_ID, MPPT_ONESTATUS_ID) == 0) {
+//			MPPT_OneStatus_Value.setText("OFF");
+//			MPPT_OneStatus_Value.setForeground(Color.red);
+//		}
+//		else {
+//			MPPT_OneStatus_Value.setText("ON");
+//			MPPT_OneStatus_Value.setForeground(Color.green);
+//		}
+//		
+//		if (dd.getRawValue(MPPT_ID, MPPT_TWOSTATUS_ID) == 0) {
+//			MPPT_TwoStatus_Value.setText("OFF");
+//			MPPT_TwoStatus_Value.setForeground(Color.red);
+//		}
+//		else {
+//			MPPT_TwoStatus_Value.setText("ON");
+//			MPPT_TwoStatus_Value.setForeground(Color.green);
+//		}
+//		
+//		if (dd.getRawValue(MPPT_ID, MPPT_THREESTATUS_ID) == 0) {
+//			MPPT_ThreeStatus_Value.setText("OFF");
+//			MPPT_ThreeStatus_Value.setForeground(Color.red);
+//		}
+//		else {
+//			MPPT_ThreeStatus_Value.setText("ON");
+//			MPPT_ThreeStatus_Value.setForeground(Color.green);
+//		}	
 	}
 	
 	public void paintComponent(Graphics g) {
