@@ -49,7 +49,7 @@ public class DeviceTable extends JPanel implements ItemListener
 {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
-	private static final int deviceCount = 10;
+	private static final int deviceCount = 13;
 	private JScrollPane scrollPane;
 	private JTable dataTable;
 	private JButton btnGraph;
@@ -58,7 +58,7 @@ public class DeviceTable extends JPanel implements ItemListener
 	private JButton btnAll;
 	private JButton btnNone;
 	private DataManager dataManager = DataManager.getInstance();
-	JPanel[] checkBoxPanel = new JPanel[2];		
+	JPanel[] checkBoxPanel = new JPanel[3];		
 	JCheckBox[] deviceCheckBox = new JCheckBox[deviceCount];
 	
 	Device dev;
@@ -90,6 +90,7 @@ public class DeviceTable extends JPanel implements ItemListener
 		
 		checkBoxPanel[0] = new JPanel();
 		checkBoxPanel[1] = new JPanel();
+		checkBoxPanel[2] = new JPanel();
 		
 		deviceCheckBox[0] = new JCheckBox("Driver");
 		deviceCheckBox[1] = new JCheckBox("Drive (L)");
@@ -98,9 +99,12 @@ public class DeviceTable extends JPanel implements ItemListener
 		deviceCheckBox[4] = new JCheckBox("Dash");
 		deviceCheckBox[5] = new JCheckBox("Volant");
 		deviceCheckBox[6] = new JCheckBox("Instru");
-		deviceCheckBox[7] = new JCheckBox("PSU");
-		deviceCheckBox[8] = new JCheckBox("Ignition");
-		deviceCheckBox[9] = new JCheckBox("Flashers");
+		deviceCheckBox[7] = new JCheckBox("MPPT (M)");
+		deviceCheckBox[8] = new JCheckBox("MPPT (S)");
+		deviceCheckBox[9] = new JCheckBox("PSU");
+		deviceCheckBox[10] = new JCheckBox("Ignition");
+		deviceCheckBox[11] = new JCheckBox("Flashers");
+		deviceCheckBox[12] = new JCheckBox("Muppet");
 		
 		int i;
 		
@@ -111,8 +115,11 @@ public class DeviceTable extends JPanel implements ItemListener
 		for (i = 0 ; i<4 ; i++) {
 			checkBoxPanel[0].add(deviceCheckBox[i]);
 		}
-		for (; i<deviceCount ; i++) {
+		for (; i<9 ; i++) {
 			checkBoxPanel[1].add(deviceCheckBox[i]);
+		}
+		for (; i<deviceCount ; i++) {
+			checkBoxPanel[2].add(deviceCheckBox[i]);
 		}
 		
 		JPanel buttonPanel = new JPanel();
@@ -247,6 +254,7 @@ public class DeviceTable extends JPanel implements ItemListener
 		upControlPanel.add(buttonPanel);
 		upControlPanel.add(checkBoxPanel[0]);
 		upControlPanel.add(checkBoxPanel[1]);		
+		upControlPanel.add(checkBoxPanel[2]);		
 		
 		this.add(upControlPanel, BorderLayout.NORTH);
 		
