@@ -49,6 +49,7 @@ public class DeviceTable extends JPanel implements ItemListener
 {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
+	private static final int deviceCount = 10;
 	private JScrollPane scrollPane;
 	private JTable dataTable;
 	private JButton btnGraph;
@@ -58,7 +59,7 @@ public class DeviceTable extends JPanel implements ItemListener
 	private JButton btnNone;
 	private DataManager dataManager = DataManager.getInstance();
 	JPanel[] checkBoxPanel = new JPanel[2];		
-	JCheckBox[] deviceCheckBox = new JCheckBox[10];
+	JCheckBox[] deviceCheckBox = new JCheckBox[deviceCount];
 	
 	Device dev;
 
@@ -101,16 +102,16 @@ public class DeviceTable extends JPanel implements ItemListener
 		deviceCheckBox[8] = new JCheckBox("Ignition");
 		deviceCheckBox[9] = new JCheckBox("Flashers");
 		
-		int i = 0;
+		int i;
 		
-		for (; i<9 ; i++) {
+		for (i = 0; i<deviceCount ; i++) {
 			deviceCheckBox[i].setSelected(true);
 			deviceCheckBox[i].addItemListener(this);
 		}
 		for (i = 0 ; i<4 ; i++) {
 			checkBoxPanel[0].add(deviceCheckBox[i]);
 		}
-		for (; i<9 ; i++) {
+		for (; i<deviceCount ; i++) {
 			checkBoxPanel[1].add(deviceCheckBox[i]);
 		}
 		
@@ -206,7 +207,7 @@ public class DeviceTable extends JPanel implements ItemListener
 			{
 				
 				int i;
-				for (i=0; i<9 ; i++)
+				for (i=0; i<deviceCount ; i++)
 				{			
 					deviceCheckBox[i].setSelected(true);
 				}
@@ -217,7 +218,7 @@ public class DeviceTable extends JPanel implements ItemListener
 			public void actionPerformed(ActionEvent e) {
 				
 				int i;
-				for (i=0; i<9 ; i++) {
+				for (i=0; i<deviceCount ; i++) {
 					deviceCheckBox[i].setSelected(false);
 				}
 
