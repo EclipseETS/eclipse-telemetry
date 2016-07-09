@@ -97,8 +97,8 @@ public class DeviceTable extends JPanel implements ItemListener
 		deviceCheckBox[2] = new JCheckBox("Drive (R)");
 		deviceCheckBox[3] = new JCheckBox("BMS");
 		deviceCheckBox[4] = new JCheckBox("Dash");
-		deviceCheckBox[5] = new JCheckBox("Volant");
-		deviceCheckBox[6] = new JCheckBox("Instru");
+		deviceCheckBox[5] = new JCheckBox("Instru");
+		deviceCheckBox[6] = new JCheckBox("Volant");
 		deviceCheckBox[7] = new JCheckBox("MPPT (M)");
 		deviceCheckBox[8] = new JCheckBox("MPPT (S)");
 		deviceCheckBox[9] = new JCheckBox("PSU");

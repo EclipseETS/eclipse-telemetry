@@ -962,82 +962,8 @@
 			</deviceitem>
 		</trame>
 	</device>
-	<device id="6" name="VOLANT">
+	<device id="6" name="INSTRU">
 		<trame identifier="600" type="2">
-			<deviceitem id="0" name="S_VOLANT_STATUS">
-				<unit>N/A</unit>
-				<bitsize>16</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>65532</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="1" name="S_VOLANT_OSTICK">
-				<unit>TICK</unit>
-				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="601" type="2">
-			<deviceitem id="2" name="S_VOLANT_OPMODE">
-				<unit>N/A</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="3" name="S_VOLANT_BUTTON">
-				<unit>N/A</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-		</trame>
-		<trame identifier="602" type="2">
-			<deviceitem id="4" name="S_VOLANT_VEHICLE_VELOCITY">
-				<unit>KM/H</unit>
-				<bitsize>32</bitsize>
-				<minvalue>-2147483648</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>3.6</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-			<deviceitem id="5" name="S_VOLANT_MOTOR_VELOCITY">
-				<unit>RPM</unit>
-				<bitsize>32</bitsize>
-				<minvalue>-2147483648</minvalue>
-				<maxvalue>2147483647</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
-		</trame>
-	</device>
-	<device id="7" name="INSTRU">
-		<trame identifier="700" type="2">
 			<deviceitem id="0" name="S_INSTRU_STATUS">
 				<unit>N/A</unit>
 				<bitsize>16</bitsize>
@@ -1061,7 +987,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="701" type="2">
+		<trame identifier="601" type="2">
 			<deviceitem id="2" name="S_INSTRU_GPSLAT">
 				<unit>DEG</unit>
 				<bitsize>32</bitsize>
@@ -1085,7 +1011,7 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="702" type="2">
+		<trame identifier="602" type="2">
 			<deviceitem id="4" name="S_INSTRU_TIME">
 				<unit>N/A</unit>
 				<bitsize>32</bitsize>
@@ -1109,7 +1035,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="703" type="2">
+		<trame identifier="603" type="2">
 			<deviceitem id="6" name="S_INSTRU_TEMPINCL">
 				<unit>C</unit>
 				<bitsize>32</bitsize>
@@ -1133,7 +1059,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="704" type="2">
+		<trame identifier="604" type="2">
 			<deviceitem id="8" name="S_INSTRU_CMD">
 				<unit>N/A</unit>
 				<bitsize>8</bitsize>
@@ -1146,7 +1072,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="705" type="2">
+		<trame identifier="605" type="2">
 			<deviceitem id="9" name="S_INSTRU_ACC_X">
 				<unit>G</unit>
 				<bitsize>16</bitsize>
@@ -1179,6 +1105,80 @@
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+	</device>
+	<device id="7" name="VOLANT">
+		<trame identifier="700" type="2">
+			<deviceitem id="0" name="S_VOLANT_STATUS">
+				<unit>N/A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="1" name="S_VOLANT_OSTICK">
+				<unit>TICK</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="701" type="2">
+			<deviceitem id="2" name="S_VOLANT_OPMODE">
+				<unit>N/A</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>255</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="S_VOLANT_BUTTON">
+				<unit>N/A</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>255</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="702" type="2">
+			<deviceitem id="4" name="S_VOLANT_VEHICLE_VELOCITY">
+				<unit>KM/H</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-2147483648</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>3.6</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="5" name="S_VOLANT_MOTOR_VELOCITY">
+				<unit>RPM</unit>
+				<bitsize>32</bitsize>
+				<minvalue>-2147483648</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
 	</device>
