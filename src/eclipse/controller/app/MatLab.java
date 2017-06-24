@@ -23,14 +23,38 @@ import eclipse.model.data.DataManager;
 public class MatLab implements Runnable{
 	
 	
+	private static final int DRIVE_L_ID = 2;
+	private static final int DRIVE_R_ID = 3;
+	private static final int BMS_ID = 4;
 	private static final int VOLANT_ID = 7;
+	private static final int MUPPET_ID = 13;
 	
-	private static final int VOLANT_VVELOCITY_ID = 4;
-	private static final int VOLANT_MVELOCITY_ID = 5;
-	private static final int VOLANT_BUSVOLTAGE_ID = 6;
-	private static final int VOLANT_BUSCURRENT_ID = 7;
-	private static final int VOLANT_ODOMETER_ID = 8;
-	private static final int VOLANT_AMPHOUR_ID = 9;
+	
+	private static final int DRIVE_L_BUS_VOLTAGE_ID = 7;
+	private static final int DRIVE_L_BUS_CURRENT_ID = 8;
+	private static final int DRIVE_L_MOTOR_VELOCITY_ID = 9;
+	private static final int DRIVE_L_VEHICLE_VELOCITY_ID = 10;
+	private static final int DRIVE_L_ODOMETER_ID = 22;
+	private static final int DRIVE_L_DCBUS_AMPHOUR_ID = 23;
+	private static final int DRIVE_R_BUS_VOLTAGE_ID = 7;
+	private static final int DRIVE_R_BUS_CURRENT_ID = 8;
+	private static final int DRIVE_R_MOTOR_VELOCITY_ID = 9;
+	private static final int DRIVE_R_VEHICLE_VELOCITY_ID = 10;
+	private static final int DRIVE_R_ODOMETER_ID = 22;
+	private static final int DRIVE_R_DCBUS_AMPHOUR_ID = 23;
+	private static final int BMS_PACK_CURRENT_ID = 2;
+	private static final int BMS_PACK_VOLTAGE_ID = 3;
+	private static final int BMS_AVERAGE_CELL_VOLTAGE_ID = 4;
+	private static final int BMS_PACK_TEMP_HIGH_ID = 9;
+	private static final int BMS_PACK_TEMP_LOW_ID = 10;
+	private static final int BMS_REMAINING_ENERGY_ID = 19;
+	private static final int VOLANT_VEHICLE_VELOCITY_ID = 4;
+	private static final int MUPPET_UIN_MPPT1_ID = 3;
+	private static final int MUPPET_IIN_MPPT1_ID = 4;
+	private static final int MUPPET_UIN_MPPT2_ID = 9;
+	private static final int MUPPET_IIN_MPPT2_ID = 10;
+	private static final int MUPPET_UIN_MPPT3_ID = 15;
+	private static final int MUPPET_IIN_MPPT3_ID = 16;
 
 	private String sep = ",";
 	
@@ -57,14 +81,31 @@ public class MatLab implements Runnable{
 			    	out = new BufferedWriter(fstream);
 						 out.write(
 							date.toString()+sep+//HEURE
-			    			dd.getRawValue(VOLANT_ID, VOLANT_VVELOCITY_ID)+sep+//LAT
-			 				dd.getRawValue(VOLANT_ID, VOLANT_MVELOCITY_ID)+sep+//LON
-			 				dd.getRawValue(VOLANT_ID, VOLANT_BUSVOLTAGE_ID)+sep+//DRIVE_RPM
-			 				dd.getRawValue(VOLANT_ID, VOLANT_BUSCURRENT_ID)+sep+//DRIVE_C
-			 				dd.getRawValue(VOLANT_ID, VOLANT_ODOMETER_ID)+sep+//DRIVE_T
-			 				dd.getRawValue(VOLANT_ID, VOLANT_AMPHOUR_ID)+//DRIVE_T
-
-			    			
+			    			dd.getRawValue(DRIVE_L_ID, DRIVE_L_BUS_VOLTAGE_ID)+sep+
+			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_BUS_CURRENT_ID)+sep+
+			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_MOTOR_VELOCITY_ID)+sep+
+			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_VEHICLE_VELOCITY_ID)+sep+
+			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_ODOMETER_ID)+sep+
+			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_DCBUS_AMPHOUR_ID)+sep+
+			    			dd.getRawValue(DRIVE_R_ID, DRIVE_R_BUS_VOLTAGE_ID)+sep+
+			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_BUS_CURRENT_ID)+sep+
+			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_MOTOR_VELOCITY_ID)+sep+
+			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_VEHICLE_VELOCITY_ID)+sep+
+			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_ODOMETER_ID)+sep+
+			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_DCBUS_AMPHOUR_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_PACK_VOLTAGE_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_AVERAGE_CELL_VOLTAGE_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_PACK_TEMP_HIGH_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_PACK_TEMP_LOW_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_REMAINING_ENERGY_ID)+sep+
+			 				dd.getRawValue(VOLANT_ID, VOLANT_VEHICLE_VELOCITY_ID)+sep+
+			 				dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT1_ID)+sep+
+			 				dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT1_ID)+sep+
+			 				dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT2_ID)+sep+
+			 				dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT2_ID)+sep+
+			 				dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT3_ID)+sep+
+			 				dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT3_ID)+
 			    			"\r\n"
 			 				);
 						 out.close();

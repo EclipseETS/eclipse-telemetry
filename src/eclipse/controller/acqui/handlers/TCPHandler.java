@@ -36,7 +36,7 @@ public class TCPHandler extends AcquisitionHandler {
 			clientSocket = new Socket(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_IP"), Integer.parseInt(TelemetrySettings.getInstance().getSetting("HANDLER_TCP_PORT")));
 			Boolean isOk = true;
 			
-			isOk = authenticate();
+			//isOk = authenticate();
 			outToServer = new DataOutputStream(clientSocket.getOutputStream());
 			inFromServer = clientSocket.getInputStream();
 			

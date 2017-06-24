@@ -2,6 +2,7 @@ package eclipse.view.gui.tab;
 
 
 import javax.swing.ImageIcon;
+import java.util.*;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -31,6 +32,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 {
 	
 	private static final long serialVersionUID = 7275321077445435378L;
+	List<Double> average_power_bat_l = new ArrayList<Double>();
 	
 	private static final int LABEL_WIDTH = 100;
 	private static final int LABEL_HEIGHT = 14;
@@ -71,12 +73,14 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int INSTRU_DATE_ID = 5;
 	
 	/*BMS*/
-	private static final int BMS_ID = 3;
+	private static final int BMS_ID = 4;
 	private static final int BMS_X = 325;
 	private static final int BMS_X_2 = 500;
 	private static final int BMS_X_VALUE = 405;
 	private static final int BMS_X_2_VALUE = 570;
 	private static final int BMS_Y = 50;
+	private static final int BMS_PACK_CURRENT_ID = 2;
+	private static final int BMS_PACK_VOLTAGE_ID = 3;
 	private static final int BMS_MAXCELLV_ID = 75;
 	private static final int BMS_MINCELLV_ID = 76;
 	private static final int BMS_MAXCELLT_ID = 81;
@@ -90,7 +94,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int CMU3_PCBTEMP_ID = 25;
 	private static final int CMU4_PCBTEMP_ID = 36;
 	private static final int CMU5_PCBTEMP_ID = 47;
-	
+//	
 	/*Error Messages*/
 	private static final int MSG_LABEL_WIDTH = 900;
 	private static final int ERRORMSG_X = 40;
@@ -98,22 +102,24 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int ERRORMSG_Y = 500;
 	
 	/*Info 1*/
-	private static final int INFO1_X = 1050;
-	private static final int INFO1_X_VALUE = 1125;
-	private static final int INFO1_Y = 210;
+	private static final int INFO1_X = 150;
+	private static final int INFO1_X_VALUE = 25;
+	private static final int INFO1_Y = 10;
 	private static final int DRIVE_SPEED_ID = 9;
 	private static final int DRIVECTRL_ID = 1;
 	private static final int DRIVECTRL_RPM_ID = 1;
 	
 	/*MPPT*/
-	private static final int MPPT_ID = 7;
+	private static final int MUPPET_ID = 13;
 	private static final int MPPT_X = 1050;
 	private static final int MPPT_X_VALUE = 1145;
 	private static final int MPPT_Y = 400;
-	private static final int MPPT_MAINRELAY_ID = 7;
-	private static final int MPPT_ONESTATUS_ID = 9;
-	private static final int MPPT_TWOSTATUS_ID = 10;
-	private static final int MPPT_THREESTATUS_ID = 11;
+	private static final int MUPPET_UIN_MPPT1_ID = 3;
+	private static final int MUPPET_IIN_MPPT1_ID = 4;
+	private static final int MUPPET_UIN_MPPT2_ID = 9;
+	private static final int MUPPET_IIN_MPPT2_ID = 10;
+	private static final int MUPPET_UIN_MPPT3_ID = 15;
+	private static final int MUPPET_IIN_MPPT3_ID = 16;
 	
 	private Image img;
 	
@@ -224,6 +230,12 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	
 	JLabel Info1_PowerBat = new JLabel("Power Bat. : ");
 	JLabel Info1_PowerBat_Value = new JLabel("");
+	
+	JLabel Info1_AveragePowerBat = new JLabel("Average Power Bat. : ");
+	JLabel Info1_AveragePowerBat_Value = new JLabel("");
+	
+	JLabel Info1_PowerMotor = new JLabel("Power Motor : ");
+	JLabel Info1_PowerMotorValue = new JLabel("");
 	
 	/*MPPT*/
 	JLabel MPPT_Label = new JLabel("[MPPT]");
@@ -394,15 +406,25 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 //		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 //		add(Info1_Setpoint_Value);
 //		
-//		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-//		add(Info1_PowerPan);
-//		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-//		add(Info1_PowerPan_Value);
-//		
-//		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-//		add(Info1_PowerBat);
-//		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
-//		add(Info1_PowerBat_Value);
+		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerPan);
+		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerPan_Value);
+		
+		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerBat);
+		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerBat_Value);
+		
+		Info1_PowerMotor.setBounds(INFO1_X, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerMotor);
+		Info1_PowerMotorValue.setBounds(INFO1_X_VALUE, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PowerMotorValue);
+		
+		Info1_AveragePowerBat.setBounds(INFO1_X, INFO1_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_AveragePowerBat);
+		Info1_AveragePowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_AveragePowerBat_Value);
 //		
 //		/*MPPT*/		
 //		MPPT_Label.setBounds(MPPT_X, MPPT_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -473,33 +495,50 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 //		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 //		ErrorMsg_DriveErrorFlags_Value.setText(getDriveErrorFlagsMsg());
 //		
-//		/*Info 1*/
-//		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID);
-//		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " km/h");
-//		double speedMph = speedKmh * 0.621371;
-//		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
-//		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
-//		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
-//		double powerBat = dd.getRawValue(BMS_ID, BMS_PACKV_ID) * dd.getRawValue(BMS_ID, BMS_PACKA_ID);
-//		Info1_PowerBat_Value.setText(String.format("%.2f", powerBat) + " W");
-//		double powerPan = 0;
-//		if (powerBat < 0) {
-//			powerPan = powerBat + (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) + 60;
-//			Info1_PowerBat_Value.setForeground(Color.red);
-//		}
-//		else {
-//			powerPan = powerBat - (dd.getRawValue(DRIVE_ID, DRIVE_ABUS_ID) * dd.getRawValue(DRIVE_ID, DRIVE_VBUS_ID)) - 60;
-//			Info1_PowerBat_Value.setForeground(Color.green);
-//		}
-//		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
-//		
-//		if (DataAcquisition.getInstance().getAcquiStatus()) {
-//			/*Log info 1 values*/
-//			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " km/h" + ", " + String.format("%.2f", speedMph) + " mph");
-//			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " km/h");
-//			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", powerBat) + " watts");
-//			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", powerPan) + " watts");
-//		}
+		/*Info 1*/
+		double speedKmh = dd.getRawValue(DRIVE_ID, DRIVE_SPEED_ID);
+		Info1_SpeedKMH_Value.setText(String.format("%.2f", speedKmh) + " km/h");
+		double speedMph = speedKmh * 0.621371;
+		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
+		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
+		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
+		double powerBat = dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID) * dd.getRawValue(BMS_ID, BMS_PACK_VOLTAGE_ID);
+		average_power_bat_l.add(powerBat);
+		if (average_power_bat_l.size() > 503){
+			average_power_bat_l.remove(0);
+		}
+		double sum = 0;
+		double average_power_bat = 0;
+		for(double average_power_ba : average_power_bat_l){
+			sum += average_power_ba;
+		}
+		average_power_bat = sum/average_power_bat_l.size();
+		
+		Info1_AveragePowerBat_Value.setText(String.format("%.2f", average_power_bat) + " W");
+		
+		Info1_PowerBat_Value.setText(String.format("%.2f", powerBat) + " W");
+		double powerPan = 0;
+
+		powerPan = dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT1_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT1_ID) +
+				   dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT2_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT2_ID) +
+				   dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT3_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT3_ID);
+		Info1_PowerBat_Value.setForeground(Color.black);
+		
+
+		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
+		
+		double powerMotor = powerBat - powerPan;		
+		Info1_PowerMotorValue.setText(String.format("%.2f", powerMotor) + " W");
+		Info1_PowerMotorValue.setForeground(Color.black);
+		
+		if (DataAcquisition.getInstance().getAcquiStatus()) {
+			/*Log info 1 values*/
+			Logger.getLogger("calculated_values").info("Speed : " + String.format("%.2f", speedKmh) + " km/h" + ", " + String.format("%.2f", speedMph) + " mph");
+			Logger.getLogger("calculated_values").info("Setpoint : " + String.format("%.2f", setpoint) + " km/h");
+			Logger.getLogger("calculated_values").info("Power Bat. : " + String.format("%.2f", powerBat) + " watts");
+			Logger.getLogger("calculated_values").info("Power Motor. : " + String.format("%.2f", powerMotor) + " watts");
+			Logger.getLogger("calculated_values").info("Power Pan. : " + String.format("%.2f", powerPan) + " watts");
+		}
 //		
 //		/*MPPT*/
 //		if (dd.getRawValue(MPPT_ID, MPPT_MAINRELAY_ID) == 0) {
