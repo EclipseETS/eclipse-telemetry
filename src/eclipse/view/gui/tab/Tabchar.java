@@ -33,6 +33,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	
 	private static final long serialVersionUID = 7275321077445435378L;
 	List<Double> average_power_bat_l = new ArrayList<Double>();
+	List<Double> average_power_pan_l = new ArrayList<Double>();
 	
 	private static final int LABEL_WIDTH = 100;
 	private static final int LABEL_HEIGHT = 14;
@@ -73,7 +74,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int INSTRU_DATE_ID = 5;
 	
 	/*BMS*/
-	private static final int BMS_ID = 4;
+	private static final int BMS_ID = 3;
 	private static final int BMS_X = 325;
 	private static final int BMS_X_2 = 500;
 	private static final int BMS_X_VALUE = 405;
@@ -81,6 +82,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int BMS_Y = 50;
 	private static final int BMS_PACK_CURRENT_ID = 2;
 	private static final int BMS_PACK_VOLTAGE_ID = 3;
+	private static final int BMS_AVCELLV_ID = 4;	
 	private static final int BMS_MAXCELLV_ID = 75;
 	private static final int BMS_MINCELLV_ID = 76;
 	private static final int BMS_MAXCELLT_ID = 81;
@@ -104,13 +106,13 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	/*Info 1*/
 	private static final int INFO1_X = 150;
 	private static final int INFO1_X_VALUE = 25;
-	private static final int INFO1_Y = 10;
+	private static final int INFO1_Y = 0;
 	private static final int DRIVE_SPEED_ID = 9;
 	private static final int DRIVECTRL_ID = 1;
 	private static final int DRIVECTRL_RPM_ID = 1;
 	
 	/*MPPT*/
-	private static final int MUPPET_ID = 13;
+	private static final int MUPPET_ID = 10;
 	private static final int MPPT_X = 1050;
 	private static final int MPPT_X_VALUE = 1145;
 	private static final int MPPT_Y = 400;
@@ -225,17 +227,26 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	JLabel Info1_Setpoint = new JLabel("Setpoint : ");
 	JLabel Info1_Setpoint_Value = new JLabel("");
 	
+	JLabel Info1_PackVoltage = new JLabel("Pack Voltage. : ");
+	JLabel Info1_PackVoltage_Value = new JLabel("");
+	
 	JLabel Info1_PowerPan = new JLabel("Power Pan. : ");
 	JLabel Info1_PowerPan_Value = new JLabel("");
 	
 	JLabel Info1_PowerBat = new JLabel("Power Bat. : ");
 	JLabel Info1_PowerBat_Value = new JLabel("");
 	
-	JLabel Info1_AveragePowerBat = new JLabel("Average Power Bat. : ");
+	JLabel Info1_AveragePowerBat = new JLabel("Av. Power Bat. : ");
 	JLabel Info1_AveragePowerBat_Value = new JLabel("");
+	
+	JLabel Info1_AveragePowerPan = new JLabel("Av. Power Pan. : ");
+	JLabel Info1_AveragePowerPan_Value = new JLabel("");
 	
 	JLabel Info1_PowerMotor = new JLabel("Power Motor : ");
 	JLabel Info1_PowerMotorValue = new JLabel("");
+	
+	JLabel Info1_AveragePowerMotor = new JLabel("Av. Power Mot. : ");
+	JLabel Info1_AveragePowerMotor_Value = new JLabel("");
 	
 	/*MPPT*/
 	JLabel MPPT_Label = new JLabel("[MPPT]");
@@ -406,25 +417,41 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 //		Info1_Setpoint_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 //		add(Info1_Setpoint_Value);
 //		
-		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PackVoltage.setBounds(INFO1_X, INFO1_Y + 1*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PackVoltage);
+		Info1_PackVoltage_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 1*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_PackVoltage_Value);
+		
+		Info1_PowerPan.setBounds(INFO1_X, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PowerPan);
-		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 3*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PowerPan_Value);
 		
-		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PowerBat.setBounds(INFO1_X, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PowerBat);
-		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 4*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PowerBat_Value);
 		
-		Info1_PowerMotor.setBounds(INFO1_X, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PowerMotor.setBounds(INFO1_X, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PowerMotor);
-		Info1_PowerMotorValue.setBounds(INFO1_X_VALUE, INFO1_Y + 6*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_PowerMotorValue.setBounds(INFO1_X_VALUE, INFO1_Y + 5*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_PowerMotorValue);
+
+		Info1_AveragePowerPan.setBounds(INFO1_X, INFO1_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_AveragePowerPan);
+		Info1_AveragePowerPan_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_AveragePowerPan_Value);
 		
-		Info1_AveragePowerBat.setBounds(INFO1_X, INFO1_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_AveragePowerBat.setBounds(INFO1_X, INFO1_Y + 8*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_AveragePowerBat);
-		Info1_AveragePowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 7*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		Info1_AveragePowerBat_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 8*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
 		add(Info1_AveragePowerBat_Value);
+		
+		Info1_AveragePowerMotor.setBounds(INFO1_X, INFO1_Y + 9*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_AveragePowerMotor);
+		Info1_AveragePowerMotor_Value.setBounds(INFO1_X_VALUE, INFO1_Y + 9*LINE_OFFSET, LABEL_WIDTH, LABEL_HEIGHT);
+		add(Info1_AveragePowerMotor_Value);
+		
 //		
 //		/*MPPT*/		
 //		MPPT_Label.setBounds(MPPT_X, MPPT_Y, LABEL_WIDTH, LABEL_HEIGHT);
@@ -502,9 +529,11 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
 		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
-		double powerBat = dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID) * dd.getRawValue(BMS_ID, BMS_PACK_VOLTAGE_ID);
+		double packVoltage = dd.getRawValue(BMS_ID, BMS_AVCELLV_ID)*38/1000;
+		Info1_PackVoltage_Value.setText(String.format("%.2f", packVoltage) + " V");
+		double powerBat = dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID) * packVoltage;
 		average_power_bat_l.add(powerBat);
-		if (average_power_bat_l.size() > 503){
+		if (average_power_bat_l.size() > 500){
 			average_power_bat_l.remove(0);
 		}
 		double sum = 0;
@@ -517,19 +546,38 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		Info1_AveragePowerBat_Value.setText(String.format("%.2f", average_power_bat) + " W");
 		
 		Info1_PowerBat_Value.setText(String.format("%.2f", powerBat) + " W");
+
 		double powerPan = 0;
 
 		powerPan = dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT1_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT1_ID) +
 				   dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT2_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT2_ID) +
 				   dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT3_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT3_ID);
-		Info1_PowerBat_Value.setForeground(Color.black);
-		
 
+		
 		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
+		Info1_PowerPan_Value.setForeground(Color.black);
+		
+		average_power_pan_l.add(powerPan);
+		if (average_power_pan_l.size() > 500){
+			average_power_pan_l.remove(0);
+		}
+		sum = 0;
+		double average_power_pan = 0;
+		for(double average_power_pa : average_power_pan_l){
+			sum += average_power_pa;
+		}
+		average_power_pan = sum/average_power_pan_l.size();
+		
+		Info1_AveragePowerPan_Value.setText(String.format("%.2f", average_power_pan) + " W");
+		Info1_AveragePowerPan_Value.setForeground(Color.black);
 		
 		double powerMotor = powerBat - powerPan;		
 		Info1_PowerMotorValue.setText(String.format("%.2f", powerMotor) + " W");
 		Info1_PowerMotorValue.setForeground(Color.black);
+		
+		double AveragepowerMotor = average_power_bat - average_power_pan;		
+		Info1_AveragePowerMotor_Value.setText(String.format("%.2f", AveragepowerMotor) + " W");
+		Info1_AveragePowerMotor.setForeground(Color.black);
 		
 		if (DataAcquisition.getInstance().getAcquiStatus()) {
 			/*Log info 1 values*/
@@ -585,7 +633,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, width, height);
-		g.drawImage(img, 180, 150, null);
+		g.drawImage(img, 180, 160, null);
 	}
 	
 	public String getMaxPCBTemp() {

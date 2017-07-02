@@ -24,10 +24,10 @@ public class MatLab implements Runnable{
 	
 	
 	private static final int DRIVE_L_ID = 2;
-	private static final int DRIVE_R_ID = 3;
-	private static final int BMS_ID = 4;
-	private static final int VOLANT_ID = 7;
-	private static final int MUPPET_ID = 13;
+	private static final int DRIVE_R_ID = 2;
+	private static final int BMS_ID = 3;
+	private static final int VOLANT_ID = 6;
+	private static final int MUPPET_ID = 10;
 	
 	
 	private static final int DRIVE_L_BUS_VOLTAGE_ID = 7;
@@ -81,12 +81,6 @@ public class MatLab implements Runnable{
 			    	out = new BufferedWriter(fstream);
 						 out.write(
 							date.toString()+sep+//HEURE
-			    			dd.getRawValue(DRIVE_L_ID, DRIVE_L_BUS_VOLTAGE_ID)+sep+
-			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_BUS_CURRENT_ID)+sep+
-			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_MOTOR_VELOCITY_ID)+sep+
-			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_VEHICLE_VELOCITY_ID)+sep+
-			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_ODOMETER_ID)+sep+
-			 				dd.getRawValue(DRIVE_L_ID, DRIVE_L_DCBUS_AMPHOUR_ID)+sep+
 			    			dd.getRawValue(DRIVE_R_ID, DRIVE_R_BUS_VOLTAGE_ID)+sep+
 			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_BUS_CURRENT_ID)+sep+
 			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_MOTOR_VELOCITY_ID)+sep+

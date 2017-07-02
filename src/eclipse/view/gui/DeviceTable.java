@@ -49,7 +49,7 @@ public class DeviceTable extends JPanel implements ItemListener
 {
 	
 	private static final long serialVersionUID = -2652127495341433024L;
-	private static final int deviceCount = 13;
+	private static final int deviceCount = 10;
 	private JScrollPane scrollPane;
 	private JTable dataTable;
 	private JButton btnGraph;
@@ -93,23 +93,20 @@ public class DeviceTable extends JPanel implements ItemListener
 		checkBoxPanel[2] = new JPanel();
 		
 		deviceCheckBox[0] = new JCheckBox("Driver");
-		deviceCheckBox[1] = new JCheckBox("Drive (L)");
-		deviceCheckBox[2] = new JCheckBox("Drive (R)");
-		deviceCheckBox[3] = new JCheckBox("BMS");
-		deviceCheckBox[4] = new JCheckBox("Dash");
-		deviceCheckBox[5] = new JCheckBox("Instru");
-		deviceCheckBox[6] = new JCheckBox("Volant");
-		deviceCheckBox[7] = new JCheckBox("MPPT (M)");
-		deviceCheckBox[8] = new JCheckBox("MPPT (S)");
-		deviceCheckBox[9] = new JCheckBox("PSU");
-		deviceCheckBox[10] = new JCheckBox("Ignition");
-		deviceCheckBox[11] = new JCheckBox("Flashers");
-		deviceCheckBox[12] = new JCheckBox("Muppet");
+		deviceCheckBox[1] = new JCheckBox("Drive (R)");
+		deviceCheckBox[2] = new JCheckBox("BMS");
+		deviceCheckBox[3] = new JCheckBox("Dash");
+		deviceCheckBox[4] = new JCheckBox("Telemetrie");
+		deviceCheckBox[5] = new JCheckBox("Volant");
+		deviceCheckBox[6] = new JCheckBox("PSU");
+		deviceCheckBox[7] = new JCheckBox("Ignition");
+		deviceCheckBox[8] = new JCheckBox("Flashers");
+		deviceCheckBox[9] = new JCheckBox("Muppet");
 		
 		int i;
 		
 		for (i = 0; i<deviceCount ; i++) {
-			deviceCheckBox[i].setSelected(true);
+ 
 			deviceCheckBox[i].addItemListener(this);
 		}
 		for (i = 0 ; i<4 ; i++) {
