@@ -21,34 +21,27 @@ import eclipse.model.data.DataManager;
  *
  */
 public class MatLab implements Runnable{
-	
-	
-	private static final int DRIVE_L_ID = 2;
-	private static final int DRIVE_R_ID = 2;
+	// Device IDs
+	private static final int DRIVE_ID = 2;
 	private static final int BMS_ID = 3;
 	private static final int VOLANT_ID = 6;
 	private static final int MUPPET_ID = 10;
 	
+	// DeviceItem IDs
+	private static final int DRIVE_BUS_VOLTAGE_ID = 7;
+	private static final int DRIVE_BUS_CURRENT_ID = 8;
+	private static final int DRIVE_MOTOR_VELOCITY_ID = 9;
+	private static final int DRIVE_VEHICLE_VELOCITY_ID = 10;
+	private static final int DRIVE_ODOMETER_ID = 22;
+	private static final int DRIVE_DCBUS_AMPHOUR_ID = 23;
 	
-	private static final int DRIVE_L_BUS_VOLTAGE_ID = 7;
-	private static final int DRIVE_L_BUS_CURRENT_ID = 8;
-	private static final int DRIVE_L_MOTOR_VELOCITY_ID = 9;
-	private static final int DRIVE_L_VEHICLE_VELOCITY_ID = 10;
-	private static final int DRIVE_L_ODOMETER_ID = 22;
-	private static final int DRIVE_L_DCBUS_AMPHOUR_ID = 23;
-	private static final int DRIVE_R_BUS_VOLTAGE_ID = 7;
-	private static final int DRIVE_R_BUS_CURRENT_ID = 8;
-	private static final int DRIVE_R_MOTOR_VELOCITY_ID = 9;
-	private static final int DRIVE_R_VEHICLE_VELOCITY_ID = 10;
-	private static final int DRIVE_R_ODOMETER_ID = 22;
-	private static final int DRIVE_R_DCBUS_AMPHOUR_ID = 23;
 	private static final int BMS_PACK_CURRENT_ID = 2;
 	private static final int BMS_PACK_VOLTAGE_ID = 3;
-	private static final int BMS_AVERAGE_CELL_VOLTAGE_ID = 4;
-	private static final int BMS_PACK_TEMP_HIGH_ID = 9;
-	private static final int BMS_PACK_TEMP_LOW_ID = 10;
-	private static final int BMS_REMAINING_ENERGY_ID = 19;
-	private static final int VOLANT_VEHICLE_VELOCITY_ID = 4;
+	private static final int BMS_AVERAGE_CELL_VOLTAGE_ID = 5;
+	private static final int BMS_HIGHEST_TEMP_ID = 10;
+	private static final int BMS_LOWEST_TEMP_ID = 11;
+	private static final int BMS_REMAINING_ENERGY_ID = 20;
+	
 	private static final int MUPPET_UIN_MPPT1_ID = 3;
 	private static final int MUPPET_IIN_MPPT1_ID = 4;
 	private static final int MUPPET_UIN_MPPT2_ID = 9;
@@ -81,19 +74,18 @@ public class MatLab implements Runnable{
 			    	out = new BufferedWriter(fstream);
 						 out.write(
 							date.toString()+sep+//HEURE
-			    			dd.getRawValue(DRIVE_R_ID, DRIVE_R_BUS_VOLTAGE_ID)+sep+
-			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_BUS_CURRENT_ID)+sep+
-			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_MOTOR_VELOCITY_ID)+sep+
-			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_VEHICLE_VELOCITY_ID)+sep+
-			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_ODOMETER_ID)+sep+
-			 				dd.getRawValue(DRIVE_R_ID, DRIVE_R_DCBUS_AMPHOUR_ID)+sep+
+			    			dd.getRawValue(DRIVE_ID, DRIVE_BUS_VOLTAGE_ID)+sep+
+			 				dd.getRawValue(DRIVE_ID, DRIVE_BUS_CURRENT_ID)+sep+
+			 				dd.getRawValue(DRIVE_ID, DRIVE_MOTOR_VELOCITY_ID)+sep+
+			 				dd.getRawValue(DRIVE_ID, DRIVE_VEHICLE_VELOCITY_ID)+sep+
+			 				dd.getRawValue(DRIVE_ID, DRIVE_ODOMETER_ID)+sep+
+			 				dd.getRawValue(DRIVE_ID, DRIVE_DCBUS_AMPHOUR_ID)+sep+
 			 				dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID)+sep+
 			 				dd.getRawValue(BMS_ID, BMS_PACK_VOLTAGE_ID)+sep+
 			 				dd.getRawValue(BMS_ID, BMS_AVERAGE_CELL_VOLTAGE_ID)+sep+
-			 				dd.getRawValue(BMS_ID, BMS_PACK_TEMP_HIGH_ID)+sep+
-			 				dd.getRawValue(BMS_ID, BMS_PACK_TEMP_LOW_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_HIGHEST_TEMP_ID)+sep+
+			 				dd.getRawValue(BMS_ID, BMS_LOWEST_TEMP_ID)+sep+
 			 				dd.getRawValue(BMS_ID, BMS_REMAINING_ENERGY_ID)+sep+
-			 				dd.getRawValue(VOLANT_ID, VOLANT_VEHICLE_VELOCITY_ID)+sep+
 			 				dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT1_ID)+sep+
 			 				dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT1_ID)+sep+
 			 				dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT2_ID)+sep+

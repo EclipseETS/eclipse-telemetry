@@ -54,24 +54,26 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int DRIVE_X = 40;
 	private static final int DRIVE_X_VALUE = 140;
 	private static final int DRIVE_Y = 50;
-	private static final int DRIVE_ERRORFLAGS_ID = 5;
-	private static final int DRIVE_LIMITFLAGS_ID = 6;
-	private static final int DRIVE_RPM_ID = 10;
+	private static final int DRIVE_ERR_FLAGS_ID = 3;
+	private static final int DRIVE_LIMIT_FLAGS_ID = 2;
+	private static final int DRIVE_MOTOR_VELOCITY_ID = 10;
+	
 	private static final int DRIVE_HSTEMP_ID = 23;
 	private static final int DRIVE_MOTORTEMP_ID = 24;
 	private static final int DRIVE_DSPTEMP_ID = 26;
-	private static final int DRIVE_ABUS_ID = 7;
-	private static final int DRIVE_VBUS_ID = 8;
+	private static final int DRIVE_BUS_CURRENT_ID = 8;
+	private static final int DRIVE_BUS_VOLTAGE_ID = 7;
 	
 	/*Instru*/
 	private static final int INSTRU_ID = 6;
 	private static final int INSTRU_X = 1050;
 	private static final int INSTRU_X_VALUE = 1090;
 	private static final int INSTRU_Y = 50;
-	private static final int INSTRU_LAT_ID = 2;
-	private static final int INSTRU_LON_ID = 3;
-	private static final int INSTRU_TIME_ID = 4;
-	private static final int INSTRU_DATE_ID = 5;
+	private static final int INSTRU_LAT_ID = 2;		// introuvable
+	private static final int INSTRU_LON_ID = 3;		// introuvable
+	private static final int INSTRU_TIME_ID = 4;	// introuvable
+	private static final int INSTRU_DATE_ID = 5;	// introuvable
+	
 	
 	/*BMS*/
 	private static final int BMS_ID = 3;
@@ -82,20 +84,20 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int BMS_Y = 50;
 	private static final int BMS_PACK_CURRENT_ID = 2;
 	private static final int BMS_PACK_VOLTAGE_ID = 3;
-	private static final int BMS_AVCELLV_ID = 4;	
-	private static final int BMS_MAXCELLV_ID = 75;
-	private static final int BMS_MINCELLV_ID = 76;
-	private static final int BMS_MAXCELLT_ID = 81;
-	private static final int BMS_SOCPC_ID = 57;
-	private static final int BMS_SOCAH_ID = 58;
-	private static final int BMS_PACKA_ID = 83;
-	private static final int BMS_PACKV_ID = 84;
-	private static final int BMS_EXTSTATUS_ID = 97;
-	private static final int CMU1_PCBTEMP_ID = 3;
-	private static final int CMU2_PCBTEMP_ID = 14;
-	private static final int CMU3_PCBTEMP_ID = 25;
-	private static final int CMU4_PCBTEMP_ID = 36;
-	private static final int CMU5_PCBTEMP_ID = 47;
+	private static final int BMS_AVERAGE_CELL_VOLTAGE_ID = 5;	
+	private static final int BMS_CELL_VOLTAGE_MAX_ID = 6;
+	private static final int BMS_CELL_VOLTAGE_MIN_ID = 8;
+	private static final int BMS_HIGHEST_TEMP_ID = 10;
+	private static final int BMS_SOCPC_ID = 57;	// ???
+	private static final int BMS_SOCAH_ID = 58;	// ???
+	private static final int BMS_PACKA_ID = 83; // doublon avec BMS_PACK_CURRENT_ID ???
+	private static final int BMS_PACKV_ID = 84; // doublon avec BMS_PACK_VOLTAGE_ID ???
+	private static final int BMS_EXTSTATUS_ID = 97; // S_BMS_STATUS ???
+	private static final int CMU1_PCBTEMP_ID = 3;	// introuvable
+	private static final int CMU2_PCBTEMP_ID = 14;	// introuvable
+	private static final int CMU3_PCBTEMP_ID = 25;	// introuvable
+	private static final int CMU4_PCBTEMP_ID = 36;	// introuvable
+	private static final int CMU5_PCBTEMP_ID = 47;	// introuvable
 //	
 	/*Error Messages*/
 	private static final int MSG_LABEL_WIDTH = 900;
@@ -107,9 +109,9 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int INFO1_X = 150;
 	private static final int INFO1_X_VALUE = 25;
 	private static final int INFO1_Y = 0;
-	private static final int DRIVE_SPEED_ID = 9;
-	private static final int DRIVECTRL_ID = 1;
-	private static final int DRIVECTRL_RPM_ID = 1;
+	private static final int DRIVE_SPEED_ID = 9;	// S_DRIVE_MOTOR_VELOCITY ???
+	private static final int DRIVECTRL_ID = 1;		// introuvable
+	private static final int DRIVECTRL_RPM_ID = 1;	// introuvable
 	
 	/*MPPT*/
 	private static final int MUPPET_ID = 10;
@@ -486,7 +488,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 //		PSU_VCAN_Value.setText(dd.getRoundedValue(PSU_ID, PSU_VCAN_ID));
 //		
 //		/*Drive*/
-//		Drive_RPM_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_RPM_ID));
+//		Drive_RPM_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTOR_VELOCITY_ID));
 //		Drive_HSTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_HSTEMP_ID));
 //		Drive_MotorTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_MOTORTEMP_ID));
 //		Drive_DSPTemp_Value.setText(dd.getRoundedValue(DRIVE_ID, DRIVE_DSPTEMP_ID));
@@ -507,12 +509,12 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 //		}
 //		
 //		/*BMS*/
-//		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLV_ID));
-//		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MINCELLV_ID));
+//		BMS_MaxCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_CELL_VOLTAGE_MAX_ID));
+//		BMS_MinCellV_Value.setText(dd.getRoundedValue(BMS_ID, BMS_CELL_VOLTAGE_MIN_ID));
 //		BMS_SOCPc_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCPC_ID));
 //		BMS_SOCAh_Value.setText(dd.getRoundedValue(BMS_ID, BMS_SOCAH_ID));
 //		
-//		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_MAXCELLT_ID));
+//		BMS_MaxCellT_Value.setText(dd.getRoundedValue(BMS_ID, BMS_HIGHEST_TEMP_ID));
 //		BMS_MaxPCBT_Value.setText(getMaxPCBTemp());
 //		BMS_Vpack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKV_ID));
 //		BMS_Ipack_Value.setText(dd.getRoundedValue(BMS_ID, BMS_PACKA_ID));
@@ -529,7 +531,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
 		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
-		double packVoltage = dd.getRawValue(BMS_ID, BMS_AVCELLV_ID)*38/1000;
+		double packVoltage = dd.getRawValue(BMS_ID, BMS_AVERAGE_CELL_VOLTAGE_ID)*38/1000;
 		Info1_PackVoltage_Value.setText(String.format("%.2f", packVoltage) + " V");
 		double powerBat = dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID) * packVoltage;
 		average_power_bat_l.add(powerBat);
@@ -649,14 +651,14 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	
 	public String getDriveErrorFlags() {
 		
-		int errorFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_ERRORFLAGS_ID).getLastData());
+		int errorFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_ERR_FLAGS_ID).getLastData());
 		
 		return Integer.toString(errorFlags & 0xFF);		
 	}
 	
 	public String getDriveErrorFlagsMsg() {
 		
-		int errorFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_ERRORFLAGS_ID).getLastData());
+		int errorFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_ERR_FLAGS_ID).getLastData());
 		
 		String errorMsg = "";
 		
@@ -695,14 +697,14 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	
 	public String getDriveLimitFlags() {
 		
-		int limitFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_LIMITFLAGS_ID).getLastData());
+		int limitFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_LIMIT_FLAGS_ID).getLastData());
 		
 		return Integer.toString(limitFlags & 0x7F);		
 	}
 	
 	public String getDriveLimitFlagsMsg() {
 		
-		int limitFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_LIMITFLAGS_ID).getLastData());
+		int limitFlags = (int)(dd.getDeviceByID(DRIVE_ID).getItemByID(DRIVE_LIMIT_FLAGS_ID).getLastData());
 		
 		String errorMsg = "";
 		
