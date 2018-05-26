@@ -1110,6 +1110,7 @@
 			</deviceitem>
 		</trame>
 	</device>
+	<!--
 	<device id="11" name="TEMPLATE">
 		<trame identifier="00" type="2">
 			<deviceitem id="0" name="S_TEMPLATE_STATUS">
@@ -1147,4 +1148,5 @@
 			</deviceitem>
 		</trame>
 	</device>
+	-->
 </char>
