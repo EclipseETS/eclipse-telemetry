@@ -370,7 +370,7 @@
 				<minvalue>-60</minvalue>
 				<maxvalue>18</maxvalue>
 				<resolution>1</resolution>
-				<factor>0.1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -460,33 +460,33 @@
 		<trame identifier="304" type="2">
 			<deviceitem id="10" name="S_BMS_HIGHEST_TEMP">
 				<unit>C</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>45</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="11" name="S_BMS_LOWEST_TEMP">
 				<unit>C</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>45</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
 			<deviceitem id="12" name="S_BMS_MASTER_TEMP">
 				<unit>C</unit>
-				<bitsize>8</bitsize>
+				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
 				<maxvalue>45</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.1</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -767,7 +767,7 @@
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -778,7 +778,7 @@
 				<minvalue>0</minvalue>
 				<maxvalue>65532</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>false</signed>
 				<isFloat>false</isFloat>
@@ -791,7 +791,7 @@
 				<minvalue>-2147483647</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -802,7 +802,7 @@
 				<minvalue>1100</minvalue>
 				<maxvalue>1500</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -815,7 +815,7 @@
 				<minvalue>-2147483647</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -826,7 +826,7 @@
 				<minvalue>1000</minvalue>
 				<maxvalue>1500</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -839,7 +839,7 @@
 				<minvalue>-2147483647</minvalue>
 				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -850,7 +850,7 @@
 				<minvalue>1100</minvalue>
 				<maxvalue>1500</maxvalue>
 				<resolution>1</resolution>
-				<factor>1</factor>
+				<factor>0.001</factor>
 				<offset>0</offset>
 				<signed>true</signed>
 				<isFloat>false</isFloat>
@@ -874,7 +874,7 @@
 	</device>
 	<device id="9" name="FLASHER">
 		<trame identifier="900" type="2">
-			<deviceitem id="0" name="S_FLASHER_STATUS">
+			<deviceitem id="0" name="S_FLASHER_1_STATUS">
 				<unit>N/A</unit>
 				<bitsize>16</bitsize>
 				<minvalue>0</minvalue>
@@ -885,7 +885,31 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="1" name="S_FLASHER_OSTICK">
+			<deviceitem id="1" name="S_FLASHER_1_OSTICK">
+				<unit>TICK</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>2147483647</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="900" type="2">
+			<deviceitem id="2" name="S_FLASHER_2_STATUS">
+				<unit>N/A</unit>
+				<bitsize>16</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>65532</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="3" name="S_FLASHER_2_OSTICK">
 				<unit>TICK</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -922,31 +946,9 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="2" name="S_MUPPET_RELAY1_ON">
-				<unit>STATE</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="3" name="S_MUPPET_UIN_MPPT1">
-				<unit>V</unit>
-				<bitsize>32</bitsize>
-				<minvalue>79</minvalue>
-				<maxvalue>82</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
 		</trame>
 		<trame identifier="1001" type="2">
-			<deviceitem id="4" name="S_MUPPET_IIN_MPPT1">
+			<deviceitem id="2" name="S_MUPPET_IIN_MPPT1">
 				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -957,11 +959,11 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="5" name="S_MUPPET_UOUT_MPPT1">
-				<unit>V</unit>
+			<deviceitem id="3" name="S_MUPPET_IOUT_MPPT1">
+				<unit>A</unit>
 				<bitsize>32</bitsize>
-				<minvalue>95</minvalue>
-				<maxvalue>160</maxvalue>
+				<minvalue>0</minvalue>
+				<maxvalue>6</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -970,6 +972,30 @@
 			</deviceitem>
 		</trame>
 		<trame identifier="1002" type="2">
+			<deviceitem id="4" name="S_MUPPET_UIN_MPPT1">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>60</minvalue>
+				<maxvalue>90</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="5" name="S_MUPPET_UOUT_MPPT1">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>80</minvalue>
+				<maxvalue>140</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="1003" type="2">
 			<deviceitem id="6" name="S_MUPPET_FLAG_MPPT2">
 				<unit>FLAG</unit>
 				<bitsize>8</bitsize>
@@ -992,31 +1018,9 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="8" name="S_MUPPET_RELAY2_ON">
-				<unit>STATE</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="9" name="S_MUPPET_UIN_MPPT2">
-				<unit>V</unit>
-				<bitsize>32</bitsize>
-				<minvalue>79</minvalue>
-				<maxvalue>82</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
 		</trame>
-		<trame identifier="1003" type="2">
-			<deviceitem id="10" name="S_MUPPET_IIN_MPPT2">
+		<trame identifier="1004" type="2">
+			<deviceitem id="8" name="S_MUPPET_IIN_MPPT2">
 				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1027,11 +1031,11 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
-			<deviceitem id="11" name="S_MUPPET_UOUT_MPPT2">
-				<unit>V</unit>
+			<deviceitem id="9" name="S_MUPPET_IOUT_MPPT2">
+				<unit>A</unit>
 				<bitsize>32</bitsize>
-				<minvalue>95</minvalue>
-				<maxvalue>160</maxvalue>
+				<minvalue>0</minvalue>
+				<maxvalue>6</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -1039,7 +1043,31 @@
 				<isFloat>true</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="1004" type="2">
+		<trame identifier="1005" type="2">
+			<deviceitem id="10" name="S_MUPPET_UIN_MPPT2">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>60</minvalue>
+				<maxvalue>90</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="11" name="S_MUPPET_UOUT_MPPT2">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>80</minvalue>
+				<maxvalue>140</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="1006" type="2">
 			<deviceitem id="12" name="S_MUPPET_FLAG_MPPT3">
 				<unit>FLAG</unit>
 				<bitsize>8</bitsize>
@@ -1062,31 +1090,9 @@
 				<signed>false</signed>
 				<isFloat>false</isFloat>
 			</deviceitem>
-			<deviceitem id="14" name="S_MUPPET_RELAY3_ON">
-				<unit>STATE</unit>
-				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>255</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>false</signed>
-				<isFloat>false</isFloat>
-			</deviceitem>
-			<deviceitem id="15" name="S_MUPPET_UIN_MPPT3">
-				<unit>V</unit>
-				<bitsize>32</bitsize>
-				<minvalue>79</minvalue>
-				<maxvalue>82</maxvalue>
-				<resolution>1</resolution>
-				<factor>1</factor>
-				<offset>0</offset>
-				<signed>true</signed>
-				<isFloat>true</isFloat>
-			</deviceitem>
 		</trame>
-		<trame identifier="1005" type="2">
-			<deviceitem id="16" name="S_MUPPET_IIN_MPPT3">
+		<trame identifier="1007" type="2">
+			<deviceitem id="14" name="S_MUPPET_IIN_MPPT3">
 				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
@@ -1097,11 +1103,96 @@
 				<signed>true</signed>
 				<isFloat>true</isFloat>
 			</deviceitem>
+			<deviceitem id="15" name="S_MUPPET_IOUT_MPPT3">
+				<unit>A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>6</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="1008" type="2">
+			<deviceitem id="16" name="S_MUPPET_UIN_MPPT3">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>60</minvalue>
+				<maxvalue>90</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
 			<deviceitem id="17" name="S_MUPPET_UOUT_MPPT3">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
-				<minvalue>95</minvalue>
-				<maxvalue>160</maxvalue>
+				<minvalue>80</minvalue>
+				<maxvalue>140</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="1009" type="2">
+			<deviceitem id="18" name="S_MUPPET_FLAG_MPPT4">
+				<unit>FLAG</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>255</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+			<deviceitem id="19" name="S_MUPPET_TEMP_MPPT4">
+				<unit>C</unit>
+				<bitsize>8</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>98</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>false</signed>
+				<isFloat>false</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="100a" type="2">
+			<deviceitem id="20" name="S_MUPPET_IIN_MPPT4">
+				<unit>A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>6</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+			<deviceitem id="21" name="S_MUPPET_IOUT_MPPT4">
+				<unit>A</unit>
+				<bitsize>32</bitsize>
+				<minvalue>0</minvalue>
+				<maxvalue>6</maxvalue>
+				<resolution>1</resolution>
+				<factor>1</factor>
+				<offset>0</offset>
+				<signed>true</signed>
+				<isFloat>true</isFloat>
+			</deviceitem>
+		</trame>
+		<trame identifier="100b" type="2">
+			<deviceitem id="22" name="S_MUPPET_UIN_MPPT4">
+				<unit>V</unit>
+				<bitsize>32</bitsize>
+				<minvalue>60</minvalue>
+				<maxvalue>90</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
