@@ -380,8 +380,8 @@
 			<deviceitem id="3" name="S_BMS_PACK_VOLTAGE">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
-				<minvalue>800</minvalue>
-				<maxvalue>1350</maxvalue>
+				<minvalue>80</minvalue>
+				<maxvalue>135</maxvalue>
 				<resolution>1</resolution>
 				<factor>0.1</factor>
 				<offset>0</offset>
@@ -391,8 +391,8 @@
 			<deviceitem id="4" name="S_BMS_SUM_VOLTAGE">
 				<unit>V</unit>
 				<bitsize>16</bitsize>
-				<minvalue>800</minvalue>
-				<maxvalue>1350</maxvalue>
+				<minvalue>80</minvalue>
+				<maxvalue>135</maxvalue>
 				<resolution>1</resolution>
 				<factor>0.1</factor>
 				<offset>0</offset>
@@ -677,8 +677,8 @@
 			<deviceitem id="1" name="S_TELEMETRIE_MODEM_ON">
 				<unit>N/A</unit>
 				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>1</maxvalue>
+				<minvalue>-10</minvalue>
+				<maxvalue>10</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -688,8 +688,8 @@
 			<deviceitem id="2" name="S_TELEMETRIE_XBEE_ON">
 				<unit>N/A</unit>
 				<bitsize>8</bitsize>
-				<minvalue>0</minvalue>
-				<maxvalue>1</maxvalue>
+				<minvalue>-10</minvalue>
+				<maxvalue>10</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -799,8 +799,8 @@
 			<deviceitem id="3" name="S_POWERSUPPLY_12V_CAN_VOLTAGE">
 				<unit>MV</unit>
 				<bitsize>16</bitsize>
-				<minvalue>1100</minvalue>
-				<maxvalue>1500</maxvalue>
+				<minvalue>-2147483647</minvalue>
+				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>0.001</factor>
 				<offset>0</offset>
@@ -823,8 +823,8 @@
 			<deviceitem id="5" name="S_POWERSUPPLY_12V_HP_VOLTAGE">
 				<unit>MV</unit>
 				<bitsize>16</bitsize>
-				<minvalue>1000</minvalue>
-				<maxvalue>1500</maxvalue>
+				<minvalue>-2147483647</minvalue>
+				<maxvalue>2147483647</maxvalue>
 				<resolution>1</resolution>
 				<factor>0.001</factor>
 				<offset>0</offset>
@@ -847,8 +847,8 @@
 			<deviceitem id="7" name="S_POWERSUPPLY_12V_AUX_VOLTAGE">
 				<unit>MV</unit>
 				<bitsize>16</bitsize>
-				<minvalue>1100</minvalue>
-				<maxvalue>1500</maxvalue>
+				<minvalue>11</minvalue>
+				<maxvalue>15</maxvalue>
 				<resolution>1</resolution>
 				<factor>0.001</factor>
 				<offset>0</offset>
@@ -897,7 +897,7 @@
 				<isFloat>false</isFloat>
 			</deviceitem>
 		</trame>
-		<trame identifier="900" type="2">
+		<trame identifier="901" type="2">
 			<deviceitem id="2" name="S_FLASHER_2_STATUS">
 				<unit>N/A</unit>
 				<bitsize>16</bitsize>

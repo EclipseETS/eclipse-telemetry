@@ -34,6 +34,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final long serialVersionUID = 7275321077445435378L;
 	List<Double> average_power_bat_l = new ArrayList<Double>();
 	List<Double> average_power_pan_l = new ArrayList<Double>();
+	List<Double> average_power_mot_l = new ArrayList<Double>();
 	
 	private static final int LABEL_WIDTH = 100;
 	private static final int LABEL_HEIGHT = 14;
@@ -118,12 +119,12 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int MPPT_X = 1050;
 	private static final int MPPT_X_VALUE = 1145;
 	private static final int MPPT_Y = 400;
-	private static final int MUPPET_UIN_MPPT1_ID = 3;
-	private static final int MUPPET_IIN_MPPT1_ID = 4;
-	private static final int MUPPET_UIN_MPPT2_ID = 9;
-	private static final int MUPPET_IIN_MPPT2_ID = 10;
-	private static final int MUPPET_UIN_MPPT3_ID = 15;
-	private static final int MUPPET_IIN_MPPT3_ID = 16;
+	private static final int MUPPET_UIN_MPPT1_ID = 4;
+	private static final int MUPPET_IIN_MPPT1_ID = 2;
+	private static final int MUPPET_UIN_MPPT2_ID = 10;
+	private static final int MUPPET_IIN_MPPT2_ID = 8;
+	private static final int MUPPET_UIN_MPPT3_ID = 16;
+	private static final int MUPPET_IIN_MPPT3_ID = 14;
 	
 	private Image img;
 	
@@ -531,7 +532,7 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		Info1_SpeedMPH_Value.setText(String.format("%.2f", speedMph) + " mph");
 		double setpoint = dd.getRawValue(DRIVECTRL_ID, DRIVECTRL_RPM_ID) / 11;
 		Info1_Setpoint_Value.setText(String.format("%.2f", setpoint) + " km/h");
-		double packVoltage = dd.getRawValue(BMS_ID, BMS_AVERAGE_CELL_VOLTAGE_ID)*38/1000;
+		double packVoltage = dd.getRawValue(DRIVE_ID, DRIVE_BUS_VOLTAGE_ID);
 		Info1_PackVoltage_Value.setText(String.format("%.2f", packVoltage) + " V");
 		double powerBat = dd.getRawValue(BMS_ID, BMS_PACK_CURRENT_ID) * packVoltage;
 		average_power_bat_l.add(powerBat);
@@ -573,11 +574,22 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		Info1_AveragePowerPan_Value.setText(String.format("%.2f", average_power_pan) + " W");
 		Info1_AveragePowerPan_Value.setForeground(Color.black);
 		
-		double powerMotor = powerBat - powerPan;		
+		double powerMotor = dd.getRawValue(DRIVE_ID, DRIVE_BUS_CURRENT_ID) * dd.getRawValue(DRIVE_ID, DRIVE_BUS_VOLTAGE_ID);		
 		Info1_PowerMotorValue.setText(String.format("%.2f", powerMotor) + " W");
 		Info1_PowerMotorValue.setForeground(Color.black);
 		
-		double AveragepowerMotor = average_power_bat - average_power_pan;		
+		average_power_mot_l.add(powerMotor);
+		if (average_power_mot_l.size() > 500){
+			average_power_mot_l.remove(0);
+		}
+		
+		sum = 0;
+		double AveragepowerMotor = 0;
+		for(double AveragepowerMo : average_power_mot_l){
+			sum += AveragepowerMo;
+		}
+		AveragepowerMotor = sum/average_power_mot_l.size();
+		
 		Info1_AveragePowerMotor_Value.setText(String.format("%.2f", AveragepowerMotor) + " W");
 		Info1_AveragePowerMotor.setForeground(Color.black);
 		
