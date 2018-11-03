@@ -677,7 +677,7 @@
 			<deviceitem id="1" name="S_TELEMETRIE_MODEM_ON">
 				<unit>N/A</unit>
 				<bitsize>8</bitsize>
-				<minvalue>-10</minvalue>
+				<minvalue>0</minvalue>
 				<maxvalue>10</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
@@ -962,7 +962,7 @@
 			<deviceitem id="3" name="S_MUPPET_IOUT_MPPT1">
 				<unit>A</unit>
 				<bitsize>32</bitsize>
-				<minvalue>0</minvalue>
+				<minvalue>-5</minvalue>
 				<maxvalue>6</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
@@ -975,7 +975,7 @@
 			<deviceitem id="4" name="S_MUPPET_UIN_MPPT1">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
-				<minvalue>60</minvalue>
+				<minvalue>30</minvalue>
 				<maxvalue>90</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
@@ -1047,7 +1047,7 @@
 			<deviceitem id="10" name="S_MUPPET_UIN_MPPT2">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
-				<minvalue>60</minvalue>
+				<minvalue>30</minvalue>
 				<maxvalue>90</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
@@ -1119,7 +1119,7 @@
 			<deviceitem id="16" name="S_MUPPET_UIN_MPPT3">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
-				<minvalue>60</minvalue>
+				<minvalue>30</minvalue>
 				<maxvalue>90</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
@@ -1179,7 +1179,7 @@
 				<unit>A</unit>
 				<bitsize>32</bitsize>
 				<minvalue>0</minvalue>
-				<maxvalue>6</maxvalue>
+				<maxvalue>10</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>
 				<offset>0</offset>
@@ -1191,7 +1191,7 @@
 			<deviceitem id="22" name="S_MUPPET_UIN_MPPT4">
 				<unit>V</unit>
 				<bitsize>32</bitsize>
-				<minvalue>60</minvalue>
+				<minvalue>0</minvalue>
 				<maxvalue>90</maxvalue>
 				<resolution>1</resolution>
 				<factor>1</factor>

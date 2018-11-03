@@ -125,6 +125,16 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 	private static final int MUPPET_IIN_MPPT2_ID = 8;
 	private static final int MUPPET_UIN_MPPT3_ID = 16;
 	private static final int MUPPET_IIN_MPPT3_ID = 14;
+	private static final int MUPPET_UIN_MPPT4_ID = 22;
+	private static final int MUPPET_IIN_MPPT4_ID = 20;
+	private static final int MUPPET_UOUT_MPPT1_ID = 5;
+	private static final int MUPPET_IOUT_MPPT1_ID = 3;
+	private static final int MUPPET_UOUT_MPPT2_ID = 11;
+	private static final int MUPPET_IOUT_MPPT2_ID = 9;
+	private static final int MUPPET_UOUT_MPPT3_ID = 17;
+	private static final int MUPPET_IOUT_MPPT3_ID = 15;
+	private static final int MUPPET_UOUT_MPPT4_ID = 23;
+	private static final int MUPPET_IOUT_MPPT4_ID = 21;
 	
 	private Image img;
 	
@@ -553,8 +563,9 @@ public class Tabchar extends JPanel implements TabPane, MouseListener
 		double powerPan = 0;
 
 		powerPan = dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT1_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT1_ID) +
-				   dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT2_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT2_ID) +
-				   dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT3_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT3_ID);
+                           dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT2_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT2_ID) +
+                           dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT3_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT3_ID) +
+		           dd.getRawValue(MUPPET_ID, MUPPET_UIN_MPPT4_ID) * dd.getRawValue(MUPPET_ID, MUPPET_IIN_MPPT4_ID);
 
 		
 		Info1_PowerPan_Value.setText(String.format("%.2f", powerPan) + " W");
